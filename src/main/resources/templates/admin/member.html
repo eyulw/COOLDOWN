@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div id="main">
+        <div class="mt-5">
+            <i> 회원관리</i>
+            <hr>
+        </div>
+
+        <div class="row">
+            <div class="offset-1 col-10">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th style="width:15%">이름</th>
+                            <th style="width:15%">아이디</th>
+                            <th style="width:10%">닉네임</th>
+                            <th>이메일</th>
+                            <th style="width:20%">가입일자</th>
+                            <th style="width:10%">ROLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>이름</td>
+                            <td>아이디</td>
+                            <td >닉네임</td>
+                            <td>이메일</td>
+                            <td>가입일자</td>
+                            <td>ROLE</td>
+                        </tr>
+<!--                    <tr th:each="bd:${bds}">-->
+<!--                        <td th:text="${bd.bno}"></td>-->
+<!--                        <td><a th:href="|/board/view/${bd.bno}|" th:text="${bd.title}"></a></td>-->
+<!--                        <td th:text="${bd.userid}"></td>-->
+<!--                        <td th:text="${#strings.substring(bd.regdate,0,10)}"></td>-->
+<!--                        <td th:text="${bd.thumbs}"></td>-->
+<!--                        <td th:text="${bd.views}"></td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div><!--게시판 리스트-->
+
+    </div>
+</th:block>
+</html>
