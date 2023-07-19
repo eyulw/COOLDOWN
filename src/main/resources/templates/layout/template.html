@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/bs5/bootstrap.min.css">
+    <!-- css는 여기에 넣어주세요 -->
+    <link rel="stylesheet" href="/assets/css/layout.css">
+</head>
+<body>
+<div class="container">
+    <th:block th:replace="layout/header :: header"></th:block>
+
+    <th:block layout:fragment="content"></th:block>
+
+    <th:block th:replace="layout/footer :: footer"></th:block>
+</div>
+
+<script src="/assets/js/bs5/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a84a2e3f31.js" crossorigin="anonymous"></script>
+</body>
+</html>
