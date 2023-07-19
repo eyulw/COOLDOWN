@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="header">
+    <header class="row">
+        <div class="col">
+            <h1 id="logo"><img src="/assets/img/logo.png" class="l_logosize"/></h1>
+            <nav class="navbar navbar-expand">
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item"><a href="/">HOME</a></li>
+                    <li class="nav-item"><a href="/contents">CONTENTS</a></li>
+                    <li class="nav-item"><a href="/board">NOTE</a></li>
+                    <li class="nav-item"><a href="/shop">SHOP</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col text-end">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+<!--            <button type="button" class="btn btn-dark mt-2" id="lgoutbtn">로그아웃</button>-->
+<!--            <button type="button" class="btn btn-success mt-2">회원정보</button>-->
+        </div>
+    </header>
+</th:block>
+</html>
