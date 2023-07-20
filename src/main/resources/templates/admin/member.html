@@ -11,38 +11,34 @@
 
         <div class="row">
             <div class="offset-1 col-10">
-                <table class="table table-striped text-center">
+                <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th style="width:5%">NO</th>
                             <th style="width:15%">이름</th>
                             <th style="width:15%">아이디</th>
-                            <th style="width:10%">닉네임</th>
-                            <th>이메일</th>
+                            <th style="width:15%">닉네임</th>
+                            <th style="width:15%">이메일</th>
                             <th style="width:20%">가입일자</th>
                             <th style="width:10%">ROLE</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>이름</td>
-                            <td>아이디</td>
-                            <td >닉네임</td>
-                            <td>이메일</td>
-                            <td>가입일자</td>
-                            <td>ROLE</td>
+                        <tr th:each="member:${members}">
+                            <td th:text="${member.getU_id()}"></td>
+                            <td th:text="${member.getUsername()}">이름</td>
+                            <td th:text="${member.getUserid()}">아이디</td>
+                            <td th:text="${member.getNickname()}">닉네임</td>
+                            <td th:text="${member.getEmail()}">이메일</td>
+                            <td th:text="${member.getRegdate()}">가입일자</td>
+                            <td th:text="${member.getRole()}">ROLE</td>
+                            <th><button type="button" class="btn">상세보기</button></th>
                         </tr>
-<!--                    <tr th:each="bd:${bds}">-->
-<!--                        <td th:text="${bd.bno}"></td>-->
-<!--                        <td><a th:href="|/board/view/${bd.bno}|" th:text="${bd.title}"></a></td>-->
-<!--                        <td th:text="${bd.userid}"></td>-->
-<!--                        <td th:text="${#strings.substring(bd.regdate,0,10)}"></td>-->
-<!--                        <td th:text="${bd.thumbs}"></td>-->
-<!--                        <td th:text="${bd.views}"></td>-->
-<!--                    </tr>-->
                     </tbody>
                 </table>
             </div>
-        </div><!--게시판 리스트-->
+        </div>
 
     </div>
 </th:block>
