@@ -12,7 +12,6 @@ public class Item {
     private String category;
     private String itemname;
     private String price;
-    private String img;
     private String likes;
     private String info;
     private String stock;
