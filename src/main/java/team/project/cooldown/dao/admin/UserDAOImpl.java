@@ -3,6 +3,7 @@ package team.project.cooldown.dao.admin;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import team.project.cooldown.model.User;
+import team.project.cooldown.mybatis.UserMapper;
 
 import java.util.List;
 
@@ -10,8 +11,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserDAOImpl implements UserDAO {
 
+    final UserMapper userMapper;
+
     @Override
     public List<User> selectUser() {
-        return null;
+        return userMapper.selectUser();
     }
 }
