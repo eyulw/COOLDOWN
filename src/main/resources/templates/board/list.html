@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div id="main">
+        <div class="mt-5">
+            <h2 class="">자유게시판</h2>
+            <br>
+            <P class="">디기들의 아무말 대잔치</P>
+        </div><!--게시판 헤더-->
+
+        <div id="categoryType2" class="row col-12">
+            <div class="row col-1">
+                <a href="" id="cAll2" class="" onclick="">
+                    <span class="">전체</span>
+                </a>
+            </div>
+            <div class="row col-1">
+                <a href="" id="cBoard" class="" onclick="">
+                    <span class="">자유글</span>
+                </a>
+            </div>
+            <div class="row col-1">
+                <a href="" id="cCamping" class="" onclick="">
+                    <span class="">동행구하기</span>
+                </a>
+            </div>
+            <div class="row col-1">
+                <a href="" id="cIntro" class="" onclick="">
+                    <span class="">자기소개</span>
+                </a>
+            </div>
+            <div class="row col-1">
+                <a href="" id="cAsking" class="" onclick="">
+                    <span class="">Q&A</span>
+                </a>
+            </div>
+        </div> <!--카테고리명-->
+        <div class="row justify-content-center mt-3 mb-1">
+            <div class="col-10 card" style="width: max-content">
+                <a href="#"><img src="/assets/img/logo.png" class="card-img"></a>
+                <div class="card-body">
+                    <div>자유글</div><h6>2023 디그디그 폰 배경화면</h6>
+                    <div>조초록</div><div>2023-06-29</div><div>조회수</div><div>76</div><i class="fa-regular fa-eye"></i>2
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="">
+                <table class="">
+                    <thead class="">
+                    <tr>
+                        <th>썸네일</th>
+                        <th>카테고리</th>
+                        <th>제목</th>
+                        <th>닉네임</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                        <th>찜하기</th>
+                        <th>댓글수</th>
+                    </tr>
+                    </thead>
+                    <hr>
+                    <tbody>
+                    <tr>
+                        <td><a href=""></a>썸네일</td>
+                        <td><a href=""></a>카테고리</td>
+                        <td><a href=""></a>제목</td>
+                        <td><a href=""></a>닉네임</td>
+                        <td><a href=""></a>작성일</td>
+                        <td><a href=""></a>조회수</td>
+                        <td><a href=""></a>찜하기</td>
+                        <td><a href=""></a>댓글수</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- 게시판 리스트 -->
+
+        <div class="row offset-1 col-7">
+            <div class="col-4">
+                <input type="text" class="form-control col-2" id="findkey">
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-light" id="findbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i> 검색하기
+                </button>
+            </div>
+        </div>
+        <div class="col-3 text-end">
+            <button type="button" class="btn btn-light" id="newgalbtn">
+                <i class="fa fa-plus-circle"></i> 글쓰기
+            </button>
+        </div><!-- 검색 및 글쓰기-->
+
+        <div class="row mb-5 mt-3">
+            <div class="offset-1 col-10">
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <th:block th:if="${cpg gt 1}"><!-- 현재 페이지가 1보다 크면 '처음' 버튼 링크 표시 -->
+                            <li class="page-item"><a th:href="|${pglink}1|" class="page-link">처음</a></li>
+                        </th:block>
+                        <li th:class="${(cpg - 1 gt 0) ? 'page-item' : 'page-item disabled'}"><!-- '현재 페이지-1'이 0보다 크면 '이전' 버튼 링크 활성 -->
+                            <a th:href="|${pglink}${cpg - 1}|" class="page-link">이전</a>
+                        </li>
+                        <th:block th:each="i:${#numbers.sequence(stpg, stpg + 9)}">
+                            <th:block th:if="${i le cntpg}"><!-- 출력 페이지(i)가 총 페이지 수(cntpg) 보다 작거나 같으면 버튼링크 활성-->
+                                <li th:class="${(i ne cpg) ? 'page-item' : 'page-item active'}">
+                                    <a th:href="|${pglink}${i}|" class="page-link"
+                                       th:text="${i}">1</a>
+                                </li>
+                            </th:block>
+                        </th:block>
+                        <li th:class="${(cpg + 1 le cntpg) ? 'page-item' : 'page-item disabled'}"><!-- '현재 페이지+1'이 총페이지 수보다 작거나 같으면 '다음' 버튼 링크 활성 -->
+                            <a th:href="|${pglink}${cpg + 1}|" class="page-link">다음</a>
+                        </li>
+                        <th:block th:if="${cpg lt cntpg}"><!-- 현재 페이지가 총페이지 수보다 작으면 '끝' 버튼 링크 표시 -->
+                            <li class="page-item"><a th:href="|${pglink}${cntpg}|" class="page-link">끝</a></li>
+                        </th:block>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- 게시판 페이지네이션 -->
+    </div>
+    <script src="/assets/js/board.js" charset="utf-8"></script>
+</th:block>
+</html>
