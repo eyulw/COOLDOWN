@@ -4,22 +4,27 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import team.project.cooldown.service.admin.UserService;
 
 @Controller
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
     Logger logger = LogManager.getLogger(AdminController.class);
+    final UserService a_usrv;
+
     @GetMapping("/")
     public String index(){
-        logger.info("admin/member 호출");
+        logger.info("admin/ 호출");
         return "admin/index";
     }
     @GetMapping("/member")
-    public String member(){
+    public String member(Model m){
         logger.info("admin/member 호출");
+        m.addAttribute("members",a_usrv.readUser());
         return "admin/member";
     }
 

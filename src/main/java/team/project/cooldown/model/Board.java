@@ -14,8 +14,6 @@ public class Board {
     private String u_id;
     private String views;
     private String contents;
-    private String img;
     private String likes;
-    private String comment_count;
     private String regdate;
 }
