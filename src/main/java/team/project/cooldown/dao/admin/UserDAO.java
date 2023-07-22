@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserDAO {
     List<User> selectUser();
+    User selectOneUser(String u_id);
 }

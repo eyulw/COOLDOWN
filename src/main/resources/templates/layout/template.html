@@ -1,92 +1,922 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+<html lang="ko" class=" js cssanimations" xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout">
+
+
 <head>
+ <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+ <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/30857836/www-widgetapi.vflset/www-widgetapi.js" async=""></script>
+ <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-198842229-1&amp;l=dataLayer&amp;cx=c"></script>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#0e3775"/>
-    <meta name="msapplication-navbutton-color" content="#0e3775">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="theme-color" content="#0e3775">
+ <meta name="msapplication-navbutton-color" content="#0e3775">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <meta property="og:url" content="https://www.digdigactivity.com/main"/>
-    <title>집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티</title>
-    <meta name='application-name' content='집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티'/>
-    <meta name='msapplication-tooltip' content='집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티' />
-    <meta id='meta_og_title' property='og:title' content='집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티' />
-    <meta name='description' content='등산, 헬스, 자전거, 캠핑, 러닝 등 집 밖의 즐거움을 공유하는 커뮤니티 기반의 아웃도어 스포츠 애슬레져 관련 액티비티 콘텐츠 커머스 플랫폼' />
-    <meta property='og:description' content='등산, 헬스, 자전거, 캠핑, 러닝 등 집 밖의 즐거움을 공유하는 커뮤니티 기반의 아웃도어 스포츠 애슬레져 관련 액티비티 콘텐츠 커머스 플랫폼' />
-    <meta id='meta_og_image' property="og:image" content="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/d3d3a6a8f9e81.png" />
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="627"/>
-    <meta name='keywords' content='등산,캠핑,자전거,러닝,북한산,동호회,직장인취미,액티비티,outdoor' />
-    <link rel="canonical" href="https://www.digdigactivity.com/main" />
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://cdn.imweb.me/thumbnail/20210510/2e0acefde0183.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cdn.imweb.me/thumbnail/20210510/af611693ca5d7.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://cdn.imweb.me/thumbnail/20210510/e0309fd143d6f.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn.imweb.me/thumbnail/20210510/c22801a765aa1.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.imweb.me/thumbnail/20210510/7a72509805607.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.imweb.me/thumbnail/20210510/363bc01a0b522.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.imweb.me/thumbnail/20210510/9122bb2093d22.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.imweb.me/thumbnail/20210510/3573317a48e3f.png" />
-    <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/0f021504ae39f.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/7dba4e7d75026.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/978b8aecea092.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/548e01c3fff79.png" sizes="128x128" />
-    <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/63f3fe42c7fae.png" sizes="196x196" />
-    <meta name="msapplication-TileImage" content="https://cdn.imweb.me/thumbnail/20210510/9122bb2093d22.png" />
-    <meta name="msapplication-square70x70logo" content="https://cdn.imweb.me/thumbnail/20210510/dd85a2a5a378d.png" />
-    <meta name="msapplication-square150x150logo" content="https://cdn.imweb.me/thumbnail/20210510/b078609ee221a.png" />
-    <meta name="msapplication-square310x150logo" content="https://cdn.imweb.me/thumbnail/20210510/da9bd820eb135.png" />
-    <meta name="msapplication-square310x310logo" content="https://cdn.imweb.me/thumbnail/20210510/5b8ae39b3560a.png" />
-    <meta property="og:type" content="website"/>
-    <meta name="viewport" content="width=device-width,viewport-fit=cover,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"><meta name="naver-site-verification" content="59cfe5004ce6d89f3f4d2341ad308890e04130da" />
-    <meta name="google-site-verification" content="OJISU2as7Jp1qkbiNgB2yZlxn1FvnuA2pgfWrCujJFQ" />
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/minify_css/vendor_blue_10.css?1653367465'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/minify_css/vendor_red_10.css?1653367465'/>
-    <!--[if lte IE 9]>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/bootstrap.css?1590627710'/>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/owl.carousel1.css?1577682282'/>
-    <![endif]-->
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/im_component.css?1636689958'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/alarm_menu.css?1678083003'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/function.css?1666824024'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/site.css?1685942511'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/site2.css?1688942803'/>
-    <!--[if lte IE 9]>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/iefix.css?1590627710'/>
-    <![endif]-->
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/site/iefix2.css?1590627710'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/animate.css?1577682282'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/chosen.css?1617331870'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/chosenImage.css?1617331762'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/fonts/im-icon/style.css?1671430692'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/fonts/pretendard/web/variable/pretendardvariable.css?1669875619'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/fonts/pretendard/web/static/pretendard.css?1669875619'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/fonts/froala-emoji-tap/style.css?1669163161'/>
-    <link rel='stylesheet' type='text/css' href='/css/custom.cm?1688939906'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/tailwind.css?1689126958'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/emoji.css?1669163161'/>
-    <link rel='stylesheet' type='text/css' href='https://vendor-cdn.imweb.me/css/font-awesome5.min.css?1669163183'/>
-<link rel="stylesheet" href="/assets/css/project.css">
-<script src='https://vendor-cdn.imweb.me/js/jquery.js?1627517460'></script>
-<script src='https://vendor-cdn.imweb.me/js/jquery-ui.design.js?1627517437'></script>
-<script src='https://vendor-cdn.imweb.me/js/lodash.min.js?1656295899'></script>
-<script src='//unpkg.com/vue@3/dist/vue.global.prod.js'></script>
-<script src='https://vendor-cdn.imweb.me/js/axios.min.js?1689048978'></script>
+ <meta property="og:url" content="https://www.digdigactivity.com/">
+ <title>집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티</title>
+ <meta name="application-name" content="집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티">
+ <meta name="msapplication-tooltip" content="집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티">
+ <meta id="meta_og_title" property="og:title" content="집 밖의 즐거움을 공유하는 액티비티 커뮤니티 커머스 | 디그디그 액티비티">
+ <meta name="description" content="등산, 헬스, 자전거, 캠핑, 러닝 등 집 밖의 즐거움을 공유하는 커뮤니티 기반의 아웃도어 스포츠 애슬레져 관련 액티비티 콘텐츠 커머스 플랫폼">
+ <meta property="og:description" content="등산, 헬스, 자전거, 캠핑, 러닝 등 집 밖의 즐거움을 공유하는 커뮤니티 기반의 아웃도어 스포츠 애슬레져 관련 액티비티 콘텐츠 커머스 플랫폼">
+ <meta id="meta_og_image" property="og:image" content="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/d3d3a6a8f9e81.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="627">
+ <link rel="canonical" href="https://www.digdigactivity.com/">
+ <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://cdn.imweb.me/thumbnail/20210510/2e0acefde0183.png">
+ <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://cdn.imweb.me/thumbnail/20210510/af611693ca5d7.png">
+ <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://cdn.imweb.me/thumbnail/20210510/e0309fd143d6f.png">
+ <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://cdn.imweb.me/thumbnail/20210510/c22801a765aa1.png">
+ <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://cdn.imweb.me/thumbnail/20210510/7a72509805607.png">
+ <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://cdn.imweb.me/thumbnail/20210510/363bc01a0b522.png">
+ <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cdn.imweb.me/thumbnail/20210510/9122bb2093d22.png">
+ <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://cdn.imweb.me/thumbnail/20210510/3573317a48e3f.png">
+ <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/0f021504ae39f.png" sizes="16x16">
+ <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/7dba4e7d75026.png" sizes="32x32">
+ <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/978b8aecea092.png" sizes="96x96">
+ <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/548e01c3fff79.png" sizes="128x128">
+ <link rel="icon" type="image/png" href="https://cdn.imweb.me/thumbnail/20210510/63f3fe42c7fae.png" sizes="196x196">
+ <meta name="msapplication-TileImage" content="https://cdn.imweb.me/thumbnail/20210510/9122bb2093d22.png">
+ <meta name="msapplication-square70x70logo" content="https://cdn.imweb.me/thumbnail/20210510/dd85a2a5a378d.png">
+ <meta name="msapplication-square150x150logo" content="https://cdn.imweb.me/thumbnail/20210510/b078609ee221a.png">
+ <meta name="msapplication-square310x150logo" content="https://cdn.imweb.me/thumbnail/20210510/da9bd820eb135.png">
+ <meta name="msapplication-square310x310logo" content="https://cdn.imweb.me/thumbnail/20210510/5b8ae39b3560a.png">
+ <meta property="og:type" content="website">
+ <meta name="viewport" content="width=device-width,viewport-fit=cover,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes"><meta name="naver-site-verification" content="59cfe5004ce6d89f3f4d2341ad308890e04130da">
+ <meta name="google-site-verification" content="OJISU2as7Jp1qkbiNgB2yZlxn1FvnuA2pgfWrCujJFQ">
+<!--부트스트랩 추가-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
 
-<body>
-<div class="container">
-    <th:block th:replace="layout/header :: header"></th:block>
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/minify_css/vendor_blue_10.css?1653367465">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/minify_css/vendor_red_10.css?1653367465">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/im_component.css?1636689958">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/site/alarm_menu.css?1678083003">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/function.css?1666824024">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/site/site.css?1685942511">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/site/site2.css?1688942803">
 
-    <th:block layout:fragment="content"></th:block>
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/site/iefix2.css?1590627710">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/animate.css?1577682282">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/chosen.css?1617331870">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/chosenImage.css?1617331762">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/fonts/im-icon/style.css?1671430692">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/fonts/pretendard/web/variable/pretendardvariable.css?1669875619">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/fonts/pretendard/web/static/pretendard.css?1669875619">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/fonts/froala-emoji-tap/style.css?1669163161">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/fonts/froala-emoji-tap/style.css?1669163161">
 
-    <th:block th:replace="layout/footer :: footer"></th:block>
-</div>
 
-<script src="/assets/js/bs5/bootstrap.bundle.min.js"></script>
-<script src="https://kit.fontawesome.com/a84a2e3f31.js" crossorigin="anonymous"></script>
+
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/tailwind.css?1689126958">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/emoji.css?1669163161">
+ <link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/font-awesome5.min.css?1669163183">
+
+<!--사이트 css-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/dig_index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/dig_contents.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/dig_community.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/dig_digshop.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/dig_custom.css">
+<!--    <link rel="stylesheet" type="text/css" href="/assets/css/dig_mypage.css">-->
+<!---->
+
+<script src="https://www.youtube.com/iframe_api" id="youtube_player_api"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.js?1627517460"></script>
+ <script src="https://vendor-cdn.imweb.me/js/jquery-ui.design.js?1627517437"></script>
+ <script src="https://vendor-cdn.imweb.me/js/lodash.min.js?1656295899"></script>
+ <script src="//unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+ <script src="https://vendor-cdn.imweb.me/js/axios.min.js?1689048978"></script>
+
+ <script>
+  var IS_IADMIN = false;
+  var CUSTOM_IMAGE_WIDTH = 1600;
+  var IS_MOBILE = false;
+  var IS_IE = false;
+  var IS_SUPPORT_CSS3 = true;
+  var UPLOAD_URL = '/upload/';
+  var CDN_UPLOAD_URL = 'https://cdn.imweb.me/upload/';
+  var IS_MAIN = false;
+  var CURRENT_URL = 'Lw%3D%3D';
+  var CURRENT_DOMAIN = 'digdigactivity.com';
+  var THUMBNAIL_URL= '/thumbnail/';
+  var CDN_THUMBNAIL_URL= 'https://cdn.imweb.me/thumbnail/';
+  var SITE_CODE = 'S2021011502a2f4eeeb339';
+  var UNIT_CODE = 'u202101156000ec2044a97';
+  var MAIN_DOMAIN = 'digdigactivity.com';
+  var VENDOR_DOMAIN = 'https://vendor-cdn.imweb.me';
+  var GOOGLE_API_KEY = 'AIzaSyA8CCexf9XTJcH09mStr-HRW4nin4k8J7w';
+  var FROALA_VERSION = 311;
+  var FROALA_KEY = '6LF5g1B3D3F3C6C3E2F-11SLJCKHXOSLMc1YGSGb1ZXHSe1CgB5A4D4C3E3C2A13A19B7B2==';
+  var IS_ANDROID_APP = 'N';
+  var IS_IOS_APP = 'N';
+  var APP_VERSION = '0';
+  var IS_APP = IS_ANDROID_APP == "Y" || IS_IOS_APP == "Y";
+  var IE_VERSION = '11';
+  var TEST_SERVER = false;
+  var MENU_SNS_INIT_DATA = {"_main_url":"https:\/\/digdigactivity.com","_site_name":"\uc9d1 \ubc16\uc758 \uc990\uac70\uc6c0\uc744 \uacf5\uc720\ud558\ub294 \uc561\ud2f0\ube44\ud2f0 \ucee4\ubba4\ub2c8\ud2f0 \ucee4\uba38\uc2a4 | \ub514\uadf8\ub514\uadf8 \uc561\ud2f0\ube44\ud2f0","_subject":"\uc9d1 \ubc16\uc758 \uc990\uac70\uc6c0\uc744 \uacf5\uc720\ud558\ub294 \uc561\ud2f0\ube44\ud2f0 \ucee4\ubba4\ub2c8\ud2f0 \ucee4\uba38\uc2a4 | \ub514\uadf8\ub514\uadf8 \uc561\ud2f0\ube44\ud2f0","_body":"\ub4f1\uc0b0, \ud5ec\uc2a4, \uc790\uc804\uac70, \ucea0\ud551, \ub7ec\ub2dd \ub4f1 \uc9d1 \ubc16\uc758 \uc990\uac70\uc6c0\uc744 \uacf5\uc720\ud558\ub294 \ucee4\ubba4\ub2c8\ud2f0 \uae30\ubc18\uc758 \uc544\uc6c3\ub3c4\uc5b4 \uc2a4\ud3ec\uce20 \uc560\uc2ac\ub808\uc838 \uad00\ub828 \uc561\ud2f0\ube44\ud2f0 \ucf58\ud150\uce20 \ucee4\uba38\uc2a4 \ud50c\ub7ab\ud3fc","_post_url":"https:\/\/www.digdigactivity.com\/","_img":"https:\/\/cdn.imweb.me\/upload\/S2021011502a2f4eeeb339\/d3d3a6a8f9e81.png","_security_post_url":"aHR0cHM6Ly93d3cuZGlnZGlnYWN0aXZpdHkuY29tLw=="};
+  var LIMIT_API_LIST = ["kakao_link","kakaostory_link"];
+  var NO_IMAGE_URL = '/img/transparency.png';
+  var SITE_COUNTRY_CODE = 'kr';
+  var KOREA_COUNTRY_CODE = 'kr';
+  var TAIWAN_COUNTRY_CODE = 'tw';
+  var LANG_CODE = 'KR';
+  var IS_GUEST = false;
+  var MEMBER_HASH = '4e122b9781be67df12a882f02c1be36b4272f958';
+
+  //var LOGIN_MEMBER_DATA = {"name": "", "point": ""};
+ </script>
+ <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T3HYD9HMV5"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T3HYD9HMV5');
+  gtag('config', 'G-MHDDCMH2DP');
+ </script>
+
+ <style>
+  .board-head .btn-write {
+   display: none;
+  }
+ </style>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+ <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&amp;display=swap" rel="stylesheet"><script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script><script src="https://player.vimeo.com/api/player.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-MHDDCMH2DP"></script>
+ <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());gtag('config', 'G-MHDDCMH2DP');</script>
+ <meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <!--cooldown 자체 css-->
+    <link rel="stylesheet" href="/assets/css/admin.css">
+
+</head>
+
+<!--body 시작-->
+<body id="doz_body">
+
+        <th:block th:replace="layout/header :: header"></th:block>
+
+        <th:block layout:fragment="content"></th:block>
+
+        <th:block th:replace="layout/footer :: footer"></th:block>
+
+<!--스크립트-->
+<iframe name="hidden_frame" id="hidden_frame" title="hidden frame" src="about:blank"
+            style="position: absolute; left: -9999px; width: 1px; height: 1px; top:-9999px;"></iframe>
+    <div class="modal" id="cocoaModal" role="dialog" aria-hidden="false">
+     <div class="modal-dialog">
+      <div class="modal-content"></div>
+     </div>
+    </div>
+    <div class="modal submodal" role="dialog" id="cocoaSubModal" aria-hidden="false" style="z-index: 17001">
+     <div class="modal-dialog">
+      <div class="modal-content"></div>
+     </div>
+    </div>
+    <script src="https://vendor-cdn.imweb.me/js/bootstrap.min.js?1630317768"></script>
+
+    <script src="https://vendor-cdn.imweb.me/js/jquery.fileupload.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.lazyload.min.js?1577682292"></script>
+    <script src="https://www.digdigactivity.com/js/localize/KR_KRW_currency.js?1687935649"></script>
+    <script>
+     LOCALIZE.설명_다음예상결제일과에서확인가능 = function () { return LOCALIZE.convArguments("* 다음 예상 결제일은 %1입니다.<br>* 구독 일정은 마이페이지 > 정기구독 관리에서 확인 가능합니다.", arguments); };
+     LOCALIZE.설명_진행중인정기구독주문이있어카드삭제불가 = function () { return LOCALIZE.convArguments("현재 진행 중인 정기구독 주문이 있어 카드를 삭제할 수 없습니다.<br/>카드 변경 혹은 정기구독 해지 후 카드를 삭제해 주세요.", arguments); };
+     LOCALIZE.설명_등록된자동결제카드를삭제하시겠습니까 = function () { return LOCALIZE.convArguments("등록된 자동결제 카드를 <br class=\'hidden-lg hidden-md hidden-sm\'/>삭제하시겠습니까?", arguments); };
+     LOCALIZE.설명_이번배송을건너뛰겠습니까다음구독일은n입니다 = function () { return LOCALIZE.convArguments("이번 배송을 건너뛰겠습니까?<br/>해당 상품의 다음 구독일은<br class=\'hidden-lg hidden-md\'/> <strong>%1</strong> 입니다.", arguments); };
+     LOCALIZE.설명_이번배송을건너뛰겠습니까다음구독일은n입니다선택옵션도함께 = function () { return LOCALIZE.convArguments("이번 배송을 건너뛰겠습니까?<br/>해당 상품의 다음 구독일은<br class=\'hidden-lg hidden-md\'/> <strong>%1</strong> 입니다.<br>선택옵션도 함께 적용됩니다.", arguments); };
+     LOCALIZE.설명_전체상품의정기구독을해지하시겠습니까 = function () { return LOCALIZE.convArguments("전체 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?", arguments); };
+     LOCALIZE.설명_해당상품의정기구독을해지하시겠습니까 = function () { return LOCALIZE.convArguments("해당 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?", arguments); };
+     LOCALIZE.설명_해당상품의정기구독을해지하시겠습니까선택옵션도함께 = function () { return LOCALIZE.convArguments("해당 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?<br>선택옵션도 함께 해지됩니다.", arguments); };
+     LOCALIZE.설명_타임세일종료까지n일 = function () { return LOCALIZE.convArguments("타임세일 종료까지 %1일", arguments); };
+     LOCALIZE.설명_상세페이지타임세일종료까지n일 = function () { return LOCALIZE.convArguments("<label class=\'text-bold text-brand\'>타임세일</label> 종료까지 <strong>%1일</strong>", arguments); };
+     LOCALIZE.설명_상세페이지타임세일종료까지n1시n2분n3초남음 = function () { return LOCALIZE.convArguments("<label class=\'text-bold text-brand\'>타임세일</label> 종료까지 <strong>%1:%2:%3</strong> 남음", arguments); };
+     LOCALIZE.설명_결제예상금액임시 = function () { return LOCALIZE.convArguments("총 상품금액(%1개)", arguments); };
+     LOCALIZE.설명_추천인코드가복사되었습니다 = function () { return LOCALIZE.convArguments("추천인 코드가 복사되었습니다!", arguments); };
+     LOCALIZE.설명_군 = function () { return LOCALIZE.convArguments("군", arguments); };
+     LOCALIZE.설명_성 = function () { return LOCALIZE.convArguments("성", arguments); };
+     LOCALIZE.타이틀_PC모드로보기 = function () { return LOCALIZE.convArguments("PC 모드로 보기", arguments); };
+     LOCALIZE.설명_가입승인되지않은아이디입니다 = function () { return LOCALIZE.convArguments("가입승인 대기 중입니다. 운영자의 승인 후 이용하실 수 있습니다.", arguments); };
+     LOCALIZE.설명_회원등급할인 = function () { return LOCALIZE.convArguments("회원등급 할인", arguments); };
+     LOCALIZE.설명_결제예상금액 = function () { return LOCALIZE.convArguments("총 상품금액(%1개)", arguments); };
+     LOCALIZE.타이틀_s회원가 = function () { return LOCALIZE.convArguments("%1 회원가", arguments); };
+     LOCALIZE.설명_현재재고부족으로N개이상구매할수없습니다 = function () { return LOCALIZE.convArguments("현재 재고 부족으로 %1개 이상 구매할 수 없습니다.", arguments); };
+     LOCALIZE.설명_개인정보제3자제공에동의하여주시기바랍니다 = function () { return LOCALIZE.convArguments("개인정보 제 3자 제공에 동의하여 주시기 바랍니다.", arguments); };
+     LOCALIZE.타이틀_글쓰기카테고리선택 = function () { return LOCALIZE.convArguments("카테고리", arguments); };
+     LOCALIZE.설명_거리주소 = function () { return LOCALIZE.convArguments("거리주소 (Street address, P.O box, company name, c/o)", arguments); };
+     LOCALIZE.설명_건물명 = function () { return LOCALIZE.convArguments("건물명 (Apartment, suite, unit, building, floor, etc.)", arguments); };
+     LOCALIZE.설명_도시명 = function () { return LOCALIZE.convArguments("도시명 (City)", arguments); };
+     LOCALIZE.설명_도시군 = function () { return LOCALIZE.convArguments("도시군 (State/Province/Region)", arguments); };
+     LOCALIZE.설명_우편번호 = function () { return LOCALIZE.convArguments("우편번호", arguments); };
+     LOCALIZE.타이틀_대표이미지설정 = function () { return LOCALIZE.convArguments("대표 이미지 설정", arguments); };
+     LOCALIZE.타이틀_월 = function () { return LOCALIZE.convArguments("월", arguments); };
+     LOCALIZE.타이틀_일 = function () { return LOCALIZE.convArguments("일", arguments); };
+     LOCALIZE.설명_비밀글입니다 = function () { return LOCALIZE.convArguments("비밀글입니다.", arguments); };
+     LOCALIZE.설명_작성시등록하신비밀번호를입력해주세요 = function () { return LOCALIZE.convArguments("작성시 등록하신 비밀번호를 입력해주세요.", arguments); };
+     LOCALIZE.설명_비밀번호를입력하세요 = function () { return LOCALIZE.convArguments("비밀번호를 입력 하세요.", arguments); };
+     LOCALIZE.설명_동의해주세요 = function () { return LOCALIZE.convArguments("이용약관 및 개인정보 처리방침에 동의하셔야 가입이 가능합니다.", arguments); };
+     LOCALIZE.설명_주문자연락처를입력해주세요 = function () { return LOCALIZE.convArguments("주문자 연락처를 입력해주세요", arguments); };
+     LOCALIZE.설명_수량 = function () { return LOCALIZE.convArguments("수량", arguments); };
+     LOCALIZE.버튼_확인 = function () { return LOCALIZE.convArguments("확인", arguments); };
+     LOCALIZE.버튼_닫기 = function () { return LOCALIZE.convArguments("닫기", arguments); };
+     LOCALIZE.설명_필수옵션이모두선택되어있지않습니다 = function () { return LOCALIZE.convArguments("필수옵션이 모두 선택되어있지 않습니다.", arguments); };
+     LOCALIZE.버튼_메뉴더보기 = function () { return LOCALIZE.convArguments("더보기", arguments); };
+     LOCALIZE.설명_작성권한이없습니다 = function () { return LOCALIZE.convArguments("작성 권한이 없습니다.", arguments); };
+     LOCALIZE.버튼_더보기 = function () { return LOCALIZE.convArguments("더보기", arguments); };
+     LOCALIZE.설명_권한이_없습니다 = function () { return LOCALIZE.convArguments("권한이 없습니다.", arguments); };
+     LOCALIZE.설명_로그인이_필요합니다 = function () { return LOCALIZE.convArguments("로그인이 필요합니다.", arguments); };
+     LOCALIZE.설명_내용을_입력해주세요 = function () { return LOCALIZE.convArguments("내용을 입력해주세요", arguments); };
+     LOCALIZE.설명_삭제된_댓글_입니다 = function () { return LOCALIZE.convArguments("삭제된 댓글입니다.", arguments); };
+     LOCALIZE.설명_비밀번호 = function () { return LOCALIZE.convArguments("비밀번호", arguments); };
+     LOCALIZE.버튼_취소 = function () { return LOCALIZE.convArguments("취소", arguments); };
+     LOCALIZE.버튼_응답수정 = function () { return LOCALIZE.convArguments("응답 수정", arguments); };
+     LOCALIZE.버튼_로그인 = function () { return LOCALIZE.convArguments("로그인", arguments); };
+     LOCALIZE.설명_개인정보처리방침에동의하여주시기바랍니다 = function () { return LOCALIZE.convArguments("개인정보 수집 및 이용에 동의하여 주시기 바랍니다.", arguments); };
+     LOCALIZE.설명_가입승인이_필요한_서비스입니다 = function () { return LOCALIZE.convArguments("가입승인이 필요한 서비스입니다.", arguments); };
+     LOCALIZE.설명_필수항목을입력하여주시기바랍니다 = function () { return LOCALIZE.convArguments("필수 항목을 입력하여 주시기 바랍니다.", arguments); };
+     LOCALIZE.설명_비밀번호를_입력해주세요 = function () { return LOCALIZE.convArguments("비밀번호를 입력해주세요.", arguments); };
+     LOCALIZE.설명_검색결과가없습니다 = function () { return LOCALIZE.convArguments("검색 결과가 없습니다.", arguments); };
+     LOCALIZE.타이틀_장바구니 = function () { return LOCALIZE.convArguments("장바구니", arguments); };
+     LOCALIZE.설명_이메일 = function () { return LOCALIZE.convArguments("이메일", arguments); };
+     LOCALIZE.설명_주소 = function () { return LOCALIZE.convArguments("주소", arguments); };
+     LOCALIZE.설명_상세주소 = function () { return LOCALIZE.convArguments("상세주소", arguments); };
+     LOCALIZE.버튼_확인닫기 = function () { return LOCALIZE.convArguments("확인", arguments); };
+     LOCALIZE.타이틀_수량 = function () { return LOCALIZE.convArguments("수량", arguments); };
+     LOCALIZE.설명_품절 = function () { return LOCALIZE.convArguments("품절", arguments); };
+     LOCALIZE.버튼_주문하기 = function () { return LOCALIZE.convArguments("주문하기", arguments); };
+     LOCALIZE.설명_장바구니가비어있습니다 = function () { return LOCALIZE.convArguments("장바구니가 비어있습니다.", arguments); };
+     LOCALIZE.타이틀_총금액 = function () { return LOCALIZE.convArguments("총금액", arguments); };
+     LOCALIZE.타이틀_반품교환 = function () { return LOCALIZE.convArguments("반품/교환", arguments); };
+     LOCALIZE.설명_취소내역이없습니다 = function () { return LOCALIZE.convArguments("취소 내역이 없습니다.", arguments); };
+     LOCALIZE.설명_주문내역이없습니다 = function () { return LOCALIZE.convArguments("주문 내역이 없습니다.", arguments); };
+    </script>
+    <script src="https://vendor-cdn.imweb.me/js/common.js?1689021244"></script>
+    <script src="https://vendor-cdn.imweb.me/js/im_component.js?1636940317"></script>
+    <script src="https://vendor-cdn.imweb.me/js/site_common.js?1672019750"></script>
+    <script src="https://vendor-cdn.imweb.me/js/imagesloaded.pkgd.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.smooth-scroll.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/gambit-smoothscroll-min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/ThreeCanvas.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/snow.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/masonry.pkgd.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/lightgallery-all.min.js?1596595980"></script>
+    <script src="https://vendor-cdn.imweb.me/js/bootstrap.slide-menu.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/bootstrap.slide-menu-alarm.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/bootstrap-hover-dropdown.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery-scrolltofixed.js?1669067096"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.trackpad-scroll-emulator.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/modernizr.custom.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/classie.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.exif.js?1577682292"></script>
+    <script type="text/vbscript">
+       Function IEBinary_getByteAt(strBinary, iOffset)
+           IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))
+       End Function
+       Function IEBinary_getLength(strBinary)
+           IEBinary_getLength = LenB(strBinary)
+       End Function
+    </script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.canvasResize.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/autosize.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/owl.carousel2.js?1638150602"></script>
+
+    <script src="https://vendor-cdn.imweb.me/js/slick.min.js?1577682292"></script>
+    <script src="https://www.digdigactivity.com/js/preview_mode.js?1685942511"></script>
+    <script src="https://www.digdigactivity.com/js/site.js?1681263281"></script>
+    <script src="https://www.digdigactivity.com/js/site_member.js?1669876617"></script>
+    <script src="https://www.digdigactivity.com/js/mobile_menu.js?1648796493"></script>
+    <script src="https://www.digdigactivity.com/js/sns_share.js?1677482370"></script>
+    <script src="https://www.digdigactivity.com/js/android_image_upload.js?1669163161"></script>
+    <ul id="image_list" style="display: none"></ul>
+    <script src="https://www.digdigactivity.com/js/alarm_menu.js?1683615433"></script>
+    <script src="https://www.digdigactivity.com/js/alarm_badge.js?1602469334"></script>
+    <script src="https://www.digdigactivity.com/js/one_page.js?1577682295"></script>
+    <script src="https://www.digdigactivity.com/js/site_coupon.js?1672376856"></script>
+    <script src="https://www.digdigactivity.com/js/secret_article.js?1604286051"></script>
+    <script src="https://www.digdigactivity.com/js/article_reaction.js?1586730656"></script>
+    <script src="https://www.digdigactivity.com/js/site_shop.js?1688019734"></script>
+    <script src="https://www.digdigactivity.com/js/board_common.js?1648107937"></script>
+    <script src="https://www.digdigactivity.com/js/site_shop_mypage.js?1680139972"></script>
+    <script src="https://www.digdigactivity.com/js/site_search.js?1669066661"></script>
+    <script src="https://www.digdigactivity.com/js/zipcode_daum.js?1679954884"></script>
+    <script src="https://www.digdigactivity.com/js/site_booking.js?1681093233"></script>
+    <script src="https://www.digdigactivity.com/js/site_section.js?1671175965"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.number.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/nprogress.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/tinycolor-min.js?1577682292"></script>
+    <script src="https://www.digdigactivity.com/js/app.js?1577682295"></script>
+    <script src="https://www.digdigactivity.com/js/header_fixed_menu.js?1666824024"></script>
+    <script src="https://www.digdigactivity.com/js/header_more_menu.js?1678256830"></script>
+    <script src="https://www.digdigactivity.com/js/header_center_colgroup.js?1637043387"></script>
+    <script src="https://www.digdigactivity.com/js/mobile_carousel_menu.js?1606176609"></script>
+    <script src="https://www.digdigactivity.com/js/header_mega_dropdown.js?1675843337"></script>
+    <script src="https://www.digdigactivity.com/js/header_overlay.js?1577682295"></script>
+    <script src="https://www.digdigactivity.com/js/site_log.js?1684731701"></script>
+    <script src="https://www.digdigactivity.com/js/advanced_trace.js?1597114502"></script>
+    <script src="https://www.digdigactivity.com/js/site_animation.js?1648796493"></script>
+    <script src="https://www.digdigactivity.com/js/site_event_check.js?1596495221"></script>
+    <script src="https://www.digdigactivity.com/js/site_widget.js?1616721332"></script>
+    <script src="https://vendor-cdn.imweb.me/js/moment.min.js?1629764594"></script>
+    <script src="https://vendor-cdn.imweb.me/js/moment-with-locales.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/bootstrap-datepicker.js?1687222780"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.timepicker.min.js?1577682292"></script>
+    <script src="https://vendor-cdn.imweb.me/js/ie-checker-min.js?1577682292"></script>
+    <script src="https://www.digdigactivity.com/js/channel_plugin.js?1669067096"></script>
+    <script src="https://vendor-cdn.imweb.me/js/jquery.chosen.js?1619084781"></script>
+    <script src="https://wcs.naver.net/wcslog.js"></script>
+    <script src="https://www.digdigactivity.com/js/google_analytics.js?1686556171"></script>
+    <script src="https://www.digdigactivity.com/js/image.js?1679302349"></script>
+    <script src="https://www.digdigactivity.com/js/gallery.js?1652070990"></script>
+    <script src="https://vendor-cdn.imweb.me/js/froogaloop2.min.js?1577682292"></script>
+    <script src="https://www.digdigactivity.com/js/post.js?1683706846"></script>
+    <script src="https://www.digdigactivity.com/js/post_comment.js?1689136793"></script>
+    <script src="https://www.digdigactivity.com/js/post_view.js?1577682295"></script>
+    <script src="https://www.digdigactivity.com/js/library_image.js?1680673561"></script>
+    <script src="https://www.digdigactivity.com/js/board_common.js?1648107937"></script>
+    <script src="https://sstatic-g.rmcnmv.naver.net/resources/js/naver_web_player_ugc_min.js"></script>
+    <script src="https://www.digdigactivity.com/js/newest_post.js?1669163215"></script>
+    <script></script>
+    <script></script>
+    <script>
+     // 비주얼섹션 배경 동영상 및 동영상 위젯 자동재생 환경 설정
+     var section_youtube_list = [];
+     var yt_player = {};
+     var vimeo_player = [];
+     var site_video_list = [];
+     var video_autoplay_youtube_list = [];
+     function onYouTubeIframeAPIReady() {
+      $.each(section_youtube_list, function (_e, _data) {
+       yt_player[_data.slide_code] = new SITE_SECTION_YOUTUBE();
+       yt_player[_data.slide_code].init(_data.type, _data.code, _data.id, _data.slide_code);
+      });
+      $.each(video_autoplay_youtube_list, function (k, v) {
+       site_video_list[v].play();
+      })
+     }
+
+     $(function () {
+      /* Bootstrap Sanitizer Custom */
+      var customTooltipAllowList = $.fn.tooltip.Constructor.DEFAULTS.whiteList;
+      customTooltipAllowList.table = [];
+      customTooltipAllowList.thead = [];
+      customTooltipAllowList.tbody = [];
+      customTooltipAllowList.tr = [];
+      customTooltipAllowList.td = ["rowspan", "colspan"];
+      customTooltipAllowList.th = [];
+      customTooltipAllowList.caption = [];
+      customTooltipAllowList["*"].push("style");
+      /* End Bootstrap Sanitizer Custom */
+      $('body').smoothScroll({
+       delegateSelector: 'a',
+       speed: 1200,
+       easing: 'easeInOutExpo'
+      });
+      $('.pms_check').remove();
+      var recentScrollUrl = IMWEB_SESSIONSTORAGE.get('RECENT_PROD_SCROLL_URL');
+      if (recentScrollUrl && recentScrollUrl !== document.location.href) {
+       IMWEB_SESSIONSTORAGE.remove('RECENT_PROD_SCROLL');
+       IMWEB_SESSIONSTORAGE.remove('RECENT_PROD_SCROLL_URL');
+      }
+     });
+    </script>
+    <script>
+     $(function () {
+      var more_menu_w202101156ba50b84c7301 = new HEADER_MORE_MENU();
+      more_menu_w202101156ba50b84c7301.init($('#w202101156ba50b84c7301 ._inline_menu_container'), false);
+      $('#w202101156ba50b84c7301 ._inline_menu_container').data('header_more_menu', more_menu_w202101156ba50b84c7301);
+     });
+
+
+     $(function () {
+      $('#w202101156ba50b84c7301').find("li.dropdown").each(function (index) {
+       $(this).find("li.dropdown-submenu").each(function (index) {
+        if (!$(this).hasClass('pulldown-hide')) {
+         if ($(this).find(".dropdown-menu > li").length > 0) $(this).addClass("sub-active");
+        } else {
+         $(this).find('ul').removeClass('dropdown-menu');
+         $(this).find('ul li').hide();
+        }
+       });
+      });
+      $('#w202101156ba50b84c7301').find('._header_dropdown').dropdownHover();
+     });
+
+
+     $('.join_tooltip[data-toggle="tooltip"]').tooltip({
+      delay: { show: 500, hide: 1000000 }
+     });
+     var $join_tooltip = $('#w20210115490cee959cd84').find('.join_tooltip');
+     $join_tooltip.tooltip('show');
+
+
+     $('.join_tooltip[data-toggle="tooltip"]').tooltip({
+      delay: { show: 500, hide: 1000000 }
+     });
+     var $join_tooltip = $('#w20210115fa52a1c560706').find('.join_tooltip');
+     $join_tooltip.tooltip('show');
+
+     var search_option_data_w20210115a0023f4cdd5a9 = { "window_background": " rgba(0,0,0,0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#212121", "btn_icon_hover_color": "#999", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "20", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "simple", "icon_class": "icon-magnifier", "btn_icon_padding_lr": "0", "btn_icon_padding_tb": "0", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5", "overlay_type_data": { "window_background": " rgba(0,0,0,0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#fff", "btn_icon_hover_color": "rgba(255,255,255,0.5)", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "14", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "simple", "icon_class": "icon-magnifier", "btn_icon_padding_lr": "10", "btn_icon_padding_tb": "4", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5" }, "device_type": "pc", "link": "" };
+
+     $(document).ready(function () {
+      var $sd_form = $('#inline_s_form_w20210115a0023f4cdd5a9');
+      var $_keyword = $sd_form.find('input[name=keyword]');
+
+      $_keyword.keydown(function (key) {
+       if (key.keyCode === 13) {
+        $_keyword.val($_keyword.val().trim());
+       }
+      });
+     })
+
+
+     $(function () {
+      var header_center_colgroup_s20210115558b7a53a18b7 = new HEADER_CENTER_COLGROUP();
+      header_center_colgroup_s20210115558b7a53a18b7.init('s20210115558b7a53a18b7', { "top_bottom_margin": "0", "col_margin": "20", "design_setting_margin": "Y", "border_width": "1", "border_style": "solid", "border_color": "#e7e7e7", "vertical-align": "middle", "scroll_fixed": "Y", "overlay_type_data": { "top_bottom_margin": "0", "col_margin": "10", "design_setting_margin": "Y", "border_width": "0", "border_style": "solid", "border_color": "rgba(255, 255, 255, 0.2)", "vertical-align": "middle", "scroll_fixed": "N", "background_repeat": "", "background_position": "", "color": "", "background_image": "" }, "left_width": "965", "center_width": "0", "right_width": "285", "height": "71", "background_repeat": "", "background_position": "", "color": "", "left_right_margin": "30", "left_right_margin_mobile": "0", "background_image": "", "extend": "N", "background_color": "#fff" })
+     });
+
+     $(function () { HEADER_FIXED_MENU.init(); });
+     $(function () { SITE.firstScrollFixed('inline_header_normal'); });
+     $(function () { $("#s20210115b8712fdbc4320").scrollToFixed({ marginTop: "" }); $("#s20210115b8712fdbc4320").toggleClass("_fixed_header_section", true); });
+     $(function () { $("body").toggleClass("new_fixed_header_disable", true); $("body").toggleClass("fixed-menu-on", true); });
+
+     $(function () {
+      var more_menu_w20210115f8e69ab2b4157 = new HEADER_MORE_MENU();
+      more_menu_w20210115f8e69ab2b4157.init($('#w20210115f8e69ab2b4157 ._inline_menu_container'), false);
+      $('#w20210115f8e69ab2b4157 ._inline_menu_container').data('header_more_menu', more_menu_w20210115f8e69ab2b4157);
+     });
+
+
+     $(function () {
+      $('#w20210115f8e69ab2b4157').find("li.dropdown").each(function (index) {
+       $(this).find("li.dropdown-submenu").each(function (index) {
+        if (!$(this).hasClass('pulldown-hide')) {
+         if ($(this).find(".dropdown-menu > li").length > 0) $(this).addClass("sub-active");
+        } else {
+         $(this).find('ul').removeClass('dropdown-menu');
+         $(this).find('ul li').hide();
+        }
+       });
+      });
+      $('#w20210115f8e69ab2b4157').find('._header_dropdown').dropdownHover();
+     });
+
+
+     $('.join_tooltip[data-toggle="tooltip"]').tooltip({
+      delay: { show: 500, hide: 1000000 }
+     });
+     var $join_tooltip = $('#w20210115f1973ea5d7aa2').find('.join_tooltip');
+     $join_tooltip.tooltip('show');
+
+     var search_option_data_w20210115c371d1714c472 = { "window_background": " rgba(0,0,0,0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#212121", "btn_icon_hover_color": "#999", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "20", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "simple", "icon_class": "icon-magnifier", "btn_icon_padding_lr": "0", "btn_icon_padding_tb": "0", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5", "overlay_type_data": { "window_background": " rgba(0,0,0,0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#fff", "btn_icon_hover_color": "rgba(255,255,255,0.5)", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "14", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "simple", "icon_class": "icon-magnifier", "btn_icon_padding_lr": "10", "btn_icon_padding_tb": "4", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5" }, "device_type": "pc", "link": "", "form_focus_border_color": "", "text_placeholder_color": "", "is_make_thumbnail": "N" };
+
+     $(document).ready(function () {
+      var $sd_form = $('#inline_s_form_w20210115c371d1714c472');
+      var $_keyword = $sd_form.find('input[name=keyword]');
+
+      $_keyword.keydown(function (key) {
+       if (key.keyCode === 13) {
+        $_keyword.val($_keyword.val().trim());
+       }
+      });
+     })
+
+
+     $(function () {
+      var header_center_colgroup_s20210115b8712fdbc4320 = new HEADER_CENTER_COLGROUP();
+      header_center_colgroup_s20210115b8712fdbc4320.init('s20210115b8712fdbc4320', { "top_bottom_margin": "15", "col_margin": "15", "design_setting_margin": "Y", "border_width": "0", "border_style": "solid", "border_color": "#000000", "vertical-align": "middle", "scroll_fixed": "Y", "overlay_type_data": { "top_bottom_margin": "0", "col_margin": "10", "design_setting_margin": "Y", "border_width": "0", "border_style": "solid", "border_color": "rgba(255, 255, 255, 0.2)", "vertical-align": "middle", "scroll_fixed": "N", "background_repeat": "", "background_position": "", "color": "rgba(23, 22, 22, 0.75)", "background_image": "", "background_color": "rgba(0, 0, 0, 0.95)" }, "left_width": "1059", "center_width": "0", "right_width": "197", "height": "115", "background_repeat": "", "background_position": "", "color": "", "left_right_margin": "30", "left_right_margin_mobile": "0", "background_image": "", "extend": "N", "background_color": "#fff", "hover_section_bg": "N", "background_grayscale": "N" })
+     });
+
+     var search_option_data_w20210115be30ad2b8d1a3 = { "window_background": "rgba(0, 0, 0, 0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#212121", "btn_icon_hover_color": "#999", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "20", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "btb", "icon_class": "bt-search", "btn_icon_padding_lr": "5", "btn_icon_padding_tb": "0", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5", "overlay_type_data": { "window_background": " rgba(0,0,0,0.5)", "window_color": "#fff", "btn_type": "type01", "btn_text": "", "btn_icon_color": "#fff", "btn_icon_hover_color": "rgba(255,255,255,0.5)", "btn_color": "#212121", "btn_color2": "#fff", "btn_background": "#00B8FF", "btn_font_size": "14", "btn_border_check": "N", "btn_border_color": "#00B8FF", "btn_border_width": "1", "form_height": "34", "form_width": "150", "form_margin": "10", "form_background": "#fff", "form_border_color": "#dadada", "form_border_width": "1", "form_border_radius": "3", "font_size": "14", "font_color": "#212121", "text_value": "", "text_placeholder": "", "icon_type": "simple", "icon_class": "icon-magnifier", "btn_icon_padding_lr": "10", "btn_icon_padding_tb": "4", "hover_color": "#999", "btn_hover_color": "#fff", "btn_hover_background": "#05b2f5", "btn_hover_border_color": "#05b2f5" }, "device_type": "m", "link": "", "form_focus_border_color": "", "text_placeholder_color": "", "is_make_thumbnail": "N" };
+
+     $(document).ready(function () {
+      var $sd_form = $('#inline_s_form_w20210115be30ad2b8d1a3');
+      var $_keyword = $sd_form.find('input[name=keyword]');
+
+      $_keyword.keydown(function (key) {
+       if (key.keyCode === 13) {
+        $_keyword.val($_keyword.val().trim());
+       }
+      });
+     })
+
+
+     $(function () {
+      var header_center_colgroup_s20210115fa5a5c0a221bb = new HEADER_CENTER_COLGROUP();
+      header_center_colgroup_s20210115fa5a5c0a221bb.init('s20210115fa5a5c0a221bb', { "top_bottom_margin": "5", "col_margin": "0", "design_setting_margin": "N", "border_width": "0", "border_style": "solid", "border_color": "#f5f5f5", "vertical-align": "middle", "scroll_fixed": "N", "overlay_type_data": { "top_bottom_margin": "0", "col_margin": "10", "design_setting_margin": "Y", "border_width": "0", "border_style": "solid", "border_color": "rgba(255, 255, 255, 0.3)", "vertical-align": "middle", "scroll_fixed": "N", "background_repeat": "", "background_position": "", "color": "", "background_image": "" }, "left_width": "111", "center_width": "153", "right_width": "111", "height": "60", "background_repeat": "", "background_position": "", "color": "", "left_right_margin": "15", "left_right_margin_mobile": "0", "background_image": "", "background_color": "#ffffff", "extend": "N", "hover_section_bg": "N" })
+     });
+
+
+     var carousel_menu_script = new MOBILE_CAROUSEL_MENU($('#mobile_carousel_nav'));
+
+     $(function () { $("#mobile_carousel_menu").scrollToFixed({ marginTop: "" }); $("#mobile_carousel_menu").toggleClass("_fixed_header_section", true); });
+
+     $(function () {
+      var img_w20210723c802a4f124a4c = new IMAGE_RESIZE();
+      img_w20210723c802a4f124a4c.init('w20210723c802a4f124a4c', { "img_width": 1280, "img_height": 300, "img_ratio": "0.234375", "img_init": "N", "url": "S2021011502a2f4eeeb339\/dc826453c60ef.png", "description": "", "hover_description": "", "text_position": "bottom", "hover_text_position": "same", "overlay_color": "rgba(0, 0, 0, 0)", "hover_overlay_color": "rgba(0, 0, 0, 0)", "text_color": "#fff", "hover_text_color": "#fff", "text_size": "14", "hover_text_size": "14", "show_over": "N", "link": "", "link_code": "", "use_link_code": "N", "new_window": "N", "circle": "N", "lightbox": "N", "org_size": "N", "use_hd": "N", "grayscale": "N", "hover_grayscale": "N", "image_rendering": "Y", "border_radius": "N", "hide_default_img": "N", "border_radius_value": "7", "text_align": "0 50%", "hover_text_align": "0 50%", "ani_type": "none", "ani_duration": "0.7", "ani_delay": "0", "idx": "28718857", "member": "", "code": "f20210723e0d52619061ad", "site_code": "S2021011502a2f4eeeb339", "tmp_idx": "", "target_code": "w20210723c802a4f124a4c", "target": "image_widget", "name": "dc826453c60ef.png", "org_name": "\ub098\ub9cc\uc758\ud301 \uc548\ub0b4 \ubcf5\uc0ac.png", "down_cnt": "0", "type": "image\/png", "size": "79152", "version_data": "", "wtime": "", "mtime": "", "error": "", "doz_img": "N", "is_image_edit": "N", "link_type": "modal", "custom": { "modal_code": "m20210616508821fbefeaf" }, "thumb_url": "https:\/\/cdn.imweb.me\/thumbnail\/20210723\/513b8034015ff.png", "hover_thumb_url": "https:\/\/cdn.imweb.me\/thumbnail\/20210723\/513b8034015ff.png", "hover_img_url": "S2021011502a2f4eeeb339\/dc826453c60ef.png" });
+      $('#img_w20210723c802a4f124a4c').data('image_resize', img_w20210723c802a4f124a4c);
+     });
+
+     $("#text_w20220310c1f026a51e26c").find("._table_responsive").addClass("table").wrap($("<div />").addClass("table-responsive"));
+     $("#text_w20220307cecbf64b2d53e").find("._table_responsive").addClass("table").wrap($("<div />").addClass("table-responsive"));
+
+
+
+
+     var gallery_w20220307393a4c5fe5be3 = new GALLERY2();
+     gallery_w20220307393a4c5fe5be3.init('w20220307393a4c5fe5be3', { "board_code": "b20220307cb17720cf1e11", "ani_type": "fadeIn", "ani_duration": "0.7", "ani_delay": "0", "source": "", "type": "grid", "sub_type": "grid_01", "instagram_tag_name": "", "instagram_use_caption": "N", "instagram_use_tag": "Y", "instagram_use_like_cnt": "Y", "instagram_use_comment_cnt": "Y", "grid_width": "0", "slide_ratio": "0.6", "slide_height": "400", "img_ratio": "75", "grid_col_count": "1", "grid_mobile_col_count": "1", "grid_row_count": "1", "grid_gutter": "5", "grid_extend_fix": "Y", "img_rendering": "Y", "hide_lightbox": "Y", "grid_title_font_size": "14", "grid_title_color": "#212121", "grid_body_font_size": "12", "grid_body_color": "#999", "grid_text_margin": "10", "grid_text_align": "0 50%", "overlay_title_font_size": "14", "overlay_title_color": "#fff", "overlay_body_font_size": "12", "overlay_body_color": "#fff", "overlay_text_margin": "20", "overlay_text_align": "50% 0", "slide_title_font_size": "18", "slide_title_color": "#fff", "slide_body_font_size": "14", "slide_body_color": "#fff", "slide_text_margin": "20", "slide_text_align": "50% 50%", "overlay_color": "rgba(0, 0, 0, 0.5)", "slide_overlay_color": "rgba(0, 0, 0, 0.2)", "border_radius": "0", "border_width": "1", "border_color": "#eee", "background_color": "#fff", "effect": "slide", "effect_wait": "5", "effect_time": "0.2", "show_paging": "Y", "auto_change": "Y", "show_next_prev": "Y", "show_mobile_next_prev": "N", "effect_loop": "Y", "extend_thumbs": "N", "random_btn": "N", "slide_by": "N", "slide_img_ratio": "", "slide_btn_color": "#fff", "thumb_ratio": "100", "thumb_item_cnt": "5", "thumb_line_cnt": "1", "thumb_margin": "0", "thumb_top_bottom_margin": "0", "inactive_overlay_color": "rgba(0, 0, 0, 0.2)", "instagram_code": "", "grid_more_list": "disuse", "link": "", "ani_direction": "Up", "max_width": 1280, "document_margin": 12 }, { "type": "grid", "sub_type": "grid_01", "show_ratio_wrap": "Y", "show_list_wrap": "Y", "show_border_wrap": "Y", "show_row_count_wrap": "Y", "show_slide_wrap": "N", "show_background_color_wrap": "N", "show_overlay_color_wrap": "Y", "is_hover_text": "Y", "hover_show_overlay": "Y", "show_slide_btn_wrap": "N", "show_thumb_type_wrap": "N", "show_inactive_option": "N", "use_height": "N", "min_col": 2, "max_col": 12, "border_target": "container", "overlay_prefix": "", "text_prefix": "overlay_", "img": "\/admin\/img\/grid_01_v2.png", "preview_img": "\/admin\/img\/grid_01_v2.png" }, 0, false, { "one_page": "N", "brand_color": "#0e3775", "badge_color": "#0e3775", "font_family": "spoqahansans", "font_family_en": "none", "h_font_family": "spoqahansans", "h_font_family_en": "none", "body_color": "#000", "body_size": "14", "body_line_height": "2", "body_italic": "N", "body_use_bold": "normal", "body_use_title_bold": "bold", "memo_color": "", "memo_size": "", "memo_line_height": "", "memo_indent": "", "memo_bold": "", "memo_italic": "", "memo_underline": "", "title4_color": "", "title4_size": "", "title4_line_height": "", "title4_indent": "", "title4_bold": "", "title4_italic": "", "title4_underline": "", "title3_color": "", "title3_size": "", "title3_line_height": "", "title3_indent": "", "title3_bold": "", "title3_italic": "", "title3_underline": "", "title2_color": "", "title2_size": "", "title2_line_height": "", "title2_indent": "", "title2_bold": "", "title2_italic": "", "title2_underline": "", "title1_color": "", "title1_size": "", "title1_line_height": "", "title1_indent": "", "title1_bold": "", "title1_italic": "", "title1_underline": "", "background_color": "#fff", "max_width": "1280", "grid_margin_top_bottom": "12", "grid_margin_left_right": "7", "split_border_width": "1", "split_border_style": "solid", "split_border_color": "rgba(0, 0, 0, 0.05)", "tooltip_font_size": 14, "tooltip_font_color": "#fff", "tooltip_background_color": "#b3b3b4", "tooltip_bold": "Y", "tooltip_italic": "N", "no_image": "", "block_no_image": "", "button_style": "st01", "button_font_size": "14", "button_letter_spacing": 0, "button_radius": 5, "button_italic": "N", "button_bold": "Y", "button_margin": 25, "button_font_color": "#fff", "button_background_color": "#b3b3b4", "button_border_color": "#b3b3b4", "button_hover_font_color": "#ffffff", "button_hover_background_color": "#0e3775", "button_hover_border_color": "#0e3775", "button_border_width": 2, "button_hover_border_width": 2, "button_sb_font_color": "#fff", "button_sb_background_color": "#0e3775", "button_sb_border_width": 2, "button_sb_border_color": "#0e3775", "button_sb_hover_font_color": "#ffffff", "button_sb_hover_background_color": "#0e3775", "button_sb_hover_border_width": 2, "button_sb_hover_border_color": "#0e3775", "button_sb_use_set": "Y", "paging_style_type": "st02", "paging_default_style_type": "st00", "paging_active_style_type": "st00", "paging_dot_width": 10, "paging_dot_margin": 14, "paging_big_dot_width": 11, "paging_big_dot_margin": 14, "paging_line_width": 20, "paging_line_height": 2, "paging_line_margin": 14, "paging_count_font_size": 13, "paging_count_margin": 13, "paging_count_bold": "N", "paging_count_italic": "N", "paging_use_mobile_size": "N", "nav_style_select": "st00", "nav_style_type": "st01", "nav_type_angle": "square", "nav_type_arrow": "normal", "nav_type_long_arrow": "normal", "nav_type_caret": "normal", "nav_font_size": 15, "nav_round": 80, "nav_square_round": 0, "nav_bold": "N", "nav_italic": "N", "nav_text_transform": "N", "form_style_type": "radius", "form_background_color": "#ffffff", "form_border_color": "rgba(0, 0, 0, 0.5)", "form_color": "#212121", "use_mobile_font": "Y", "use_pc_mode_btn": "N", "use_login_popup": "Y", "use_after_join_menu": "Y", "after_join_menu": "", "use_after_login_menu": "Y", "after_login_menu": "", "use_smooth_scroll": "Y", "use_page_loader": "N", "use_animation": "N", "use_animation_load": "Y", "instagram_code": "", "use_fixed_menu": "Y", "slide_menu_font_size": "14", "slide_menu_font_color": "#0e3775", "slide_menu_background_color": "#ffffff", "slide_menu_letter_spacing": "0", "slide_menu_border_size": "0", "slide_menu_border_color": "#0e3775", "slide_menu_active_font_color": "#0e3775", "slide_menu_active_background_color": "#f5f5f5", "slide_menu_hover_font_color": "#111", "slide_menu_hover_background_color": "#f5f5f5", "slide_menu_use_login": "Y", "slide_menu_login_font_color": "#ffffff", "slide_menu_login_background_color": "#0e3775", "slide_menu_use_profile": "Y", "slide_menu_use_alarm": "Y", "slide_menu_use_global": "N", "slide_menu_global_type": "icon", "slide_menu_global_flag_type": "", "slide_menu_global_icon_type": "", "pc_slide_menu_logo_code": "", "pc_slide_menu_active_style": "st00", "pc_slide_menu_active_border_width": "0", "pc_slide_menu_active_border_width2": "1", "pc_slide_menu_active_border_radius": "3", "pc_slide_menu_active_border_color": "#222222", "pc_slide_menu_active_color": "#ffffff", "pc_slide_menu_active_color2": "#222222", "pc_slide_menu_active_color3": "", "pc_slide_menu_active_color4": "", "pc_slide_menu_active_background_color": "", "pc_slide_menu_logo_v_padding": "10", "pc_slide_menu_logo_font_color": "#fff", "pc_slide_menu_v_padding": "3", "pc_slide_menu_h_padding": "15", "pc_slide_menu_align": "center", "pc_slide_menu_background_color": "#2f2f2f", "pc_slide_menu_font_size": "13", "pc_slide_menu_font_color": "rgba(255, 255, 255, 0.5)", "pc_slide_menu_hover_font_color": "#ffffff", "pc_slide_menu_indent": "1", "pc_slide_menu_gap": "2", "pc_slide_menu_font_family": "system", "pc_slide_menu_font_family_en": "none", "pc_slide_menu_bold": "N", "pc_slide_menu_italic": "N", "pc_slide_menu_shadow": "N", "pc_slide_menu_vertical_border": "N", "pc_slide_menu_vertical_border_color": "rgba(56, 56, 56, 0.52)", "pc_slide_menu_show_child_menu": "N", "pc_slide_menu_use_logo_text": "Y", "pc_slide_menu_logo_title": "", "pc_slide_menu_logo_bold": "Y", "pc_slide_menu_logo_italic": "N", "pc_slide_menu_logo_font": "montserrat", "pc_slide_menu_logo_font_size": "38", "pc_slide_menu_logo_image_rendering": "block", "pc_slide_menu_logo_height": "64", "pc_slide_menu_logo_letter_spacing": "0", "pc_slide_menu_use_logo_icon": "N", "pc_slide_menu_logo_icon": "l2017101359e02dbd8c0b9", "mega_dropdown_font_size": "13", "mega_dropdown_font_color": "#ffffff", "mega_dropdown_sub_font_size": "12", "mega_dropdown_sub_font_color": "rgba(255, 255, 255, 0.5)", "mega_dropdown_sub_hover_color": "#fff", "mega_dropdown_background": "#2a2a2a", "mega_dropdown_width": "130", "mega_dropdown_v_margin": "5", "mega_dropdown_align": "left", "mega_dropdown_line_count": "8", "mega_dropdown_padding": "30", "mega_dropdown_offset_top": "", "mega_dropdown_border_width": "", "mega_dropdown_border_color": "", "mega_dropdown_font_family": "system", "mega_dropdown_font_family_en": "montserrat", "mega_dropdown_shadow": "N", "mega_dropdown_bold": "N", "mega_dropdown_italic": "N", "prod_list_line_count": 4, "prod_list_extend_count": "", "prod_list_row_count": 48, "prod_list_item_width": "299", "prod_list_mobile_type": "B", "prod_list_pc_type": "A", "prod_list_line_interval": 20, "prod_list_line_interval_y": 20, "prod_list_font_size": 14, "prod_list_color": "", "prod_list_border_width": 0, "prod_list_border_color": "", "prod_list_price_font_size": 0, "prod_list_price_color": "rgba(0, 0, 0, 0.5)", "prod_list_membership_price_font_size": 0, "prod_list_membership_price_color": "", "prod_list_summary_font_size": 0, "prod_list_summary_color": "", "prod_list_sale_percentage_color": "", "prod_list_bold": "Y", "prod_list_price_bold": "Y", "prod_list_membership_price_bold": "", "prod_list_align": "left", "prod_list_rendering": "N", "prod_list_hover_type": "bright", "prod_list_thumb_type": "R", "prod_list_pc_paging_type": "", "prod_list_mobile_paging_type": "", "prod_list_more_btn_text": "", "prod_list_default_order": "recent", "prod_list_show_category": "N", "prod_list_show_item_align": "Y", "prod_list_show_name": "Y", "prod_list_show_price": "Y", "prod_list_show_membership_price": "", "prod_list_show_review": "", "prod_list_show_badge": "N", "prod_list_show_like": "", "prod_list_show_summary": "N", "prod_list_show_cart": "", "prod_list_show_option_color": "N", "prod_list_show_prod_add_btn": "N", "prod_option_color_style_type": "S", "prod_list_is_soldout_last_sorting": "", "shop_view_style": "a", "shop_view_font_size": "22", "shop_view_color": "", "shop_view_price_font_size": "20", "shop_view_label_font_size": "12", "shop_view_membership_price_font_size": "20", "shop_view_body_width": 100, "shop_view_price_color": "", "shop_view_sale_percentage_color": "#fe5356", "shop_view_membership_price_color": "", "shop_view_title_bold": "N", "shop_view_price_bold": "N", "shop_view_membership_price_bold": "N", "shop_view_align": "center", "shop_view_nav_style": "NORMAL", "shop_view_category": "N", "shop_view_origin": "N", "shop_view_point": "N", "shop_view_method": "N", "shop_view_today_deliv": "N", "shop_coupon_get_btn": "N", "shop_remain_coupon_quantity": "N", "shop_view_weight": "N", "shop_view_maker": "N", "shop_view_brand": "N", "shop_view_thumbnail": "Y", "shop_view_prod_title": "Y", "shop_view_order_count": "N", "shop_view_review_summary": "N", "shop_view_shop_view_price": "Y", "shop_view_stock_count": "N", "shop_view_order_minimum_price": "N", "shop_view_membership_price": "N", "shop_view_simple_content": "Y", "shop_view_delivery": "N", "shop_view_review": "Y", "shop_view_qna": "Y", "shop_view_buy_item_show": "Y", "shop_view_buy_item_hide": "N", "shop_view_buy_item_use": "N", "shop_pc_tab_type_one_page": "Y", "shop_pc_tab_type_use_tab": "N", "shop_pc_tab_type_unfixed": "N", "shop_view_buy_item_title": "", "shop_view_buy_item_link": [], "shop_view_buy_regularly_item_title": "", "shop_view_buy_regularly_item_link": [], "shop_view_buy_item_tooltip": "N", "shop_view_buy_item_tooltip_title": "", "shop_view_buy_regularly_item_tooltip_title": "", "shop_view_buy_item_tooltip_position": "top", "shop_view_buy_item_tooltip_color": "#383838", "shop_view_buy_item_tooltip_animate": "N", "shop_view_cart_item_show": "Y", "shop_view_cart_item_hide": "N", "shop_view_cart_item_use": "N", "shop_view_cart_item_link": [], "shop_view_cart_item_title": "", "shop_view_cart_regularly_item_link": [], "shop_view_cart_regularly_item_title": "", "shop_view_like_item_show": "Y", "shop_view_like_item_hide": "N", "shop_view_like_item_use": "N", "shop_secret_qna_use": "N", "qna_secret_type": "select_secret", "shop_allow_guest_review": "N", "shop_allow_guest_qna": "Y", "shop_time_hide": "N", "shop_review_badge_hide": "N", "shop_review_scope_hide": "N", "shop_masking_review_writer": "N", "shop_show_writer_type_id": "N", "shop_use_full_load": "N", "shop_use_tab_style": "N", "shop_use_mobile_font_size": "N", "shop_use_img_zoom": "N", "shop_use_seemore": "N", "shop_review_writer_type": "nick", "shop_qna_writer_type": "nick", "shop_review_comment_permission": "manager", "shop_qna_comment_permission": "manager", "shop_masking_qna_writer": "N", "shop_view_tab_sorts": ["prod_detail", "prod_review", "prod_qna", "prod_return"], "shop_detail_tab": "active", "shop_return_tab": "none", "shop_review_permission": "buyer", "shop_qna_permission": "guest", "shop_review_pc_paging": "10", "shop_review_mobile_paging": "5", "shop_qna_pc_paging": "5", "shop_qna_mobile_paging": "5", "shop_review_guide": "Y", "shop_review_guide_text": "", "shop_qna_guide": "Y", "shop_qna_guide_text": "", "show_review_wtime": "Y", "show_review_view_count": "N", "shop_first_photo_review": "N", "shop_photo_review_summary": "Y", "shop_photo_review_sort": "recent", "shop_review_option": true, "show_qna_wtime": "", "shop_qna_time_hide": "", "show_qna_view_count": "", "shop_qna_secret_title_same_ck": "Y", "prod_badge_new_period": "", "prod_badge_icon_margin": "", "prod_badge_new": "", "prod_badge_new_width": 0, "prod_badge_new_height": 0, "prod_badge_sale": "", "prod_badge_sale_width": 0, "prod_badge_sale_height": 0, "prod_badge_timesale": "", "prod_badge_timesale_width": 0, "prod_badge_timesale_height": 0, "prod_badge_wait": "", "prod_badge_wait_width": 0, "prod_badge_wait_height": 0, "prod_badge_soldout": "", "prod_badge_soldout_width": 0, "prod_badge_soldout_height": 0, "prod_badge_best": "", "prod_badge_best_width": 0, "prod_badge_best_height": 0, "prod_badge_md": "", "prod_badge_md_width": 0, "prod_badge_md_height": 0, "prod_badge_hot": "", "prod_badge_hot_width": 0, "prod_badge_hot_height": 0, "booking_review_permission": "member", "booking_review_paging": "5", "booking_review_writer_type": "nick", "booking_review_comment_permission": "manager", "booking_review_wtime": "Y", "booking_review_time_hide": "N", "booking_qna_permission": "guest", "booking_qna_paging": "5", "booking_qna_writer_type": "nick", "booking_qna_comment_permission": "manager", "booking_qna_secret_type": "select_secret", "booking_qna_wtime": "Y", "booking_qna_time_hide": "N", "booking_view_stock_count": "Y", "booking_show_price": "Y", "booking_show_badge": "N", "booking_available_color": "#8EC31F", "booking_pending_color": "#4A90E2", "booking_complete_color": "#FA565A", "prod_list_show_brand_name": "N", "shop_view_price": "Y" });
+
+     $('#w20220307393a4c5fe5be3').data('gallery2', gallery_w20220307393a4c5fe5be3);
+
+     $("#text_w202203107917dfa295b26").find("._table_responsive").addClass("table").wrap($("<div />").addClass("table-responsive"));
+
+
+     var post_like_reaction = new ARTICLE_REACTION();
+
+     function clickLike(post_code) {
+      var like_token_key = $("#like_token_key_" + post_code).val();
+      var like_token = $("#like_token_" + post_code).val();
+      post_like_reaction.init('post', post_code, $('#like_btn_' + post_code), $('#like_count_' + post_code));
+      post_like_reaction.checkLikeToken(like_token_key, like_token, post_code);
+      post_like_reaction.toggleLike();
+     }
+
+     $(window).off('keydown').on('keydown', function (key) {
+      if (isEsc(key)) {
+       $.cocoaDialog.close();
+      }
+     });
+
+
+     new POST_INIT_LIST('b2021020203139f9d83b06', { "design_type": "grid", "design_sub_type": "grid_02", "list_gutter": "10", "grid_gutter": "10", "grid_mobile_col_count": "2", "grid_extend_fix": "Y", "list_notice_fix": "N", "list_text_title": "14", "list_text_etc": "12", "row_title_font_size": "14", "grid_title_font_size": "14", "overlay_title_font_size": "24", "row_title_color": "#000", "grid_title_color": "#000", "overlay_title_color": "#fff", "row_body_font_size": "12", "grid_body_font_size": "14", "overlay_body_font_size": "14", "row_body_color": "#000", "grid_body_color": "#757575", "overlay_body_color": "#fff", "row_text_margin": "20", "grid_text_margin": "15", "overlay_text_margin": "20", "row_text_align": "50% 50%", "grid_text_align": "0 50%", "overlay_text_align": "50% 50%", "background_color": "#fff", "border_radius": 0, "border_width": 0, "border_color": "#eee", "img_ratio": "75", "grid_row_count": "10", "grid_col_count": "4", "overlay_color": "rgba(0, 0, 0, 0.25)", "accordion_margin": "14", "accordion_title": "16", "accordion_body": "14", "accordion_button": "bt01", "show_sns_share": "Y", "show_print": "N", "show_contents": "N", "grid_body_display_option": "text_length", "max_width": 1280, "document_margin": 12 });
+     //POST.init_list('b2021020203139f9d83b06',{"design_type":"grid","design_sub_type":"grid_02","list_gutter":"10","grid_gutter":"10","grid_mobile_col_count":"2","grid_extend_fix":"Y","list_notice_fix":"N","list_text_title":"14","list_text_etc":"12","row_title_font_size":"14","grid_title_font_size":"14","overlay_title_font_size":"24","row_title_color":"#000","grid_title_color":"#000","overlay_title_color":"#fff","row_body_font_size":"12","grid_body_font_size":"14","overlay_body_font_size":"14","row_body_color":"#000","grid_body_color":"#757575","overlay_body_color":"#fff","row_text_margin":"20","grid_text_margin":"15","overlay_text_margin":"20","row_text_align":"50% 50%","grid_text_align":"0 50%","overlay_text_align":"50% 50%","background_color":"#fff","border_radius":0,"border_width":0,"border_color":"#eee","img_ratio":"75","grid_row_count":"10","grid_col_count":"4","overlay_color":"rgba(0, 0, 0, 0.25)","accordion_margin":"14","accordion_title":"16","accordion_body":"14","accordion_button":"bt01","show_sns_share":"Y","show_print":"N","show_contents":"N","grid_body_display_option":"text_length","max_width":1280,"document_margin":12});
+
+
+     var widget_code = 'w20210202a51274af6cb4a';
+     SECRET_ARTICLE.init(widget_code);
+
+     $(function () {
+      $('.image_cmt_lightbox').find('img').each(function () {
+       $(this).attr('data-src', $(this).attr('src')).data('src', $(this).attr('src')).addClass('_image_cmt');
+      });
+      $('.image_cmt_lightbox').lightGallery({
+       selector: '._image_cmt',
+       speed: 200
+      });
+     });
+
+     $("#text_w20220111478ff92d18ebd").find("._table_responsive").addClass("table").wrap($("<div />").addClass("table-responsive"));
+
+
+
+     if (typeof post_like_reaction == 'undefined') var post_like_reaction = new ARTICLE_REACTION();
+
+     function newestClickLike(post_code, like_token_key, like_token) {
+      NEWEST_POST.setParameterByName("bmode");
+      NEWEST_POST.newestClickLike(post_code, like_token_key, like_token);
+     }
+
+
+
+
+     $(function () {
+
+      var $listing_obj = $('#newest_w2022011178039bded1a37');
+      var type_data = { "menu_code": "N", "limit": "6", "limit_row": "6", "limit_col": "3", "type": "row", "show_name": "Y", "show_body": "N", "show_writer": "N", "show_time": "N", "show_view": "Y", "show_comment": "Y", "show_border": "Y", "design_type": "grid", "design_sub_type": "grid_02", "row_num": "6", "list_gutter": "10", "grid_gutter": "10", "grid_mobile_col_count": "2", "grid_extend_fix": "Y", "list_text_body": "12", "list_text_etc": "12", "list_text_title": "14", "row_title_font_size": "14", "grid_title_font_size": "14", "overlay_title_font_size": "14", "row_title_color": "#000", "grid_title_color": "#000", "overlay_title_color": "#fff", "row_body_font_size": "12", "grid_body_font_size": "12", "overlay_body_font_size": "12", "row_body_color": "#000", "grid_body_color": "#000", "overlay_body_color": "#fff", "row_text_margin": "20", "grid_text_margin": "20", "overlay_text_margin": "20", "row_text_align": "50% 50%", "grid_text_align": "50% 50%", "overlay_text_align": "50% 50%", "grid_text_align2": "0 50%", "background_color": "#fff", "border_radius": 0, "border_width": "1", "border_color": "#eee", "img_ratio": "75", "grid_row_count": "1", "grid_col_count": "4", "overlay_color": "rgba(0, 0, 0, 0.5)", "use_interlock_etc_board": "N", "interlock_board_type": "shop_review", "interlock_mode": "default", "show_prod_name": "Y", "show_rating": "Y", "show_writer_option": "nick", "show_contents": "N", "ani_type": "none", "ani_duration": "0.7", "ani_delay": "0", "link": "", "show_category": "Y", "show_hit_cnt": "Y", "show_cmt_cnt": "Y", "show_like_cnt": "Y", "show_badge": "Y", "mode": "popular_month", "board_code": ["b2021020203139f9d83b06"], "grid_body_display_option": "text_length", "list_notice_fix": "N", "max_width": 1280, "document_margin": 12 };
+      var windowWidth = $(window).width();
+      var code = 'w2022011178039bded1a37';
+      var change_timer = setTimeout(function () { }, 1);
+      $listing_obj.imagesLoaded()
+              .always(function (ins) {
+               listResize();
+              });
+
+      $('body').off('gridChange.w2022011178039bded1a37').on('gridChange.w2022011178039bded1a37', function () {
+       $listing_obj.imagesLoaded()
+               .always(function (ins) {
+                listResize();
+               });
+      });
+
+      $(window).off('resize.' + code).on('resize.' + code, function () {
+       if ($(window).width() != windowWidth) {
+        windowWidth = $(window).width();
+       } else {
+        return;
+       }
+       clearTimeout(change_timer);
+       change_timer = setTimeout(function () {
+        listResize();
+       }, 1000);
+      });
+
+      var listResize = function () {
+       $listing_obj.imagesLoaded()
+               .always(function () {
+                var window_width = $(window).width();
+                if (!type_data.grid_gutter) {
+                 type_data.grid_gutter = 15;
+                }
+                if ($('body').hasClass('device_type_m'))
+                 window_width = 370;
+                if (window_width <= 991)
+                 type_data.grid_gutter = type_data.grid_gutter / 2;
+                $listing_obj.css({ 'margin': '0 -' + type_data.grid_gutter + 'px' });
+                $listing_obj.css({ 'margin-top': '-' + type_data.grid_gutter + 'px' });
+
+                var cnt = parseInt(type_data.grid_col_count);
+                var inner_width = $listing_obj.width();
+
+                if (window_width <= 991) {
+                 if (typeof type_data.grid_mobile_col_count == "undefined")
+                  cnt = 2;
+                 else
+                  cnt = parseInt(type_data.grid_mobile_col_count);
+
+                 if (type_data['design_sub_type'] == 'grid_05') {
+                  var $item = $listing_obj.find('._item');
+                 } else {
+                  var $item = $listing_obj.find('._card_wrap');
+                 }
+
+
+                 var item_cnt = $item.length;
+                 var row_cnt = parseInt(type_data.grid_row_count);
+                 var cal_cnt = cnt * row_cnt;
+
+                 $item.each(function (k, o) {
+                  if ((k + 1) > cal_cnt) {
+                   $(o).addClass('hidden-sm hidden-xs');
+                  }
+                 });
+
+                 // var item_cnt = $item.length;
+                 // var row_cnt = parseInt(type_data.grid_row_count);
+                 // var cal = item_cnt / cnt;
+                 // if(cal % 1 !== 0){
+                 // 	$item.each(function(k,o){
+                 // 		if((k+1) > cnt){
+                 // 			$(o).addClass('hidden-sm hidden-xs');
+                 // 		}
+                 // 	});
+                 //
+                 // }else{
+                 //
+                 // }
+
+
+                 //소수점이면 한줄표시갯수 뒷부분 제거
+                 //떨어지면 모두 표시
+
+                } else {
+                 if (type_data.design_type == 'slide') {
+                  inner_width = $listing_obj.parent().width();
+                 } else {
+                  inner_width = $listing_obj.width();
+                 }
+
+                 if (type_data.grid_extend_fix != 'Y') {
+                  var s_width = (type_data.max_width - (type_data.document_margin * 2)) + type_data.grid_gutter * 2;
+                  var item_max = s_width - ((cnt - 1) * parseInt(type_data.grid_gutter));
+                  var grid_width = Math.floor(item_max / cnt);
+                  var current_width = Math.floor((inner_width - ((cnt - 1) * parseInt(type_data.grid_gutter))) / cnt);
+                  if (current_width > grid_width) {
+                   cnt = Math.floor(inner_width / grid_width);
+                  }
+                 }
+                }
+
+                var width = Math.floor(inner_width / cnt);
+                if (type_data['design_type'] == 'grid') {
+                 if (type_data['design_sub_type'] == 'grid_05') {
+                  $listing_obj.find('._item').css({ 'padding': type_data.grid_gutter + 'px' });
+                 } else {
+                  $listing_obj.find('._post_item_wrap').css({ 'padding': type_data.grid_gutter + 'px' });
+                 }
+                 runColSize(cnt);
+                } else if (type_data['design_type'] == 'masonry') {
+                 var $masonry_item = $listing_obj.find('.ma-item');
+                 var masonry_item_count = $masonry_item.length;
+                 $listing_obj.find('.ma-item').css({ 'width': width, 'padding': type_data.grid_gutter + 'px' });
+                 runMasonry(masonry_item_count);
+                }
+               });
+      };
+
+      var runColSize = function (col_cnt) {
+       var i = 1;
+       var $_row = $('<div />').addClass('_post_row post_row');
+       var is_append = false;
+       $listing_obj.find('._dummy_item').remove();
+       var window_width = $(window).width();
+       if (type_data['design_sub_type'] == 'grid_05') {
+        var $item = $listing_obj.find('._item');
+       } else {
+        var $item = $listing_obj.find('._card_wrap');
+       }
+       var item_count = $item.length;
+
+       $item.each(function (e, $_obj) {
+        $_row.append($_obj);
+        is_append = false;
+        if (i % col_cnt == 0) {
+         $listing_obj.append($_row);
+         is_append = true;
+         $_row = $('<div />').addClass('_post_row post_row');
+        }
+        i++;
+       });
+
+       if (!is_append) {
+        if (type_data['design_sub_type'] == 'grid_05') {
+         var $tmp_item = $_row.find('._item');
+        } else {
+         var $tmp_item = $_row.find('._post_item_wrap');
+        }
+        if ($tmp_item.length > 0) {
+         if ($tmp_item.length < col_cnt) {
+          var remain_cnt = col_cnt - $tmp_item.length;
+          for (var i = 0; i < remain_cnt; i++) {
+           var $dummy_col = $('<div/>').addClass('dummy_col item_post _item _dummy_item list-style-card');
+           $_row.append($dummy_col);
+          }
+         }
+         $listing_obj.append($_row);
+        }
+       }
+
+       $listing_obj.find('._post_row').each(function () {
+        if (type_data['design_sub_type'] == 'grid_05') {
+         var $tmp_item = $(this).find('._item');
+        } else {
+         var $tmp_item = $(this).find('._post_item_wrap');
+        }
+        if ($tmp_item.length == 0) {
+         $(this).remove();
+        }
+       });
+
+       imgHeight();
+      };
+
+      var imgHeight = function () {
+       if (type_data['design_type'] == 'grid') {
+        if (type_data['design_sub_type'] == 'grid_05') {
+         var height = Math.ceil($listing_obj.find('._item').eq(0).width() / (type_data.img_ratio / 100));
+        } else {
+         var height = Math.ceil($listing_obj.find('._post_item_wrap').eq(0).width() / (type_data.img_ratio / 100));
+        }
+        $listing_obj.find('._img_wrap').height(height);
+        $listing_obj.css('visibility', 'visible');
+       }
+      };
+
+      var runMasonry = function (count) {
+       if (count > 0) {
+        let is_masonry_timeout;
+        $listing_obj.off('layoutComplete').on('layoutComplete', function () {
+         if ($listing_obj.css('visibility') !== 'visible') {
+          $listing_obj.css('visibility', 'visible');
+          $listing_obj.find('img').lazyload({
+           'effect': 'fadeIn',
+           'load': function () {
+            if (typeof is_masonry_timeout === 'number') {
+             clearTimeout(is_masonry_timeout);
+            }
+            is_masonry_timeout = setTimeout(function () {
+             /* 레이지 로드 완료 후 100ms 후에 masonry 재실행 */
+             $listing_obj.masonry('layout');
+            }, 100);
+           },
+           'threshold': (window.innerHeight * 2)
+          });
+         }
+        });
+        $listing_obj.masonry({
+         itemSelector: '.ma-item'
+        });
+       } else {
+        $listing_obj.css('visibility', 'visible');
+       }
+      };
+     });
+
+
+    </script>
+    <script>ALARM_BADGE.addBadgeArea($('#slide-alarm'), '<i aria-hidden="true" class="im-icon im-ico-bell"></i><sup class="badge style-danger _badge_cnt">{count}</sup>');</script>
+    <script>
+     $(function () {
+      SITE_VISIT_LOG.addVisitLog(document.referrer, '37RKst70nWOisvy0uKd7bOBU0HBxF1QI9ihpHf2XUKv9RfVgry9+T+B4OvPh7kpefYeQbIet8C2BnVlRvyJ4c35JiWNuuB7/leLzrzV30e7fF9gv/ukjPS3cGFkDOhDK', '7351', 'm20210129c3f9d83db9a96');
+     });
+    </script>
+    <script>
+     ALARM_MENU.init();
+     SITE_ANIMATION.init('N', 'Y');
+
+
+
+     $(function () {
+      var gallery_id = 'img_lg';
+      var img_gallery_light_box = false;
+      $('body').lightGallery({
+       selector: '._image_widget_lightbox',
+       thumbnail: false,
+       animateThumb: false,
+       swipeThreshold: 20,
+       showThumbByDefault: false,
+       mode: 'lg-fade',
+       speed: 200,
+       galleryId: gallery_id,
+      });
+
+      if (history.replaceState && history.pushState) {
+       var current_url = location.href.indexOf('#') === -1 ? location.href : location.href.substr(0, location.href.indexOf('#'));
+       var back_url = document.referrer.indexOf('#') === -1 ? document.referrer : document.referrer.substr(0, document.referrer.indexOf('#'));
+       var history_push_flag = true;
+       // 라이트박스 hash 커스텀(IE 10 이상)
+       $('body').on('onBeforeOpen.lg', function () {
+        history_push_flag = true;
+       });
+       $('body').on('onAfterOpen.lg', function () {
+        var current_url_lg_id = location.href.indexOf('#') === -1 ? location.href : location.href.substr(location.href.indexOf('#'), location.href.indexOf('&'));
+        if (current_url_lg_id.indexOf(gallery_id) > 0) {
+         img_gallery_light_box = true;
+        }
+       })
+       $('body').on('onAfterSlide.lg', function (event, prevIndex, index) {
+        if (img_gallery_light_box) {
+         if (history_push_flag) {
+          history.replaceState(null, null, current_url);
+          history_push_flag = false;
+         }
+         history.replaceState(null, null, current_url + '#lg=' + gallery_id + '&slide=' + index);		// 슬라이드 히스토리 교체
+        }
+       });
+       var history_back_flag = true;
+       $('body').on('onBeforeClose.lg', function (e) {
+        if (img_gallery_light_box) {
+         history_back_flag = true;
+         if (window.location.hash.indexOf('lg=' + gallery_id) !== -1) {
+          history.back();
+          history_back_flag = false;
+         }
+        }
+       });
+       $('body').on('onCloseAfter.lg', function () {
+        if (img_gallery_light_box) {
+         if (history_back_flag || window.location.hash.indexOf('lg=') !== -1) {
+          history.back();
+         }
+         history_back_flag = true;
+         img_gallery_light_box = false;
+        }
+       })
+      }
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+
+     });
+
+     $(document).ready(function () {
+      $('body').removeClass('page_ready');
+      $('._bookmark').on('click', function (e) {
+       var bookmarkURL = window.location.href;
+       var bookmarkTitle = document.title;
+       var triggerDefault = false;
+
+       if (window.sidebar && window.sidebar.addPanel) {
+        // Firefox version < 23
+        window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+       } else if ((window.sidebar && (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)) || (window.opera && window.print)) {
+        // Firefox version >= 23 and Opera Hotlist
+        var $this = $(this);
+        $this.attr('href', bookmarkURL);
+        $this.attr('title', bookmarkTitle);
+        $this.attr('rel', 'sidebar');
+        $this.off(e);
+        triggerDefault = true;
+       } else if (window.external && ('AddFavorite' in window.external)) {
+        // IE Favorite
+        window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+       } else {
+        // WebKit - Safari/Chrome
+        alert(LOCALIZE.설명_즐겨찾기등록키안내((navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D'));
+       }
+
+       return triggerDefault;
+      });
+
+
+
+
+     });
+    </script>
+    <script>
+
+     if (LOCAL_STORAGE.getLocalStorage('AUTO_LOGOUT_TIME')) LOCAL_STORAGE.deleteLocalStorage('AUTO_LOGOUT_TIME');
+     if (LOCAL_STORAGE.getLocalStorage('IS_AUTO_LOGOUT')) LOCAL_STORAGE.deleteLocalStorage('IS_AUTO_LOGOUT');
+
+    </script>
 </body>
 </html>
