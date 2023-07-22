@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+<main><div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w202101151ddeb7c47074f"><div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 상품 뷰" data-widget-type="shop_view" data-widget-parent-is-mobile="N">	<div class="shop-content shop-style-a    " id="prod_detail"><!--모바일에서 open class 삽입시 하단에 구매상품 상세정보 노출됨 -->
+  <div class="clearfix">
+    <div class="shop_sub_depth hidden-xs hidden-sm" style="display: none;">
+      <ul class="sub_depth">
+        <li>
+          <a href="/" data-catecnt="2">Home</a>
+          <span class="icon-arrow-right" data-cnt=""></span>							</li>
+        <li><a href="/digshop" class=" ">디그샵</a><span class="icon-arrow-right"></span></li><li><a href="/digbus_goods" class="active ">디그버스&nbsp;굿즈</a></li>					</ul>
+    </div>
+    <div class="row goods_wrapper">
+      <div class="col-md-6 col-sm-12 col-xs-12 goods_thumbs_wrap">
+        <div class="_carousel_count_numbering carousel-count-numbering" style="display: none;"></div>
+        <div class="goods_thumbs" id="prod_image_list">
+          <div class="holder">
+            <div class="owl-carousel prod-owl-list owl-theme owl-loaded">
+              <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 566px;"><div class="owl-item active" style="width: 566px; margin-right: 0px;"><div class="item _item"><img style="" src="https://cdn.imweb.me/thumbnail/20220930/64feae41b8007.jpg" alt=""></div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>
+          </div>
+          <div class="shop_goods_img" style="display: none ">
+            <ul class="clearfix">
+              <li class="owl-dot" id="btn_owl_0"> <a href="javascript:;" onmouseover="SITE_SHOP_DETAIL.changeProdImageRolling(0)" onclick="SITE_SHOP_DETAIL.changeProdImageRolling(0)" style="background: url('https://cdn.imweb.me/thumbnail/20220930/64feae41b8007.jpg') no-repeat center;"><span class="sr-only">상품 이미지</span></a> </li>								</ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12  goods_form_wrap">
+        <div class="goods_form" id="prod_goods_form">
+          <header>
+            <div class="view_tit no-margin-top title_font_style " style="color: ; font-size: 22px !important;">쭈꾸미게임 - BAC 띡이															</div>
+            <div class="pay_detail full-width">
+              <div class="holder table-row">
+                <span class="text-brand"><span class="real_price">판매가 회원공개</span></span>
+              </div>
+              <div class="comment_num_warp">
+                <button class="comment_num btn btn-flat" type="button" onclick="SNS.showDefalutSnsShareList();">
+                  <i class="btl bt-share board-summary-icon active" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div class="goods_summary body_font_color_70">
+            <div class="fr-view">
+              <p>블랙야크 알파인 클럽과 같이 협업해서 기획했던 쭈꾸미 게임의 콜렉션으로 정상석에 삽을 들고 있는 띡이가 매우 인상적인 티셔츠. 디그디그가 등산 카테고리에 이바지한 바가 크다.</p>							</div>
+          </div>
+          <div class="m-btn-group buy_btns">
+            <a href="javascript:" class="like_box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
+              <i aria-hidden="true" class="wish-icon-s2022093027948f330489b im-icon im-ico-like text-18"></i>
+              <span id="prod_detail_wish_count_mobile" class="prod_detail_wish_count">
+																					2																			</span>
+            </a>
+            <button class="comment_num btn btn-flat" type="button" onclick="SNS.showDefalutSnsShareList();" style="padding: 10px 0 10px 15px;">
+              <i class="btl bt-share board-summary-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="item_detail">
+            <div class="_item_detail_wrap">
+              <div class="margin-bottom-xxl">
+                <div class="option_wrap" style="display: none; font-size:12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">구매혜택</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+		<span class="option_data">
+							비공개					</span>
+                  </div>
+                </div>
+
+                <div class="option_wrap" style="display: none; font-size:12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">주문안내</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_data">최소 주문금액 0원</span>
+                  </div>
+                </div>
+
+                <div class="option_wrap" style="display: none; font-size: 12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">무게</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_data">1kg</span>
+                  </div>
+                </div>
+                <div class="option_wrap" style="display: none; font-size:12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">배송 방법</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+					<span class="option_data">
+						택배											</span>
+                  </div>
+                </div>
+                <div class="option_wrap" style="display: none; font-size:12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">배송비</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_data">무료 </span>					</div>
+                </div>
+                <div class="option_wrap" style="display:none; font-size:12px;">
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_title text-bold">배송 안내</span>
+                  </div>
+                  <div class="inline-blocked vertical-middle">
+                    <span class="option_data"></span>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="margin-bottom-xxl select_wrap  clearfix deliv" style=" display: none; ">			<div class="inline-blocked form-delivery" style="display: inline-block">
+                <div class="form-select-wrap " style="display: none;">
+                  <select class="countryList" title="countryList">
+                    <option value="KR" selected=""></option>
+                  </select>
+                </div>
+              </div>
+              </div>
+              <script>
+                $('.btn-popover').popover();
+                $('.html-popover').popover({html : true});
+                SITE_SHOP_DETAIL.addDelivType('parcel');
+                SITE_SHOP_DETAIL.addDelivPayType('price');
+              </script>
+            </div>
+          </div>
+          <div class="_today_arrival_wrap"></div>
+
+          <!-- 모바일용 상세 정보 버튼 시작 -->
+          <div class="m-btn-group button_tab" id="tab_offset">
+            <div class="site_prod_nav_wrap _prod_detail_tab_fixed" id="prod_detail_content_tab_mobile" style="">
+              <ul class="site_nav site_prod_nav">
+                <li class="after_line holder prod_tab_3">
+                  <a class="_detail active" href="#prod_detail_detail" role="button" onclick="SITE_SHOP_DETAIL.changeContentTab('detail', 0,0)">상세정보</a>
+                </li>
+                <li class="after_line holder prod_tab_3">
+                  <a class="_review " href="#prod_detail_review" role="button" onclick="SITE_SHOP_DETAIL.changeContentTab('review', 0,0)" style="display:">구매평<span class="braket-badge badge _review_count_text">0</span></a>
+                </li>
+                <li class="after_line prod_tab_3">
+                  <a class="_qna " href="#prod_detail_qna" role="button" onclick="SITE_SHOP_DETAIL.changeContentTab('qna', 0,0)" style="display: ">Q&amp;A<span class="braket-badge badge _qna_count_text">0</span></a>
+                </li>
+              </ul>
+            </div><div></div>
+
+            <div class="product_body _prod_detail_detail_lazy_load_mobile fr-view  product_detail_mobile" id="prod_detail_content_mobile">
+            </div><!-- 상세정보 일부만 뿌리기 -->
+            <!--미구현<a class="btn more" role="button">상품정보 더보기</a>-->
+          </div>
+          <!-- //모바일용 상세 정보 버튼 종료 // -->
+          <div class="opt-group-bg"></div>
+          <div class="opt-group">
+            <div class="opt-group-top-bg"></div>
+            <a href="javascript:" class="btn_clse" onclick="SITE_SHOP_DETAIL.hideMobileOptions()">
+								<span class="text-default-dark">
+									<i class="btl bt-angle-down" aria-hidden="true"></i>
+								</span>
+              <span class="sr-only">모바일 옵션 숨기기</span>
+            </a>
+            <div id="goods_wrap" class="goods_wrap no-margin-top no-padding-top">
+              <!-- 필수 옵션, 선택 옵션이 둘다 없을경우 태그가 출력되면 안됨(여백, 가로선)-->
+              <div class="goods_select" id="prod_options"></div>
+              <div class="goods_payment" id="prod_selected_options"></div>
+              <div class="goods_detail" id="prod_deliv_setting"></div>
+            </div>
+          </div>
+
+          <div class="buy_btns holder pc   ">
+            <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
+            <a href="javascript:" style="" class="btn like_box soldout-like-box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
+              <i class="wish-icon-s2022093027948f330489b im-icon im-ico-like" aria-hidden="true"></i>
+              <span id="prod_detail_wish_count" class="prod_detail_wish_count">
+										2									</span>
+            </a>
+          </div>
+
+
+          <div class="buy_btns mobile _mobile_action_btn_wrap">
+            <div class="cart_btn  " style=""><!-- naver pay 사용시 'n_pay' class 추가 -->
+              <div class="pay-box no-pay-btn  btn-soldout">
+                <div class="cart_btn_child _cart_btn_child ">
+                  <a href="javascript:" class="btn defualt-cart" onclick="SITE_SHOP_DETAIL.showMobileOptions('buy')">디깅 포인트</a>                            																				</div>
+                <a href="javascript:" class="btn defualt buy bg-brand btn-soldout-before " onclick="SITE_SHOP_DETAIL.showMobileOptions('buy')">구매하기</a> <a class="btn opt buy bg-brand btn-soldout">품절된 상품입니다.</a>                    				</div>
+              <div class="_social_m_position social-m-position"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PC용 상세 정보 버튼 시작 -->
+    <div class="categorize review-box">
+      <div class="_detail_detail_wrap fr-view" id="fixed_tab">
+        <div class=" button_tab">
+          <div class="_prod_detail_tab_fixed site_prod_nav_wrap">
+            <ul class="site_nav site_prod_nav" style="">
+              <li class="after_line holder table-cell prod_tab_3 activeborder">
+                <a class="_detail   active" href="#prod_detail_detail" onclick="SITE_SHOP_DETAIL.scrollPCTab('detail'); return false;">상세정보</a>
+              </li>
+              <li class="after_line holder right_margin table-cell prod_tab_3">
+                <a class="_review " href="#prod_detail_review" onclick="SITE_SHOP_DETAIL.scrollPCTab('review'); return false;">구매평<span class="braket-badge badge _review_count_text">0</span>
+                </a>
+              </li>
+              <li class="after_line table-cell prod_tab_3">
+                <a class="_qna right_margin " href="#prod_detail_qna" onclick="SITE_SHOP_DETAIL.scrollPCTab('qna'); return false;">Q&amp;A<span class="braket-badge badge _qna_count_text">0</span>
+                </a>
+              </li>
+            </ul>
+          </div><div></div>
+        </div>
+      </div>
+      <div class="detail_detail_wrap ">
+        <a class="prod_detail_detail _prod_detail_tab_target is_target" name="prod_detail_detail"></a>
+        <div class="_prod_detail_detail_lazy_load clearfix shop_view_body  fr-view" id="prod_detail_body"></div>										</div>
+      <div class="detail_review_wrap">
+        <div class="_detail_review_wrap" id="first_review">
+          <a class="prod_detail_review _prod_detail_tab_target is_target" name="prod_detail_review"></a>
+          <div class="text-bold prod_detail_badge text-16">구매평<span class="braket-badge badge _review_count_text">0</span>
+          </div>
+          <div class="_review_wrap">	<div class="text-13 body_font_color_70 margin-bottom-xl">
+            상품을 구매하신 분들이 작성한 리뷰입니다.	</div>
+
+            <a class="btn btn-primary" role="button" onclick="SITE_MEMBER.openLogin('L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4', 'null', null, 'N');">구매평 작성</a>
+            <div class="review_top margin-top-xxxl margin-bottom-xl" id="review_top">
+              <a class="text-14" href="javascript:;" style="color: rgba(0,0,0,0.65);" onclick="SITE_SHOP_DETAIL.getOnlyPhotoReview('Y','N','Y');">
+                <i class="fixed_transform simple icon-picture text-16"></i>
+                <div class="inline-blocked">포토 구매평만 보기</div>
+              </a>
+            </div>
+
+            <div class="no_comment_box text-center">
+              <div class="body_font_color_40">등록된 구매평이 없습니다.</div>
+            </div>
+            <nav class="paging-block">
+            </nav>
+            <script>
+              $(function(){
+                var $body = $('body');
+                var $container = $body.find('._show_more_review');
+                var review_max_height = 0;
+                var more_height = 0;
+
+                $container.off('click').on('click', function(){
+                  var $this = $(this);
+                  if($this.hasClass('active')){
+                    $this.removeClass('active');
+                  }else{
+                    $this.addClass('active');
+                  }
+                  if($body.hasClass('modal-open')){
+                    $this.removeClass('active');
+                  }
+                }).each(function(k, v){
+                  var $this = $(this);
+                  var $txt = $this.find('._txt');
+                  if(review_max_height <= 0){
+                    // 더미를 사용해 7줄의 높이값 계산
+                    var $dummy = $txt.find('._dummy');
+                    review_max_height = $dummy.height();
+                  }
+                  var current_height = $txt.height();
+                  if(review_max_height < current_height){
+                    // 더보기 추가
+                    $this.addClass('overflow');
+                    $txt.css('max-height', review_max_height + 'px');
+                    var $more_inline = $txt.find('._more_inline');
+                    if($more_inline.length > 0 && more_height <= 0){
+                      // 더보기 높이값 계산
+                      more_height = $more_inline.height();
+                    }
+                    $more_inline.css('margin-top', (review_max_height - more_height) + 'px');
+                  }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="detail_qna_wrap">
+        <div class="_detail_qna_wrap " id="first_qna">
+          <a class="prod_detail_qna _prod_detail_tab_target is_target" name="prod_detail_qna"></a>
+          <div class="text-bold  prod_detail_badge text-16">
+            Q&amp;A<span class="braket-badge badge _qna_count_text">0</span>
+          </div>
+          <div class="_qna_wrap">	<div class="margin-bottom-xxxl btn_group">
+            <div class="text-13 body_font_color_70 margin-bottom-xl">
+              구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.			</div>
+            <div class="flexed">
+              <a class="btn btn-primary product_qna flexed align-item-center" role="button" onclick="window.location.href = '/?prod_code=s2022093027948f330489b&amp;qmode=write&amp;idx=0'" style="margin-right:3px;">상품문의</a>
+              <a href="/shop_mypage/?m2=qna" class="btn one_qna" role="button">1:1 문의</a>
+            </div>
+          </div>
+            <div style="text-align: center; padding: 50px 0;" class="no_comment_box">
+              <div class="body_font_color_40" style="margin:30px">등록된 문의가 없습니다</div>
+            </div>
+            <nav class="paging-block"><!-- 페이징 버튼 -->
+            </nav>
+            <script>
+              $(window).off('keydown').on('keydown', function(key){
+                if(isEsc(key)){
+                  $.cocoaDialog.close();
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--// PC용 상세 정보 버튼 종료 //-->
+  </div>
+</div>
+
+  <!-- 장바구니로 이동 alert 시작 -->
+  <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" class="modal in modal_site_alert" style="display: none;" id="shop_detail_add_cart_alarm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="layer_pop">
+          <div class="container-fluid">
+            <p class="text-center" style="margin-bottom: 0;" id="cart_add_result_msg">
+              선택하신 상품을 장바구니에 담았습니다.						</p>
+          </div>
+          <div class="btn-group-justified">
+            <a href="javascript:" class="btn" onclick="SITE_SHOP_DETAIL.hideAddCartAlarm();">계속쇼핑</a>
+            <a href="javascript:" class="btn right" onclick="SITE_SHOP_DETAIL.moveCart();">디깅 포인트</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // 장바구니로 이동 alert 종료 -->
+
+  <!--배송방법이 방문수령인 경우 관리자 정보 확인창-->
+  <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" class="modal in modal_site_alert site_modal" style="display: none;" id="deliv_visit_wrap">
+    <div class="modal-dialog ">
+      <div class="modal-content">
+        <div class="layer_pop">
+          <div class="top-block">
+            <div class="text-center text-brand text-15">위치확인</div>
+            <a href="javascript:" data-dismiss="modal" onclick="$('#deliv_visit_wrap').hide()">
+              <i class="btl bt-times" aria-hidden="true"></i>
+              <span class="sr-only">위치확인</span>
+            </a>
+          </div>
+          <div class="container full-width">
+            <div class="site-form-group">
+              <label class="col-md-2 col-xs-4 text-right">전화번호</label>
+              <div class="col-md-10 col-xs-8">02-771-2500</div>
+            </div>
+
+            <div class="site-form-group">
+              <label class="col-md-2 col-xs-4 text-right">주소</label>
+              <input type="hidden" value="04533">
+              <div class="col-md-10 col-xs-8">서울 중구 소공동 1</div>
+            </div>
+            <div class="site-form-group">
+              <label class="col-md-2 col-xs-4 text-right">상세주소</label>
+              <div class="col-md-10 col-xs-8">서울특별시 중구남대문로 81 (소공동)</div>
+            </div>					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END-->
+
+
+
+
+
+
+
+
+  <script id="prodDetailPC" type="application/template"></script>
+  <script id="prodDetailMobile" type="application/template">
+</script>
+
+
+  <!--페이스북 픽셀 추적-->
+  <!-- 채널 넛지 -->
+  <!--모비온 리타게팅 추적-->
+
+</div></div></div></div></div></main>
+</body>
+</th:block>
+</html>

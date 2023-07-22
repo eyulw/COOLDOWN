@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+    <main><div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w20210115d7c9c6642ff84"><div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 카트" data-widget-type="shop_cart" data-widget-parent-is-mobile="N">
+        <div class="shop-content cart" id="shop_cart_list">
+            <div class="shop-tit im-flex im-justify-between im-items-center">
+                <div class="hidden-sm hidden-xs">
+                    장바구니                					<span class="b_cnt"><em class="_cart_item_count">1</em></span>
+
+                </div>
+
+            </div>
+            <!--장바구니 아이템 리스트 가져옴-->
+            <div class="table-wrap _cart_list_wrap holder">	<table class="table no-margin shop-table _shop_table">
+                <colgroup>
+                    <col>
+                    <col style="width:189px">
+                    <col style="width:189px">
+                    <col style="width:147px">
+                </colgroup>
+                <thead class="item-subject">
+                <tr class="hidden-xs text-14">
+                    <th class="item-info">
+                        <div class="im-flex">
+                            <div class="im-cart-checkbox-wrap">
+                                <div class="checkbox checkbox-styled no-margin">
+                                    <label class="no-margin-bottom">
+                                        <input type="checkbox" value="" class="_all_check" onclick="SITE_SHOP_CART.toggleAllCheckCartItem($(this).is(':checked'),'N');">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <span class="hidden-sm hidden-xs">상품 정보</span>
+                            <span class="hidden-lg hidden-md">전체선택</span>
+                        </div>
+                    </th>
+                    <th class="amount text-center"><span class="hidden-sm hidden-xs">수량</span></th>
+                    <th class="price text-center"><span class="hidden-sm hidden-xs">주문금액</span></th>
+                    <th class="deliv_price text-center"><span class="hidden-sm hidden-xs">배송 정보</span></th>
+                </tr>
+                <tr class="hidden-lg hidden-md hidden-sm">
+                    <th class="slt full-width" colspan="4">
+                        <div class="im-flex im-justify-between im-items-center im-cart-checkbox-wrap">
+                            <div class="im-flex im-items-center checkbox checkbox-styled no-margin">
+                                <label>
+                                    <input type="checkbox" value="" class="_all_check" onclick="SITE_SHOP_CART.toggleAllCheckCartItem($(this).is(':checked'),'N');">
+                                    <span></span>
+                                </label>
+                                <span class="text-15" style="margin-left: 10px;">전체선택</span>
+                            </div>
+                            <div class="cart-btn-tools text-13">
+                                <a href="javascript:;" class="btn" onclick="SITE_SHOP_CART.removeSelectedCartItem('N')">선택상품 삭제</a><a href="javascript:;" class="btn" onclick="SITE_SHOP_CART.removeSelectedCartSoldOutItem('N')">품절상품 삭제</a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="content" style="overflow: visible;">
+                    <td class="slt img">
+                        <div class="im-flex">
+                            <div class="im-cart-checkbox-wrap">
+                                <div class="checkbox checkbox-styled no-margin">
+                                    <label>
+                                        <input type="checkbox" value="i202307205e02425afe504" class="_cartItemCheckbox" onclick="SITE_SHOP_CART.toggleCheckCartItem('N')" checked="checked"><span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="im-cart-img-wrap im-grow im-xs-flex im-xs-flex-col">
+                                <a class="cart-item-wrap" href="/campingitem/?idx=14">
+                                    <div class="cart-item-img">
+                                        <img src="https://cdn.imweb.me/thumbnail/20210827/0df9f2e5a837b.jpeg" alt="cart item">
+                                    </div>
+                                    <p class="cart-item-title text-15" id="shop_cart_title_i202307205e02425afe504">힐스캠&nbsp;파이어네이도&nbsp;화로대</p>
+                                </a>
+                                <span class="cart-item-remove" onclick="SITE_SHOP_CART.removeCartItem('i202307205e02425afe504','N')"><i class="btl bt-times" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="amount td-blocked hidden-xs">
+                        <div class="text-13 title text-center text-15">
+                            1									</div>
+                        <div class="text-center margin-top-xl no-margin-bottom">
+											<span class="cart-btn-tools">
+																								<a href="javascript:;" class="btn _modal_open_btn no-margin-bottom" onclick="SITE_SHOP_CART.showChangeCartItem('i202307205e02425afe504','N')">옵션/수량 변경</a><!-- 아래 옵션 변경과 같은 기능. 모바일에선 해당 버튼은 사라지고 아래 옵션 변경 버튼이 노출-->
+																						</span>
+                        </div>
+                    </td>
+                    <td class="amount td-blocked hidden-lg hidden-md hidden-sm no-margin-bottom">
+                        <div class="im-price-result im-flex im-justify-between">
+                            <div class="title">
+                                주문금액										</div>
+                            <div class="cont blocked text-20 text-bold">
+                                280,000원																					</div>
+                        </div>
+                        <div class="im-flex im-justify-between margin-bottom-xl">
+                            <div class="title">
+                                <span>상품금액(<em class="hidden-lg hidden-md ">총</em> 1개)</span>
+                            </div>
+                            <div class="cont blocked">
+                                280,000원																					</div>
+                        </div>
+                        <div>
+                            <div class="im-flex im-justify-between margin-bottom-xl">
+                                <span class="title">배송비</span>
+                                <div class="cont text-12 text-right">
+                                    <span>무료</span>												</div>
+                            </div>
+                            <div class="im-flex im-justify-between margin-bottom-xl">
+                                <span class="title">배송수단</span>
+                                <div class="cont text-13 text-right">
+                                    <span class="margin-bottom-lg">택배</span>												</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="price td-blocked text-center hidden-xs">
+                        <span class="text-bold text-20">280,000원</span>
+                        <p class="margin-top-xl no-margin-bottom">
+										<span class="cart-btn-tools">
+																																	<a href="javascript:;" class="btn hidden-xs btn-primary no-margin-bottom" onclick="SITE_SHOP_CART.addOrderWithCartDirect('normal','i202307205e02425afe504','https://www.digdigactivity.com/shop_cart')">바로구매</a>
+																															</span>
+                        </p>
+                    </td>
+                    <td class="hidden-xs td-blocked text-center" rowspan="1">
+                        <div class="cont text-15 text-center im-flex im-justify-center im-items-center margin-bottom-lg">
+                            <span class="text-bold"><span>무료</span></span>																																			</div>
+                        <div class="cont text-13 text-center opacity-60">
+                            <span class="margin-bottom-lg">택배</span>												</div>
+                    </td>
+                    <td class="td-blocked hidden-lg hidden-md hidden-sm" style="margin-top: 6px;">
+                        <div class="im-flex cart-btn-tools">
+                            <a href="javascript:;" class="btn btn-cart-option full-width margin-right-lg _modal_open_btn" onclick="SITE_SHOP_CART.showChangeCartItem('i202307205e02425afe504','N')">옵션/수량 변경</a>
+
+                            <a class="btn btn-cart-order full-width btn-primary" href="javascript:;" onclick="SITE_SHOP_CART.addOrderWithCartDirect('normal','i202307205e02425afe504','https://www.digdigactivity.com/shop_cart')">바로구매</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="im-tr-shipping hidden-lg hidden-md hidden-sm text-right text-14 hide">
+                    <td colspan="4">
+                    </td>
+                </tr>
+                </tbody>
+                <script>SITE_SHOP_CART.addSelectedCartItem('i202307205e02425afe504');</script><script>SITE_SHOP_CART.toggleAllSelectCk();</script>	</table>
+                <table id="im_cart_footer" class="shop-table full-width">
+                    <tfoot>
+                    <tr class="hidden-xs">
+                        <td>
+                            <div class="im-flex im-justify-between">
+                                <div class="cart-btn-tools">
+                                    <a href="javascript:;" class="btn" onclick="SITE_SHOP_CART.removeSelectedCartItem('N')">선택상품 삭제</a><a href="javascript:;" class="btn" onclick="SITE_SHOP_CART.removeSelectedCartSoldOutItem('N')">품절상품 삭제</a>
+                                </div>
+                                <div class="text-right text-13 opacity-60">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="payment-info hidden-lg hidden-md hidden-sm _cart_result_container">
+                        <td class="full-width">
+                            <div class="im-flex im-justify-between im-items-center _cart_price_field">
+                                <div class="pay-txt">
+                                    상품금액(<em class="hidden-lg hidden-md ">총</em> <span class="text-primary _cart_count">1</span>개)
+                                </div>
+                                <div class="pay-number">
+                                    <span class="_cart_price">280,000원</span>
+                                </div>
+                            </div>
+                            <div class="im-flex im-justify-between im-items-center _cart_deliv_price_field">
+                                <div class="pay-txt">
+                                    배송비							</div>
+                                <div class="pay-number">
+                                    <span class="_plus_deliv_price">+ </span><span class="_cart_deliv_price">무료</span>
+                                </div>
+                            </div>
+                            <div class="im-flex im-justify-between im-items-center _cart_period_field" style="display: none;">
+                                <div class="pay-txt">
+                                    상품 할인금액						</div>
+                                <div class="pay-number">
+                                    - <span class="_cart_period_discount">-</span>
+                                </div>
+                            </div>
+                            <div class="im-flex im-justify-between im-items-center _cart_membership_field" style="display: none;">
+                                <div class="pay-txt">
+                                    회원 할인금액							</div>
+                                <div class="pay-number">
+                                    - <span class="_cart_membership_discount">-</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="im-total-payment-info hidden-lg hidden-md hidden-sm">
+                        <td class="full-width">
+                            <div class="im-flex im-justify-between im-items-center _cart_total_field">
+                                <div class="pay-text">
+                                    총 주문금액						</div>
+                                <div class="pay-number text-primary _cart_main_total_price">280,000원</div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <table class="table im-cart-result-table _cart_result_table hidden-xs">
+                    <thead>
+                    <tr>
+                        <th class="text-left text-14">
+                            총 주문 상품 <span class="text-primary _cart_count">1</span>개				</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="text-center">
+                            <div class="im-cart-result-container _cart_result_container">
+                                <div class="_cart_price_field">
+                                    <div class="im-cart-result-wrap">
+                                        <p class="_cart_price">280,000원</p>
+                                        <p>상품금액</p>
+                                    </div>
+                                </div>
+                                <div class="_cart_deliv_price_field">
+                                    <div>
+                                        <i class="im-icon im-ico-plus-plain"></i>
+                                    </div>
+                                    <div class="im-cart-result-wrap">
+                                        <p class="_cart_deliv_price">무료</p>
+                                        <p>배송비</p>
+                                    </div>
+                                </div>
+                                <div class="_cart_period_field" style="display: none;">
+                                    <div>
+                                        <i class="im-icon im-ico-minus-plain"></i>
+                                    </div>
+                                    <div class="im-cart-result-wrap">
+                                        <p class="_cart_period_discount">-</p>
+                                        <p>상품 할인금액</p>
+                                    </div>
+                                </div>
+                                <div class="_cart_membership_field" style="display: none;">
+                                    <div>
+                                        <i class="im-icon im-ico-minus-plain"></i>
+                                    </div>
+                                    <div class="im-cart-result-wrap">
+                                        <p class="_cart_membership_discount">-</p>
+                                        <p>회원 할인금액</p>
+                                    </div>
+                                </div>
+                                <div class="_cart_total_field">
+                                    <div>
+                                        <i class="im-icon im-ico-equals-plain"></i>
+                                    </div>
+                                    <div class="im-cart-result-wrap">
+                                        <p class="text-primary _cart_main_total_price">280,000원</p>
+                                        <p>총 주문금액</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <script type="text/javascript">
+                    (function(){
+                        /**
+                         * 수량변경 버튼 클릭시 body에 클래스 토글
+                         */
+
+                        var $modal_open_btn = $('body').find('._modal_open_btn');
+                        $modal_open_btn.off('click').on('click', function() {
+                            $('body').toggleClass('modal-open', true);
+                        });
+
+                        var $modal_close_btn = $('body').find('._modal_close_btn');
+                        $modal_close_btn.off('click').on('click', function() {
+                            $('body').toggleClass('modal-open', false);
+                        });
+
+                        $('.html-popover').each(function(){
+                            $(this).popover({
+                                html : true
+                            });
+                            if ( $(this).hasClass('deliv_price_info') ) {
+                                $(this).on("show.bs.popover", function(e){
+                                    $(this).data("bs.popover").tip().css({"max-width": "500px"});
+                                });
+                            }
+                        });
+                    }());
+                </script>
+            </div>
+            <!--END-->
+            <div class="bottom-btn clearfix btn-wrap">
+                <div class="pay-box" style="">
+                    <a class="btn bg-brand to-order _fade_link _btn_order" href="javascript:;" onclick="SITE_SHOP_CART.addOrderWithCart('normal','','https://www.digdigactivity.com/shop_cart')" style="display: flex;">주문하기</a>
+                </div>
+                <a href="./" class="cart-ctn ctn _fade_link" style="">계속 쇼핑하기</a>
+            </div>
+            <div class="hidden-sm hidden-xs clearfix wish_list">
+                <h6 class="margin-bottom-xxl cart-btn-tools">위시리스트<a href="/shop_mypage/?m2=wish_list" class="btn _fade_link" style="margin-left:15px;">더보기</a></h6>
+                <div id="shop_cart_wish_list_empty" style="padding: 70px 70px 120px 70px; text-align: center; display: none">
+                    <div class="body_font_color_40" style="font-size:15px;">위시리스트가 없습니다.</div>
+                </div>
+                <div style="margin: 0px -10px;" id="shop_cart_wish_list">    <div class="shop-item common-item" id="wish-item-s20210615518183171de95" style="margin-bottom: 0;"><!-- 반복구간 시작 (최대 5개 까지만 노출) -->
+                    <div class="wish_thumb">
+                        <a href="/campingitem/?idx=14">
+                            <img src="https://cdn.imweb.me/thumbnail/20210702/5eb4c70abe4a9.jpeg" alt="위시리스트 이미지">
+                            <span class="bg_hover"></span>
+                        </a>
+                        <a href="javascript:;" class="circle btl bt-times-circle" onclick="SITE_SHOP_CART.deleteProdWishByProdCode('s20210615518183171de95')"></a>
+                    </div>
+                    <div class="item-detail">
+                        <div class="no-margin item-pay">
+                            <div class="item-title" style="display: ">
+                                <a href="/campingitem/?idx=14">힐스캠 파이어네이도 화로대</a>
+                            </div>
+                            <div class="item-pay-detail">
+                                <p class="pay" style="display: ;margin-right:2px!important">280,000원</p>
+                            </div>
+                        </div>
+                        <div class="item-icon unit-list">
+                        </div>
+                    </div>
+                </div><!-- 반복구간 끝 (최대 5개 까지만 노출) -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 수량변경 클릭시 노출되는 모달 -->
+        <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" class="modal in modal_widget_cartopt" style="display:none" id="shop_cart_change_layer">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="layer_pop">
+                        <div class="top-block">
+                            <div class="set-tit text-center">옵션 변경</div>
+                            <a href="javascript:;" data-dismiss="modal" class="bt-close bt bt-flat bt-default _modal_close_btn" onclick="SITE_SHOP_CART.hideChangeCartItem()"><i class="btl bt-times"></i></a>
+                        </div>
+                        <div class="container-fluid" style="max-height: 570px; overflow-y: auto;">
+
+                        </div>
+                        <div class="bottom-btn">
+                            <a href="javascript:;" class="btn btn-cancel _modal_close_btn" style="background: #fff;" onclick="SITE_SHOP_CART.hideChangeCartItem()">취소</a>
+                            <a href="javascript:;" class="btn _modal_close_btn bg-brand to-order" onclick="SITE_SHOP_CART.changeCartItemComplete('https://www.digdigactivity.com/shop_cart')">변경</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div></div></div></div></main>
+
+
+</th:block>
+</html>
