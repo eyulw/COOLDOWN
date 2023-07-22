@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     List<User> selectUser();
+    User selectOneUser(String u_id);
 }

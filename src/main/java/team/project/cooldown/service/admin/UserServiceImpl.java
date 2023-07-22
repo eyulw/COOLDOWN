@@ -15,4 +15,9 @@ public class UserServiceImpl implements UserService{
     public List<User> readUser() {
         return a_udao.selectUser();
     }
+
+    @Override
+    public User readOneUser(String u_id) {
+        return a_udao.selectOneUser(u_id);
+    }
 }
