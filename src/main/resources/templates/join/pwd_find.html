@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<th:block layout:fragment="content">
+  <body>
+  <div id="findPassword" class="_step">
+    <div class="select_wrap_pw padding-bottom-xl no-border">
+      <div class="mt8 mb8">
+        <div class="input-group">
+          <input class="form-control _find_pw_input_email" title="가입한 이메일 또는 아이디" type="text" name="uid" placeholder="가입한 아이디">
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary _update_status" data-tab="find_password" onclick="SITE_MEMBER.findSubmit('find')">비밀번호 찾기</button>
+    </div>
+  </div>
+  </body>
+</th:block>
+</html>
