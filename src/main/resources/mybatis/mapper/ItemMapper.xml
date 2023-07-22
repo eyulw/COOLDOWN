@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.project.cooldown.mybatis.ItemMapper">
+         <select id="selectItemAttach"  resultType="ItemAttach">
+           select iano,item_id,fname,fsize from itemattach
+         </select>
+    <select id="selectItemCombine"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id
+    </select>
+    <select id="selectItemCombine_d"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'digbus_goods';
+    </select>
+    <select id="selectItemCombine_c"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'campingitem';
+    </select>
+    <select id="selectItemCombine_h"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'hikinhitem';
+    </select>
+    <select id="selectItemCombine_b"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'bikeitem';
+    </select>
+    <select id="selectItemCombine_r"  resultType="ItemCombine">
+        SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
+        FROM item i
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'runningitem';
+    </select>
+
+
+
+
+</mapper>
