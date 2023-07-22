@@ -12,5 +12,9 @@ public class IndexController {
     public String index(){
         return "index";
     }
+    @GetMapping("/contents")
+    public String contents(){
+        return "contents";
+    }
 
 }

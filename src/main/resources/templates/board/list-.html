@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div id="main">
+        <h2 class="">자유게시판</h2>
+        <br>
+        <P class="">디기들의 아무말 대잔치</P>
+        <div id="categoryType2" class="">
+            <ul class="">
+                <li class="">
+                    <a href="" id="cAll2" class="" onclick="">
+                        <span class="">전체</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" id="cBoard" class="" onclick="">
+                        <span class="">자유글</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" id="cCamping" class="" onclick="">
+                        <span class="">동행구하기</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" id="cIntro" class="" onclick="">
+                        <span class="">자기소개</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" id="cAsking" class="" onclick="">
+                        <span class="">Q&A</span>
+                    </a>
+                </li>
+            </ul>
+        </div> <!--카테고리명-->
+        <div>
+            <img src=""><a href=""></a>
+            <div></div>
+            <p><title></title></p>
+        </div>
+        <div class="">
+            <div class="">
+                <table class="">
+                    <thead class="">
+                        <tr>
+                            <th>썸네일</th>
+                            <th>카테고리</th>
+                            <th>제목</th>
+                            <th>닉네임</th>
+                            <th>작성일</th>
+                            <th>조회수</th>
+                            <th>찜하기</th>
+                            <th>댓글수</th>
+                        </tr>
+                    </thead>
+                    <hr>
+                    <tbody>
+                        <tr>
+                            <td><a href=""></a>썸네일</td>
+                            <td><a href=""></a>카테고리</td>
+                            <td><a href=""></a>제목</td>
+                            <td><a href=""></a>닉네임</td>
+                            <td><a href=""></a>작성일</td>
+                            <td><a href=""></a>조회수</td>
+                            <td><a href=""></a>찜하기</td>
+                            <td><a href=""></a>댓글수</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- 게시판 리스트 -->
+        <button type="button">글쓰기</button><!-- 관리자만 쓸 수 있는 글쓰기 버튼-->
+    </div>
+    <script src="/assets/js/board.js" charset="utf-8"></script>
+</th:block>
+</html>

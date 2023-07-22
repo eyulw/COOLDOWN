@@ -14,4 +14,6 @@ public class Qna {
     private String contents;
     private String regdate;
     private String answer;
+
+    private User ua;
 }
