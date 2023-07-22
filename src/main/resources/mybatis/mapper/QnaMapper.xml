@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.project.cooldown.mybatis.QnaMapper">
+    <resultMap id="ua" type="User">
+        <result column="u_id" property="u_id"/>
+        <result column="userid" property="userid"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="nickname" property="nickname"/>
+        <result column="phone" property="phone"/>
+        <result column="zipcode" property="zipcode"/>
+        <result column="address1" property="address1"/>
+        <result column="address2" property="address2"/>
+        <result column="birth" property="birth" />
+        <result column="username" property="username" />
+        <result column="regdate" property="regdate" />
+        <result column="role" property="role" />
+    </resultMap>
+
+    <resultMap id="qua" type="Qna">
+        <result column="qna_id" property="qna_id"/>
+        <result column="u_id" property="u_id"/>
+        <result column="title" property="title"/>
+        <result column="contents" property="contents"/>
+        <result column="regdate" property="regdate"/>
+        <result column="answer" property="answer"/>
+
+        <collection property="ua" resultMap="ua"/>
+    </resultMap>
+    <select id="selectQna" resultMap="qua">
+        select * from qna join user using(u_id)
+    </select>
+
+</mapper>

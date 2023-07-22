@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div class="container adminBody" id="main">
+        <div class="admin_list_style">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/admin/user">회원관리</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/admin/board">게시글관리</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/admin/item">상품관리</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/admin/qna">문의관리</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</th:block>
+</html>
