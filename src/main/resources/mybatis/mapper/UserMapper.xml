@@ -6,5 +6,8 @@
     <select id="selectUser" resultType="User">
         select * from user
     </select>
+    <select id="selectOneUser" resultType="User">
+        select * from user where userid=#{userid}
+    </select>
 
 </mapper>

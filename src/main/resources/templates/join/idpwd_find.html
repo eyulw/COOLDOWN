@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<th:block layout:fragment="content">
+  <body>
+
+    <div class="tit_wrap">
+      <button class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" data-original-title="닫기"><i class="btl bt-times"></i></button>
+      <h2 class="find_tit _find_tit findId">아이디 찾기</h2>
+      <h2 class="find_tit _find_tit findPassword hidden">비밀번호 찾기</h2>
+    </div>
+
+    <div class="force-padding">
+      <div class="tab_wrap clearfix">
+        <button type="button" class="btn btn_find col-xs-6 active" data-tab="findId" tabindex="0">아이디 찾기</button>
+        <button type="button" class="btn btn_find col-xs-6" data-tab="findPassword" tabindex="0">비밀번호 찾기</button>
+      </div>
+      <!-- 아이디 찾기 tab -->
+
+      <div id="findId" class="_step">
+        <p class="choice">아이디를 찾을 방법을 선택해주세요.</p>
+        <div class="step04_select_wrap_id">
+          <div class="select_tit radio radio-styled mt0 mb0 clearfix">
+            <label>
+              <input title="가입한 이메일로 찾기" type="radio" name="findIdStep01" value="find_id_email" checked="">
+              <span>가입한 이메일로 찾기</span>
+            </label>
+          </div>
+          <div class="mt16 mb8 _step01_find_id_email_input_wrap" style="display: block;">
+            <div class="input-group">
+              <input class="form-control _find_id_input_email" title="이메일 또는 아이디" type="text" placeholder="이메일 또는 아이디">
+            </div>
+          </div>
+        </div>
+        <div class="step04_select_wrap_id">
+          <div class="select_tit radio radio-styled mt0 mb0 clearfix">
+            <label>
+              <input title="가입한 휴대폰으로 찾기" type="radio" name="findIdStep01" value="find_id_name_and_phone">
+              <span>가입한 휴대폰으로 찾기</span>
+            </label>
+          </div>
+          <div class="mt16 mb8 _step01_find_id_name_and_phone_input_wrap" style="display: none;">
+            <div class="form-group input-group input-group-login">
+              <input class="form-control _find_id_input_nick" title="이름 또는 닉네임" type="text" placeholder="이름 또는 닉네임">
+              <input class="form-control _find_id_input_call_num" title="휴대폰 번호" type="text" placeholder="휴대폰 번호">
+            </div>
+          </div>
+        </div>
+        <p class="txt_c mt8 mb0 _find_id_step_01_btn_wrap">
+          <button class="btn btn-primary _update_status" data-tab="find_id" style="" onclick="SITE_MEMBER.findSubmit('find');">아이디 찾기</button>
+        </p>
+      </div>
+      <!-- 비밀번호 찾기 tab -->
+      <div id="findPassword" class="_step hidden">
+        <div class="select_wrap_pw padding-bottom-xl no-border">
+          <div class="mt8 mb8">
+            <div class="input-group">
+              <input class="form-control _find_pw_input_email" title="가입한 이메일 또는 아이디" type="text" name="uid" placeholder="가입한 아이디">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary _update_status" data-tab="find_password" onclick="SITE_MEMBER.findSubmit('find')">비밀번호 찾기</button>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  </body>
+</th:block>
+</html>

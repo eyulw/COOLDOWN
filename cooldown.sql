@@ -27,3 +27,7 @@ create table itemattach(
 );
 
 alter table itemattach add constraint fkiid foreign key (item_id) references item(item_id);
+
+insert into qna (u_id,title,contents) values (3,"문의합니다","파이팅~해야지...");
+
+insert into qna (u_id,title,contents) values (1,"뭐뭐뭐 문의합니다","아아아");
