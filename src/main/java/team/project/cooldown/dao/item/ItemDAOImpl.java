@@ -16,33 +16,33 @@ public class ItemDAOImpl implements ItemDAO{
 
 
     @Override
-    public List<ItemCombine> selectItemCombine() {
-        return itemMapper.selectItemCombine();
+    public List<ItemCombine> selectItemCombine(String sort) {
+        return itemMapper.selectItemCombine(sort);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_d() {
-        return itemMapper.selectItemCombine_d();
+    public List<ItemCombine> selectItemCombine_d(String sort) {
+        return itemMapper.selectItemCombine_d(sort);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_c() {
-        return itemMapper.selectItemCombine_c();
+    public List<ItemCombine> selectItemCombine_c(String sort) {
+        return itemMapper.selectItemCombine_c(sort);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_h() {
-        return itemMapper.selectItemCombine_h();
+    public List<ItemCombine> selectItemCombine_h(String sort) {
+        return itemMapper.selectItemCombine_h(sort);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_b() {
-        return itemMapper.selectItemCombine_b();
+    public List<ItemCombine> selectItemCombine_b(String sort) {
+        return itemMapper.selectItemCombine_b(sort);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_r() {
-        return itemMapper.selectItemCombine_r();
+    public List<ItemCombine> selectItemCombine_r(String sort) {
+        return itemMapper.selectItemCombine_r(sort);
     }
 
 

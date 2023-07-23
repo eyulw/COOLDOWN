@@ -11,32 +11,146 @@
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
         JOIN itemattach ia ON i.item_id = ia.item_id
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
+
     <select id="selectItemCombine_d"  resultType="ItemCombine">
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
-        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'digbus_goods';
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'digbus_goods'
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
     <select id="selectItemCombine_c"  resultType="ItemCombine">
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
-        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'campingitem';
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'campingitem'
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
     <select id="selectItemCombine_h"  resultType="ItemCombine">
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
-        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'hikinhitem';
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'hikinhitem'
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
     <select id="selectItemCombine_b"  resultType="ItemCombine">
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
-        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'bikeitem';
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'bikeitem'
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
     <select id="selectItemCombine_r"  resultType="ItemCombine">
         SELECT i.item_id, i.category, i.itemname, i.price, i.likes, i.info, i.stock, ia.iano, ia.fname, ia.fsize
         FROM item i
-        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'runningitem';
+        JOIN itemattach ia ON i.item_id = ia.item_id where category = 'runningitem'
+        <if test="sort == 'recent'">
+            ORDER BY i.item_id ASC
+        </if>
+        <if test="sort == 'like'">
+            ORDER BY i.likes DESC
+        </if>
+        <if test="sort == 'max_price'">
+            ORDER BY i.price DESC
+        </if>
+        <if test="sort == 'min_price'">
+            ORDER BY i.price ASC
+        </if>
+        <if test="sort == 'abc'">
+            ORDER BY i.itemname ASC
+        </if>
+        <if test="sort == 'descabc'">
+            ORDER BY i.itemname DESC
+        </if>
     </select>
+
+
+
+
+
 
 
 

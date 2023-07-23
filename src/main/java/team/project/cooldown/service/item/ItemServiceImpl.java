@@ -13,33 +13,33 @@ public class ItemServiceImpl implements ItemService{
 
     final ItemDAO idao;
     @Override
-    public List<ItemCombine> readItemCombine() {
-        return idao.selectItemCombine();
+    public List<ItemCombine> readItemCombine(String sort) {
+        return idao.selectItemCombine(sort);
     }
 
     @Override
-    public List<ItemCombine> readItemCombine_d() {
-        return idao.selectItemCombine_d();
+    public List<ItemCombine> readItemCombine_d(String sort) {
+        return idao.selectItemCombine_d(sort);
     }
 
     @Override
-    public List<ItemCombine> readItemCombine_c() {
-        return idao.selectItemCombine_c();
+    public List<ItemCombine> readItemCombine_c(String sort) {
+        return idao.selectItemCombine_c(sort);
     }
 
     @Override
-    public List<ItemCombine> readItemCombine_h() {
-        return idao.selectItemCombine_h();
+    public List<ItemCombine> readItemCombine_h(String sort) {
+        return idao.selectItemCombine_h(sort);
     }
 
     @Override
-    public List<ItemCombine> readItemCombine_b() {
-        return idao.selectItemCombine_b();
+    public List<ItemCombine> readItemCombine_b(String sort) {
+        return idao.selectItemCombine_b(sort);
     }
 
     @Override
-    public List<ItemCombine> readItemCombine_r() {
-        return idao.selectItemCombine_r();
+    public List<ItemCombine> readItemCombine_r(String sort) {
+        return idao.selectItemCombine_r(sort);
     }
 
 
