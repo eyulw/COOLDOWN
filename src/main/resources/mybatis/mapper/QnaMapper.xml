@@ -32,5 +32,12 @@
     <select id="selectQna" resultMap="qua">
         select * from qna join user using(u_id)
     </select>
+    <select id="selectOneQna" resultMap="qua">
+        select * from qna join user using(u_id) where qna_id=#{qna_id}
+    </select>
+    <update id="updateAdminReply">
+        update qna set answer=#{answer} where qna_id=#{qid}
+    </update>
+
 
 </mapper>

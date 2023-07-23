@@ -22,7 +22,7 @@
 .userdetailtb tr{
     display: block;
     padding: 10px;
-    width: 400px;
+    width: 500px;
     border-bottom:1px solid #ccc;
 }
 
@@ -33,11 +33,29 @@
 .userdetailtb tr td:first-child{
     width: 150px;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     text-align: right;
 }
 .userdetailtb tr td:last-child{
-    width: 250px;
+    width: 350px;
     padding: 0 20px;
+}
+.userdetailtb tr td:last-child input{
+    border: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+
+/*qna답변폼*/
+
+.qnaBody{
+    margin: 50px auto;
+    /*border: 1px solid red;*/
+}
+
+.rpltxt{
+    border: 1px solid blue;
+    resize: none;
 }
