@@ -13,13 +13,21 @@
           <span class="icon-arrow-right" data-cnt=""></span>							</li>
         <li><a href="/digshop" class=" ">디그샵</a><span class="icon-arrow-right"></span></li><li><a href="/digbus_goods" class="active ">디그버스&nbsp;굿즈</a></li>					</ul>
     </div>
-    <div class="row goods_wrapper">
+    <div th:each="itcb_d :${itemCombine_d}" class=" row goods_wrapper"><!--타임리프먹이면 css적용이 안되는듯?-->
       <div class="col-md-6 col-sm-12 col-xs-12 goods_thumbs_wrap">
         <div class="_carousel_count_numbering carousel-count-numbering" style="display: none;"></div>
         <div class="goods_thumbs" id="prod_image_list">
-          <div class="holder">
+          <div   class="holder">
             <div class="owl-carousel prod-owl-list owl-theme owl-loaded">
-              <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 566px;"><div class="owl-item active" style="width: 566px; margin-right: 0px;"><div class="item _item"><img style="" src="https://cdn.imweb.me/thumbnail/20220930/64feae41b8007.jpg" alt=""></div></div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>
+              <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 566px;">
+                  <div class="owl-item active" style="width: 566px; margin-right: 0px;">
+                    <div  class="item _item" >
+
+                        <img style="" th:src="${itcb_d.fname}" alt="">
+
+                    </div>
+                  </div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>
           </div>
           <div class="shop_goods_img" style="display: none ">
             <ul class="clearfix">
@@ -30,10 +38,10 @@
       <div class="col-md-6 col-sm-12 col-xs-12  goods_form_wrap">
         <div class="goods_form" id="prod_goods_form">
           <header>
-            <div class="view_tit no-margin-top title_font_style " style="color: ; font-size: 22px !important;">쭈꾸미게임 - BAC 띡이															</div>
+            <div class="view_tit no-margin-top title_font_style " style="color: ; font-size: 22px !important;" th:text="${itcb_d.itemname}" >쭈꾸미게임 - BAC 띡이															</div>
             <div class="pay_detail full-width">
               <div class="holder table-row">
-                <span class="text-brand"><span class="real_price">판매가 회원공개</span></span>
+                <span class="text-brand"><span class="real_price" th:text="${itcb_d.price+'원'}">판매가 회원공개</span></span>
               </div>
               <div class="comment_num_warp">
                 <button class="comment_num btn btn-flat" type="button" onclick="SNS.showDefalutSnsShareList();">
@@ -44,7 +52,7 @@
           </header>
           <div class="goods_summary body_font_color_70">
             <div class="fr-view">
-              <p>블랙야크 알파인 클럽과 같이 협업해서 기획했던 쭈꾸미 게임의 콜렉션으로 정상석에 삽을 들고 있는 띡이가 매우 인상적인 티셔츠. 디그디그가 등산 카테고리에 이바지한 바가 크다.</p>							</div>
+              <p th:text="${itcb_d.info}">블랙야크 알파인 클럽과 같이 협업해서 기획했던 쭈꾸미 게임의 콜렉션으로 정상석에 삽을 들고 있는 띡이가 매우 인상적인 티셔츠. 디그디그가 등산 카테고리에 이바지한 바가 크다.</p>							</div>
           </div>
           <div class="m-btn-group buy_btns">
             <a href="javascript:" class="like_box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
