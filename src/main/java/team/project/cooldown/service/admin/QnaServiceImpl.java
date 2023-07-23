@@ -16,4 +16,14 @@ public class QnaServiceImpl implements QnaService{
     public List<Qna> readQna() {
         return a_qdao.selectQna();
     }
+
+    @Override
+    public Qna readOneQna(String qna_id) {
+        return a_qdao.selectOneQna(qna_id);
+    }
+
+    @Override
+    public boolean updateAdminReply(String qid,String answer) {
+        return (a_qdao.updateAdminReply(qid,answer) > 0) ? true : false;
+    }
 }

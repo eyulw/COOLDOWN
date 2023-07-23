@@ -16,4 +16,14 @@ public class QnaDAOImpl implements QnaDAO{
     public List<Qna> selectQna() {
         return qnaMapper.selectQna();
     }
+
+    @Override
+    public Qna selectOneQna(String qna_id) {
+        return qnaMapper.selectOneQna(qna_id);
+    }
+
+    @Override
+    public int updateAdminReply(String qid,String answer) {
+        return qnaMapper.updateAdminReply(qid,answer);
+    }
 }

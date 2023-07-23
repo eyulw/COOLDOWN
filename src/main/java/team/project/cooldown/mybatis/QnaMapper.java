@@ -8,4 +8,8 @@ import java.util.List;
 @Mapper
 public interface QnaMapper {
     List<Qna> selectQna();
+
+    Qna selectOneQna(String qna_id);
+
+    int updateAdminReply(String qid,String answer);
 }
