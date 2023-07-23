@@ -7,12 +7,12 @@ import java.util.List;
 
 @Mapper
 public interface ItemMapper {
-    List<ItemCombine> selectItemCombine();
-    List<ItemCombine> selectItemCombine_d();
-    List<ItemCombine> selectItemCombine_c();
-    List<ItemCombine> selectItemCombine_h();
-    List<ItemCombine> selectItemCombine_b();
-    List<ItemCombine> selectItemCombine_r();
+    List<ItemCombine> selectItemCombine(String sort);
+    List<ItemCombine> selectItemCombine_d(String sort);
+    List<ItemCombine> selectItemCombine_c(String sort);
+    List<ItemCombine> selectItemCombine_h(String sort);
+    List<ItemCombine> selectItemCombine_b(String sort);
+    List<ItemCombine> selectItemCombine_r(String sort);
 
 
 }
