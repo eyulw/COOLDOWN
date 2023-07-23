@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div class="container adminBody" id="main">
+        <div class="qnaBody">
+            <div><!--회원 문의글 불러오기-->
+                <p for="userqna" class="" th:text="${q.ua.nickname}">회원닉넴</p>
+                <label for="userqna" class="">제목</label>
+                <div>
+                    <p th:text="${q.title}">title</p>
+                </div>
+                <label for="userqna" class="">내용</label>
+                <div class="">
+                    <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${q.contents}" readonly></textarea>
+                </div>
+
+            </div><!--회원 문의글 불러오기 end-->
+            <div><!--관리자 답글 작성폼-->
+                <form name="rplfrm" id="rplfrm">
+                    <label for="answer" class="">관리자</label>
+                    <div class="">
+                        <textarea rows="7" cols="100" name="answer" id="answer" class="rpltxt" >[[${q.answer}]]</textarea>
+                    </div>
+                    <button type="reset">취소</button>
+                    <button type="button" id="rplok">확인</button>
+                    <input type="hidden" id="qnaid" th:value="${q.qna_id}">
+                </form>
+            </div><!--관리자 답글 작성폼 end-->
+        </div>
+    </div>
+    <script src="/assets/js/admin.js" charset="utf-8"></script>
+</th:block>
+</html>
