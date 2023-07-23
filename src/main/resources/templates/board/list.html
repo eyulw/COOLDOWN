@@ -62,18 +62,13 @@
                                             </a>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
-                                            <a href="?category=G52HT4AKNh" class="" onclick="">
-                                                <span class="plain_name">장비자랑</span>
-                                            </a>
-                                        </li>
-                                        <li class="depth-01" style="cursor: pointer">
                                             <a href="?category=73577I0858" class="" onclick="">
                                                 <span class="plain_name">자기소개</span>
                                             </a>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
                                             <a href="?category=2U255T4Dmp" class="" onclick="">
-                                                <span class="plain_name">Q&amp;A</span>
+                                                <span class="plain_name">Q&AMP;A</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -89,7 +84,7 @@
                             <div class="_widget_data" data-widget-name="게시판" data-widget-type="board" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N" >
                                 <div class="scroll_position" id="scroll_w2021050704ebf795b2f57"></div>
                                 <div class="widget board _list_wrap m-margin-on">
-                                    <div class="li_table row_01 type_row container_border" id="post_card_b2021050791e0a8f7e18e4">
+                                    <div th:each="bd : ${bds}" class="li_table row_01 type_row container_border" id="post_card_b2021050791e0a8f7e18e4">
                                         <ul class="subject">
                                             <li class="lst_num" style="display: ">글번호</li>
                                             <li class="tit" style="display: ">제목</li>
@@ -97,28 +92,28 @@
                                             <li class="time" style="display: ">작성시간</li>
                                             <li class="views" style="display: ">조회</li>
                                         </ul><!--목차(table head)-->
-                                        <ul class="list m-padding-on">
+                                        <!--<ul class="list m-padding-on">
                                             <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
                                                 <div class="clearfix table-cell list-group list_text_title">
                                                     <li class="tit" style="padding-right: 50px">
                                                         <a class="title_link _fade_link" href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15769642&amp;t=board">
-                                                            <em class="sticker notice" style="display: none">공지</em><!--?공지?-->
-                                                            <em style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: ">디그라이프(자유글)</em><!--카테고리-->
-                                                            <span style="cursor: pointer">러닝크루 참여자 대상 설문조사를 부탁 드립니다. [1만원 상당의 스타벅스 기프티콘 제공]</span><!--제목-->
-                                                            <span class="icons"><i aria-hidden="true" class="addon-badge">N</i></span><!--최신 New-->
-                                                            <!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-picture"></i></span>-->
-                                                            <!--									--><!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-folder"></i></span>-->
-                                                            <!--									--><!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-camrecorder"></i></span>-->
-                                                            <!--									-->
+                                                            <em class="sticker notice" style="display: none">공지</em>&lt;!&ndash;?공지?&ndash;&gt;
+                                                            <em th:each="" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: ">디그라이프(자유글)</em>&lt;!&ndash;카테고리&ndash;&gt;
+                                                            <span style="cursor: pointer">러닝크루 참여자 대상 설문조사를 부탁 드립니다. [1만원 상당의 스타벅스 기프티콘 제공]</span>&lt;!&ndash;제목&ndash;&gt;
+                                                            <span class="icons"><i aria-hidden="true" class="addon-badge">N</i></span>&lt;!&ndash;최신 New&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-picture"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;&lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-folder"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;&lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-camrecorder"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;
                                                         </a>
                                                         <i aria-hidden="true" class="icon-lock lock" style="display: none"></i>
                                                     </li>
-                                                    <li class="author" style="display: ">ulttank</li><!--닉네임-->
-                                                    <li class="time" title="2023-07-19 16:09" style="display: ">1일전</li><!--작성일대신 얼마전에 작성했는지-->
-                                                    <li class="views" style="display: "><em class="txt">조회수</em>2</li><!--조회수-->
+                                                    <li class="author" style="display: ">ulttank</li>&lt;!&ndash;닉네임&ndash;&gt;
+                                                    <li class="time" title="2023-07-19 16:09" style="display: ">1일전</li>&lt;!&ndash;작성일대신 얼마전에 작성했는지&ndash;&gt;
+                                                    <li class="views" style="display: "><em class="txt">조회수</em>2</li>&lt;!&ndash;조회수&ndash;&gt;
                                                     <li class="like" style="display: ">
                                                         <a class="like_btn" id="like_btn_p20230719ab19a1743d0de" href="javascript:;" onclick="clickLike('p20230719ab19a1743d0de');">
                                                             <div class="_token_obj" data-type="post_img_list_like">
@@ -128,12 +123,12 @@
                                                             <i aria-hidden="true" class="btm bt-heart">&nbsp;</i>
                                                             <em id="like_count_p20230719ab19a1743d0de">0</em>
                                                         </a>
-                                                    </li><!--좋아요-->
-                                                    <span class="comment-count only-mobile" style="display: "><span>0</span></span><!--댓글수-->
+                                                    </li>&lt;!&ndash;좋아요&ndash;&gt;
+                                                    <span class="comment-count only-mobile" style="display: "><span>0</span></span>&lt;!&ndash;댓글수&ndash;&gt;
                                                 </div>
                                             </span>
-                                        </ul><!--이미지 없는 게시글-->
-                                        <ul class="list m-padding-on">
+                                        </ul>--><!--이미지 없는 게시글-->
+                                        <!--<ul class="list m-padding-on">
                                             <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
                                                 <div class="table-cell board_thumb_wrap">
                                                     <a class="_fade_link" href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15151994&amp;t=board" style="padding: 0">
@@ -147,13 +142,13 @@
                                                             <em class="sticker notice" style="display: none">공지</em>
                                                             <em style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: ">디그라이프(자유글)</em>
                                                             <span style="cursor: pointer"> 서포터즈 6기를 마치며. </span>
-                                                            <!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-picture"></i></span>-->
-                                                            <!--									--><!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-folder"></i></span>-->
-                                                            <!--									--><!--									-->
-                                                            <!--										<span class="icons"><i aria-hidden="true" class="icon-camrecorder"></i></span>-->
-                                                            <!--									-->
+                                                            &lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-picture"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;&lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-folder"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;&lt;!&ndash;									&ndash;&gt;
+                                                            &lt;!&ndash;										<span class="icons"><i aria-hidden="true" class="icon-camrecorder"></i></span>&ndash;&gt;
+                                                            &lt;!&ndash;									&ndash;&gt;
                                                         </a>
                                                         <i aria-hidden="true" class="icon-lock lock" style="display: none"></i>
                                                     </li>
@@ -171,6 +166,40 @@
                                                         </a>
                                                     </li>
                                                     <span class="comment-count only-mobile" style="display: "><span>2</span></span>
+                                                </div>
+                                            </span>
+                                        </ul>--><!--이미지 있는 게시글--><!--기존코드-->
+                                        <ul class="list m-padding-on">
+                                            <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
+                                                <div class="table-cell board_thumb_wrap">
+                                                    <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15151994&amp;t=board" class="_fade_link"  style="padding: 0">
+                                                        <img src="https://cdn.imweb.me/thumbnail/20230515/1870077a09879.png" class="board_thumb" style="cursor: pointer" alt="" />
+                                                        <span class="sr-only">게시판 썸네일</span>
+                                                    </a>
+                                                </div>
+                                                <div class="clearfix table-cell list-group list_text_title">
+                                                    <li class="tit" style="padding-right: 50px">
+                                                        <a class="title_link _fade_link" href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15151994&amp;t=board"></a>
+                                                        <em class="sticker notice" style="display: none">공지</em>
+                                                        <em th:text="${bd.category}" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em><!--카테고리-->
+                                                        <span th:text="${bd.title}" style="cursor: pointer"> 서포터즈 6기를 마치며. </span><!--제목-->
+                                                        <i aria-hidden="true" class="icon-lock lock" style="display: none"></i>
+                                                    </li>
+                                                    <li th:text="${bd.u_id}" class="author" style="display: "></li><!--작성자 닉네임-->
+                                                    <li th:text="${bd.regdate}" class="time" title="2023-05-15 10:18" style="display: ">2023-05-15</li><!--작성일-->
+
+                                                    <li th:text="${bd.views}" class="views" style="display: "><em class="txt">조회수</em></li><!--조회수-->
+                                                    <li class="like" style="display: ">
+                                                        <a class="like_btn" id="like_btn_p2023051523ced4821610d" href="javascript:;" onclick="clickLike('p2023051523ced4821610d');">
+                                                            <div class="_token_obj" data-type="post_img_list_like">
+                                                                <input type="hidden" id="like_token_key_p2023051523ced4821610d" class="_tk_key_obj" value="9452" />
+                                                                <input type="hidden" id="like_token_p2023051523ced4821610d" class="_tk_obj" value="sGVrstboW/UEsHnryDTT29e5aO3Ot+Xrrej6Rtokmk+60Bjdq83AVuGoYiLaj/7Dus+YYINdWECXNe4vqHAItXG6lYnQUjD9PnJPpA1S06W42UZ+N7D3rrDLIS4q1YDp"/>
+                                                            </div>
+                                                            <i aria-hidden="true" class="btm bt-heart">&nbsp;</i>
+                                                            <em th:text="${bd.likes}" id="like_count_p2023051523ced4821610d">2</em><!--좋아요-->
+                                                        </a>
+                                                    </li>
+                                                    <span class="comment-count only-mobile" style="display: "><span>2</span></span><!--댓글수-->
                                                 </div>
                                             </span>
                                         </ul><!--이미지 있는 게시글-->
@@ -247,9 +276,8 @@
                 </div><!--여백-->
             </div>
         </main>
+        <script src="/assets/js/board.js" charset="utf-8"></script>
     </div>
-
-    <script src="/assets/js/board.js" charset="utf-8"></script>
 </body>
 </th:block>
 </html>
