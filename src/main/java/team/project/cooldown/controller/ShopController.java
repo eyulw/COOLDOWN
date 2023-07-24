@@ -32,6 +32,7 @@ public class ShopController {
     public String digshop(Model m,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
+
         if (idx == null) {
             sortOptions = new HashMap<>();
             sortOptions.put("recent", "recent");
@@ -46,11 +47,13 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine(sortOptions.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine(sortOptions.get(sort),null));
             return "shop/digshop";
 
         } else {
-            idx = 48;
+
+            m.addAttribute("itemCombine_d", isrv.readItemCombine("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
+           /* m.addAttribute("itemPrice", isrv.getItemPrice(idx));*/
             return "shop/detail_item";
         }
     }
@@ -72,10 +75,10 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine_d(sortOptions_d.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine_d(sortOptions_d.get(sort),null));
             return "shop/digbus_goods";
         } else {
-            idx = 48;
+            m.addAttribute("itemCombine_d", isrv.readItemCombine_d("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
@@ -97,10 +100,10 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine_c(sortOptions_c.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine_c(sortOptions_c.get(sort),null));
             return "shop/campingitem";
         } else {
-            idx = 48;
+            m.addAttribute("itemCombine_d", isrv.readItemCombine_c("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
@@ -122,10 +125,10 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine_h(sortOptions_h.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine_h(sortOptions_h.get(sort),null));
             return "shop/hikinhitem";
         } else {
-            idx = 48;
+            m.addAttribute("itemCombine_d", isrv.readItemCombine_h("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
@@ -147,10 +150,10 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine_b(sortOptions_b.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine_b(sortOptions_b.get(sort),null));
             return "shop/bikeitem";
         } else {
-            idx = 48;
+            m.addAttribute("itemCombine_d", isrv.readItemCombine_b("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
@@ -172,11 +175,10 @@ public class ShopController {
                 sort = "recent";
             }
 
-            m.addAttribute("itemCombine", isrv.readItemCombine_r(sortOptions_r.get(sort)));
+            m.addAttribute("itemCombine", isrv.readItemCombine_r(sortOptions_r.get(sort),null));
             return "shop/runningitem";
         } else {
-            idx = 48;
-            // 'idx' 값을 사용하여 필요한 작업을 수행합니다.
+            m.addAttribute("itemCombine_d", isrv.readItemCombine_r("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }

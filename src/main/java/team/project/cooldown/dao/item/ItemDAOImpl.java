@@ -16,33 +16,33 @@ public class ItemDAOImpl implements ItemDAO{
 
 
     @Override
-    public List<ItemCombine> selectItemCombine(String sort) {
-        return itemMapper.selectItemCombine(sort);
+    public List<ItemCombine> selectItemCombine(String sort, Integer idx) {
+        return itemMapper.selectItemCombine(sort,idx);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_d(String sort) {
-        return itemMapper.selectItemCombine_d(sort);
+    public List<ItemCombine> selectItemCombine_d(String sort, Integer idx) {
+        return itemMapper.selectItemCombine_d(sort,idx);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_c(String sort) {
-        return itemMapper.selectItemCombine_c(sort);
+    public List<ItemCombine> selectItemCombine_c(String sort, Integer idx) {
+        return itemMapper.selectItemCombine_c(sort,idx);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_h(String sort) {
-        return itemMapper.selectItemCombine_h(sort);
+    public List<ItemCombine> selectItemCombine_h(String sort, Integer idx) {
+        return itemMapper.selectItemCombine_h(sort,idx);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_b(String sort) {
-        return itemMapper.selectItemCombine_b(sort);
+    public List<ItemCombine> selectItemCombine_b(String sort, Integer idx) {
+        return itemMapper.selectItemCombine_b(sort,idx);
     }
 
     @Override
-    public List<ItemCombine> selectItemCombine_r(String sort) {
-        return itemMapper.selectItemCombine_r(sort);
+    public List<ItemCombine> selectItemCombine_r(String sort, Integer idx) {
+        return itemMapper.selectItemCombine_r(sort,idx);
     }
 
 
