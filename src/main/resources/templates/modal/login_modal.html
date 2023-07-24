@@ -24,7 +24,7 @@
                     <div class="row  mb-3">
                         <label class="col-4 form-label text-end" for="passwd">비밀번호</label>
                         <div class="col-5">
-                            <input type="password" id="passwd" name="passwd" class="form-control border-danger">
+                            <input type="password" id="passwd" name="password" class="form-control border-danger">
                         </div>
                     </div><!--passwd-->
 
@@ -44,7 +44,7 @@
                 <button type="button" class="btn" id="loginbtn">로그인</button>
 
                 <div class="btn-block clearfix">
-                    <a href="/agree" class="btn btn-primary _join_btn  float_l">회원가입</a>
+                    <button type="button" class="btn btn-primary float_l" data-toggle="modal" data-target="#joinagreeModal" id="loginJoinBtn">회원가입</button>
                     <a href="/index" data-dismiss="modal" class="btn btn-default float_l" data-original-title="" title="">취소</a>
 
                 </div>
@@ -55,5 +55,6 @@
         </div><!--mdc-->
     </div><!--mdd-->
 </div>
+    <script src="/assets/js/login.js" charset="utf-8"></script>
 </th:block>
 </html>

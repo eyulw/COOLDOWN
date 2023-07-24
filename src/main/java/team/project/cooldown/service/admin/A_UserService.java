@@ -4,7 +4,6 @@ import team.project.cooldown.model.User;
 
 import java.util.List;
 
-public interface UserService {
+public interface A_UserService {
     List<User> readUser();
-    User readOneUser(String u_id);
 }

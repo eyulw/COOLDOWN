@@ -7,7 +7,11 @@
         select * from user
     </select>
     <select id="selectOneUser" resultType="User">
-        select * from user where userid=#{userid}
+        select u_id, userid, nickname from user where userid=#{userid} and password=#{password}
     </select>
+    <insert id="insertUser" parameterType="User">
+        insert into user(userid,password,email,nickname,phone,zipcode,address1,address2,birth,username)
+        values (#{userid},#{password},#{email},#{nickname},#{phone},#{zipcode},#{address1},#{address2},#{birth},#{username});
+    </insert>
 
 </mapper>

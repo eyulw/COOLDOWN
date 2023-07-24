@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository("a_udao")
 @RequiredArgsConstructor
-public class UserDAOImpl implements UserDAO {
+public class A_UserDAOImpl implements A_UserDAO {
 
     final UserMapper userMapper;
 
@@ -18,8 +18,6 @@ public class UserDAOImpl implements UserDAO {
         return userMapper.selectUser();
     }
 
-    @Override
-    public User selectOneUser(String u_id) {
-        return userMapper.selectOneUser(u_id);
-    }
+
+
 }
