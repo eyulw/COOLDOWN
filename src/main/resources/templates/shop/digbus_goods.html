@@ -84,7 +84,7 @@
                         <!--<tr th:each="bd : ${itdb}">-->
                         <div th:each="itcb :${itemCombine}" class="shop-item _shop_item" style="padding: 0px 10px; height: 374px; width: 291px;">
                             <div class="item-wrap" style="position: relative;">
-                                <a href="/digbus_goods/?idx=48" class="_fade_link shop-item-thumb hover_img_none">
+                                <a th:href="|/digbus_goods/?idx=${itcb.getItem_id()}|" class="_fade_link shop-item-thumb hover_img_none">
                                     <img data-prodcode="s2022093027948f330489b" alt=""
                                          th:src="${itcb.fname}"
                                          class="_org_img org_img _lazy_img"

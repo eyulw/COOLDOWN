@@ -63,7 +63,7 @@
                                                                 <li class="_show_m20210521f87f0bcdb78a7 dropdown-submenu sub-active"
                                                                     style="" id="dropdown_m20210521f87f0bcdb78a7"
                                                                     data-code="m20210521f87f0bcdb78a7">
-                                                                    <a href=" /board/list"
+                                                                    <a href=" /board/list/1"
                                                                        class="fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
                                                                        data-url="community" data-toggle="dropdown">
                                                                     <span class="_txt_m20210521f87f0bcdb78a7 plain_name"
@@ -153,7 +153,7 @@
                                                             <li class="dropdown _show_m20210521f87f0bcdb78a7" style=""
                                                                 id="dropdown_m20210521f87f0bcdb78a7"
                                                                 data-code="m20210521f87f0bcdb78a7">
-                                                                <a href=" /board/list"
+                                                                <a href=" /board/list/1"
                                                                    class="fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
                                                                    data-url="community" data-toggle="dropdown">
                                                                 <span class="_txt_m20210521f87f0bcdb78a7 plain_name"
@@ -408,7 +408,7 @@
                                                         <li class="dropdown _show_m20210521f87f0bcdb78a7" style=""
                                                             id="dropdown_m20210521f87f0bcdb78a7"
                                                             data-code="m20210521f87f0bcdb78a7">
-                                                            <a href=" /board/list"
+                                                            <a href=" /board/list/1"
                                                                class="fixed_transform dropdown-toggle disabled _header_dropdown   _fade_link "
                                                                data-url="community" data-toggle="dropdown"
                                                                aria-expanded="false">
@@ -664,17 +664,34 @@
                                                 <div
                                                         class="widget inline_widget login_btn button  button_text txt_l text-xx-small">
                                                     <div>
-                                                        <div class="inline-blocked login_btn_item "><button
-                                                                class="_fade_link   btn_text btn_59e04d1fd5c73   btn_custom "
-                                                                 data-toggle="modal" data-target="#login_modal"
-                                                                style="background: none;"><span
-                                                                class="text fixed_transform ">로그인</span></button></div>
-                                                        <div class="inline-blocked login_btn_item "><button
-                                                                class="_fade_link   btn_text btn_59e04d1fd5c73   btn_custom "
-                                                                data-toggle="modal" data-target="#joinagree_modal"
-                                                                style="background: none;"><span
-                                                                class="text fixed_transform ">회원가입</span></button></div>
-                                                        <div class="inline-blocked login_btn_item "><a href="/admin/">이동</a></div>
+                                                        <th:block th:if="${#strings.isEmpty(session.user)}">
+                                                            <div class="inline-blocked login_btn_item "><button
+                                                                    class="_fade_link   btn_text btn_59e04d1fd5c73   btn_custom "
+                                                                     data-toggle="modal" data-target="#login_modal"
+                                                                    style="background: none;"><span
+                                                                    class="text fixed_transform ">로그인</span></button>
+                                                            </div>
+                                                            <div class="inline-blocked login_btn_item "><button
+                                                                    class="_fade_link   btn_text btn_59e04d1fd5c73   btn_custom "
+                                                                    data-toggle="modal" data-target="#joinagreeModal"
+                                                                    style="background: none;"><span
+                                                                    class="text fixed_transform ">회원가입</span></button>
+                                                            </div>
+                                                        </th:block>
+                                                        <th:block th:if="${not #strings.isEmpty(session.user)}">
+                                                            <div class="inline-blocked login_btn_item "><a
+                                                                    href="/mypage/order"
+                                                                    class="_fade_link   btn_text btn_59e04d1fd5c73   btn_custom "><span
+                                                                    class="text fixed_transform " th:text="${session.user.nickname}">닉네임</span></a>
+                                                            </div>
+                                                            <div class="inline-blocked login_btn_item "><a href="/logout"
+                                                                    class="_fade_link   btn_text btn_59e04d1fd5c73 btn_custom ">
+                                                                <span class="text fixed_transform ">로그아웃</span></a>
+                                                            </div>
+                                                            <th:block th:if="${session.user.userid eq 'admin1234'}">
+                                                                <div class="inline-blocked login_btn_item "><a href="/admin/">이동</a></div>
+                                                            </th:block>
+                                                        </th:block>
                                                     </div>
                                                 </div>
                                             </div>
@@ -786,7 +803,7 @@
 
 
                                     <div class="nav-item _item   " data-code="m20210521f87f0bcdb78a7" data-url="community">
-                                        <a href=" /board/list" class=" _fade_link " style="">
+                                        <a href=" /board/list/1" class=" _fade_link " style="">
                                             <span class="plain_name" data-hover="">COMMUNITY</span>
                                         </a>
                                     </div>
