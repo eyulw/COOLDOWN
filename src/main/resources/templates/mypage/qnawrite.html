@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+<body class="doz_sys  _body_menu_m202103197a9322c0272cf  mobile-nav-on  mobile_nav_dep1  page  fixed-menu-on new_fixed_menu_on new_header_site  loggedin" style=";" id="doz_body">
+
+<div class="board_write qna_write" id="qna_container">
+  <div class="write-header _write_header m_sticky_toolbar">
+    <div class="header_line clearfix">
+      <div class="board-name">Q&amp;A</div>
+      <div class="write-btn">
+        <a href="javascript:history.go(-1);" class="btn btn_style">취소</a>
+        <a href="javascript:SITE_SHOP_QNA.qnaCancel();" class="icon_style"><i aria-hidden="true" class="btl bt-angle-left"></i></a>
+        <button type="button" class="_save_post save_post btn" onclick="SITE_SHOP_QNA.submit();return false;">작성</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="post_write_wrap">
+    <form id="qna_form" method="post" target="hidden_frame" action="/shop/qna_add.cm">
+      <input type="hidden" name="back_url" value="L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D">
+      <input type="hidden" name="prod_code" value="">
+      <input type="hidden" class="_secret" name="secret" value="">
+      <input type="hidden" name="idx" value="0">
+      <input type="hidden" name="body" id="body_input" value="">
+      <input type="hidden" name="is_book" value="Y">
+      <div class="_token_obj" data-type="shop_add_qna">
+        <input type="hidden" name="qna_token" class="_tk_obj"
+               value="7Ame3yX54DPb4F8mEhRur6dlilFRmJn0JGJ/5xZnoKIupJ0d4KVkiPxuy8rT03s2EjbjUzzUhKXWS+fUONPoDUanYbWccNRYZMaVgNUFp5QxJeg0fW1rTlhqzQVqu/v6">
+        <input type="hidden" name="qna_token_key" class="_tk_key_obj" value="1084">
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 right write-body">
+            <div class="board_summary">
+              <div class="left">
+                <div class="text-primary" style="padding-left: 50px">
+                </div>
+                <div class="avatar ">
+                  <img src="/common/img/default_profile.png" class="avatar-image" alt="">
+                </div>
+                <div class="author">
+                  <div class="write">bug</div>
+                </div>
+              </div>
+              <div class="write-icon">
+                <div class="icon" type="button">
+                  <a data-toggle="tooltip" data-placement="top" title="" href="javascript:"
+                     class="icon _secret_btn" style="margin-left: 20px;" data-original-title="비밀글">
+                    <i aria-hidden="true" class="icon-lock-open bt-font"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="editor_box">
+              <div class="title_box">
+                <div class="clearfix m_tools">
+                  <span class="nick" style="padding: 8px 15px; border-right: none;"></span>
+                </div>
+                <div class="board_title_wrap tabled full-width" style="position: relative">
+                  <!--										<div class="table-cell vertical-middle">-->
+                  <input title="제목" id="qna_subject" name="subject" class="no-margin basic_input title_name w100p mb24" type="text" value="" placeholder="제목">
+                  <!--										</div>-->
+                  <div class="write-icon m-write-icon">
+                    <div class="icon" type="button">
+                      <a data-toggle="tooltip" data-placement="top" title="" href="javascript:" class="icon _secret_btn" style="margin-left: 20px;" data-original-title="비밀글">
+                        <i aria-hidden="true" class="icon-lock-open bt-font"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pc_toolbar_wrap fr-m-custom _fr-m-custom">
+                <div id="toolbarContainer" data-lang="KR"><div class="fr-toolbar custom-theme fr-ltr fr-desktop fr-top" style="width: 516px;">
+                  <button id="backgroundColor-1" type="button" tabindex="-1" role="button" title="배경 색상"
+                          class="fr-command fr-btn fr-hidden" data-cmd="backgroundColor" data-popup="true">
+                      <i class="fas fa-fill-drip" aria-hidden="true"></i>
+                          <span class="fr-sr-only">배경 색상</span></button>
+                  <div class="fr-separator fr-vs" role="separator" aria-orientation="vertical"></div>
+                  <div class="fr-separator fr-vs" role="separator" aria-orientation="vertical"></div>
+                  <div class="fr-separator fr-vs" role="separator" aria-orientation="vertical"></div>
+                    <button id="undo-1" type="button" tabindex="-1" role="button" aria-disabled="true"
+                          title="실행 취소 (⌘Z)" class="fr-command fr-btn fr-disabled fr-hidden" data-cmd="undo">
+                      <i class="fas fa-undo-alt" aria-hidden="true"></i>
+                      <span class="fr-sr-only">실행 취소</span></button>
+                    <button id="redo-1" type="button" tabindex="-1" role="button" aria-disabled="true" title="되돌리기 (⌘⇧Z)"
+                          class="fr-command fr-btn fr-disabled fr-hidden" data-cmd="redo">
+                        <i class="fas fa-redo-alt" aria-hidden="true"></i>
+                            <span class="fr-sr-only">되돌리기</span></button>
+                    <button id="html-1" type="button" tabindex="-1" role="button" aria-pressed="false" title="코드보기" class="fr-command fr-btn fr-hidden" data-cmd="html">
+                        <i class="fas fa-code" aria-hidden="true"></i>
+                            <span class="fr-sr-only">코드보기</span></button>
+                    <button id="emoticons-1" type="button" tabindex="-1" role="button" title="이모티콘"
+                     class="fr-command fr-btn fr-hidden" data-cmd="emoticons" data-popup="true">
+                        <i class="far fa-grin-alt" aria-hidden="true"></i>
+                            <span class="fr-sr-only">이모티콘</span></button>
+                  <div class="fr-btn-grp fr-float-left" style="width: 538px; padding: 0px 10px; position: relative; top: 0px; left: 5.5px;">
+                    <button id="image_insert_key2-1" type="button" tabindex="-1" role="button" class="fr-command fr-btn" data-cmd="image_insert_key2" data-title="이미지 첨부">
+                        <i class="far fa-images" aria-hidden="true"></i>
+                            <span class="fr-sr-only">이미지 첨부</span></button>
+                    <button id="insertLink-1" type="button" tabindex="-1" role="button" title="링크 삽입 (⌘K)" class="fr-command fr-btn" data-cmd="insertLink" data-popup="true">
+                      <i class="fas fa-link" aria-hidden="true"></i>
+                        <span class="fr-sr-only">링크 삽입</span></button>
+                    <button id="fontSize-1" type="button" tabindex="-1" role="button" aria-controls="dropdown-menu-fontSize-1" aria-expanded="false" aria-haspopup="true" title="글꼴 크기" class="fr-command fr-btn fr-dropdown fr-selection" data-cmd="fontSize">
+                      <img src="//vendor-cdn.imweb.me/images/froala/font_size_black.png" alt="undefined">
+                        <span class="fr-sr-only">글꼴 크기</span></button>
+
+                    <div id="dropdown-menu-fontSize-1"
+                                                                                                                                                                                                                                                                                                                                                                                                     class="fr-dropdown-menu" role="listbox" aria-labelledby="fontSize-1" aria-hidden="true">
+                      <div class="fr-dropdown-wrapper" role="presentation">
+                        <div class="fr-dropdown-content" role="presentation">
+                        <ul class="fr-dropdown-list" role="presentation">
+                          <li role="presentation"><a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="8px" title="8">8</a></li>
+                        <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="9px" title="9">9</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="10px" title="10">10</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="11px" title="11">11</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="12px" title="12">12</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="13px" title="13">13</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="14px" title="14">14</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="16px" title="16">16</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="18px" title="18">18</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="20px" title="20">20</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="22px" title="22">22</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="24px" title="24">24</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="26px" title="26">26</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="30px" title="30">30</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="36px" title="36">36</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="48px" title="48">48</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="60px" title="60">60</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="72px" title="72">72</a></li>
+                          <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="fontSize" data-param1="96px" title="96">96</a></li>
+                        </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                      <button id="bold-1" type="button" tabindex="-1" role="button" aria-pressed="false"
+                            class="fr-command fr-btn" data-cmd="bold" data-title="굵게 (⌘B)">
+                        <i class="fas fa-bold" aria-hidden="true"></i>
+                          <span class="fr-sr-only">굵게</span></button>
+                      <button id="italic-1" type="button" tabindex="-1" role="button" aria-pressed="false" title="기울임꼴 (⌘I)" class="fr-command fr-btn" data-cmd="italic">
+                        <i class="fas fa-italic" aria-hidden="true"></i>
+                          <span class="fr-sr-only">기울임꼴</span></button>
+                      <button id="underline-1" type="button" tabindex="-1" role="button" aria-pressed="false" title="밑줄 (⌘U)" class="fr-command fr-btn" data-cmd="underline">
+                        <i class="fas fa-underline" aria-hidden="true"></i>
+                          <span class="fr-sr-only">밑줄</span></button>
+                      <button id="strikeThrough-1" type="button" tabindex="-1" role="button" aria-pressed="false" title="취소선 (⌘S)" class="fr-command fr-btn" data-cmd="strikeThrough">
+                        <i class="fas fa-strikethrough" aria-hidden="true"></i>
+                          <span class="fr-sr-only">취소선</span></button>
+                      <button id="align-1" type="button" tabindex="-1" role="button" aria-controls="dropdown-menu-align-1" aria-expanded="false" aria-haspopup="true" title="정렬" class="fr-command fr-btn fr-dropdown" data-cmd="align"><i class="fas fa-align-left" aria-hidden="true"></i><span class="fr-sr-only">정렬</span></button><div id="dropdown-menu-align-1" class="fr-dropdown-menu" role="listbox" aria-labelledby="align-1" aria-hidden="true"><div class="fr-dropdown-wrapper" role="presentation"><div class="fr-dropdown-content" role="presentation"><ul class="fr-dropdown-list" role="presentation">
+                    <li role="presentation">
+                      <a class="fr-command fr-title" tabindex="-1" role="option" data-cmd="align" data-param1="left" title="왼쪽정렬">
+                        <i class="fas fa-align-left" aria-hidden="true"></i>
+                        <span class="fr-sr-only">왼쪽정렬</span></a></li>
+                    <li role="presentation">
+                      <a class="fr-command fr-title" tabindex="-1" role="option" data-cmd="align" data-param1="center" title="가운데정렬">
+                        <i class="fas fa-align-center" aria-hidden="true"></i>
+                      <span class="fr-sr-only">가운데정렬</span></a></li>
+                    <li role="presentation">
+                      <a class="fr-command fr-title" tabindex="-1" role="option" data-cmd="align" data-param1="right" title="오른쪽정렬">
+                        <i class="fas fa-align-right" aria-hidden="true"></i>
+                        <span class="fr-sr-only">오른쪽정렬</span></a></li>
+                    <li role="presentation">
+                    <a class="fr-command fr-title" tabindex="-1" role="option" data-cmd="align" data-param1="justify" title="양쪽정렬">
+                      <i class="fas fa-align-justify" aria-hidden="true"></i>
+                      <span class="fr-sr-only">양쪽정렬</span></a></li></ul></div></div></div>
+                    <button id="textColor-1" type="button" tabindex="-1" role="button" title="텍스트 색상" class="fr-command fr-btn" data-cmd="textColor" data-popup="true">
+                      <i class="fas fa-tint" aria-hidden="true"></i>
+                        <span class="fr-sr-only">텍스트 색상</span></button>
+                    <button id="clearFormatting-1" type="button" tabindex="-1" role="button" title="서식 제거" class="fr-command fr-btn" data-cmd="clearFormatting">
+                      <i class="fas fa-eraser" aria-hidden="true"></i>
+                      <span class="fr-sr-only">서식 제거</span></button><div class="fr-btn-wrap">
+                      <button id="formatOL-1" type="button" tabindex="-1" role="button" title="숫자 리스트" class="fr-command fr-btn" data-cmd="formatOL">
+                        <i class="fas fa-list-ol" aria-hidden="true"></i>
+                        <span class="fr-sr-only">숫자 리스트</span></button>
+                      <button id="formatOLOptions-1" type="button" tabindex="-1" role="button" aria-controls="dropdown-menu-formatOLOptions-1" aria-expanded="false" aria-haspopup="true"
+                              title="숫자 리스트" class="fr-command fr-btn fr-dropdown fr-options" data-cmd="formatOLOptions"></button>
+
+                      <div id="dropdown-menu-formatOLOptions-1" class="fr-dropdown-menu" role="listbox" aria-labelledby="formatOLOptions-1" aria-hidden="true">
+                        <div class="fr-dropdown-wrapper" role="presentation">
+                          <div class="fr-dropdown-content" role="presentation">
+                          <ul class="fr-dropdown-list" role="presentation">
+                        <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="default" title="Default">기본</a></li>
+                          <li role="presentation">
+                        <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="lower-alpha" title="Lower Alpha">소문자 알파벳</a></li>
+                          <li role="presentation">
+                            <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="lower-greek" title="Lower Greek">소문자 그리스어</a></li>
+                        <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="lower-roman" title="Lower Roman">소문자 로마자</a></li>
+                        <li role="presentation">
+                          <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="upper-alpha" title="Upper Alpha">대문자 알파벳</a></li>
+                        <li role="presentation">
+                        <a class="fr-command" tabindex="-1" role="option" data-cmd="formatOL" data-param1="upper-roman" title="Upper Roman">대문자 로마자</a></li></ul></div></div></div>  </div>
+                    <div class="fr-btn-wrap"><button id="formatUL-1" type="button" tabindex="-1" role="button" title="점 리스트" class="fr-command fr-btn" data-cmd="formatUL">
+                      <i class="fas fa-list" aria-hidden="true"></i>
+                      <span class="fr-sr-only">점 리스트</span></button>
+                      <button id="formatULOptions-1" type="button" tabindex="-1" role="button" aria-controls="dropdown-menu-formatULOptions-1" aria-expanded="false" aria-haspopup="true" title="점 리스트"
+                              class="fr-command fr-btn fr-dropdown fr-options" data-cmd="formatULOptions"></button>
+                      <div id="dropdown-menu-formatULOptions-1" class="fr-dropdown-menu" role="listbox" aria-labelledby="formatULOptions-1" aria-hidden="true">
+                        <div class="fr-dropdown-wrapper" role="presentation"><div class="fr-dropdown-content" role="presentation">
+                          <ul class="fr-dropdown-list" role="presentation">
+                            <li role="presentation">
+                              <a class="fr-command" tabindex="-1" role="option" data-cmd="formatUL" data-param1="default" title="Default">기본</a></li>
+                            <li role="presentation">
+                            <a class="fr-command" tabindex="-1" role="option" data-cmd="formatUL" data-param1="circle" title="Circle">원</a></li>
+                            <li role="presentation">
+                            <a class="fr-command" tabindex="-1" role="option" data-cmd="formatUL" data-param1="disc" title="Disc">디스크</a></li>
+                            <li role="presentation">
+                              <a class="fr-command" tabindex="-1" role="option" data-cmd="formatUL" data-param1="square" title="Square">네모</a></li>
+                          </ul>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="fr-newline"></div>
+                  <div class="fr-more-toolbar" data-name="moreText-1">
+                  </div>
+                </div>
+                </div>
+              </div>
+              <div class="postBody basic-editor fr-box fr-ltr custom-theme fr-basic" id="qna_body" role="application">
+                <div class="fr-wrapper show-placeholder" dir="ltr" style="max-height: 600px; overflow: auto;">
+                  <div class="fr-element fr-view" dir="ltr" contenteditable="true" style="min-height: 200px;" aria-disabled="false" spellcheck="true">
+                    <p><br></p>
+                  </div>
+                  <span class="fr-placeholder" style="font-size: 14px; line-height: 28px; margin-top: 0px; padding-top: 0px; padding-left: 10px; margin-left: 0px; padding-right: 10px; margin-right: 0px; text-align: left;">내용을 입력해주세요.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul id="image_list" style="display: none"></ul></form></div>
+
+</div>
+
+
+<div class="modal submodal" role="dialog" id="cocoaSubModal" aria-hidden="false" style="z-index: 17001">
+  <div class="modal-dialog">
+    <div class="modal-content"></div>
+  </div>
+</div>
+<script src="https://vendor-cdn.imweb.me/js/bootstrap.min.js?1630317768"></script>
+<!--[if lte IE 9]>
+<script src='https://vendor-cdn.imweb.me/js/html5shiv.min.js?1577682292'></script>
+<![endif]-->
+<!--[if lte IE 9]>
+<script src='https://vendor-cdn.imweb.me/js/respond.min.js?1577682292'></script>
+<![endif]-->
+<!--[if lte IE 9]>
+<script src='https://vendor-cdn.imweb.me/js/placeholders.min.js?1577682292'></script>
+<![endif]-->
+<!--[if lte IE 8]>
+<script src='https://vendor-cdn.imweb.me/js/PIE_IE678.js?1577682292'></script>
+<![endif]-->
+<script src="https://vendor-cdn.imweb.me/js/jquery.fileupload.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.lazyload.min.js?1577682292"></script>
+<script src="/js/localize/KR_KRW_currency.js?1687935649"></script>
+<script>
+  LOCALIZE.설명_다음예상결제일과에서확인가능 = function(){ return LOCALIZE.convArguments("* 다음 예상 결제일은 %1입니다.<br>* 구독 일정은 마이페이지 > 정기구독 관리에서 확인 가능합니다.", arguments); };
+  LOCALIZE.설명_진행중인정기구독주문이있어카드삭제불가 = function(){ return LOCALIZE.convArguments("현재 진행 중인 정기구독 주문이 있어 카드를 삭제할 수 없습니다.<br/>카드 변경 혹은 정기구독 해지 후 카드를 삭제해 주세요.", arguments); };
+  LOCALIZE.설명_등록된자동결제카드를삭제하시겠습니까 = function(){ return LOCALIZE.convArguments("등록된 자동결제 카드를 <br class=\'hidden-lg hidden-md hidden-sm\'/>삭제하시겠습니까?", arguments); };
+  LOCALIZE.설명_이번배송을건너뛰겠습니까다음구독일은n입니다 = function(){ return LOCALIZE.convArguments("이번 배송을 건너뛰겠습니까?<br/>해당 상품의 다음 구독일은<br class=\'hidden-lg hidden-md\'/> <strong>%1</strong> 입니다.", arguments); };
+  LOCALIZE.설명_이번배송을건너뛰겠습니까다음구독일은n입니다선택옵션도함께 = function(){ return LOCALIZE.convArguments("이번 배송을 건너뛰겠습니까?<br/>해당 상품의 다음 구독일은<br class=\'hidden-lg hidden-md\'/> <strong>%1</strong> 입니다.<br>선택옵션도 함께 적용됩니다.", arguments); };
+  LOCALIZE.설명_전체상품의정기구독을해지하시겠습니까 = function(){ return LOCALIZE.convArguments("전체 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?", arguments); };
+  LOCALIZE.설명_해당상품의정기구독을해지하시겠습니까 = function(){ return LOCALIZE.convArguments("해당 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?", arguments); };
+  LOCALIZE.설명_해당상품의정기구독을해지하시겠습니까선택옵션도함께 = function(){ return LOCALIZE.convArguments("해당 상품의 정기구독을 <br class=\'hidden-lg hidden-md hidden-sm\'/>해지하시겠습니까?<br>선택옵션도 함께 해지됩니다.", arguments); };
+  LOCALIZE.설명_타임세일종료까지n일 = function(){ return LOCALIZE.convArguments("타임세일 종료까지 %1일", arguments); };
+  LOCALIZE.설명_상세페이지타임세일종료까지n일 = function(){ return LOCALIZE.convArguments("<label class=\'text-bold text-brand\'>타임세일</label> 종료까지 <strong>%1일</strong>", arguments); };
+  LOCALIZE.설명_상세페이지타임세일종료까지n1시n2분n3초남음 = function(){ return LOCALIZE.convArguments("<label class=\'text-bold text-brand\'>타임세일</label> 종료까지 <strong>%1:%2:%3</strong> 남음", arguments); };
+  LOCALIZE.설명_결제예상금액임시 = function(){ return LOCALIZE.convArguments("총 상품금액(%1개)", arguments); };
+  LOCALIZE.설명_추천인코드가복사되었습니다 = function(){ return LOCALIZE.convArguments("추천인 코드가 복사되었습니다!", arguments); };
+  LOCALIZE.설명_군 = function(){ return LOCALIZE.convArguments("군", arguments); };
+  LOCALIZE.설명_성 = function(){ return LOCALIZE.convArguments("성", arguments); };
+  LOCALIZE.타이틀_PC모드로보기 = function(){ return LOCALIZE.convArguments("PC 모드로 보기", arguments); };
+  LOCALIZE.설명_가입승인되지않은아이디입니다 = function(){ return LOCALIZE.convArguments("가입승인 대기 중입니다. 운영자의 승인 후 이용하실 수 있습니다.", arguments); };
+  LOCALIZE.설명_회원등급할인 = function(){ return LOCALIZE.convArguments("회원등급 할인", arguments); };
+  LOCALIZE.설명_결제예상금액 = function(){ return LOCALIZE.convArguments("총 상품금액(%1개)", arguments); };
+  LOCALIZE.타이틀_s회원가 = function(){ return LOCALIZE.convArguments("%1 회원가", arguments); };
+  LOCALIZE.설명_현재재고부족으로N개이상구매할수없습니다 = function(){ return LOCALIZE.convArguments("현재 재고 부족으로 %1개 이상 구매할 수 없습니다.", arguments); };
+  LOCALIZE.설명_개인정보제3자제공에동의하여주시기바랍니다 = function(){ return LOCALIZE.convArguments("개인정보 제 3자 제공에 동의하여 주시기 바랍니다.", arguments); };
+  LOCALIZE.타이틀_글쓰기카테고리선택 = function(){ return LOCALIZE.convArguments("카테고리", arguments); };
+  LOCALIZE.설명_거리주소 = function(){ return LOCALIZE.convArguments("거리주소 (Street address, P.O box, company name, c/o)", arguments); };
+  LOCALIZE.설명_건물명 = function(){ return LOCALIZE.convArguments("건물명 (Apartment, suite, unit, building, floor, etc.)", arguments); };
+  LOCALIZE.설명_도시명 = function(){ return LOCALIZE.convArguments("도시명 (City)", arguments); };
+  LOCALIZE.설명_도시군 = function(){ return LOCALIZE.convArguments("도시군 (State/Province/Region)", arguments); };
+  LOCALIZE.설명_우편번호 = function(){ return LOCALIZE.convArguments("우편번호", arguments); };
+  LOCALIZE.타이틀_대표이미지설정 = function(){ return LOCALIZE.convArguments("대표 이미지 설정", arguments); };
+  LOCALIZE.타이틀_월 = function(){ return LOCALIZE.convArguments("월", arguments); };
+  LOCALIZE.타이틀_일 = function(){ return LOCALIZE.convArguments("일", arguments); };
+  LOCALIZE.설명_비밀글입니다 = function(){ return LOCALIZE.convArguments("비밀글입니다.", arguments); };
+  LOCALIZE.설명_작성시등록하신비밀번호를입력해주세요 = function(){ return LOCALIZE.convArguments("작성시 등록하신 비밀번호를 입력해주세요.", arguments); };
+  LOCALIZE.설명_비밀번호를입력하세요 = function(){ return LOCALIZE.convArguments("비밀번호를 입력 하세요.", arguments); };
+  LOCALIZE.설명_동의해주세요 = function(){ return LOCALIZE.convArguments("이용약관 및 개인정보 처리방침에 동의하셔야 가입이 가능합니다.", arguments); };
+  LOCALIZE.설명_주문자연락처를입력해주세요 = function(){ return LOCALIZE.convArguments("주문자 연락처를 입력해주세요", arguments); };
+  LOCALIZE.설명_수량 = function(){ return LOCALIZE.convArguments("수량", arguments); };
+  LOCALIZE.버튼_확인 = function(){ return LOCALIZE.convArguments("확인", arguments); };
+  LOCALIZE.버튼_닫기 = function(){ return LOCALIZE.convArguments("닫기", arguments); };
+  LOCALIZE.설명_필수옵션이모두선택되어있지않습니다 = function(){ return LOCALIZE.convArguments("필수옵션이 모두 선택되어있지 않습니다.", arguments); };
+  LOCALIZE.버튼_메뉴더보기 = function(){ return LOCALIZE.convArguments("더보기", arguments); };
+  LOCALIZE.설명_작성권한이없습니다 = function(){ return LOCALIZE.convArguments("작성 권한이 없습니다.", arguments); };
+  LOCALIZE.버튼_더보기 = function(){ return LOCALIZE.convArguments("더보기", arguments); };
+  LOCALIZE.설명_권한이_없습니다 = function(){ return LOCALIZE.convArguments("권한이 없습니다.", arguments); };
+  LOCALIZE.설명_로그인이_필요합니다 = function(){ return LOCALIZE.convArguments("로그인이 필요합니다.", arguments); };
+  LOCALIZE.설명_내용을_입력해주세요 = function(){ return LOCALIZE.convArguments("내용을 입력해주세요", arguments); };
+  LOCALIZE.설명_삭제된_댓글_입니다 = function(){ return LOCALIZE.convArguments("삭제된 댓글입니다.", arguments); };
+  LOCALIZE.설명_비밀번호 = function(){ return LOCALIZE.convArguments("비밀번호", arguments); };
+  LOCALIZE.버튼_취소 = function(){ return LOCALIZE.convArguments("취소", arguments); };
+  LOCALIZE.버튼_응답수정 = function(){ return LOCALIZE.convArguments("응답 수정", arguments); };
+  LOCALIZE.버튼_로그인 = function(){ return LOCALIZE.convArguments("로그인", arguments); };
+  LOCALIZE.설명_개인정보처리방침에동의하여주시기바랍니다 = function(){ return LOCALIZE.convArguments("개인정보 수집 및 이용에 동의하여 주시기 바랍니다.", arguments); };
+  LOCALIZE.설명_가입승인이_필요한_서비스입니다 = function(){ return LOCALIZE.convArguments("가입승인이 필요한 서비스입니다.", arguments); };
+  LOCALIZE.설명_필수항목을입력하여주시기바랍니다 = function(){ return LOCALIZE.convArguments("필수 항목을 입력하여 주시기 바랍니다.", arguments); };
+  LOCALIZE.설명_비밀번호를_입력해주세요 = function(){ return LOCALIZE.convArguments("비밀번호를 입력해주세요.", arguments); };
+  LOCALIZE.설명_검색결과가없습니다 = function(){ return LOCALIZE.convArguments("검색 결과가 없습니다.", arguments); };
+  LOCALIZE.타이틀_장바구니 = function(){ return LOCALIZE.convArguments("장바구니", arguments); };
+  LOCALIZE.설명_이메일 = function(){ return LOCALIZE.convArguments("이메일", arguments); };
+  LOCALIZE.설명_주소 = function(){ return LOCALIZE.convArguments("주소", arguments); };
+  LOCALIZE.설명_상세주소 = function(){ return LOCALIZE.convArguments("상세주소", arguments); };
+  LOCALIZE.버튼_확인닫기 = function(){ return LOCALIZE.convArguments("확인", arguments); };
+  LOCALIZE.타이틀_수량 = function(){ return LOCALIZE.convArguments("수량", arguments); };
+  LOCALIZE.설명_품절 = function(){ return LOCALIZE.convArguments("품절", arguments); };
+  LOCALIZE.버튼_주문하기 = function(){ return LOCALIZE.convArguments("주문하기", arguments); };
+  LOCALIZE.설명_장바구니가비어있습니다 = function(){ return LOCALIZE.convArguments("장바구니가 비어있습니다.", arguments); };
+  LOCALIZE.타이틀_총금액 = function(){ return LOCALIZE.convArguments("총금액", arguments); };
+  LOCALIZE.타이틀_반품교환 = function(){ return LOCALIZE.convArguments("반품/교환", arguments); };
+  LOCALIZE.설명_취소내역이없습니다 = function(){ return LOCALIZE.convArguments("취소 내역이 없습니다.", arguments); };
+  LOCALIZE.설명_주문내역이없습니다 = function(){ return LOCALIZE.convArguments("주문 내역이 없습니다.", arguments); };
+</script>
+<script src="https://vendor-cdn.imweb.me/js/common.js?1689021244"></script>
+<script src="https://vendor-cdn.imweb.me/js/im_component.js?1636940317"></script>
+<script src="https://vendor-cdn.imweb.me/js/site_common.js?1672019750"></script>
+<script src="https://vendor-cdn.imweb.me/js/imagesloaded.pkgd.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.smooth-scroll.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/gambit-smoothscroll-min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/ThreeCanvas.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/snow.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/masonry.pkgd.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/lightgallery-all.min.js?1596595980"></script>
+<script src="https://vendor-cdn.imweb.me/js/bootstrap.slide-menu.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/bootstrap.slide-menu-alarm.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/bootstrap-hover-dropdown.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery-scrolltofixed.js?1669067096"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.trackpad-scroll-emulator.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/modernizr.custom.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/classie.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.exif.js?1577682292"></script><script type="text/vbscript">
+Function IEBinary_getByteAt(strBinary, iOffset)
+	IEBinary_getByteAt = AscB(MidB(strBinary,iOffset+1,1))
+End Function
+Function IEBinary_getLength(strBinary)
+	IEBinary_getLength = LenB(strBinary)
+End Function
+</script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.canvasResize.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/autosize.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/owl.carousel2.js?1638150602"></script>
+<!--[if lte IE 9]>
+<script src='https://vendor-cdn.imweb.me/js/owl.carousel1.js?1577682292'></script>
+<![endif]-->
+<script src="https://vendor-cdn.imweb.me/js/slick.min.js?1577682292"></script>
+<script src="/js/preview_mode.js?1685942511"></script>
+<script src="/js/site.js?1681263281"></script>
+<script src="/js/site_member.js?1669876617"></script>
+<script src="/js/mobile_menu.js?1648796493"></script>
+<script src="/js/sns_share.js?1677482370"></script>
+<script src="/js/android_image_upload.js?1669163161"></script><ul id="image_list" style="display: none"></ul>
+<script src="/js/alarm_menu.js?1683615433"></script>
+<script src="/js/alarm_badge.js?1602469334"></script>
+<script src="/js/one_page.js?1577682295"></script>
+<script src="/js/site_coupon.js?1672376856"></script>
+<script src="/js/secret_article.js?1604286051"></script>
+<script src="/js/article_reaction.js?1586730656"></script>
+<script src="/js/site_shop.js?1688019734"></script>
+<script src="/js/board_common.js?1648107937"></script>
+<script src="/js/site_shop_mypage.js?1680139972"></script>
+<script src="/js/site_search.js?1669066661"></script>
+<script src="/js/zipcode_daum.js?1679954884"></script>
+<script src="/js/site_booking.js?1681093233"></script>
+<script src="/js/site_section.js?1671175965"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.number.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/nprogress.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/tinycolor-min.js?1577682292"></script>
+<script src="/js/app.js?1577682295"></script>
+<script src="/js/header_fixed_menu.js?1666824024"></script>
+<script src="/js/header_more_menu.js?1678256830"></script>
+<script src="/js/header_center_colgroup.js?1637043387"></script>
+<script src="/js/mobile_carousel_menu.js?1606176609"></script>
+<script src="/js/header_mega_dropdown.js?1675843337"></script>
+<script src="/js/header_overlay.js?1577682295"></script>
+<script src="/js/site_log.js?1684731701"></script>
+<script src="/js/advanced_trace.js?1597114502"></script>
+<script src="/js/site_animation.js?1648796493"></script>
+<script src="/js/site_event_check.js?1596495221"></script>
+<script src="/js/site_widget.js?1616721332"></script>
+<script src="https://vendor-cdn.imweb.me/js/moment.min.js?1629764594"></script>
+<script src="https://vendor-cdn.imweb.me/js/moment-with-locales.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/bootstrap-datepicker.js?1687222780"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.timepicker.min.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/ie-checker-min.js?1577682292"></script>
+<script src="/js/channel_plugin.js?1669067096"></script>
+<script src="https://vendor-cdn.imweb.me/js/jquery.chosen.js?1619084781"></script>
+<script src="https://wcs.naver.net/wcslog.js"></script>
+<script src="/js/google_analytics.js?1686556171"></script>
+<script src="https://vendor-cdn.imweb.me/js/codemirror.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/mode/xml/xml.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/mode/javascript/javascript.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/mode/css/css.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/js/mode/htmlmixed/htmlmixed.js?1577682292"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/froala_editor.min.js?1608673099"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/align.min.js?1607673165"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/char_counter.min.js?1607673165"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/code_beautifier.min.js?1607673167"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/code_view.min.js?1608643124"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/colors.min.js?1607673167"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/draggable.min.js?1607673168"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/emoticons.min.js?1669163161"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/entities.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/file.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/font_family.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/font_size.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/forms.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/fullscreen.min.js?1607673170"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/image.min.js?1607673172"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/image_manager.min.js?1607673172"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/inline_style.min.js?1607673173"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/line_breaker.min.js?1607673173"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/link.min.js?1607673173"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/lists.min.js?1607673174"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/paragraph_format.min.js?1607673174"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/paragraph_style.min.js?1607673174"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/quote.min.js?1607673174"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/save.min.js?1607673174"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/table.min.js?1607673177"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/url.min.js?1607673177"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/video.min.js?1625125569"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/plugins/line_height.min.js?1607673173"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/third_party/font_awesome.min.js?1607673192"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/ko.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/ja.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/zh_cn.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/zh_tw.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/es.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/froala_311/js/languages/vi.js?1669875597"></script>
+<script src="https://vendor-cdn.imweb.me/js/froala_with_emoticon.js?1669875619"></script>
+<script></script><script></script><script>
+  // 비주얼섹션 배경 동영상 및 동영상 위젯 자동재생 환경 설정
+  var section_youtube_list = [];
+  var yt_player = {};
+  var vimeo_player = [];
+  var site_video_list = [];
+  var video_autoplay_youtube_list = [];
+  function onYouTubeIframeAPIReady() {
+    $.each(section_youtube_list,function(_e, _data){
+      yt_player[_data.slide_code] = new SITE_SECTION_YOUTUBE();
+      yt_player[_data.slide_code].init(_data.type,_data.code,_data.id, _data.slide_code);
+    });
+    $.each(video_autoplay_youtube_list, function(k, v){
+      site_video_list[v].play();
+    })
+  }
+
+  $(function(){
+    /* Bootstrap Sanitizer Custom */
+    var customTooltipAllowList = $.fn.tooltip.Constructor.DEFAULTS.whiteList;
+    customTooltipAllowList.table = [];
+    customTooltipAllowList.thead = [];
+    customTooltipAllowList.tbody = [];
+    customTooltipAllowList.tr = [];
+    customTooltipAllowList.td = ["rowspan", "colspan"];
+    customTooltipAllowList.th = [];
+    customTooltipAllowList.caption = [];
+    customTooltipAllowList["*"].push("style");
+    /* End Bootstrap Sanitizer Custom */
+    $('body').smoothScroll({
+      delegateSelector : 'a',
+      speed : 1200,
+      easing : 'easeInOutExpo'
+    });
+    /* 알람 카운트 표시 */
+    ALARM_BADGE.runAlarmBadgeSystem();
+    SITE.hidePermissionMenu();
+    var recentScrollUrl = IMWEB_SESSIONSTORAGE.get('RECENT_PROD_SCROLL_URL');
+    if(recentScrollUrl && recentScrollUrl !== document.location.href){
+      IMWEB_SESSIONSTORAGE.remove('RECENT_PROD_SCROLL');
+      IMWEB_SESSIONSTORAGE.remove('RECENT_PROD_SCROLL_URL');
+    }
+  });
+</script>
+<script>
+  $(function(){
+    ANDROID_IMAGE_UPLOAD.init('qna_body');
+    SITE_SHOP_QNA.init('','select_secret');
+  });
+
+</script><script>ALARM_BADGE.addBadgeArea($('#slide-alarm_mobile'),'<i aria-hidden="true" class="im-icon im-ico-bell"></i>' +
+        '<sup class="badge style-danger _badge_cnt">{count}</sup>');</script>
+<script>ALARM_BADGE.addBadgeArea($('#slide-alarm'),'<i aria-hidden="true" class="im-icon im-ico-bell"></i>' +
+        '<sup class="badge style-danger _badge_cnt">{count}</sup>');</script><script>
+  $(function(){
+    SITE_VISIT_LOG.addVisitLog(document.referrer,'7Ame3yX54DPb4F8mEhRur6dlilFRmJn0JGJ/5xZnoKJgj92tOzKDWO0rsAS/Uucc2fTg+o7xGQlxAKOe8jNBV/LXMtcuQ8Sga8NhnFf7Wy2urzs8CS1g9V07qQY5CNVs', '6013','m202103197a9322c0272cf');
+  });
+</script>
+
+<script>
+  ALARM_MENU.init();
+  SITE_ANIMATION.init('N', 'Y');
+
+
+  $(function () {
+    var gallery_id = 'img_lg';
+    var img_gallery_light_box = false;
+    $('body').lightGallery({
+      selector: '._image_widget_lightbox',
+      thumbnail: false,
+      animateThumb: false,
+      swipeThreshold : 20,
+      showThumbByDefault: false,
+      mode: 'lg-fade',
+      speed: 200,
+      galleryId: gallery_id,
+    });
+
+    if(history.replaceState && history.pushState){
+      var current_url = location.href.indexOf('#') === -1 ? location.href : location.href.substr(0, location.href.indexOf('#'));
+      var back_url = document.referrer.indexOf('#') === -1 ? document.referrer : document.referrer.substr(0, document.referrer.indexOf('#'));
+      var history_push_flag = true;
+      // 라이트박스 hash 커스텀(IE 10 이상)
+      $('body').on('onBeforeOpen.lg', function(){
+        history_push_flag = true;
+      });
+      $('body').on('onAfterOpen.lg', function(){
+        var current_url_lg_id = location.href.indexOf('#') === -1 ? location.href : location.href.substr(location.href.indexOf('#'), location.href.indexOf('&'));
+        if(current_url_lg_id.indexOf(gallery_id) > 0){
+          img_gallery_light_box = true;
+        }
+      })
+      $('body').on('onAfterSlide.lg', function(event, prevIndex, index){
+        if(img_gallery_light_box){
+          if(history_push_flag){
+            history.replaceState(null, null, current_url);
+            history_push_flag = false;
+          }
+          history.replaceState(null, null, current_url + '#lg=' + gallery_id + '&slide=' + index);		// 슬라이드 히스토리 교체
+        }
+      });
+      var history_back_flag = true;
+      $('body').on('onBeforeClose.lg', function(e){
+        if(img_gallery_light_box){
+          history_back_flag = true;
+          if(window.location.hash.indexOf('lg=' + gallery_id) !== -1){
+            history.back();
+            history_back_flag = false;
+          }
+        }
+      });
+      $('body').on('onCloseAfter.lg', function(){
+        if(img_gallery_light_box){
+          if(history_back_flag || window.location.hash.indexOf('lg=') !== -1){
+            history.back();
+          }
+          history_back_flag = true;
+          img_gallery_light_box = false;
+        }
+      })
+    }
+
+    $('[data-toggle="tooltip"]').tooltip();
+
+  });
+
+  $(document).ready(function() {
+    $('body').removeClass('page_ready');
+    $('._bookmark').on('click', function(e) {
+      var bookmarkURL = window.location.href;
+      var bookmarkTitle = document.title;
+      var triggerDefault = false;
+
+      if (window.sidebar && window.sidebar.addPanel) {
+        // Firefox version < 23
+        window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+      } else if ((window.sidebar && (navigator.userAgent.toLowerCase().indexOf('firefox') > -1)) || (window.opera && window.print)) {
+        // Firefox version >= 23 and Opera Hotlist
+        var $this = $(this);
+        $this.attr('href', bookmarkURL);
+        $this.attr('title', bookmarkTitle);
+        $this.attr('rel', 'sidebar');
+        $this.off(e);
+        triggerDefault = true;
+      } else if (window.external && ('AddFavorite' in window.external)) {
+        // IE Favorite
+        window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+      } else {
+        // WebKit - Safari/Chrome
+        alert(LOCALIZE.설명_즐겨찾기등록키안내( (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Cmd' : 'Ctrl') + '+D') );
+      }
+      return triggerDefault;
+    });
+
+  });
+</script>
+
+<script>
+</script>
+<div id="image_upload_input" style="width:0; height:0; left: -9999px; opacity: 0;position: absolute">
+  <input type="file" name="post_images[]" multiple="" accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml" class="_image_upload_btn"></div>
+<div id="image_replace_input" style="width:0; height:0; left: -9999px; opacity: 0;position: absolute">
+  <input type="file" name="post_images[]" accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml" class="_image_replace_btn"></div>
+<div id="image_upload_input" style="width:0; height:0; left: -9999px; opacity: 0;position: absolute">
+  <input type="file" name="post_files[]" multiple="" class="_file_upload_btn"></div>
+<div class="fr-tooltip custom-theme" style="left: -3000px; top: 291px; position: fixed;">굵게 (⌘B)</div></body>
+</th:block>
+</body>
+</html>
