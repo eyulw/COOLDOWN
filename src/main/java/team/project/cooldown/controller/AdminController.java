@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import team.project.cooldown.service.admin.QnaService;
-import team.project.cooldown.service.admin.UserService;
+import team.project.cooldown.service.admin.A_UserService;
 
 @Controller
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
     Logger logger = LogManager.getLogger(AdminController.class);
-    final UserService a_usrv;
+    final A_UserService a_usrv;
     final QnaService a_qsrv;
 
     @GetMapping("/")
