@@ -5,7 +5,7 @@
 <mapper namespace="team.project.cooldown.mybatis.BoardMapper">
     <insert id="insertBoard" parameterType="Board">
         insert into board (category,title, u_id, contents)
-        values (${category},#{title},#{u_id},#{contents})
+        values (#{category},#{title},#{u_id},#{contents})
     </insert>
 
     <select id="lastBoardBno">
@@ -21,7 +21,7 @@
     </update>
 
     <select id="selectBoard" resultType="Board">
-        select category, title, views, contents, likes, regdate from board
+        select board_id, category, title, views, contents, likes, regdate from board
         order by board_id desc
         limit #{stnum}, 5
     </select>

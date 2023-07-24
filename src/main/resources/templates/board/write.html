@@ -4,14 +4,13 @@
       layout:decorate="~{layout/template}">
 <th:block layout:fragment="content">
     <body class="doz_sys  _body_menu_m202105075b655364fdf55  mobile-nav-on  mobile_nav_dep2  page  fixed-menu-on new_fixed_menu_on new_header_site  loggedin write_mode" 	style=";"  id="doz_body">
-
     <div class="board_write post_write" id="board_container">
         <div class="write-header _write_header m_sticky_toolbar">
             <div class="header_line clearfix">
                 <div class="board-name">자유게시판</div>
                 <div class="write-btn">
                     <!--<a href="/Dailyroutine" class="btn btn_style">취소</a>--><!--기존코드-->
-                    <a href="/board/list" class="btn btn_style">취소</a>
+                    <a id="bdwrtcancelbtn" class="btn btn_style">취소</a>
                     <a href="/Dailyroutine/" class="icon_style" ><i class="btl bt-angle-left"></i></a>
                     <!--<button type="button" name="wrtbdbtn" id="wrtbdbtn" class="_save_post save_post btn" onclick="POST.submit();return false;">작성</button>--><!--기존코드-->
                     <button type="button" name="wrtbdbtn" id="wrtbdbtn" class="_save_post save_post btn">작성</button>
@@ -47,7 +46,7 @@
             </div>
         </div>--><!--대표 이미지 설정, 첨부이미지 미리보기-->
         <div class="post_write_wrap">
-            <!--<form id="post_form" method="post" target="hidden_frame" action="/backpg/post_add.cm">-->
+            <!--<form id="post_form" method="post" target="hidden_frame" action="/backpg/post_add.cm">--><!--기존코드-->
             <form id="post_form">
                 <input type="hidden" name="idx" value="0" />
                 <input type="hidden" name="menu_url" value="/Dailyroutine/" />
@@ -80,7 +79,8 @@
                                         <img alt="프로필 이미지" src="https://cdn.imweb.me/thumbnail/20230721/b5401db3482d4.png" class="avatar-image" />
                                     </div>
                                     <div class="author">
-                                        <div name="u_id" id="u_id" th:value="abc123" class="write">진진</div>
+                                        <div class="write">nickname</div><!--닉네임 불러와서 보여주기-->
+                                        <input type="hidden" name="u_id" id="u_id" value="3" >
                                     </div>
                                 </div>
                                 <div class="write-icon"></div>
@@ -90,53 +90,20 @@
                                     <div class="board_title_wrap tabled full-width" style="position: relative">
                                         <!--<div class="schedule_name table-cell vertical-middle">--><!--기존코드-->
                                         <div class="table-cell vertical-middle">
-                                            <form th:action="@{/write}" method="post">
-                                                <select name="category" id="category"><!--class="div_select category_select"-->
-                                                    <option th:value="${category}=='자유글'" th:text="자유글"></option>
-                                                    <option th:value="${category}=='동행구하기'" th:text="동행구하기"></option>
-                                                    <option th:value="${category}=='자기소개'" th:text="자기소개"></option>
-                                                    <option th:value="${category}=='Q&A'" th:text="|Q&A|"></option>
-                                                </select>
-                                            </form><!--카테고리 선택-->
-                                        </div><!--카테고리-->
-                                        <!--<form th:action="@{/articles}" method="post">
-                                            <select name="category" id="category">
+                                            <select name="category_" id="b_category"><!--class="div_select category_select"-->
                                                 <option value="자유글">자유글</option>
                                                 <option value="동행구하기">동행구하기</option>
-                                                <option th:each="category : ${categories}" th:value="${category}"
-                                                        th:text="${category}" th:selected="${selectedCategory == category}">
-                                                </option>
-                                            </select>
-                                            <button type="submit">카테고리 선택 완료</button>
-                                        </form>-->
-                                        <!--<ul>
-                                            <li th:each="article : ${articles}">
-                                                <h2 th:text="${article.title}"></h2>
-                                                <p th:text="${article.content}"></p>
-                                                <p><b>Category:</b> <span th:text="${article.category}"></span></p>
-                                                <hr>
-                                            </li>
-                                        </ul>-->
+                                                <option value="자기소개">자기소개</option>
+                                                <option value="Q&A">Q&A</option>
+                                            </select><!--카테고리 선택-->
+                                            <input type="hidden" name="category" id="categoryValue">
+                                        </div><!--카테고리-->
                                         <div class="table-cell vertical-middle">
                                             <!--<input id="post_subject" name="subject" class="no-margin basic_input title_name w100p mb24" type="text" value="" placeholder="제목"/>--><!--기존코드-->
-                                            <input id="title" name="title" class="no-margin basic_input title_name w100p mb24 " type="text" value="" placeholder="제목을 입력하세요."/>
+                                            <input id="title" name="title" class="no-margin basic_input title_name w100p mb24 " type="text" placeholder="제목을 입력하세요."/>
                                         </div><!--제목입력(검사에 왜 내용 안뜨지?-->
                                     </div>
                                 </div><!--카테고리, 제목-->
-                                <!--<div class="clearfix m_tools _mobile_tool_bar" style="display: none">
-                                    <div>
-                                        <a href="javascript:;" id="library_img_btn" class="text-brand _tool_btn" style="display: inline-block; padding: 15px 7px">
-                                            대표 이미지 설정
-                                        </a>
-                                        <div class="bg_photo_mobile inline-blocked float_l holder" style="padding: 9px 0; margin-left: 5px">
-                                            <a href="javascript:;" class="deleted _tool_btn _delete_cover_image" style="display: none">
-                                                <img alt="프로필 이미지" class="_cover_image_src" src="" />
-                                                <span class="hover_img_close_btn bg-brand">x</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="write-icon"></div>
-                                </div>--><!--모바일 툴바?-->
                                 <!--<div class="pc_toolbar_wrap fr-m-custom _fr-m-custom">
                                     <div id="toolbarContainer" data-lang="KR">
                                         <div class="fr-toolbar custom-theme fr-ltr fr-desktop fr-top">
@@ -986,19 +953,10 @@
                                     </div>
                                 </div>--><!--pc 툴바-->
                                 <div class="postBody basic-editor fr-box fr-ltr custom-theme fr-basic" id="post_body" role="application">
-                                    <div class="fr-wrapper show-placeholder" dir="ltr">
+                                    <!--<div class="fr-wrapper show-placeholder" dir="ltr">-->
                                         <div class="fr-element fr-view" dir="ltr" contenteditable="true" style="min-height: 150px;" aria-disabled="false" spellcheck="false">
-                                            <textarea id="contents" name="contents" class="no-margin basic_input title_name w100p mb24 h100p" type="text" value="" placeholder="내용을 입력하세요."></textarea>
-                                            <!--<p style="text-align: left">
-                                                <p>본문 글입니다.</p>&lt;!&ndash;본문 글&ndash;&gt;
-                                                <img class="fr-dii fr-draggable" src="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/922abcd4e375a.jpg">&lt;!&ndash;첨부이미지 1번째&ndash;&gt;
-                                            </p>
-                                            <p style="text-align: left">
-                                                <img class="fr-dii fr-draggable" src="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/46d72a6865f1d.jpg">&lt;!&ndash;첨부이미지 2번째, 대표이미지 설정&ndash;&gt;
-                                            </p>
-                                            <p><br></p>-->
+                                            <textarea id="contents" name="contents" class="no-margin basic_input title_name w100p mb24 h100p" type="text" placeholder="내용을 입력하세요."></textarea>
                                         </div><!--작성한 본문 내용-->
-                                        <!--<span class="fr-placeholder" style="font-size: 14px; line-height: 28px; margin-top: 0px; padding-top: 0px; padding-left: 10px; margin-left: 0px; padding-right: 10px; margin-right: 0px; text-align: left;">내용을 입력해주세요</span>-->
                                         <!--내용을 입력해주세요 글 작성 시 어떻게 사라지게...-->
                                         <!--<div class="fr-image-resizer" style="top: 926.007px; left: 9px; width: 904.002px; height: 902.007px;">
                                             <div class="fr-handler fr-hnw"></div>
@@ -1006,8 +964,8 @@
                                             <div class="fr-handler fr-hsw"></div>
                                             <div class="fr-handler fr-hse"></div>
                                         </div>--><!--첨부이미지 뷰페이지에 맞게 리사이징? 내용도 없는데 왜 공간만 차지를..-->
-                                    </div><!--본문 입력 창-->
-                                    <div class="second-toolbar"><span class="fr-counter" style="bottom: 0px; margin-right: 0px">문자 : 0</span></div><!--글자 수 세는건가?-->
+                                    <!--</div>--><!--본문 입력 창-->
+                                    <!--<div class="second-toolbar"><span class="fr-counter" style="bottom: 0px; margin-right: 0px">문자 : 0</span></div>--><!--글자 수 세는건가?-->
                                 </div><!--본문 내용-->
                                 <ul class="file_list" id="file_list"></ul>
                             </div>
