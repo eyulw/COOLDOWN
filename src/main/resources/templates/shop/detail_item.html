@@ -206,12 +206,12 @@
 
 
           <div class="buy_btns holder pc   " th:each="itcb_d :${itemCombine_d}">
-            <div th:if="${itcb_d.stock }">
+            <div th:if="${itcb_d.stock != '0'}">
               <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;"
                  onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
               <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="">디깅 포인트</a>
             </div>
-            <div>
+            <div th:if="${itcb_d.stock == '0'}">
               <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
             </div>
             <a href="javascript:" style="" class="btn like_box soldout-like-box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
