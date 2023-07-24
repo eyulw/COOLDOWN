@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/join")
+
 public class MemberJoinController {
 
     Logger logger = LogManager.getLogger(MemberJoinController.class);
