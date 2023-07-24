@@ -129,7 +129,7 @@
                                             <div class="board_view">
                                                 <header class="board-title holder">
                                                     <div class="view_tit">
-                                                        <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;category=s49meIaW22"></a><!--선택한 카테고리 리스트로 이동--><!--어떻게-->
+                                                        <!--<a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;category=s49meIaW22"></a>--><!--선택한 카테고리 리스트로 이동--><!--어떻게-->
                                                         <span th:text="${bd.category}" class="category" style="padding-right: 10px; color: #00b8ff"></span><!--카테고리-->
                                                         <p th:text="${bd.title}"></p><!--제목-->
                                                     </div><!--카테고리, 제목-->
@@ -137,31 +137,18 @@
                                                 <div class="board_summary">
                                                     <div class="left">
                                                         <div class="author">
-                                                            <div th:text="${bd.u_id}" class="write">디그지기</div><!--작성자-->
+                                                            <div th:text="${bd.u_id}" class="write">디그지기</div><!--작성자 닉네임-->
                                                             <!--<div class="board_name">
                                                                 <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9">자유게시판</a>&lt;!&ndash;디그디그크루는 디그디그크루로 이동&ndash;&gt;
                                                             </div>-->
-                                                            <div th:text="|${#strings.substring(bd.regdate,0,16)}|" class="date body_font_color_70"></div> <!--작성일-->
+                                                            <div th:text="${#strings.substring(bd.regdate,0,10)}" class="date body_font_color_70"></div> <!--작성일-->
                                                             조회수<div th:text="${bd.views}" class="hit-count body_font_color_70"></div> <!--조회수-->
                                                             <div class="tools txt">
                                                                 <a href="javascript:;" onclick="javascript:BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p2023041041c3c724a5eb5','','post');" style="margin-right: 10px" >신고</a>
                                                             </div><!--신고버튼 pc버전-->
                                                         </div>
                                                     </div><!--게시자 정보 외-->
-                                                    <div class="tools">
-                                                        <div class="mobile_right dropdown">
-                                                            <button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="true">
-                                                                <i aria-hidden="true" class="vertical-middle icon-options board-summary-icon"></i>
-                                                            </button><!--모바일 추가메뉴 - 신고버튼-->
-                                                            <ul class="dropdown-menu" role="menu">
-                                                                <li role="presentation">
-                                                                    <a role="menuitem" tabindex="-1" href="javascript:;" onclick="javascript:BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p2023041041c3c724a5eb5','','post');">신고</a>
-                                                                </li><!--신고버튼 모바일버전-->
-                                                            </ul>
-                                                        </div>
-                                                    </div><!--모바일용 추가 기능-->
                                                 </div>
-
                                                 <div class="board_txt_area fr-view">
                                                     <!--<div class="margin-top-xxl _comment_body_m202101156c08f63444515">
                                                         <p>서늘한 바람과 따뜻한 햇살이 동시에 느껴지는 월요일 오후 입니다.</p>
@@ -292,7 +279,7 @@
                                                             </div><!--대댓글 작성 폼-->
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div><!--댓글-->
                                                 <div class="comment_section">
                                                     <div class="list_tap">
                                                         <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15120793&amp;t=board">
@@ -302,10 +289,12 @@
                                                         </a>
                                                     </div><!--아래글, 위글-->
                                                     <div class="table_bottom over_h action-area">
-                                                        <a class="btn btn-primary btn-sm float_l" href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;page=1" role="button">목록</a>
-                                                        <a class="btn btn-primary btn-sm float_r" role="button" href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;board=b2021050791e0a8f7e18e4&amp;bmode=write&amp;back_url=L0RhaWx5cm91dGluZS8%2FcT1ZVG94T250ek9qRXlPaUpyWlhsM2IzSmtYM1I1Y0dVaU8zTTZNem9pWVd4c0lqdDkmYm1vZGU9dmlldyZpZHg9MTQ3MjkzMzYmdD1ib2FyZA%3D%3D">글쓰기</a>
+                                                        <a id="bdlist" class="btn btn-primary btn-sm float_l" role="button">목록</a>
+                                                        <a id="newbdbtn" class="btn btn-primary btn-sm float_r" role="button">글쓰기</a>
                                                     </div><!--목록, 글쓰기 버튼-->
+                                                    <script src="/assets/js/board.js" charset="utf-8"></script>
                                                 </div><!--게시판 푸터(이전글,다음글,목록,글쓰기)-->
+
                                             </div>
                                         </div>
                                     </div>
