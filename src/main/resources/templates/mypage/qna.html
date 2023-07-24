@@ -16,19 +16,19 @@
           <ul id="cart_menu">
             <div class="clearfix cart-menu-slide">
               <li class=" ">
-                <a href="/shop_mypage/?m2=order" class="body_font_color_50"><span>주문</span></a>
+                <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>
               </li>
               <li class=" ">
-                <a href="/shop_mypage/?m2=wish_list" class="body_font_color_50"><span>위시</span></a>
+                <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a>
               </li>
               <li class=" ">
-                <a href="/shop_mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a>
+                <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a>
               </li>
               <li class=" ">
-                <a href="/shop_mypage/?m2=cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>
+                <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>
               </li>
               <li class="active">
-                <a href="/shop_mypage/?m2=qna" class="body_font_color_50"><span>1:1 문의</span></a>
+                <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a>
               </li>
             </div>
           </ul>
@@ -36,19 +36,19 @@
         <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
           <ul>
             <li class="">
-              <a href="/shop_mypage/?m2=order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a>
+              <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a>
             </li>
             <li class="">
-              <a href="/shop_mypage/?m2=wish_list" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a>
+              <a href="/mypage/wish_list" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a>
             </li>
             <li class="">
-              <a href="/shop_mypage/?m2=cancel" class="text-gray-dark _fade_link">취소 조회</a>
+              <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>
             </li>
             <li class="">
-              <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a>
+              <a href="/mypage/point_list" class="text-gray-dark _fade_link">디깅 포인트</a>
             </li>
             <li class="on">
-              <a href="/shop_mypage/?m2=qna" class="text-gray-dark _fade_link">1:1 문의</a>
+              <a href="/mypage/qna" class="text-gray-dark _fade_link">1:1 문의</a>
             </li>
             <li>
               <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D');" class="text-gray-dark _fade_link">정보 수정</a>
@@ -78,7 +78,8 @@
                         <div id="list-popover" style="display: none" class="list_popover">
                           <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
                             <h6 class="no-margin">회원 등급별 혜택 안내</h6>
-                            <a href="javascript:" onclick="$('.popover.in').popover('hide');" class="btl btl bt-times"><span class="sr-only">닫기</span></a>
+                            <a href="javascript:" onclick="$('.popover.in').popover('hide');" class="btl btl bt-times">
+                              <span class="sr-only">닫기</span></a>
                           </div>
                           <div class="lp_content_wrap">
                             <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
@@ -106,7 +107,10 @@
                                 </table>
                               </div>
                               <div class="text-12 margin-top-xxl">
-                                <p class="no-margin">총 구매금액에 대해 산정됩니다.</p><p class="no-margin">등급 조건 달성시 등급 변경은 매주 월요일에 반영됩니다.</p><p class="no-margin">구매혜택 조건은 실결제 기준(쿠폰, 적립금, 회원혜택 적용 후 배송비를 제외한 결제금액)으로 적용됩니다.</p><p class="no-margin">구매금액 반영은 배송완료 후 7일 이후에 반영됩니다.</p>																	</div>
+                                <p class="no-margin">총 구매금액에 대해 산정됩니다.</p>
+                                <p class="no-margin">등급 조건 달성시 등급 변경은 매주 월요일에 반영됩니다.</p>
+                                <p class="no-margin">구매혜택 조건은 실결제 기준(쿠폰, 적립금, 회원혜택 적용 후 배송비를 제외한 결제금액)으로 적용됩니다.</p>
+                                <p class="no-margin">구매금액 반영은 배송완료 후 7일 이후에 반영됩니다.</p>																	</div>
                             </div>
                           </div>
                         </div>
@@ -137,7 +141,7 @@
                 <div class="body_font_color_40" style="margin:30px">등록된 문의가 없습니다</div>
               </div>
               <div class="textarea_block no-padding-x no-border">
-                <button class="btn btn-primary btn-sm" onclick="location.href='/?prod_code=&amp;qmode=write&amp;back_url=L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D'; return false;">
+                <button class="btn btn-primary btn-sm" onclick="location.href='qnawrite'; return false;">
                   <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
                   <span>문의 작성</span>
                 </button>

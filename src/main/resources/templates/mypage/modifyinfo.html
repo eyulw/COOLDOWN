@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/template}">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<th:block layout:fragment="content">
-<div class="modal-dialog ui-draggable">
-  <div class="modal-content"><!-- 회원가입 -->
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="modifyinfo_modal">
+  <div class="modal fade" id="modifyinfo_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+    <!-- 회원가입 -->
     <article class="modal_article login p_lr_space pb24">
       <button class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" data-original-title="닫기">
-        <i class="btl bt-times"></i></button>
+        <i aria-hidden="true" class="btl bt-times"></i></button>
       <h2>정보 수정</h2>
       <link href="https://vendor-cdn.imweb.me/css/site/admin/toastr.css" rel="stylesheet" type="text/css">
 
@@ -123,57 +119,58 @@
                 <div class="alert-block _msg"></div>
               </div>
             </div>
-          </div>			<script>
-          $(function(){
-            var join_addr = new ZIPCODE_DAUM();
-            var address = "";
-            var splitAddress ="";
-            var building = "";
-            var street= "";
-            var city= "";
-            var state= "";
-
-            join_addr.init({
-              'addr_container' : $('#join_addr_container'),
-              'addr_pop' : $('#join_addr_container ._add_list'),
-              'post_code' : $('#join_addr_postcode'),
-              'addr' : $('#join_addr'),
-              'sub_addr' : $('#sub_join_addr'),
-              'onShow' : function(){
-                $('#join_addr_container').css({'top' : -50 + 'px'});
-                $('#join_addr_detail').parent().css({'top' : -50 + 'px'});
-              },
-              'onComplete' : function(data){
-                $('#join_addr_detail').focus();
-
-                /*한글 주소일때 내부적으로 영문주소도 저장하기 위해*/
-                address = data.addressEnglish;
-                if(address == 'undefined') address = data.jibunAddressEnglish;
-                splitAddress= address.split(',');
-                if(splitAddress.length > 5){
-                  building = splitAddress[0];
-                  street = splitAddress[1];
-                  city = splitAddress[2];
-                  state = splitAddress[3] + " " + splitAddress[4];
-                } else {
-                  building = splitAddress[0];
-                  street = splitAddress[1];
-                  city = splitAddress[2];
-                  state = splitAddress[3];
-                }
-                $("input[name='addr_building']").val(building);
-                $("input[name='addr_street']").val(street);
-                $("input[name='addr_city']").val(city);
-                $("input[name='addr_state']").val(state);
-                $("input[name='addr_zipcode']").val(data.zonecode);
-              },
-              'onClose' : function(){
-                $('#join_addr_detail').parent().css({'top' : 0 + 'px'});
-              },
-              'height' : '100%'
-            });
-          });
-        </script>
+          </div>
+          <!-- <script>
+          // $(function(){
+          //   var join_addr = new ZIPCODE_DAUM();
+          //   var address = "";
+          //   var splitAddress ="";
+          //   var building = "";
+          //   var street= "";
+          //   var city= "";
+          //   var state= "";
+          //
+          //   join_addr.init({
+          //     'addr_container' : $('#join_addr_container'),
+          //     'addr_pop' : $('#join_addr_container ._add_list'),
+          //     'post_code' : $('#join_addr_postcode'),
+          //     'addr' : $('#join_addr'),
+          //     'sub_addr' : $('#sub_join_addr'),
+          //     'onShow' : function(){
+          //       $('#join_addr_container').css({'top' : -50 + 'px'});
+          //       $('#join_addr_detail').parent().css({'top' : -50 + 'px'});
+          //     },
+          //     'onComplete' : function(data){
+          //       $('#join_addr_detail').focus();
+          //
+          //       /*한글 주소일때 내부적으로 영문주소도 저장하기 위해*/
+          //       address = data.addressEnglish;
+          //       if(address == 'undefined') address = data.jibunAddressEnglish;
+          //       splitAddress= address.split(',');
+          //       if(splitAddress.length > 5){
+          //         building = splitAddress[0];
+          //         street = splitAddress[1];
+          //         city = splitAddress[2];
+          //         state = splitAddress[3] + " " + splitAddress[4];
+          //       } else {
+          //         building = splitAddress[0];
+          //         street = splitAddress[1];
+          //         city = splitAddress[2];
+          //         state = splitAddress[3];
+          //       }
+          //       $("input[name='addr_building']").val(building);
+          //       $("input[name='addr_street']").val(street);
+          //       $("input[name='addr_city']").val(city);
+          //       $("input[name='addr_state']").val(state);
+          //       $("input[name='addr_zipcode']").val(data.zonecode);
+          //     },
+          //     'onClose' : function(){
+          //       $('#join_addr_detail').parent().css({'top' : 0 + 'px'});
+          //     },
+          //     'height' : '100%'
+          //   });
+          // });
+        </script>-->
 
           <div class="input_block form-group _item _birth"><!--생년월일-->
             <div style="position: relative">
@@ -420,140 +417,146 @@
         </div>
       </form>
 
-      <script>
-        var NOT_APP_PAGE = 'Y';
-        $(function(){
-          $('#fileupload_profile_img2').setUploadImage({
-            url : '/ajax/upload_profile_image.cm',
-            formData : {temp : 'Y', target : 'member'}
-          }, function(res, data){
-            $.each(data, function(e, tmp){
-              if(tmp.url != ''){
-                $('#profile_img2').css({
-                  'background':'url('+CDN_UPLOAD_URL + tmp.url+') 50% 50% / cover no-repeat'
+              <script>
+                var NOT_APP_PAGE = 'Y';
+                $(function(){
+                  $('#fileupload_profile_img2').setUploadImage({
+                    url : '/ajax/upload_profile_image.cm',
+                    formData : {temp : 'Y', target : 'member'}
+                  }, function(res, data){
+                    $.each(data, function(e, tmp){
+                      if(tmp.url != ''){
+                        $('#profile_img2').css({
+                          'background':'url('+CDN_UPLOAD_URL + tmp.url+') 50% 50% / cover no-repeat'
+                        });
+                        $('#photo_tmp_idx2').val(tmp.tmp_idx);
+                      }else{
+                        alert(tmp.error);
+                      }
+                    })
+
+                  });
+                  $(document).on('drop dragover', function(e){
+                    e.preventDefault();
+                  });
+                  $('#join_form').show();
+                  SITE_MEMBER.initJoinForm('KR');
                 });
-                $('#photo_tmp_idx2').val(tmp.tmp_idx);
-              }else{
-                alert(tmp.error);
-              }
-            })
 
-          });
-          $(document).on('drop dragover', function(e){
-            e.preventDefault();
-          });
-          $('#join_form').show();
-          SITE_MEMBER.initJoinForm('KR');
-        });
+                TOKEN.makeToken(3600,"join_popup",function(token,token_key){
 
-        TOKEN.makeToken(3600,"join_popup",function(token,token_key){
+                  $("#join_token").find("input[name='join_token']").val(token);
+                  $("#join_token").find("input[name='join_token_key']").val(token_key);
+                });
+              </script>
 
-          $("#join_token").find("input[name='join_token']").val(token);
-          $("#join_token").find("input[name='join_token_key']").val(token_key);
-        });
-      </script>
+              <script src="/admin/js/toastr.js"></script>
+              <script type="text/javascript">
+                function createRecommendCode(obj){
+                  SITE_MEMBER.createRecommendCode(function(recommend_code){
+                    $('._recommend_code_wrap').html(recommend_code);
+                    $('._recommend_tmp_input').val(recommend_code);
+                    $('._recommend_set').removeClass('hide');
+                    obj.addClass('hide');
+                  });
+                }
 
-      <script src="/admin/js/toastr.js"></script>
-      <script type="text/javascript">
-        function createRecommendCode(obj){
-          SITE_MEMBER.createRecommendCode(function(recommend_code){
-            $('._recommend_code_wrap').html(recommend_code);
-            $('._recommend_tmp_input').val(recommend_code);
-            $('._recommend_set').removeClass('hide');
-            obj.addClass('hide');
-          });
-        }
+                /* 테스트QA 앱에서 toast 가 작동하지 않아 alert로 처리함 https://imweb.atlassian.net/browse/IE-189 */
+                if (TEST_SERVER){
+                  $('._referrer_code_copy').off('click').on('click', function(){
+                    $('._recommend_tmp_input').select();
+                    document.execCommand("Copy");
+                    alert('추천인 코드가 복사되었습니다!');
+                  });
+                }else{
+                  $(document).ready(function(){
+                    toastr.options = {
+                      "closeButton" : false,
+                      "debug" : false,
+                      "newestOnTop" : false,
+                      "progressBar" : false,
+                      "positionClass" : "on-modal",
+                      "preventDuplicates" : false,
+                      "onclick" : null,
+                      "showDuration" : "300",
+                      "hideDuration" : "1000",
+                      "timeOut" : "5000",
+                      "extendedTimeOut" : "1000",
+                      "showEasing" : "swing",
+                      "hideEasing" : "linear",
+                      "showMethod" : "fadeIn",
+                      "hideMethod" : "fadeOut"
+                    };
+                    $('._referrer_code_copy').off('click').on('click', function(){
+                      $('._recommend_tmp_input').select();
+                      document.execCommand("Copy");
 
-        /* 테스트QA 앱에서 toast 가 작동하지 않아 alert로 처리함 https://imweb.atlassian.net/browse/IE-189 */
-        if (TEST_SERVER){
-          $('._referrer_code_copy').off('click').on('click', function(){
-            $('._recommend_tmp_input').select();
-            document.execCommand("Copy");
-            alert('추천인 코드가 복사되었습니다!');
-          });
-        }else{
-          $(document).ready(function(){
-            toastr.options = {
-              "closeButton" : false,
-              "debug" : false,
-              "newestOnTop" : false,
-              "progressBar" : false,
-              "positionClass" : "on-modal",
-              "preventDuplicates" : false,
-              "onclick" : null,
-              "showDuration" : "300",
-              "hideDuration" : "1000",
-              "timeOut" : "5000",
-              "extendedTimeOut" : "1000",
-              "showEasing" : "swing",
-              "hideEasing" : "linear",
-              "showMethod" : "fadeIn",
-              "hideMethod" : "fadeOut"
-            };
-            $('._referrer_code_copy').off('click').on('click', function(){
-              $('._recommend_tmp_input').select();
-              document.execCommand("Copy");
+                      toastr.info('추천인 코드가 복사되었습니다!');
+                    });
+                  });
+                }
+              </script>
 
-              toastr.info('추천인 코드가 복사되었습니다!');
-            });
-          });
-        }
-      </script>
+              <script>
+                function reAuth(){
+                  $(".auth_completed").hide();
+                  $(".reauth_auth_btn").show();
+                }
+              </script>
 
-      <script>
-        function reAuth(){
-          $(".auth_completed").hide();
-          $(".reauth_auth_btn").show();
-        }
-      </script>
+              <script>
+                //14세미만 가입옵션 검증
+                function checkLimitJoin(is_adult, before_target){
+                  var limit_join_type = '1' == '1';
+                  if(limit_join_type){//14세미만 가입제한 옵션 사용시
+                    if(before_target == 'auth'){
+                      if(is_adult){//인증에서 접근시
+                        $("#auth_success_wrap").show();
+                        $("#auth_fail_wrap").hide();
+                        $('#prevention_screen').hide();
+                        $("#limit_join_agree").val("Y");
+                      }else{
+                        $("#auth_success_wrap").hide();
+                        $("#auth_fail_wrap").show();
+                        $("#limit_join_agree").val("N");
+                      }
+                    }
+                  }
+                }
+                checkLimitJoin(false,'join');
+                var $limit_join_agree = $("#limit_join_agree");
 
-      <script>
-        //14세미만 가입옵션 검증
-        function checkLimitJoin(is_adult, before_target){
-          var limit_join_type = '1' == '1';
-          if(limit_join_type){//14세미만 가입제한 옵션 사용시
-            if(before_target == 'auth'){
-              if(is_adult){//인증에서 접근시
-                $("#auth_success_wrap").show();
-                $("#auth_fail_wrap").hide();
-                $('#prevention_screen').hide();
-                $("#limit_join_agree").val("Y");
-              }else{
-                $("#auth_success_wrap").hide();
-                $("#auth_fail_wrap").show();
-                $("#limit_join_agree").val("N");
-              }
-            }
-          }
-        }
+                $("._birth select").off("change._birth").on("change._birth",function(){
+                  var year = $("#birth_y").val();
+                  var month = $("#birth_m").val() - 1;
+                  var day = $("#birth_d").val();
 
-        checkLimitJoin(false,'join');
-        var $limit_join_agree = $("#limit_join_agree");
+                  if(year > 0 && month > 0 && day > 0){
+                    const birthDate = new Date(year, month, day);
+                    var age = getWesternAge(birthDate);
 
-        $("._birth select").off("change._birth").on("change._birth",function(){
-          var year = $("#birth_y").val();
-          var month = $("#birth_m").val() - 1;
-          var day = $("#birth_d").val();
+                    var $limit_join_message = $("._birth");
+                    if(age >= 14){
+                      $limit_join_agree.val('Y');
+                      $limit_join_message.removeClass('triangle');
+                    }else{
+                      $limit_join_agree.val('N');
+                      $limit_join_message.addClass('triangle');
+                    }
+                  }
+                });
+              </script>
+          </article>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
 
-          if(year > 0 && month > 0 && day > 0){
-            const birthDate = new Date(year, month, day);
-            var age = getWesternAge(birthDate);
-
-            var $limit_join_message = $("._birth");
-            if(age >= 14){
-              $limit_join_agree.val('Y');
-              $limit_join_message.removeClass('triangle');
-            }else{
-              $limit_join_agree.val('N');
-              $limit_join_message.addClass('triangle');
-            }
-          }
-        });
-
-      </script>
-    </article>
-    <!-- //회원가입 --></div>
-</div>
-</th:block>
 </body>
+<script src="/assets/js/mypage.js" charset="utf-8"></script>
+</th:block>
 </html>
+
+<!--<div class="modal-dialog ui-draggable">-->
+<!--  <div class="modal-content">-->
