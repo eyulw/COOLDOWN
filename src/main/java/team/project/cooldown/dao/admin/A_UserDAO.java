@@ -4,7 +4,7 @@ import team.project.cooldown.model.User;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface A_UserDAO {
     List<User> selectUser();
-    User selectOneUser(String u_id);
+
 }
