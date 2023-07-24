@@ -4,7 +4,7 @@ import team.project.cooldown.model.Qna;
 
 import java.util.List;
 
-public interface QnaDAO {
+public interface A_QnaDAO {
     List<Qna> selectQna();
 
     Qna selectOneQna(String qna_id);
