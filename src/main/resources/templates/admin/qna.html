@@ -21,13 +21,13 @@
                             <th>제목</th>
                             <th style="width:15%">작성자</th>
                             <th style="width:15%">작성일</th>
-                            <th style="width:10%">답변여부</th>
+                            <th style="width:10%">상태</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="q:${qnas}">
                             <td th:text="${q.qna_id}"></td>
-                            <td><a href="#" th:text="${q.title}"></a></td>
+                            <td><a th:href="|/admin/qna/${q.qna_id}|" th:text="${q.title}"></a></td>
                             <td th:text="${q.ua.userid}"></td>
                             <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
                             <th:blcok th:if="${#strings.isEmpty(q.answer)}">
@@ -42,5 +42,6 @@
             </div>
         </div>
     </div>
+    <script src="/assets/js/admin.js" charset="utf-8"></script>
 </th:block>
 </html>

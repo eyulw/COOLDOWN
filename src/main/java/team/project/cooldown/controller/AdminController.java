@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import team.project.cooldown.service.admin.QnaService;
 import team.project.cooldown.service.admin.UserService;
@@ -55,4 +56,22 @@ public class AdminController {
         logger.info("admin/itemqna 호출");
         return "admin/itemqna";
     }
+    @GetMapping("/qna/{qna_id}")
+    public String qnareply(Model m,@PathVariable String qna_id){
+        logger.info("admin/qnareply 호출");
+        /*q_no 글 불러오기*/
+        m.addAttribute("q",a_qsrv.readOneQna(qna_id));
+        return "admin/qnareply";
+    }
+    @PostMapping("/qna/{qid}")
+    public String qnareplyok(@PathVariable String qid,String answer){
+        logger.info("admin/qnareplyok 호출");
+        String returnPage="redirect:/admin/fail";
+        if(a_qsrv.updateAdminReply(qid,answer))
+            returnPage="redirect:/admin/qna";
+        /*qid 글에 관리자 답변 넣어서 update*/
+        return returnPage;
+    }
+
+
 }

@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface QnaDAO {
     List<Qna> selectQna();
+
+    Qna selectOneQna(String qna_id);
+
+    int updateAdminReply(String qid,String answer);
 }

@@ -1,18 +1,13 @@
-package team.project.cooldown.mybatis;
+package team.project.cooldown.dao.board;
 
-import org.apache.ibatis.annotations.Mapper;
 import team.project.cooldown.model.Board;
 
 import java.util.List;
+import java.util.Map;
 
-@Mapper
-public interface BoardMapper {
+public interface BoardDao {
 
     int insertBoard(Board b);
-
-    int lastBoardBno();
-
-    int updateViewBoard(String board_id);
 
     Board selectOneBoard(String board_id);
 

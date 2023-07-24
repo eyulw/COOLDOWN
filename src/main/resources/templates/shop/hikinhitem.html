@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<script src="/assets/js/bs5/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a84a2e3f31.js" crossorigin="anonymous"></script>
+
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/earlyaccess/nanumgothic.css'/>
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap'/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://vendor-cdn.imweb.me/css/font-awesome5.min.css?1669163183">
+
+
+<th:block layout:fragment="content">
+    <div>
+        <main> 			 			 			 		 			 			 			 		 			 			 			 		 			 			 			 		 			 			 			 		<div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" hidden_xs="Y" class="col-dz col-dz-12  hidden-xs"><div doz_type="widget" id="w2021061713ad1ff80fc5f"><div class="_widget_data _ds_animated_except" data-widget-name="여백" data-widget-type="padding" data-widget-parent-is-mobile="N"><div class="widget padding" data-height="30" style="margin-top:`px; margin-bottom:px;">
+            <div id="padding_w2021061713ad1ff80fc5f" style="width:100%; min-height:1px; height:30px; "></div>
+        </div>
+        </div></div></div></div><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" hidden_xs="Y" class="col-dz col-dz-12  hidden-xs"><div doz_type="widget" id="w2021061737fdbc89b3ade"><div class="_widget_data " data-widget-name="메뉴/카테고리" data-widget-type="sub_menu" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N"><div class="widget">
+            <div class="nav sub-menu sub_menu_hide  h-menu-type1 menu-horizontal row-cnt-3 row-cnt-mobile-3">
+                <ul class="">
+
+                    <li style="" class="depth-01    " data-code="m202106173b46f5b77b892">
+                        <a href="/digbus_goods" data-url="digbus_goods" data-has_child="N" data-is_folder_menu="N" class=" _fade_link   ">
+                            <span class="plain_name" data-hover="">디그버스 굿즈</span>
+                        </a>
+
+                    </li>
+
+                    <li style="" class="depth-01    " data-code="m2021061727765a2a22196">
+                        <a href="/campingitem" data-url="campingitem" data-has_child="N" data-is_folder_menu="N" class=" _fade_link   ">
+                            <span class="plain_name" data-hover="">캠핑</span>
+                        </a>
+
+                    </li>
+
+                    <li style="" class="depth-01    " data-code="m20210617412635179d248">
+                        <a href="/hikinhitem" data-url="hikinhitem" data-has_child="N" data-is_folder_menu="N" class=" _fade_link   ">
+                            <span class="plain_name" data-hover="">등산</span>
+                        </a>
+
+                    </li>
+
+                    <li style="" class="depth-01    " data-code="m202106171f0908021bd52">
+                        <a href="/bikeitem" data-url="bikeitem" data-has_child="N" data-is_folder_menu="N" class=" _fade_link   ">
+                            <span class="plain_name" data-hover="">자전거</span>
+                        </a>
+
+                    </li>
+
+                    <li style="" class="depth-01    " data-code="m20210722c56fde91dab7c">
+                        <a href="/runningitem" data-url="runningitem" data-has_child="N" data-is_folder_menu="N" class=" _fade_link   ">
+                            <span class="plain_name" data-hover="">러닝</span>
+                        </a>
+
+                    </li>
+
+                </ul>	</div>
+        </div>
+
+        </div></div></div></div><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w20210617d7c3c6787880c"><div class="_widget_data " data-widget-name="쇼핑" data-widget-type="shopping" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N">	<div class="shop-content widget">
+            <div class="shop-grid">
+                <div class="thumb-fluid _item_container  ">
+                    <div class="shop-tools clearfix" style="display: ">
+                        <div class="down-btn" style="display: ">
+                            <select class="form-control" name="deliv_option_type" onchange="document.location.href = encodeURI('/hikinhitem/?sort='+$(this).val())" title="정렬 바꾸기">
+                                <option value="recent" selected="">등록순</option>
+                                <option value="like">인기순</option>
+                                <option value="min_price">낮은가격순</option>
+                                <option value="max_price">높은가격순</option>
+                                <option value="comment">상품평 많은순</option>
+                                <option value="abc">이름순</option>
+                                <option value="descabc">이름역순</option>
+                            </select>
+                        </div><!--옵션밸류-->
+                    </div>
+                    <div class="thumb-row m-list-type2 hover_bright thumb-item-4 _item_wrap " id="container_w20210617d7c3c6787880c" style="visibility: visible; margin: 0px -10px;">
+
+
+
+
+                        <!--<tr th:each="bd : ${itdb}">-->
+                        <div th:each="itcb :${itemCombine}" class="shop-item _shop_item" style="padding: 0px 10px; height: 374px; width: 291px;">
+                            <div class="item-wrap" style="position: relative;">
+                                <a href="/hikinhitem/?idx=48" class="_fade_link shop-item-thumb hover_img_none">
+                                    <img data-prodcode="s2022093027948f330489b" alt=""
+                                         th:src="${itcb.fname}"
+                                         class="_org_img org_img _lazy_img"
+                                         style="display: inline;">
+
+                                </a>
+
+                            </div><!--shop페이지 물품 사진 -->
+                            <div class="item-detail" style="">
+                                <div class="item-pay">
+                                    <h2 style="display: ">
+                                        <a class="_fade_link" href="/hikinhitem/?idx=48" th:text="${itcb.itemname}"  >쭈꾸미게임 - BAC 띡이</a>
+                                    </h2>
+                                    <div class="item-pay-detail">
+                                        <p class="no-margin">
+                                        </p><p class="pay inline-blocked" style=";font-weight:bold;" th:text="${itcb.price+'원'}">판매가 회원공개</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="item-icon _unit_list unit-list">
+
+                                </div>
+                            </div><!--shop페이지 물품 사진 아래 설명-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        </div></div></div></div></div></main>
+    </div><!--상품리스트-->
+
+</th:block>
+</html>
+

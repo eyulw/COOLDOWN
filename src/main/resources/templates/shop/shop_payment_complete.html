@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+
+<th:block layout:fragment="content">
+    <main><div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w202101154057abf43d8e4"><div class="_widget_data " data-widget-name="쇼핑 결제 완료" data-widget-type="shop_payment_complete" data-widget-anim="" data-widget-anim-duration="" data-widget-anim-delay="" data-widget-parent-is-mobile="N">    <div class="payment_complete shop-content">
+        <div class="complete_pg">
+            <h5 class="margin-bottom-xxl">주문완료</h5>
+            <h6 style="color: #757575;">아래 계좌정보로 입금해 주시면<br>결제 완료처리가 됩니다</h6>
+        </div>
+        <div class="table_payment_complete">
+            <table>
+                <tbody><tr>
+                    <th>입금계좌 안내</th>
+                    <td>
+                        신한<br>
+                        0000000000000000<br>
+                        홍순익<br>
+                        <strong class="text-brand">280,000원</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <th>주문번호</th>
+                    <td>202307207701499</td>
+                </tr>
+
+                <tr>
+                    <th>배송지</th>
+                    <td>
+                        라파도ㅇㄴㄹㄴㅇ<br> <!-- 수취인명 -->
+                        <span style="color:#757575">010-9646-1504</span><br> <!-- 수취인 연락처 -->
+                        울산 울주군 두서면 박달로 12 (내와리) <br> ㅋㅌㅊㅍ <br><span style="color:#757575">(44910)</span><br><!-- full version 배송주소 -->
+                    </td>
+                </tr>
+                <tr>
+                    <th>배송 방법</th>
+                    <td>택배</td> <!-- 배송방법  -->
+                </tr>                                            </tbody></table>
+            <div class="tools">
+                <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group" role="group">
+                        <a href="/" class="btn bg-brand to-order full-width">홈으로</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!--네이버 프리미엄 로그 전환추적(결제완료), 페이스북 픽셀, 구글 애드워즈 전환추적 -->
+
+
+    </div></div></div></div></div></main>
+</th:block>
+</html>
