@@ -173,17 +173,51 @@
             <div id="goods_wrap" class="goods_wrap no-margin-top no-padding-top">
               <!-- 필수 옵션, 선택 옵션이 둘다 없을경우 태그가 출력되면 안됨(여백, 가로선)-->
               <div class="goods_select" id="prod_options"></div>
-              <div class="goods_payment" id="prod_selected_options"></div>
+              <div class="goods_payment" id="prod_selected_options" th:each="itcb_d :${itemCombine_d}" >
+                <div class="opt_block no-border order_quantity_area" style="height: auto; ">
+                  <div class="area_tit holder">	<span class="option_title inline-blocked" style="margin-bottom: 7px">수량</span>
+                  </div> 	<div class="area_count holder">		<div class="option_btn_wrap" style="top:0;">
+                 <!--수량-->
+                  <div class="option_btn_tools" style="float: none;">
+                    <a id="minus"><i class="btl bt-minus" aria-hidden="true"></i></a>
+                    <input type="text" title="number" value="1" class="form-control _order_count_mobile" id="quantityInput">
+                    <a id="plus"><i class="btl bt-plus" aria-hidden="true"></i></a>
+                  </div>
+
+                  <div class="area_price absolute absolute_right absolute_middle" th:data-item-price="${itcb_d.price}"><span th:text="${itcb_d.price}+'원'">199,000원</span></div>		</div> 	</div> </div>
+                <div class="opt_block total bottom">	<p class="no-margin text-right">
+                  <span class="body_font_color_70 text-left" style="padding: 16px 0">총 상품금액(1개)</span>
+                  <span class="total_price" style="padding: 16px 0" th:text="${itcb_d.price}+'원'">199,000원</span>	</p></div></div>
               <div class="goods_detail" id="prod_deliv_setting"></div>
             </div>
           </div>
-
-          <div class="buy_btns holder pc   ">
-            <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
-            <a href="javascript:" style="" class="btn like_box soldout-like-box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
-              <i class="wish-icon-s2022093027948f330489b im-icon im-ico-like" aria-hidden="true"></i>
-              <span id="prod_detail_wish_count" class="prod_detail_wish_count">
+<!---->
+        <!--  <div class="buy_btns holder pc   ">
+            <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;
+" onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
+            <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="">디깅 포인트</a>
+            <a href="javascript:" style="" class="btn like_box " onclick="SITE_SHOP_DETAIL.addProdWish('s20220105e3286239a0b17', 'L3J1bm5pbmdpdGVtLz9pZHg9MzY%3D')">
+            <i class="wish-icon-s20220105e3286239a0b17 im-icon im-ico-like" aria-hidden="true"></i>
+            <span id="prod_detail_wish_count" class="prod_detail_wish_count">
 										2									</span>
+          </a>
+          </div>
+    &lt;!&ndash;&ndash;&gt;      -->
+
+
+          <div class="buy_btns holder pc   " th:each="itcb_d :${itemCombine_d}">
+            <div>
+              <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;"
+                 onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
+              <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="">디깅 포인트</a>
+            </div>
+            <div>
+              <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
+              <a href="javascript:" style="" class="btn like_box soldout-like-box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
+            </div>
+
+              <i class="wish-icon-s2022093027948f330489b im-icon im-ico-like" aria-hidden="true"></i>
+              <span id="prod_detail_wish_count" class="prod_detail_wish_count" th:text="${itcb_d.likes}">2</span>
             </a>
           </div>
 
@@ -380,7 +414,7 @@
 
 
 
-
+  <script src="/assets/js/buy.js" charset="utf-8"></script>
   <script id="prodDetailPC" type="application/template"></script>
   <script id="prodDetailMobile" type="application/template">
 </script>
@@ -392,5 +426,6 @@
 
 </div></div></div></div></div></main>
 </body>
+
 </th:block>
 </html>

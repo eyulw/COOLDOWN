@@ -51,7 +51,9 @@ public class ShopController {
             return "shop/digshop";
 
         } else {
+
             m.addAttribute("itemCombine_d", isrv.readItemCombine("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
+           /* m.addAttribute("itemPrice", isrv.getItemPrice(idx));*/
             return "shop/detail_item";
         }
     }
