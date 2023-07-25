@@ -170,9 +170,15 @@
         </if>
     </select>
 
-
-
-
+    <insert id="insertItem" parameterType="Item">
+        insert into item(category,itemname,price,info,stock) values(#{category},#{itemname},#{price},#{info},#{stock})
+    </insert>
+    <select id="lastItemId">
+        select AUTO_INCREMENT - 1 item_id from information_schema.TABLES where TABLE_NAME = 'item';
+    </select>
+    <insert id="insertItemAttach" parameterType="ItemAttach">
+        insert into itemattach(item_id,fname,fsize) values (#{item_id},#{fname},#{fsize})
+    </insert>
 
 
 
