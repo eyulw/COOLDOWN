@@ -59,3 +59,58 @@
     border: 1px solid blue;
     resize: none;
 }
+
+/*게시글*/
+.a_img{
+    border:1px solid #ccc;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+/*상품*/
+.makeItem{
+    display: flex;
+}
+.itemimgsize{
+    border: 1px solid red;
+    width: 50%;
+}
+.itemDetail{
+    border: 1px solid red;
+    width: 50%;
+    font-size: 18px;
+}
+.itemDetail label{
+    vertical-align: top;
+    font-size: 20px;
+    margin: 5px;
+    padding: 0 10px;
+    width: 150px;
+    text-align: end;
+}
+.itemDetail input{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 330px;
+    margin: 5px;
+}
+.lbipflex{
+    display: flex;
+}
+
+.lbipflex textarea{
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.mkitemBtn{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.mkitemBtn button{
+    width: 100px;
+    padding: 10px;
+    margin: 5px;
+}
