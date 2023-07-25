@@ -19,4 +19,5 @@ public interface ItemDAO {
     int insertItem(Item i);
 
     int insertItemAttach(ItemAttach ia);
+    List<Item> selectItemAtt();
 }

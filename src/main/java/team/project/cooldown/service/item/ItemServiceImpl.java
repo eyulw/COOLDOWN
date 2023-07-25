@@ -60,5 +60,10 @@ public class ItemServiceImpl implements ItemService{
         return iacnt>0?true:false;
     }
 
+    @Override
+    public List<Item> readItemAtt() {
+        return idao.selectItemAtt();
+    }
+
 
 }

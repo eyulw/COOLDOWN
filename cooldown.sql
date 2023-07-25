@@ -39,12 +39,15 @@ as select b.*,u.nickname from board b join user u using(u_id);
 
 select * from bu order by board_id desc limit 0,5;
 
+create view bba
+as select b.*,ba.bano,ba.fname,ba.fsize from board b join boardattach ba using(board_id);
+
 create view boardcombine
 as select bba.*, user.nickname from bba join user using(u_id);
 
 select * from boardcombine;
 
-/*
-bu -> board, user.nickname 합친 뷰
+create view itematt
+as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
 
-*/
+select * from itematt;

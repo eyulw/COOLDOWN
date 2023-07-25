@@ -20,4 +20,5 @@ public interface ItemService {
     int newItem(Item i);
 
     boolean newItemAttach(MultipartFile attach, int itemId);
+    List<Item> readItemAtt();
 }

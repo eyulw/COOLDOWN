@@ -60,5 +60,10 @@ public class ItemDAOImpl implements ItemDAO{
         return itemMapper.insertItemAttach(ia);
     }
 
+    @Override
+    public List<Item> selectItemAtt() {
+        return itemMapper.selectItemAtt();
+    }
+
 
 }

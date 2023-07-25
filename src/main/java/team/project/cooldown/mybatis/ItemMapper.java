@@ -22,4 +22,7 @@ public interface ItemMapper {
     int lastItemId();
 
     int insertItemAttach(ItemAttach ia);
+
+    List<Item> selectItemAtt();/*전체 Item 가져오기*/
+    List<Item> selectItemAtt(String category);/*category별 Item 가져오기*/
 }

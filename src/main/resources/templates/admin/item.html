@@ -11,6 +11,19 @@
         <div>
             <button type="button" id="makeItemBtn">상품올리기</button>
         </div>
+        <div style="border: 1px solid red">
+            <th:block th:each="i:${ias}">
+            <div>
+                <img th:src="${i.ia.fname}" style="width:300px;">
+            </div>
+            <div>
+                <h4 th:text="${i.itemname}"></h4>
+            </div>
+                <div>
+                    <span th:text="|${i.price}원|"></span>
+                </div>
+            </th:block>
+        </div>
     </div>
     <script src="/assets/js/admin.js" charset="utf-8"></script>
 </th:block>

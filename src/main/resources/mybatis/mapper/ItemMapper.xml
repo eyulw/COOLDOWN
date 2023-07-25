@@ -180,6 +180,27 @@
         insert into itemattach(item_id,fname,fsize) values (#{item_id},#{fname},#{fsize})
     </insert>
 
+    <resultMap id="ia" type="ItemAttach">
+        <result column="iano" property="iano"/>
+        <result column="item_id" property="item_id"/>
+        <result column="fname" property="fname"/>
+        <result column="fsize" property="fsize"/>
+    </resultMap>
+
+    <resultMap id="iia" type="Item">
+        <result column="item_id" property="item_id"/>
+        <result column="category" property="category"/>
+        <result column="itemname" property="itemname"/>
+        <result column="price" property="price"/>
+        <result column="likes" property="likes"/>
+        <result column="info" property="info"/>
+        <result column="stock" property="stock"/>
+
+        <collection property="ia" resultMap="ia"/>
+    </resultMap>
+    <select id="selectItemAtt" resultMap="iia">
+        select * from itematt
+    </select>
 
 
 
