@@ -45,7 +45,9 @@ rplok?.addEventListener('click',()=>{
 
 let makeItemBtn=document.querySelector("#makeItemBtn");
 makeItemBtn?.addEventListener('click',()=>{
+
     location.href='/admin/item/make';
+
 })
 
 

@@ -38,16 +38,22 @@ public class AdminController {
         return "admin/user";
     }
 
-    @GetMapping("/board")
-    public String board(Model m){
+    @GetMapping("/board/{cpg}")
+    public String board(Model m,@PathVariable Integer cpg){
         logger.info("admin/board 호출");
-        m.addAttribute("bds",bsrv.readBoard(1));
+        m.addAttribute("bds",bsrv.readBoard(cpg));
+        m.addAttribute("stpg",10*((cpg-1)/10)+1);
+        m.addAttribute("cntpg",bsrv.countBoard());
+        m.addAttribute("cpg",cpg);
+        if(cpg > (int)m.getAttribute("cntpg"))
+            return "redirect:/admin/board/1";
         return "admin/board";
     }
 
     @GetMapping("/item")
-    public String item(){
+    public String item(Model m){
         logger.info("admin/item 호출");
+        m.addAttribute("ias",isrv.readItemAtt());
         return "admin/item";
     }
 
