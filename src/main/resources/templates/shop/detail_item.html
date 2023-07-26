@@ -180,7 +180,7 @@
                  <!--수량-->
                   <div class="option_btn_tools" style="float: none;">
                     <a id="minus"><i class="btl bt-minus" aria-hidden="true"></i></a>
-                    <input type="text" title="number" value="1" class="form-control _order_count_mobile" id="quantityInput">
+                    <input type="text" title="number" value="1" class="form-control _order_count_mobile" id="countInput">
                     <a id="plus"><i class="btl bt-plus" aria-hidden="true"></i></a>
                   </div>
 
@@ -191,32 +191,25 @@
               <div class="goods_detail" id="prod_deliv_setting"></div>
             </div>
           </div>
-<!---->
-        <!--  <div class="buy_btns holder pc   ">
-            <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;
-" onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
-            <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="">디깅 포인트</a>
-            <a href="javascript:" style="" class="btn like_box " onclick="SITE_SHOP_DETAIL.addProdWish('s20220105e3286239a0b17', 'L3J1bm5pbmdpdGVtLz9pZHg9MzY%3D')">
-            <i class="wish-icon-s20220105e3286239a0b17 im-icon im-ico-like" aria-hidden="true"></i>
-            <span id="prod_detail_wish_count" class="prod_detail_wish_count">
-										2									</span>
-          </a>
-          </div>
-    &lt;!&ndash;&ndash;&gt;      -->
 
+          <script th:inline="javascript">
+            window.isUserLoggedIn = [[${session.user != null}]];
+          </script>
 
           <div class="buy_btns holder pc   " th:each="itcb_d :${itemCombine_d}">
-            <div th:if="${itcb_d.stock }">
-              <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;"
+            <div th:if="${itcb_d.stock != '0'}">
+              <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;" id="buybtn"
                  onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
-              <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="">디깅 포인트</a>
+
+              <a th:href="|javascript:plusCart(${itcb_d.item_id})|" class="btn cart _btn_cart "  style="">디깅 포인트</a>
             </div>
-            <div>
+            <div th:if="${itcb_d.stock == '0'}">
               <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
             </div>
-            <a href="javascript:" style="" class="btn like_box soldout-like-box " onclick="SITE_SHOP_DETAIL.addProdWish('s2022093027948f330489b', 'L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4')">
-            <i class="wish-icon-s2022093027948f330489b im-icon im-ico-like" aria-hidden="true"></i>
-              <span id="prod_detail_wish_count" class="prod_detail_wish_count" th:text="${itcb_d.likes}">2</span>
+            <!-- th:href="|javascript:plusLike(${itcb_d.item_id})|  자바스크립트 plusLike함수(매개변수)로받음-->
+            <a th:href="|javascript:plusLike(${itcb_d.item_id})|" style="" class="btn like_box soldout-like-box ">
+              <i class="wish-icon-s2022093027948f330489b fas fa-heart"  aria-hidden="true"></i>
+              <span id="likeCount" class="prod_detail_wish_count" th:text="${itcb_d.likes}">2</span>
             </a>
           </div>
 

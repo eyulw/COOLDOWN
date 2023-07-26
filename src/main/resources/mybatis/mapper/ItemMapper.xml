@@ -169,6 +169,15 @@
             ORDER BY i.itemname DESC
         </if>
     </select>
+    
+    <!--cart-->
+    <insert id="insertCart" >
+        insert into cart (u_id,item_id,count) values (#{u_id},#{item_id},#{count})
+    </insert>
+
+    <select id="selectCart"  resultType="Cart">
+        select * from cart where u_id = #{u_id}
+    </select>
 
     <insert id="insertItem" parameterType="Item">
         insert into item(category,itemname,price,info,stock) values(#{category},#{itemname},#{price},#{info},#{stock})
