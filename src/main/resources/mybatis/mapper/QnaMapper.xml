@@ -6,17 +6,7 @@
     <resultMap id="ua" type="User">
         <result column="u_id" property="u_id"/>
         <result column="userid" property="userid"/>
-        <result column="password" property="password"/>
-        <result column="email" property="email"/>
         <result column="nickname" property="nickname"/>
-        <result column="phone" property="phone"/>
-        <result column="zipcode" property="zipcode"/>
-        <result column="address1" property="address1"/>
-        <result column="address2" property="address2"/>
-        <result column="birth" property="birth" />
-        <result column="username" property="username" />
-        <result column="regdate" property="regdate" />
-        <result column="role" property="role" />
     </resultMap>
 
     <resultMap id="qua" type="Qna">
@@ -39,5 +29,8 @@
         update qna set answer=#{answer} where qna_id=#{qid}
     </update>
 
+    <insert id="insertQnaWrite" parameterType="Qna">
+        insert into qna (u_id,title,contents) values (#{u_id},#{title},#{contents})
+    </insert>
 
 </mapper>

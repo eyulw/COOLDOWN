@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.project.cooldown.mybatis.LikesMapper">
+
+
+    <update id="insertLikes">
+        UPDATE item
+        SET
+        likeusers = COALESCE(CONCAT(likeusers, ',', #{u_id}), #{u_id}),
+        likes = likes + 1
+        WHERE item_id = #{item_id} and  (likeusers IS NULL OR likeusers NOT LIKE CONCAT('%', #{u_id}, '%'));
+    </update><!--likesuser에 좋아요한 사용자를 추가함-->
+    <update id="deleteLikes">
+        UPDATE item
+        SET
+        likeusers = REPLACE(likeusers, CONCAT(',', #{u_id}), ''),
+        likes = likes - 1
+        WHERE item_id = #{item_id};
+    </update><!--likesuser에 좋아요한 사용자를 삭제함-->
+
+
+
+        <select id="selectLikesCount" resultType="int">
+            select count(*) from item where likeusers LIKE CONCAT('%', #{u_id}, '%') and item_id = #{item_id}
+        </select>
+    <select id="LikesItemCount" resultType="int">
+        select likes from item where item_id = #{item_id}
+    </select>
+
+</mapper>

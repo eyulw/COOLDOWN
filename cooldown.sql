@@ -32,6 +32,30 @@ insert into qna (u_id,title,contents) values (3,"문의합니다","파이팅~해
 
 insert into qna (u_id,title,contents) values (1,"뭐뭐뭐 문의합니다","아아아");
 
+insert into qna (u_id,title,contents) values (6,'상품 구매 문의 합니다','제곧내~');
+
+
+select * from board;
+select b.* from board b;
+
+create view bu
+as select b.*,u.nickname from board b join user u using(u_id);
+
+select * from bu order by board_id desc limit 0,5;
+
+create view bba
+as select b.*,ba.bano,ba.fname,ba.fsize from board b join boardattach ba using(board_id);
+
+create view boardcombine
+as select bba.*, user.nickname from bba join user using(u_id);
+
+select * from boardcombine;
+
+create view itematt
+as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
+
+select * from itematt;
+
 create view ba
     as select * from user nick
         join boardattach ba using(u_id);
