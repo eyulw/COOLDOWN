@@ -16,4 +16,7 @@ public class Board {
     private String contents;
     private String likes;
     private String regdate;
+
+    private BoardAttach ba;
+    private User nick;
 }

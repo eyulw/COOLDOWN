@@ -972,20 +972,19 @@
                         </div>
                     </div>
                 </div>
-                <ul id="image_list" style="display: none"></ul><!--이미지 리스트가 왜 2개나..-->
-                <ul id="image_list" style="display: none">
+                <!--<ul id="image_list" style="display: none"></ul>--><!--이미지 리스트가 왜 2개나..-->
+                <!--<ul id="image_list" style="display: none">
                     <li id="image_210vL43E0s"><input name="temp_images[]" value="79641314" type="hidden"></li>
                     <li id="image_9f22z5s321"><input name="temp_images[]" value="79641315" type="hidden"></li>
-                </ul><!--첨부한 이미지?-->
+                </ul>--><!--첨부한 이미지?-->
                 <div class="row mt-3">
-                    <label for="attach" class="board-name">첨부파일</label>
+                    <label for="attachs" class="board-name">첨부파일</label>
                     <div class="list m-padding-on">
-                        <input type="file" name="attach" id="attach" class="form-control border-danger bg-light">
+                        <input type="file" name="attachs" id="attachs" multiple="multiple" class="list m-padding-on">
                     </div>
                 </div><!-- 파일첨부 -->
             </form><!--글쓰기 작성 폼-->
 
-            <script src="/assets/js/board.js" charset="utf-8"></script>
         </div>
     </div>
 
@@ -1029,5 +1028,6 @@
     <div class="fr-tooltip custom-theme" style="left: -3000px; top: 291px; position: fixed;">삽입 더보기</div>
 
     </body>
+    <script src="/assets/js/board.js" charset="utf-8"></script>
 </th:block>
 </html>

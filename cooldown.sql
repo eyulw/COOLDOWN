@@ -55,3 +55,11 @@ create view itematt
 as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
 
 select * from itematt;
+
+create view ba
+    as select * from user nick
+        join boardattach ba using(u_id);
+
+select * from bba;
+
+select * from boardcombine where category = "자유글";

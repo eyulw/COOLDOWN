@@ -1,9 +1,9 @@
 package team.project.cooldown.dao.board;
 
 import team.project.cooldown.model.Board;
+import team.project.cooldown.model.BoardAttach;
 
 import java.util.List;
-import java.util.Map;
 
 public interface BoardDao {
 
@@ -14,4 +14,12 @@ public interface BoardDao {
     List<Board> selectBoard(int stnum);
 
     int selectCountBoard();
+
+    int insertBoardAttach(BoardAttach ba);
+
+/*
+    int insertBoardAttach(BoardAttach ba);
+
+    int insertNewBoard(Board b);
+*/
 }
