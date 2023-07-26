@@ -1,6 +1,7 @@
 package team.project.cooldown.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
@@ -15,4 +16,7 @@ public interface ItemMapper {
     List<ItemCombine> selectItemCombine_r(String sort,Integer idx);
 
 
+    void insertCart(String u_id, Integer item_id, Integer count);
+
+    Cart selectCart(String uId);
 }

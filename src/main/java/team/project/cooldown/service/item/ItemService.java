@@ -2,6 +2,7 @@ package team.project.cooldown.service.item;
 
 
 import team.project.cooldown.dao.likes.LikesDAO;
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
@@ -17,4 +18,7 @@ public interface ItemService {
     List<ItemCombine> readItemCombine_r(String sort,Integer idx);
 
 
+    void addCart(String u_id, Integer item_id, Integer count);
+
+    Cart chooseCart(String uId);
 }

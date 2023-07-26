@@ -1,6 +1,7 @@
 package team.project.cooldown.dao.item;
 
 
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface ItemDAO {
     List<ItemCombine> selectItemCombine_b(String sort, Integer idx);
     List<ItemCombine> selectItemCombine_r(String sort, Integer idx);
 
+    void insertCart(String u_id, Integer item_id, Integer count);
+
+    Cart selectCart(String uId);
 }

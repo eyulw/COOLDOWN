@@ -2,6 +2,7 @@ package team.project.cooldown.dao.item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.ItemCombine;
 import team.project.cooldown.mybatis.ItemMapper;
 
@@ -43,6 +44,16 @@ public class ItemDAOImpl implements ItemDAO{
     @Override
     public List<ItemCombine> selectItemCombine_r(String sort, Integer idx) {
         return itemMapper.selectItemCombine_r(sort,idx);
+    }
+
+    @Override
+    public void insertCart(String u_id, Integer item_id, Integer count) {
+        itemMapper.insertCart(u_id,item_id,count);
+    }
+
+    @Override
+    public Cart selectCart(String uId) {
+        return itemMapper.selectCart(uId);
     }
 
 

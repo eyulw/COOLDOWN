@@ -3,6 +3,7 @@ package team.project.cooldown.service.item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import team.project.cooldown.dao.item.ItemDAO;
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
@@ -40,6 +41,16 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public List<ItemCombine> readItemCombine_r(String sort,Integer idx) {
         return idao.selectItemCombine_r(sort,idx);
+    }
+
+    @Override
+    public void addCart(String u_id, Integer item_id, Integer count) {
+        idao.insertCart(u_id,item_id,count);
+    }
+
+    @Override
+    public Cart chooseCart(String uId) {
+        return idao.selectCart(uId);
     }
 
 

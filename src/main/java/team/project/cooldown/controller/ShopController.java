@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import team.project.cooldown.model.Cart;
 import team.project.cooldown.service.item.ItemService;
 import team.project.cooldown.service.likes.LikesService;
 
@@ -202,18 +203,39 @@ public class ShopController {
     @GetMapping("/likes/{item_id}")
     @ResponseBody
     public void toggleLike(HttpSession session, @PathVariable Integer item_id, HttpServletResponse res) throws IOException {
-        String userid = (String) session.getAttribute("u_id");
+        String u_id = (String) session.getAttribute("u_id");
 
-        lsrv.allLikes(userid, item_id);
+        lsrv.allLikes(u_id, item_id);
 
         res.getWriter().print(lsrv.currentLikesCount(item_id));
     }
 
-    @GetMapping("/shop_cart")
-    public String shop_cart() {
 
+
+
+    @PostMapping("/shop_cart/{item_id}/{count}")
+    public void shop_cart_add(HttpSession session,@PathVariable Integer item_id,@PathVariable Integer count) {
+        String u_id = (String) session.getAttribute("u_id");
+        System.out.println("아이디"+u_id);
+        System.out.println("아이템"+item_id);
+        System.out.println("갯수"+count);
+
+
+         isrv.addCart(u_id, item_id, count);
+
+    }
+    @GetMapping("/shop_cart")
+    public String shop_cart(HttpSession session,@RequestBody Cart cart) {
+        String u_id = (String) session.getAttribute("u_id");
+        isrv.chooseCart(u_id);
         return "shop/shop_cart";
     }
+
+
+
+
+
+
 
     @GetMapping("/shop_payment")
     public String shop_payment() {

@@ -180,7 +180,7 @@
                  <!--수량-->
                   <div class="option_btn_tools" style="float: none;">
                     <a id="minus"><i class="btl bt-minus" aria-hidden="true"></i></a>
-                    <input type="text" title="number" value="1" class="form-control _order_count_mobile" id="quantityInput">
+                    <input type="text" title="number" value="1" class="form-control _order_count_mobile" id="countInput">
                     <a id="plus"><i class="btl bt-plus" aria-hidden="true"></i></a>
                   </div>
 
@@ -200,12 +200,13 @@
             <div th:if="${itcb_d.stock != '0'}">
               <a class="btn buy bg-brand _btn_buy " style=" margin-left: 0" href="javascript:;" id="buybtn"
                  onclick="SITE_SHOP_DETAIL.addOrder('normal', 'https://www.digdigactivity.com/runningitem/?idx=36')">구매하기</a>
-              <a class="btn cart _btn_cart " onclick="SITE_SHOP_DETAIL.addCart();" style="" id="digbtn">디깅 포인트</a>
+
+              <a th:href="|javascript:plusCart(${itcb_d.item_id})|" class="btn cart _btn_cart "  style="">디깅 포인트</a>
             </div>
             <div th:if="${itcb_d.stock == '0'}">
               <a class="btn buy bg-brand btn-soldout "><span>품절된 상품입니다.</span></a>
             </div>
-
+            <!-- th:href="|javascript:plusLike(${itcb_d.item_id})|  자바스크립트 plusLike함수(매개변수)로받음-->
             <a th:href="|javascript:plusLike(${itcb_d.item_id})|" style="" class="btn like_box soldout-like-box ">
               <i class="wish-icon-s2022093027948f330489b fas fa-heart"  aria-hidden="true"></i>
               <span id="likeCount" class="prod_detail_wish_count" th:text="${itcb_d.likes}">2</span>
