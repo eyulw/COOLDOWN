@@ -39,5 +39,8 @@
         update qna set answer=#{answer} where qna_id=#{qid}
     </update>
 
+    <insert id="insertQnaWrite" parameterType="Qna">
+        insert into qna (u_id,title,contents) values (#{u_id},#{title},#{contents})
+    </insert>
 
 </mapper>
