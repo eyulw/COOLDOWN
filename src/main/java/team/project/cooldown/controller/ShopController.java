@@ -4,13 +4,18 @@ package team.project.cooldown.controller;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import team.project.cooldown.service.item.ItemService;
+import team.project.cooldown.service.likes.LikesService;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +26,7 @@ import java.util.Map;
 public class ShopController {
 
     final ItemService isrv;
+    final LikesService lsrv;
     Map<String, String> sortOptions;
     Map<String, String> sortOptions_d;
     Map<String, String> sortOptions_c;
@@ -28,10 +34,18 @@ public class ShopController {
     Map<String, String> sortOptions_b;
     Map<String, String> sortOptions_r;
 
+
+    /*기본 상품리스트페이지와 상품상세페이지 같은주소*/
+
+
+        // 세션에서 아이디 값 가져오기
+
     @GetMapping("/digshop")
     public String digshop(Model m,
                           @RequestParam(value="idx", required=false) Integer idx,
-                          @RequestParam(value="sort", required=false) String sort) {
+                          @RequestParam(value="sort", required=false) String sort,
+                          HttpServletRequest request) {
+
 
         if (idx == null) {
             sortOptions = new HashMap<>();
@@ -53,7 +67,7 @@ public class ShopController {
         } else {
 
             m.addAttribute("itemCombine_d", isrv.readItemCombine("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
-           /* m.addAttribute("itemPrice", isrv.getItemPrice(idx));*/
+
             return "shop/detail_item";
         }
     }
@@ -185,6 +199,15 @@ public class ShopController {
 
     // itemlist
 
+    @GetMapping("/likes/{item_id}")
+    @ResponseBody
+    public void toggleLike(HttpSession session, @PathVariable Integer item_id, HttpServletResponse res) throws IOException {
+        String userid = (String) session.getAttribute("u_id");
+
+        lsrv.allLikes(userid, item_id);
+
+        res.getWriter().print(lsrv.currentLikesCount(item_id));
+    }
 
     @GetMapping("/shop_cart")
     public String shop_cart() {

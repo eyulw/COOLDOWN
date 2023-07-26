@@ -15,4 +15,5 @@ public class Item {
     private String likes;
     private String info;
     private String stock;
+    private String likeusers;
 }

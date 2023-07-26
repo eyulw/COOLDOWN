@@ -1,11 +1,13 @@
 package team.project.cooldown.service.item;
 
 
+import team.project.cooldown.dao.likes.LikesDAO;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
 
 public interface ItemService {
+
 
     List<ItemCombine> readItemCombine(String sort, Integer idx);
     List<ItemCombine> readItemCombine_d(String sort,Integer idx);

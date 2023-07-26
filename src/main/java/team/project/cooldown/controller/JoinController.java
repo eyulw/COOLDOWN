@@ -36,6 +36,7 @@ public class JoinController {
         u = usrv.readOneUser(u);
         if(u!=null){
             sess.setAttribute("user",u);
+            sess.setAttribute("u_id",u.getU_id());
             returnPage="redirect:/";
         }
         return returnPage;

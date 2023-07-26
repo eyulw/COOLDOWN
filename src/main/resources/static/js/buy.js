@@ -44,3 +44,53 @@ document.addEventListener("DOMContentLoaded", function() { // 페이지 로드 �
 
 
 
+let buybtn = document.querySelector("#buybtn");
+let digbtn = document.querySelector("#digbtn");
+
+buybtn.addEventListener('click', ()=>{
+
+    if(!isUserLoggedIn){
+       alert('로그인해주세요')
+    }else{
+        location.href = '/shop_payment'
+    }
+
+
+});
+digbtn.addEventListener('click', ()=>{
+
+    if(!isUserLoggedIn){
+        alert('로그인해주세요')
+    }else{
+        location.href = '/shop_cart'
+    }
+
+
+});
+
+let likeCountElement = document.querySelector("#likeCount");
+
+const plusLike = (itemid) => {
+    if(!isUserLoggedIn) {
+        alert('로그인해주세요');
+    } else {
+        // AJAX 요청 시작
+        fetch(`/likes/${itemid}`, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                likeCountElement.textContent = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+};
+
+
+
+
+
+
