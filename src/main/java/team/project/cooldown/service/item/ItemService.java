@@ -1,6 +1,8 @@
 package team.project.cooldown.service.item;
 
 
+import org.springframework.web.multipart.MultipartFile;
+import team.project.cooldown.model.Item;
 import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
@@ -15,4 +17,10 @@ public interface ItemService {
     List<ItemCombine> readItemCombine_r(String sort,Integer idx);
 
 
+    int newItem(Item i);
+
+    boolean newItemAttach(MultipartFile attach, int itemId);
+    List<Item> readItemAtt();
+
+    boolean removeItem(String item_id);
 }

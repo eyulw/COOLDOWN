@@ -8,7 +8,55 @@
             <h3> 상품</h3>
             <hr>
         </div>
+        <div>
+            <button type="button" id="makeItemBtn">상품올리기</button>
+        </div>
+        <div class="itemContainer">
+            <th:block th:each="i:${ias}">
+                <div class="aitemBox">
+                    <div class="itemImgBox">
+                        <img th:src="${i.ia.fname}" style="width:200px;">
+                    </div>
+                    <div class="aitemDetailBox">
+                        <div class="aitemDetail">
+                            <label>Category : </label>
+                            <div>
+                                <strong><span th:text="${i.category}">카테고리</span></strong>
+                            </div>
+                        </div>
+                        <div class="aitemDetail">
+                            <label>상품명 : </label>
+                            <div>
+                                <strong><span th:text="${i.itemname}">상품명</span></strong>
+                            </div>
+                        </div>
 
+                        <div class="aitemDetail">
+                            <label>가격 : </label>
+                            <div>
+                                <strong><span th:text="|${i.price}원|">가격</span></strong>
+                            </div>
+                        </div>
+                        <div class="aitemDetail">
+                            <label>재고량 : </label>
+                            <div>
+                                <strong><span th:text="|${i.stock}개|">재고량</span></strong>
+                            </div>
+                        </div>
+                        <div class="aitemDetail">
+                            <label> </label>
+                            <div>
+                                <button style="font-size: 15px">주문정보</button>
+                                <button style="font-size: 15px">수정</button>
+                                <button style="font-size: 15px" id="aitemDelete">삭제</button>
+                                <input type="hidden" id="itemId" th:value="${i.item_id}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
     </div>
+    <script src="/assets/js/admin.js" charset="utf-8"></script>
 </th:block>
 </html>
