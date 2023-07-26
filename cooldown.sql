@@ -32,6 +32,10 @@ insert into qna (u_id,title,contents) values (3,"문의합니다","파이팅~해
 
 insert into qna (u_id,title,contents) values (1,"뭐뭐뭐 문의합니다","아아아");
 
+insert into qna (u_id,title,contents) values (6,'상품 구매 문의 합니다','제곧내~');
+
+
+select * from board;
 select b.* from board b;
 
 create view bu
