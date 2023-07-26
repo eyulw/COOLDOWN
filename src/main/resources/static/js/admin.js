@@ -39,3 +39,39 @@ rplok?.addEventListener('click',()=>{
         rplfrm.submit();
     }
 });
+
+
+/*makeitem*/
+
+let makeItemBtn=document.querySelector("#makeItemBtn");
+makeItemBtn?.addEventListener('click',()=>{
+
+    location.href='/admin/item/make';
+
+})
+
+
+let mkitembtn=document.querySelector("#mkitembtn");
+let icategory=document.querySelector("#icategory");
+mkitembtn?.addEventListener('click',()=>{
+    let frm=document.forms.mkitemfrm;
+    if(frm.attach.value==='') alert("상품 이미지를 등록하세요");
+    else if(frm.itemname.value==='') alert("상품명을 입력하세요");
+    else if(frm.price.value==='') alert("상품 가격을 입력하세요");
+    else if(frm.i_category.value==='-------선택-------') alert("상품 카테고리를 선택하세요");
+    else if(frm.info.value==='') alert("상품 상세정보를 입력하세요");
+    else if(frm.stock.value==='') alert("상품 재고를 입력하세요");
+    else{
+        icategory.value=frm.i_category.value;
+        frm.method='post';
+        frm.enctype='multipart/form-data';
+        frm.submit();
+    }
+})
+
+/*상품페이지 - 상품삭제*/
+let aitemDelete=document.querySelector("#aitemDelete");
+aitemDelete?.addEventListener('click',()=>{
+    let itemId=document.querySelector("#itemId");
+    location.href='/admin/itemDelete/'+itemId.value;
+})
