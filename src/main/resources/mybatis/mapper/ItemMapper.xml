@@ -201,6 +201,9 @@
     <select id="selectItemAtt" resultMap="iia">
         select * from itematt
     </select>
+    <delete id="deleteItem">
+        delete from item where item_id=#{item_id}
+    </delete>
 
 
 

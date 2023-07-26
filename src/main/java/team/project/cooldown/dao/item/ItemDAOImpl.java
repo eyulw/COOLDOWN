@@ -65,5 +65,10 @@ public class ItemDAOImpl implements ItemDAO{
         return itemMapper.selectItemAtt();
     }
 
+    @Override
+    public int deleteItem(String item_id) {
+        return itemMapper.deleteItem(item_id);
+    }
+
 
 }

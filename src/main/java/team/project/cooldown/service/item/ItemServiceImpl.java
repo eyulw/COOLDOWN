@@ -65,5 +65,10 @@ public class ItemServiceImpl implements ItemService{
         return idao.selectItemAtt();
     }
 
+    @Override
+    public boolean removeItem(String item_id) {
+        return idao.deleteItem(item_id)>0?true:false;
+    }
+
 
 }

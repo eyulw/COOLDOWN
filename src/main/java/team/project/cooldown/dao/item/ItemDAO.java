@@ -20,4 +20,6 @@ public interface ItemDAO {
 
     int insertItemAttach(ItemAttach ia);
     List<Item> selectItemAtt();
+
+    int deleteItem(String item_id);
 }

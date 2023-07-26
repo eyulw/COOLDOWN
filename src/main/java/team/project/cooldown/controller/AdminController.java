@@ -76,6 +76,15 @@ public class AdminController {
         return returnPage;
     }
 
+    @GetMapping("/itemDelete/{item_id}")
+    public String itemDelete(@PathVariable String item_id){
+        logger.info("admin/itemDelete 호출");
+        String returnPage="redirect:/admin/fail";
+        if(isrv.removeItem(item_id))
+            returnPage="redirect:/admin/item";
+        return returnPage;
+    }
+
     @GetMapping("/qna")
     public String qna(Model m){
         logger.info("admin/qna 호출");

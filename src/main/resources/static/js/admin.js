@@ -68,3 +68,10 @@ mkitembtn?.addEventListener('click',()=>{
         frm.submit();
     }
 })
+
+/*상품페이지 - 상품삭제*/
+let aitemDelete=document.querySelector("#aitemDelete");
+aitemDelete?.addEventListener('click',()=>{
+    let itemId=document.querySelector("#itemId");
+    location.href='/admin/itemDelete/'+itemId.value;
+})

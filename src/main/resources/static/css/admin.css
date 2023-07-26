@@ -68,7 +68,7 @@
     height: 100px;
 }
 
-/*상품*/
+/*상품 올리기*/
 .makeItem{
     display: flex;
 }
@@ -113,4 +113,42 @@
     width: 100px;
     padding: 10px;
     margin: 5px;
+}
+
+/*상품관리페이지*/
+.itemContainer{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.aitemBox{
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 49%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.aitemBox .itemImgBox{
+    width:220px ;
+}
+
+
+.aitemDetail{
+    display: flex;
+}
+.aitemDetail label{
+    /*border: 1px solid red;*/
+    width:80px;
+    text-align: end;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.aitemDetail >div{
+    /*border: 1px solid blue;*/
+    width: 250px;
+    margin-left: 5px;
+    font-size: 18px;
 }

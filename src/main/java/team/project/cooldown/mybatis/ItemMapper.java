@@ -25,4 +25,6 @@ public interface ItemMapper {
 
     List<Item> selectItemAtt();/*전체 Item 가져오기*/
     List<Item> selectItemAtt(String category);/*category별 Item 가져오기*/
+
+    int deleteItem(String item_id);
 }

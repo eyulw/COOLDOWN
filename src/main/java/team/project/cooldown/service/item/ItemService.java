@@ -21,4 +21,6 @@ public interface ItemService {
 
     boolean newItemAttach(MultipartFile attach, int itemId);
     List<Item> readItemAtt();
+
+    boolean removeItem(String item_id);
 }
