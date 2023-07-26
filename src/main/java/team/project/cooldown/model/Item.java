@@ -16,4 +16,6 @@ public class Item {
     private String info;
     private String stock;
     private String likeusers;
+
+    private ItemAttach ia;
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div class="container adminBody" id="main">
+        <div>
+            <h3> 상품</h3>
+            <hr>
+        </div>
+        <form name="mkitemfrm">
+        <div class="makeItem">
+                <div class="itemimgsize"><!--이미지-->
+                    <label>상품이미지</label>
+                    <!--<input type="file" name="attach" id="attach" onchange="javascript:readURL(this)"/>
+                    <img id="preview" />-->
+                    <input type="file" name="attach" id="attach">
+                </div>
+                <div class="itemDetail"><!--상세정보-->
+                    <div>
+                        <div class="lbipflex">
+                            <label for="itemname">상품명</label>
+                            <div>
+                                <input type="text" name="itemname" id="itemname">
+                            </div>
+                        </div>
+                        <div class="lbipflex">
+                            <label for="itemprice">가격</label>
+                            <div>
+                                <input type="text" name="price" id="itemprice">
+                            </div>
+                        </div>
+                        <div class="lbipflex">
+                            <label for="itemCategory">카테고리</label>
+                            <div>
+                                <select name="i_category" id="itemCategory">
+                                    <option>-------선택-------</option>
+                                    <option value="digbus_goods">디그버스 굿즈</option>
+                                    <option value="campingitem">캠핑</option>
+                                    <option value="hikinhitem">등산</option>
+                                    <option value="bikeitem">자전거</option>
+                                    <option value="runningitem">러닝</option>
+                                </select>
+                                <input type="hidden" name="category" id="icategory">
+                            </div>
+                        </div>
+                        <div class="lbipflex">
+                            <label for="itemInfo">상세정보</label>
+                            <div>
+                                <textarea name="info" id="itemInfo" rows="5" cols="35"></textarea>
+                            </div>
+                        </div>
+                        <div class="lbipflex">
+                            <label for="itemStock">재고</label>
+                            <div>
+                                <input type="text" name="stock" id="itemStock">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+        </div>
+            <div class="mkitemBtn">
+                <button type="reset" id="cancelmiBtn">
+                    입력취소
+                </button>
+                <button type="button" id="mkitembtn">
+                    입력완료
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="/assets/js/admin.js" charset="utf-8"></script>
+</th:block>
+</html>

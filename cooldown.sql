@@ -31,3 +31,23 @@ alter table itemattach add constraint fkiid foreign key (item_id) references ite
 insert into qna (u_id,title,contents) values (3,"문의합니다","파이팅~해야지...");
 
 insert into qna (u_id,title,contents) values (1,"뭐뭐뭐 문의합니다","아아아");
+
+select b.* from board b;
+
+create view bu
+as select b.*,u.nickname from board b join user u using(u_id);
+
+select * from bu order by board_id desc limit 0,5;
+
+create view bba
+as select b.*,ba.bano,ba.fname,ba.fsize from board b join boardattach ba using(board_id);
+
+create view boardcombine
+as select bba.*, user.nickname from bba join user using(u_id);
+
+select * from boardcombine;
+
+create view itematt
+as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
+
+select * from itematt;
