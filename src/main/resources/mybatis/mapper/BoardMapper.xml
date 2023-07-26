@@ -3,25 +3,53 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="team.project.cooldown.mybatis.BoardMapper">
+    <!-- join result -->
+    <resultMap id="ba" type="BoardAttach">
+        <result column="fname" property="fname" />
+        <result column="fsize" property="fsize" />
+    </resultMap>
+    <resultMap id="nick" type="User">
+        <result column="nickname" property="nickname" />
+    </resultMap>
+    <resultMap id="bba" type="Board">
+        <result column="board_id" property="board_id" />
+        <result column="category" property="category" />
+        <result column="title" property="title" />
+        <result column="u_id" property="u_id" />
+        <result column="views" property="views" />
+        <result column="contents" property="contents" />
+        <result column="likes" property="likes" />
+        <result column="regdate" property="regdate" />
+        <collection property="ba" resultMap="ba" />
+        <collection property="nick" resultMap="nick" />
+    </resultMap>
+
     <insert id="insertBoard" parameterType="Board">
         insert into board (category,title, u_id, contents)
         values (#{category},#{title},#{u_id},#{contents})
     </insert>
 
-    <select id="lastBoardBno">
-        select last_insert_id() from board limit 1,1;
+    <select id="lastBoardBoard_id">
+        select AUTO_INCREMENT - 1 board_id from information_schema.TABLES
+        where TABLE_NAME='board'
+        <!--select last_insert_id() from board limit 1,1;-->
     </select>
 
-    <select id="selectOneBoard" resultType="Board">
-        select * from board where board_id = #{board_id}
+    <insert id="insertBoardAttach" parameterType="BoardAttach">
+        insert into boardattach (board_id, fname, fsize)
+        values (#{board_id},#{fname},#{fsize})
+    </insert>
+
+    <select id="selectOneBoard" resultMap="bba">
+        select * from boardcombine where board_id = #{board_id}
     </select>
 
     <update id="updateViewBoard">
         update board set views = views+1 where board_id = #{board_id}
     </update>
 
-    <select id="selectBoard" resultType="Board">
-        select board_id, category, title, views, contents, likes, regdate from board
+    <select id="selectBoard" resultMap="bba">
+        select * from boardcombine
         order by board_id desc
         limit #{stnum}, 5
     </select>
@@ -30,5 +58,26 @@
         select ceil(count(board_id) / 5) cntpg from board
     </select>
 
+    <select id="selectFindBoard" parameterType="map" resultMap="bba">
+        select * from boardcombine where category = #{findkey}
+    </select>
+
+    <select id="countFindBoard" parameterType="map">
+        select ceil(count(board_id) / 5) cntpg from board
+        select * from boardcombine where category = #{findkey}
+    </select>
+
+    <!--<select id="selectFindBoard" parameterType="map" resultType="Board">
+        select bno, title, userid, regdate, thumbs, views from board2
+        <if test="findtype !='titcont'">
+            where ${findtype} like concat('%', #{findkey}, '%')
+        </if>
+        <if test="findtype == 'titcont'">
+            where title like concat('%', #{findkey}, '%')
+            or contents like concat('%', #{findkey}, '%')
+        </if>
+        order by bno desc
+        limit #{stnum}, 25
+    </select>-->
 
 </mapper>
