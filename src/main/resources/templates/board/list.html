@@ -47,29 +47,29 @@
                                 <div class="nav sub-menu h-menu-type1 menu-horizontal row-cnt-3 row-cnt-mobile-3">
                                     <ul class="b2021050791e0a8f7e18e4">
                                         <li class="depth-01 active" style="cursor: pointer">
-                                            <a href="?category=" class="active" onclick="">
+                                            <div id="findallbtn" class="active">
                                                 <span class="plain_name">전체</span>
-                                            </a>
+                                            </div>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
-                                            <a href="?category=s49meIaW22" class="" onclick="">
-                                                <span class="plain_name">디그라이프(자유글)</span>
-                                            </a>
+                                            <div id="findbdbtn" class="">
+                                                <span class="plain_name">자유글</span>
+                                            </div>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
-                                            <a href="?category=13q16483Wa" class="" onclick="">
+                                            <div id="findwithbtn" class="" onclick="">
                                                 <span class="plain_name">동행구하기</span>
-                                            </a>
+                                            </div>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
-                                            <a href="?category=73577I0858" class="" onclick="">
+                                            <div id="findintrobtn" class="" onclick="">
                                                 <span class="plain_name">자기소개</span>
-                                            </a>
+                                            </div>
                                         </li>
                                         <li class="depth-01" style="cursor: pointer">
-                                            <a href="?category=2U255T4Dmp" class="" onclick="">
+                                            <div id="findqnabtn" class="" onclick="">
                                                 <span class="plain_name">Q&AMP;A</span>
-                                            </a>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -172,19 +172,25 @@
                                         <ul class="list m-padding-on">
                                             <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
                                                 <div class="table-cell board_thumb_wrap">
-                                                    <a th:href="|/board/view/${bd.board_id}|" class="_fade_link"  style="padding: 0"></a>
-                                                    <img src="/assets/img/logo.png" class="board_thumb" style="cursor: pointer" alt="로고" />
+                                                    <a th:href="|/board/view/${bd.board_id}|" class="_fade_link"  style="padding: 0">
+                                                        <th:block th:if="${#strings.isEmpty(bd.ba.fname)}">
+                                                            <img src="|http://localhost/cdn/logo.png|" class="board_thumb" style="cursor: pointer" alt="로고" />
+                                                        </th:block>
+                                                        <th:block th:if="${not #strings.isEmpty(bd.ba.fname)}">
+                                                            <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb" style="cursor: pointer" alt="썸네일" />
+                                                        </th:block>
+                                                    </a><!--썸네일 이미지-->
                                                     <span class="sr-only">게시판 썸네일</span>
                                                 </div>
                                                 <div class="clearfix table-cell list-group list_text_title">
                                                     <li class="tit" style="padding-right: 50px">
                                                         <a class="title_link _fade_link" th:href="|/board/view/${bd.board_id}|"></a>
                                                         <!--<em class="sticker notice" style="display: none">공지</em>--><!--이건 왜 있지..-->
-                                                        <em th:text="${bd.category}" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em><!--카테고리-->
-                                                        <!--<a th:href="|/board/view/${bd.board_id}|"></a>--><!--제목-->
-                                                        <span th:text="${bd.title}" style="cursor: pointer" ><i aria-hidden="true" class="icon-lock lock" style="display: none"></i></span>
+                                                        <em th:text="${bd.category}" id="findtype" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em><!--카테고리-->
+                                                        <!--<a th:href="|/board/view/${bd.board_id}|"></a>--><!--제목링크-->
+                                                        <span th:text="${bd.title}" style="cursor: pointer" ><i aria-hidden="true" class="icon-lock lock" style="display: none"></i></span><!--제목-->
                                                     </li>
-                                                    <li th:text="${bd.u_id}" class="author" style="display: "></li><!--작성자 닉네임-->
+                                                    <li th:text="${bd.nick.nickname}" class="author" style="display: "></li><!--작성자 닉네임-->
                                                     <li th:text="${#strings.substring(bd.regdate,0,10)}" class="time" title="2023-05-15 10:18" style="display: "></li><!--작성일-->
                                                     <li class="views" style="display: "><em th:text="${bd.views}" class="txt">조회수</em></li><!--조회수-->
                                                     <li class="like" style="display: ">
@@ -280,8 +286,8 @@
                 </div><!--여백-->
             </div>
         </main>
-        <script src="/assets/js/board.js" charset="utf-8"></script>
     </div>
 </body>
+    <script src="/assets/js/board.js" charset="utf-8"></script>
 </th:block>
 </html>

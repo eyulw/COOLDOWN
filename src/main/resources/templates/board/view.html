@@ -47,18 +47,18 @@
                                 <div class="widget">
                                     <div class="nav sub-menu h-menu-type1 menu-horizontal row-cnt-3 row-cnt-mobile-3">
                                         <ul class="b2021050791e0a8f7e18e4">
-                                            <li class="depth-01 active" style="cursor: pointer">
-                                                <a href="?category=" class="active" onclick="">
+                                            <li id="findallbtn" class="depth-01" style="cursor: pointer">
+                                                <a href="" class="active">
                                                     <span class="plain_name">전체</span>
                                                 </a>
                                             </li>
-                                            <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=s49meIaW22" class="" onclick="">
-                                                    <span class="plain_name">디그라이프(자유글)</span>
+                                            <li id="findbdbtn"  class="depth-01" style="cursor: pointer">
+                                                <a href="" class="">
+                                                    <span class="plain_name">자유글</span>
                                                 </a>
                                             </li>
                                             <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=13q16483Wa" class="" onclick="">
+                                                <a href="?category=13q16483Wa" class="">
                                                     <span class="plain_name">동행구하기</span>
                                                 </a>
                                             </li>
@@ -137,14 +137,16 @@
                                                 <div class="board_summary">
                                                     <div class="left">
                                                         <div class="author">
-                                                            <div th:text="${bd.u_id}" class="write">디그지기</div><!--작성자 닉네임-->
+                                                            <div th:text="${bd.nick.nickname}" class="write">디그지기</div><!--작성자 닉네임-->
                                                             <!--<div class="board_name">
                                                                 <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9">자유게시판</a>&lt;!&ndash;디그디그크루는 디그디그크루로 이동&ndash;&gt;
                                                             </div>-->
                                                             <div th:text="${#strings.substring(bd.regdate,0,10)}" class="date body_font_color_70"></div> <!--작성일-->
-                                                            조회수<div th:text="${bd.views}" class="hit-count body_font_color_70"></div> <!--조회수-->
+                                                            조회수&nbsp;
+                                                            <div th:text="${bd.views}" class="hit-count body_font_color_70"></div> <!--조회수-->
                                                             <div class="tools txt">
-                                                                <a href="javascript:;" onclick="javascript:BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p2023041041c3c724a5eb5','','post');" style="margin-right: 10px" >신고</a>
+                                                                <!--<a href="javascript:;" onclick="javascript:BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p2023041041c3c724a5eb5','','post');" style="margin-right: 10px" >신고</a>--><!--기존코드-->
+                                                                <a id="siren" href="#" style="margin-right: 10px" >&nbsp;신고</a>
                                                             </div><!--신고버튼 pc버전-->
                                                         </div>
                                                     </div><!--게시자 정보 외-->
@@ -168,8 +170,20 @@
                                                         <p><br /></p>
                                                         <p><br /></p>
                                                     </div>--><!--기존코드-->
-                                                    <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515"></div><!--본문-->
+                                                    <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515">
+
+                                                    </div><!--본문-->
                                                     <div class="file_area"><!--얘는 뭘까요?--></div>
+                                                    <div class="file_area">
+                                                        <!--<a th:href="|/pds/down/${p.pno}|" th:text="${p.pa.fname}">파일명</a>-->
+                                                        <th:block th:each="img : ${#strings.arraySplit(bd.ba.fname,';')}">
+                                                            <img th:src="|http://localhost/cdn/${img}|" class="img-fluid">
+                                                        </th:block>
+                                                        <a th:href="|http://localhost/cdn/${bd.ba.fname}|">다운로드 링크</a><!--파일명-->
+                                                        <!--<span th:text="|${fn} (${fsizes[__${stat.index}__]}KB)|"> n회 다운로드</span>--><!--파일정보-->
+                                                        <span> n회 다운로드</span><!--파일정보-->
+                                                        <!--<span th:text="|${p.pa.fsize} KB/${p.pa.fdown}회 다운로드|">파일정보</span>-->
+                                                    </div>
                                                 </div><!--게시판 본문 글-->
                                                 <div class="comment_section" id="comment_area">
                                                     <div class="comment-block">
@@ -282,19 +296,20 @@
                                                 </div><!--댓글-->
                                                 <div class="comment_section">
                                                     <div class="list_tap">
-                                                        <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=15120793&amp;t=board">
-                                                            <i aria-hidden="true" class="icon-arrow-up"></i><span class="secret_icon">하위요</span></a><!--위글-->
-                                                        <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;bmode=view&amp;idx=14703969&amp;t=board">
-                                                            <i aria-hidden="true" class="icon-arrow-down"></i><span class="secret_icon">4/8(토) GLOBAL 6K HIKING 청계산</span><!--아래글-->
+                                                        <a th:href="|/board/view/${bd.board_id}+1|">
+                                                            <i aria-hidden="true" class="icon-arrow-up"></i>
+                                                            <span class="secret_icon" th:text="${bd.title}">하위요</span><!--위글-->
+                                                        </a>
+                                                        <a th:href="|/board/view/${bd.board_id}-1|">
+                                                            <i aria-hidden="true" class="icon-arrow-down"></i>
+                                                            <span class="secret_icon" th:text="${bd.title}">청계산</span><!--아래글-->
                                                         </a>
                                                     </div><!--아래글, 위글-->
                                                     <div class="table_bottom over_h action-area">
                                                         <a id="bdlist" class="btn btn-primary btn-sm float_l" role="button">목록</a>
                                                         <a id="newbdbtn" class="btn btn-primary btn-sm float_r" role="button">글쓰기</a>
                                                     </div><!--목록, 글쓰기 버튼-->
-                                                    <script src="/assets/js/board.js" charset="utf-8"></script>
                                                 </div><!--게시판 푸터(이전글,다음글,목록,글쓰기)-->
-
                                             </div>
                                         </div>
                                     </div>
@@ -303,7 +318,7 @@
                         </div>
                     </div>
                 </div><!--게시판 뷰 바디-->
-                <div doz_type="row" doz_grid="12" class="doz_row">
+                <!--<div doz_type="row" doz_grid="12" class="doz_row">
                     <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
                         <div doz_type="widget" id="w2022011159c5ba063759d">
                             <div class="_widget_data" data-widget-name="검색" data-widget-type="search_btn" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N" >
@@ -323,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--홈페이지 전체 검색-->
+                </div>--><!--홈페이지 전체 검색-->
                 <div doz_type="row" doz_grid="12" class="doz_row">
                     <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
                         <div doz_type="widget" id="w202105101a401aa248c59">
@@ -379,5 +394,6 @@
     <div class="fr-tooltip custom-theme" style="left: -3000px; top: 291px; position: fixed;">삽입 더보기</div>
 
 </body>
+    <script src="/assets/js/board.js" charset="utf-8"></script>
 </th:block>
 </html>
