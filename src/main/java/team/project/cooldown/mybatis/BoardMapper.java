@@ -22,6 +22,14 @@ public interface BoardMapper {
     int insertBoardAttach(BoardAttach ba);
 
     int lastBoardBoard_id();
+
+    List<Board> selectHotTopic();
+
+    List<Board> selectNewBoard();
+
+    int deleteOneBoard(String board_id);
+
+    int getCountBoard();
 /*
     int insertBoardAttach(BoardAttach ba);
 

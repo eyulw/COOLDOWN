@@ -23,4 +23,5 @@ public interface QnaDAO {
     int insertQna(Qna q);
 
    List<Qna> selectMyQna(String u_id);
+
 }

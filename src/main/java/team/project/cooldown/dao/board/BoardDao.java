@@ -17,6 +17,14 @@ public interface BoardDao {
 
     int insertBoardAttach(BoardAttach ba);
 
+    List<Board> selectHotTopic();
+
+    List<Board> selectNewBoard();
+
+    int deleteOneBoard(String board_id);
+
+    int getCountBoard();
+
 /*
     int insertBoardAttach(BoardAttach ba);
 
