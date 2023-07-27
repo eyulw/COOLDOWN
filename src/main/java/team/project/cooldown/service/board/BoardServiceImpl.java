@@ -51,6 +51,26 @@ public class BoardServiceImpl implements BoardService {
         return (bdao.insertBoardAttach(ba) > 0) ? true : false;
     }
 
+    @Override
+    public List<Board> readHotTopic() {
+        return bdao.selectHotTopic();
+    }
+
+    @Override
+    public List<Board> readNewBoard() {
+        return bdao.selectNewBoard();
+    }
+
+    @Override
+    public boolean removeOneBoard(String board_id) {
+        return (bdao.deleteOneBoard(board_id) > 0) ? true : false;
+    }
+
+    @Override
+    public int getCountBoard() {
+        return bdao.getCountBoard();
+    }
+
 /*
     @Override
     public boolean newBoardAttach(MultipartFile attach, int board_id) {
