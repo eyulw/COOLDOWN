@@ -175,6 +175,23 @@ function total_price1() {
 document.addEventListener("DOMContentLoaded", function() {
    total_price1();
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const checkboxes = document.querySelectorAll("._cartItemCheckbox");
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', total_price1);
+    });
+});
+function toggleAllCheckboxes(element) {
+    const allCheckboxes = document.querySelectorAll("._cartItemCheckbox"); // 이전에 지정한 체크박스 클래스명을 사용합니다.
+    const isChecked = element.checked;
+
+    allCheckboxes.forEach(checkbox => {
+        checkbox.checked = isChecked;
+    });
+
+    // 전체 금액 업데이트 (옵션)
+    total_price1();
+}
 
 
 
