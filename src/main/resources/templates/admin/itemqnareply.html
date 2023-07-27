@@ -5,27 +5,31 @@
 <th:block layout:fragment="content">
     <div class="container adminBody" id="main">
         <div class="qnaBody">
-            <div><!--회원 문의글 불러오기-->
-                <p for="userqna" class="" th:text="${q.ua.userid}">회원아이디</p>
+            <div><!--상품 문의글 불러오기-->
+                <p for="userqna" class="" th:text="${iq.ua.userid}">회원아이디</p>
+                <label for="userqna" class="">상품명</label>
+                <div>
+                    <a th:href="|/digshop/?idx=${iq.item_id}|">[[${iq.ia.itemname}]]</a>
+                </div>
                 <label for="userqna" class="">제목</label>
                 <div>
-                    <p th:text="${q.title}">title</p>
+                    <p th:text="${iq.title}">title</p>
                 </div>
                 <label for="userqna" class="">내용</label>
                 <div class="">
-                    <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${q.contents}" readonly></textarea>
+                    <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${iq.contents}" readonly></textarea>
                 </div>
 
             </div><!--회원 문의글 불러오기 end-->
             <div><!--관리자 답글 작성폼-->
-                <form name="rplfrm" id="rplfrm">
+                <form name="irplfrm" id="irplfrm">
                     <label for="answer" class="">관리자</label>
                     <div class="">
-                        <textarea rows="7" cols="100" name="answer" id="answer" class="rpltxt" >[[${q.answer}]]</textarea>
+                        <textarea rows="7" cols="100" name="answer" id="answer" class="rpltxt" >[[${iq.answer}]]</textarea>
                     </div>
                     <button type="reset">취소</button>
-                    <button type="button" id="rplok">확인</button>
-                    <input type="hidden" id="qnaid" th:value="${q.qna_id}">
+                    <button type="button" id="irplok">확인</button>
+                    <input type="hidden" id="itemqnaid" th:value="${iq.itemqna_id}">
                 </form>
             </div><!--관리자 답글 작성폼 end-->
         </div>

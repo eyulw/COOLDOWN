@@ -1,6 +1,9 @@
 package team.project.cooldown.controller;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import team.project.cooldown.model.Qna;
+import team.project.cooldown.model.User;
 import team.project.cooldown.service.user.QnaService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
@@ -74,7 +79,7 @@ public class MyPageController {
 //        return "mypage/qnawrite";
 //    }
 
-    @PostMapping("/insertQnaWrite")		//작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
+    @PostMapping("/insertQnaWrite")        //작성된 게시글 등록 기능 메소드, html의 form 태그 action에서 입력한 주소
     public String insertQnaWrite(Qna q) {
         logger.info("mypage/qnawrite 호출 ~");
         String returnPage = "redirect:/mypage/fail";
@@ -82,9 +87,36 @@ public class MyPageController {
         if (qsrv.insertQnaWrite(q))
             returnPage = "redirect:/mypage/qna/1";
 
-        return returnPage;	//게시글 리스트로 이동
+        return returnPage;    //게시글 리스트로 이동
     }
 }
+
+//    // 회원 탈퇴 get
+//    @RequestMapping(value="/userDelete", method = RequestMethod.GET)
+//    public String userDelete() throws Exception{
+//        return "mypage/userdelete";
+//    }
+//
+//    // 회원 탈퇴 post
+//    @RequestMapping(value="/userDelete", method = RequestMethod.POST)
+//    public String userDelete(User u, HttpSession session, RedirectAttributes rttr) throws Exception{
+//
+//        // 세션에 있는 member를 가져와 member변수에 넣어줍니다.
+//        User user = (User) session.getAttribute("User");
+//        // 세션에있는 비밀번호
+//        String sessionPass = user.getPassword();
+//        // vo로 들어오는 비밀번호
+//        String uPass = u.getPassword();
+//
+//        if(!(sessionPass.equals(uPass))) {
+//            rttr.addFlashAttribute("msg", false);
+//            return "redirect:/member/memberDeleteView";
+//        }
+//        Service.userDelete(u);
+//        session.invalidate();
+//        return "redirect:/";
+//    }
+//}
 //    @RequestMapping("/qnawrite")
 //    public String qnawrite() {
 //        logger.info("mypage/qnawrite 호출!!");

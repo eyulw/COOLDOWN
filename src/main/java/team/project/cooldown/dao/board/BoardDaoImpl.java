@@ -45,12 +45,32 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
+    public List<Board> selectHotTopic() {
+        return boardMapper.selectHotTopic();
+    }
+
+    @Override
+    public List<Board> selectNewBoard() {
+        return boardMapper.selectNewBoard();
+    }
+
+    @Override
+    public int deleteOneBoard(String board_id) {
+        return boardMapper.deleteOneBoard(board_id);
+    }
+
+    @Override
+    public int getCountBoard() {
+        return boardMapper.getCountBoard();
+    }
+
+    @Override
     public List<Board> selectFindBoard(Map<String, Object> params) {
         return boardMapper.selectFindBoard(params);
 
     }
 
-    @Override
+    Override
     public int countFindBoard(Map<String, Object> params) {
         return boardMapper.countFindBoard(params);
     }
@@ -73,6 +93,7 @@ public class BoardDaoImpl implements BoardDao {
     @Override
     public int insertBoardComment(BoardComments bc) {
         return boardMapper.insertBoardComment(bc);
+
     }
 
     @Override

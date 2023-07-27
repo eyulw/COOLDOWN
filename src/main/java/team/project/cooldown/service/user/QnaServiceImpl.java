@@ -39,9 +39,9 @@ public class QnaServiceImpl implements QnaService {
         }
 
 
-        public Qna readOneQna(String bno) {
+        public Qna readOneQna(String qna_id) {
 
-        return qdao.selectOneQna(bno);
+        return qdao.selectOneQna(qna_id);
         }
 
     @Override
@@ -60,15 +60,16 @@ public class QnaServiceImpl implements QnaService {
     }
 
 
-         public int countQna() {
+    @Override
+    public List<Qna> readQna(String u_id) {
+        return qdao.selectMyQna(u_id);
+    }
+
+
+    public int countQna() {
 
         return qdao.selectCountQna();
         }
-
-    @Override
-    public Object readOneBoard(String bno) {
-        return null;
-    }
 
 
         public List<Qna> readFindQna(Integer cpg, String ftype, String fkey) {

@@ -34,6 +34,14 @@ public interface BoardDao {
     int insertBoardReply(BoardComments bc);
 
 
+    List<Board> selectHotTopic();
+
+    List<Board> selectNewBoard();
+
+    int deleteOneBoard(String board_id);
+
+    int getCountBoard();
+
 /*
     int insertBoardAttach(BoardAttach ba);
 

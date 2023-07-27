@@ -8,9 +8,22 @@
             <h3> 상품</h3>
             <hr>
         </div>
-        <div>
-            <button type="button" id="makeItemBtn">상품올리기</button>
+        <div style="float: right">
+            <button type="button" id="makeItemBtn" class="itemBtnSt">상품추가</button>
         </div>
+        <div class="row">
+            <div class="row offset-1 col-7">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'/item')? 'active' : ''}" ><a href="/admin/item">전체</a></li>
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/digbus_goods')? 'active' : ''}" ><a href="/admin/item/category/digbus_goods">디그버스 굿즈</a></li>
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/campingitem')? 'active' : ''}" ><a href="/admin/item/category/campingitem">캠핑</a></li>
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/hikinhitem')? 'active' : ''}" ><a href="/admin/item/category/hikinhitem">등산</a></li>
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/bikeitem')? 'active' : ''}" ><a href="/admin/item/category/bikeitem">자전거</a></li>
+                    <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/runningitem')? 'active' : ''}" ><a href="/admin/item/category/runningitem">러닝</a></li>
+                </ul>
+            </div>
+        </div><!-- 회원 카테고리 -->
+
         <div class="itemContainer">
             <th:block th:each="i:${ias}">
                 <div class="aitemBox">
@@ -19,7 +32,7 @@
                     </div>
                     <div class="aitemDetailBox">
                         <div class="aitemDetail">
-                            <label>Category : </label>
+                            <label>카테고리 : </label>
                             <div>
                                 <strong><span th:text="${i.category}">카테고리</span></strong>
                             </div>
@@ -46,10 +59,9 @@
                         <div class="aitemDetail">
                             <label> </label>
                             <div>
-                                <button style="font-size: 15px">주문정보</button>
-                                <button style="font-size: 15px">수정</button>
-                                <button style="font-size: 15px" id="aitemDelete">삭제</button>
-                                <input type="hidden" id="itemId" th:value="${i.item_id}">
+                                <button style="font-size: 15px" class="itemBtnSt">주문정보</button>
+                                <button style="font-size: 15px" class="aitemModifyBtn itemBtnSt" th:value="${i.item_id}">수정</button>
+                                <button style="font-size: 15px" class="aitemDeleteBtn itemBtnSt" th:value="${i.item_id}">삭제</button>
                             </div>
                         </div>
                     </div>

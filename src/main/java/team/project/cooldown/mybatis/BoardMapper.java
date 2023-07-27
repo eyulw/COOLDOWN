@@ -25,6 +25,14 @@ public interface BoardMapper {
 
     int lastBoardBoard_id();
 
+    List<Board> selectHotTopic();
+
+    List<Board> selectNewBoard();
+
+    int deleteOneBoard(String board_id);
+
+    int getCountBoard();
+
     List<Board> selectFindBoard(Map<String, Object> params);
 
     int countFindBoard(Map<String, Object> params);

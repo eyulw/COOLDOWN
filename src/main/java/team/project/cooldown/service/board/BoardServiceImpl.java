@@ -55,6 +55,26 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
+    public List<Board> readHotTopic() {
+        return bdao.selectHotTopic();
+    }
+
+    @Override
+    public List<Board> readNewBoard() {
+        return bdao.selectNewBoard();
+    }
+
+    @Override
+    public boolean removeOneBoard(String board_id) {
+        return (bdao.deleteOneBoard(board_id) > 0) ? true : false;
+    }
+
+    @Override
+    public int getCountBoard() {
+        return bdao.getCountBoard();
+    }
+
+    @Override
     public List<Board> readFindBoard(Integer cpg, String fkey) {
         Map<String, Object> params = new HashMap<>();
         params.put("findkey", fkey);
@@ -95,19 +115,6 @@ public class BoardServiceImpl implements BoardService {
     }
 
 
-/*
-    @Override
-    public boolean newBoardAttach(MultipartFile attach, int board_id) {
-        BoardAttach ba = boardUtils.processUpload(attach);
-        ba.setBoard_id(board_id + "");
-        int bacnt = bdao.insertBoardAttach(ba);
-        return (bacnt > 0) ? true : false;
-    }
 
-    @Override
-    public int newBoard(Board b) {
-        return bdao.insertNewBoard(b);
-    }
-*/
 
 }

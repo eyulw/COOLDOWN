@@ -8,7 +8,6 @@
         <result column="userid" property="userid"/>
         <result column="nickname" property="nickname"/>
     </resultMap>
-
     <resultMap id="qua" type="Qna">
         <result column="qna_id" property="qna_id"/>
         <result column="u_id" property="u_id"/>
@@ -19,18 +18,51 @@
 
         <collection property="ua" resultMap="ua"/>
     </resultMap>
+
+    <resultMap id="ia" type="Item">
+        <result column="itemname" property="itemname"/>
+    </resultMap>
+    <resultMap id="iqua" type="ItemQna">
+        <result column="itemqna_id" property="itemqna_id"/>
+        <result column="u_id" property="u_id"/>
+        <result column="item_id" property="item_id"/>
+        <result column="title" property="title"/>
+        <result column="contents" property="contents"/>
+        <result column="regdate" property="regdate"/>
+        <result column="answer" property="answer"/>
+
+        <collection property="ia" resultMap="ia"/>
+        <collection property="ua" resultMap="ua"/>
+    </resultMap>
+
     <select id="selectQna" resultMap="qua">
         select * from qna join user using(u_id)
     </select>
     <select id="selectOneQna" resultMap="qua">
         select * from qna join user using(u_id) where qna_id=#{qna_id}
     </select>
+    <select id="selectItemQna" resultMap="iqua">
+        select * from iquia
+    </select>
+
+    <select id="selectOneItemQna" resultMap="iqua">
+        select * from iquia where itemqna_id=#{itemqna_id}
+    </select>
+
     <update id="updateAdminReply">
         update qna set answer=#{answer} where qna_id=#{qid}
+    </update>
+
+    <update id="updateAdminIReply">
+        update itemqna set answer=#{answer} where itemqna_id=#{itemqna_id}
     </update>
 
     <insert id="insertQnaWrite" parameterType="Qna">
         insert into qna (u_id,title,contents) values (#{u_id},#{title},#{contents})
     </insert>
+
+    <select id="selectMyQna" resultType="Qna">
+        select * from qna where u_id=#{u_id}
+    </select>
 
 </mapper>
