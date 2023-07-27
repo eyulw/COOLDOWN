@@ -14,4 +14,6 @@ public interface QnaMapper {
     int updateAdminReply(String qid,String answer);
 
     int insertQnaWrite(Qna q);
+
+    List<Qna> selectMyQna(String u_id);
 }

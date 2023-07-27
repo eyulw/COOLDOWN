@@ -12,7 +12,7 @@ public interface QnaDAO {
 
    List<Qna> selectQna(int stnum);
 
-   Qna selectOneQna(String bno);
+   Qna selectOneQna(String qna_id);
 
    int selectCountQna();
 
@@ -21,4 +21,6 @@ public interface QnaDAO {
    int countFindQna(Map<String, Object> params);
 
     int insertQna(Qna q);
+
+   List<Qna> selectMyQna(String u_id);
 }

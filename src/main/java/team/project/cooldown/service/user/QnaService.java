@@ -2,6 +2,8 @@ package team.project.cooldown.service.user;
 
 import team.project.cooldown.model.Qna;
 
+import java.util.List;
+
 public interface QnaService {
 
     boolean insertQnaWrite(Qna q);
@@ -10,11 +12,13 @@ public interface QnaService {
 
     Object countBoard();
 
-    Object readOneBoard(String bno);
+     Qna readOneQna(String bno);
 
     boolean saveQna(Qna q);
 
     Object readFindBoard(Integer cpg, String findtype, String findkey);
 
     Object countFindBoard(String findtype, String findkey);
+
+    List<Qna> readQna(String u_id);
 }
