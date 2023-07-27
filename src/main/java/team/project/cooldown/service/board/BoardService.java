@@ -18,6 +18,14 @@ public interface BoardService {
 
     boolean newBoardAttach(List<MultipartFile> attachs, int board_id);
 
+    List<Board> readHotTopic();
+
+    List<Board> readNewBoard();
+
+    boolean removeOneBoard(String board_id);
+
+    int getCountBoard();
+
 /*
     boolean newBoardAttach(MultipartFile attach, int board_id);
 

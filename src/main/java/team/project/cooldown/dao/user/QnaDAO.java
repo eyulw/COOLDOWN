@@ -21,4 +21,5 @@ public interface QnaDAO {
    int countFindQna(Map<String, Object> params);
 
     int insertQna(Qna q);
+
 }

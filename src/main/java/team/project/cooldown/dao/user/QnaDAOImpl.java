@@ -50,7 +50,6 @@ public class QnaDAOImpl implements QnaDAO {
         return qnaMapper.insertQnaWrite(q) ;
     }
 
-
     public int selectCountBoard() {
         return 0;
     }

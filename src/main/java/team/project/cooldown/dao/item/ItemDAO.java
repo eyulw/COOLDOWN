@@ -26,4 +26,12 @@ public interface ItemDAO {
     List<Item> selectItemAtt();
 
     int deleteItem(String item_id);
+
+    Item selectOneItem(String item_id);
+
+    int updateOneItem(Item i);
+
+    int updateItemAttach(ItemAttach ia);
+
+    List<Item> selectItemAttCt(String category);
 }

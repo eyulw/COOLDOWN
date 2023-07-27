@@ -81,5 +81,25 @@ public class ItemDAOImpl implements ItemDAO{
         return itemMapper.deleteItem(item_id);
     }
 
+    @Override
+    public Item selectOneItem(String item_id) {
+        return itemMapper.selectOneItem(item_id);
+    }
+
+    @Override
+    public int updateOneItem(Item i) {
+        return itemMapper.updateOneItem(i);
+    }
+
+    @Override
+    public int updateItemAttach(ItemAttach ia) {
+        return itemMapper.updateItemAttach(ia);
+    }
+
+    @Override
+    public List<Item> selectItemAttCt(String category) {
+        return itemMapper.selectItemAttCt(category);
+    }
+
 
 }
