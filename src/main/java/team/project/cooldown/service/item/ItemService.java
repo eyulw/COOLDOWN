@@ -34,4 +34,12 @@ public interface ItemService {
     void updateCartCount(String cart_id, String count);
 
     void removeCart(String cart_id);
+
+    Item readOneItem(String item_id);
+
+    boolean modifyOneItem(Item i);/*이미지 수정 없이 내용만 수정*/
+
+    boolean modifyIOneItem(Item i, MultipartFile attach);
+
+    List<Item> readItemAttCt(String category);
 }

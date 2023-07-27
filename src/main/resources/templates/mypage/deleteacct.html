@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/template}">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<th:block layout:fragment="content">
+<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<th:block th:fragment="deleteacct">
+    <div class="modal fade" id="deleteacct" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-    <div class="modal-content">
-        <article class="modal_article pop p_lr_space pb16">
-            <h2>회원탈퇴</h2>
-            <div class="margin-bottom-xxxl">
-                <div>가입된 회원정보가 모두 삭제됩니다. 작성하신 게시물은 삭제되지 않습니다.</div>
-                <div>탈퇴 후 같은 계정으로 재가입 시 기존에 가지고 있던 적립금은 복원되지 않으며, 사용 및 다운로드했던 쿠폰도 사용 불가능합니다.</div>
-                <div>회원 탈퇴를 진행하시겠습니까?</div>
+                <div class="modal-content">
+
+                    <article class="modal_article pop p_lr_space pb16">
+                        <h2>회원탈퇴</h2>
+
+                        <div class="margin-bottom-xxxl">
+                            <div>가입된 회원정보가 모두 삭제됩니다. 작성하신 게시물은 삭제되지 않습니다.</div>
+                            <div>탈퇴 후 같은 계정으로 재가입 시 기존에 가지고 있던 적립금은 복원되지 않으며, 사용 및 다운로드했던 쿠폰도 사용 불가능합니다.</div>
+                            <div>회원 탈퇴를 진행하시겠습니까?</div>
+                        </div>
+
+                        <p class="txt_c">
+                            <span style="display: inline-block">
+                                <button class="btn btn-default" data-dismiss="modal" data-original-title="" title="">취소</button></span>
+                            <span style="display: inline-block; padding-right: 10px;">
+                                <button class="btn btn-brand" onclick="">탈퇴하기</button></span>
+                        </p>
+
+                    </article>
+                </div>
             </div>
-            <p class="txt_c">
-                    <span style="display: inline-block">
-                      <button class="btn btn-default" data-dismiss="modal" data-original-title="" title="">취소</button></span>
-                <span style="display: inline-block; padding-right: 10px;">
-                      <button class="btn btn-brand" onclick="SITE_MEMBER.goodbye('491d2620556b2')">탈퇴하기</button></span>
-            </p>
-        </article>
+        </div>
     </div>
 </th:block>
-</body>
 </html>
 

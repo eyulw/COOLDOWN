@@ -11,4 +11,8 @@ public interface UserMapper {
     User selectOneUser(User u);
 
     int insertUser(User u);
+
+    List<User> selectUserRole(String role);
+
+    int selectCountUser();
 }

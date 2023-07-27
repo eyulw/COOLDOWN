@@ -53,9 +53,14 @@
                             data-toggle="modal" data-target="#modifyinfo_modal"
                             style="background: none;"><span class="text fixed_transform ">정보 수정</span></button>
                   </li>
-                  <li>
-                    <a href="javascript:" onclick="SITE_MEMBER.openGoodbye();" class="text-gray-dark _fade_link">회원탈퇴</a>
+
+                  <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
+                  <li class="inline-blocked login_btn_item ">
+                    <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal"
+                            data-target="#deleteacct" style="background: none;">
+                      <span class="text fixed_transform ">회원탈퇴</span></button>
                   </li>
+
                 </ul>
               </div>
               <div class="col-md-10 col-sm-12">
@@ -71,9 +76,15 @@
                           </a>
                         </div>
                         <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
-                          <span class="ug_name text-brand">브론즈<a href="javascript:;" class="btn hidden-lg hidden-md hidden-sm"
-                             role="button" data-toggle="popover" data-placement="bottom" data-popover-content="#list-popover"
+
+                          <span class="ug_name text-brand">브론즈<a href="" class="btn hidden-lg hidden-md hidden-sm"
+                             role="button" data-toggle="popover" data-placement="bottom" data-popover-content="#listpopover"
                                  data-original-title="" title="">등급혜택</a></span>
+
+                          <button type="button" data-toggle="popover" title="Popover Title" data-content="This is the content of the popover.">
+                            Click Me
+                          </button>
+
                           <span>bug 님 안녕하세요.</span>
                           <div class="text-15 use_grade">
                             <div class="ug_text">누적 구매금액: 0원</div>

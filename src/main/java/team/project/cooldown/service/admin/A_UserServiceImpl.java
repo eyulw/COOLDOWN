@@ -16,5 +16,15 @@ public class A_UserServiceImpl implements A_UserService {
         return a_udao.selectUser();
     }
 
+    @Override
+    public List<User> readUserRole(String role) {
+        return a_udao.selectUserRole(role);
+    }
+
+    @Override
+    public int countUser() {
+        return a_udao.selectCountUser();
+    }
+
 
 }

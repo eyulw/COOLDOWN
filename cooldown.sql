@@ -32,6 +32,10 @@ insert into qna (u_id,title,contents) values (3,"문의합니다","파이팅~해
 
 insert into qna (u_id,title,contents) values (1,"뭐뭐뭐 문의합니다","아아아");
 
+insert into qna (u_id,title,contents) values (6,'상품 구매 문의 합니다','제곧내~');
+
+
+select * from board;
 select b.* from board b;
 
 create view bu
@@ -51,3 +55,25 @@ create view itematt
 as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
 
 select * from itematt;
+
+create view ba
+    as select * from user nick
+        join boardattach ba using(u_id);
+
+select * from bba;
+
+select * from boardcombine where category = "자유글";
+
+select * from boardcombine order by views desc limit 0, 5;
+
+update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
+
+create view iqua
+as
+select iq.*, u.userid from itemqna iq join user u using(u_id);
+
+create view iquia
+as select iqua.*, i.itemname from iqua join item i using(item_id);
+
+insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
+

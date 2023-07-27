@@ -31,4 +31,12 @@ public interface ItemDAO {
     void updateCountCart_c(String cart_id, String count);
 
     void deleteCart(String cart_id);
+
+    Item selectOneItem(String item_id);
+
+    int updateOneItem(Item i);
+
+    int updateItemAttach(ItemAttach ia);
+
+    List<Item> selectItemAttCt(String category);
 }

@@ -248,10 +248,21 @@
     <select id="selectItemAtt" resultMap="iia">
         select * from itematt
     </select>
+    <select id="selectItemAttCt" resultMap="iia">
+        select * from itematt where category=#{category}
+    </select>
     <delete id="deleteItem">
         delete from item where item_id=#{item_id}
     </delete>
-
+    <select id="selectOneItem" resultMap="iia">
+        select * from itematt where item_id=#{item_id}
+    </select>
+    <update id="updateOneItem" parameterType="Item">
+        update item set category=#{category},itemname=#{itemname},price=#{price},info=#{info},stock=#{stock} where item_id=#{item_id}
+    </update>
+    <update id="updateItemAttach" parameterType="ItemAttach">
+        update itemattach set fname=#{fname},fsize=#{fsize} where item_id=#{item_id}
+    </update>
 
 
 

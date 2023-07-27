@@ -14,26 +14,30 @@
         </div><!-- 문의 카테고리 -->
         <div class="row">
             <div class="offset-1 col-10">
-                <table class="table table-striped tbborder">
+                <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th style="width:10%">NO</th>
-                            <th>제목</th>
-                            <th style="width:15%">작성자</th>
-                            <th style="width:15%">작성일</th>
-                            <th style="width:10%">답변여부</th>
-                        </tr>
+                    <tr>
+                        <th style="width:10%">NO</th>
+                        <th>제목</th>
+                        <th style="width:15%">작성자</th>
+                        <th style="width:15%">작성일</th>
+                        <th style="width:10%">상태</th>
+                    </tr>
                     </thead>
-<!--                    <tbody>-->
-<!--                        <tr th:each="p:${pds}">-->
-<!--                            <td th:text="${p.pno}"></td>-->
-<!--                            <td><a th:href="|/pds/view/${p.pno}|" th:text="${p.title}"></a></td>-->
-<!--                            <td th:text="${p.userid}"></td>-->
-<!--                            <td th:text="${#strings.substring(p.regdate,0,10)}"></td>-->
-<!--                            <td th:text="${p.thumbs}"></td>-->
-<!--                            <td th:text="${p.views}"></td>-->
-<!--                        </tr>-->
-<!--                    </tbody>-->
+                    <tbody>
+                    <tr th:each="iq:${iqnas}">
+                        <td th:text="${iq.itemqna_id}"></td>
+                        <td><a th:href="|/admin/itemqna/${iq.itemqna_id}|" th:text="|[${iq.ia.itemname}] ${iq.title}|"></a></td>
+                        <td th:text="${iq.ua.userid}"></td>
+                        <td th:text="${#strings.substring(iq.regdate,0,10)}"></td>
+                        <th:blcok th:if="${#strings.isEmpty(iq.answer)}">
+                            <td style="color:red;">답변대기</td>
+                        </th:blcok>
+                        <th:blcok th:if="${not #strings.isEmpty(iq.answer)}">
+                            <td>답변완료</td>
+                        </th:blcok>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

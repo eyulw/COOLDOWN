@@ -16,4 +16,7 @@ public class ItemQna {
     private String regdate;
     private String secret;
     private String answer;
+
+    private User ua;
+    private Item ia;
 }
