@@ -63,3 +63,17 @@ create view ba
 select * from bba;
 
 select * from boardcombine where category = "자유글";
+
+select * from boardcombine order by views desc limit 0, 5;
+
+update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
+
+create view iqua
+as
+select iq.*, u.userid from itemqna iq join user u using(u_id);
+
+create view iquia
+as select iqua.*, i.itemname from iqua join item i using(item_id);
+
+insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
+

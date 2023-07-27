@@ -18,6 +18,15 @@ public class A_UserDAOImpl implements A_UserDAO {
         return userMapper.selectUser();
     }
 
+    @Override
+    public List<User> selectUserRole(String role) {
+        return userMapper.selectUserRole(role);
+    }
+
+    @Override
+    public int selectCountUser() {
+        return userMapper.selectCountUser();
+    }
 
 
 }

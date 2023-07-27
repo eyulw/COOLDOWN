@@ -42,6 +42,26 @@ public class BoardDaoImpl implements BoardDao {
         return boardMapper.insertBoardAttach(ba);
     }
 
+    @Override
+    public List<Board> selectHotTopic() {
+        return boardMapper.selectHotTopic();
+    }
+
+    @Override
+    public List<Board> selectNewBoard() {
+        return boardMapper.selectNewBoard();
+    }
+
+    @Override
+    public int deleteOneBoard(String board_id) {
+        return boardMapper.deleteOneBoard(board_id);
+    }
+
+    @Override
+    public int getCountBoard() {
+        return boardMapper.getCountBoard();
+    }
+
 /*
     @Override
     public int insertBoardAttach(BoardAttach ba) {

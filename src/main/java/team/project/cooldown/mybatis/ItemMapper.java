@@ -31,4 +31,12 @@ public interface ItemMapper {
     List<Item> selectItemAtt(String category);/*category별 Item 가져오기*/
 
     int deleteItem(String item_id);
+
+    Item selectOneItem(String item_id);
+
+    int updateOneItem(Item i);
+
+    int updateItemAttach(ItemAttach ia);
+
+    List<Item> selectItemAttCt(String category);
 }

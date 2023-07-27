@@ -81,5 +81,29 @@ public class ItemServiceImpl implements ItemService{
         return idao.deleteItem(item_id)>0?true:false;
     }
 
+    @Override
+    public Item readOneItem(String item_id) {
+        return idao.selectOneItem(item_id);
+    }
+
+    @Override
+    public boolean modifyOneItem(Item i) {
+        return idao.updateOneItem(i)>0? true:false;
+    }
+
+    @Override
+    public boolean modifyIOneItem(Item i, MultipartFile attach) {
+        boolean isUpdated=false;
+        ItemAttach ia = itemUtils.itemImgUpload(attach);
+        ia.setItem_id(i.getItem_id());
+        if((idao.updateOneItem(i)>0) && (idao.updateItemAttach(ia)>0)) isUpdated=true;
+        return isUpdated;
+    }
+
+    @Override
+    public List<Item> readItemAttCt(String category) {
+        return idao.selectItemAttCt(category);
+    }
+
 
 }

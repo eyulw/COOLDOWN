@@ -80,4 +80,18 @@
         limit #{stnum}, 25
     </select>-->
 
+    <select id="selectHotTopic" resultMap="bba">
+        select * from boardcombine order by views desc limit 0, 5
+    </select>
+
+    <select id="selectNewBoard" resultMap="bba">
+        select * from boardcombine order by board_id desc limit 0, 5
+    </select>
+    <delete id="deleteOneBoard">
+        delete from board where board_id=#{board_id}
+    </delete>
+    <select id="getCountBoard">
+        select count(board_id) from board;
+    </select>
+
 </mapper>
