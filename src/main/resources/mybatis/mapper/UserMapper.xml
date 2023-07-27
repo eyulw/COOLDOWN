@@ -20,10 +20,9 @@
         values (#{userid},#{password},#{email},#{nickname},#{phone},#{zipcode},#{address1},#{address2},#{birth},#{username});
     </insert>
 
-    <delete id="memberDelete">
-        DELETE FROM USER
-        WHERE USERID = #{userid}
-        AND PASSWORD = #{password}
+    <delete id="userDelete">
+        delete from user
+        where userid = #{userid} and password = #{password}
     </delete>
 
 </mapper>

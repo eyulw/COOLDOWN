@@ -61,4 +61,8 @@
         insert into qna (u_id,title,contents) values (#{u_id},#{title},#{contents})
     </insert>
 
+    <select id="selectMyQna" resultType="Qna">
+        select * from qna where u_id=#{u_id}
+    </select>
+
 </mapper>

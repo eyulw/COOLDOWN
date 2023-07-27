@@ -16,6 +16,8 @@ public interface QnaMapper {
 
     int insertQnaWrite(Qna q);
 
+    List<Qna> selectMyQna(String u_id);
+
     List<ItemQna> selectItemQna();
 
     ItemQna selectOneItemQna(String itemqna_id);

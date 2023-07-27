@@ -16,6 +16,19 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User selectOneUser(User u) {
+
         return userMapper.selectOneUser(u);
     }
+//
+//    회원 탈퇴
+//    @Override
+//    public void memberDelete(User u) throws Exception {
+//        // MemberVO에 담긴 값들을 보내줍니다.
+//        // 그럼 xml에서 memberMapper.memberDelete에 보시면
+//        //  #{userId}, #{userPass}에 파라미터값이 매칭이 되겠지요.
+//        user.delete("userMapper.userDelete", u);
+//
+//    }
 }
+
+
