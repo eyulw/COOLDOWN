@@ -2,6 +2,8 @@ package team.project.cooldown.controller;
 
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import team.project.cooldown.model.Cart;
+import team.project.cooldown.model.CartCombine;
 import team.project.cooldown.service.item.ItemService;
 import team.project.cooldown.service.likes.LikesService;
 
@@ -18,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -225,13 +229,28 @@ public class ShopController {
 
     }
     @GetMapping("/shop_cart")
-    public String shop_cart(HttpSession session,@RequestBody Cart cart) {
+    public String shop_cart(Model m,HttpSession session) throws JsonProcessingException {
         String u_id = (String) session.getAttribute("u_id");
-        isrv.chooseCart(u_id);
+        List<CartCombine> carts = isrv.chooseCart(u_id);
+        m.addAttribute("ChooseCart", isrv.chooseCart(u_id));
         return "shop/shop_cart";
     }
 
+@PostMapping("/updateCartCount")
+@ResponseBody
+public void updateCartCount(@RequestBody CartCombine request) {
 
+        isrv.updateCartCount(request.getCart_id(), request.getCount());
+
+}
+
+@PostMapping("/removeCart")
+@ResponseBody
+public void removeCart(@RequestBody CartCombine request) {
+
+    isrv.removeCart(request.getCart_id());
+
+}
 
 
 

@@ -1,10 +1,7 @@
 package team.project.cooldown.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
-import team.project.cooldown.model.Cart;
-import team.project.cooldown.model.Item;
-import team.project.cooldown.model.ItemAttach;
-import team.project.cooldown.model.ItemCombine;
+import team.project.cooldown.model.*;
 
 import java.util.List;
 
@@ -20,7 +17,12 @@ public interface ItemMapper {
 
     void insertCart(String u_id, Integer item_id, Integer count);
 
-    Cart selectCart(String uId);
+    int selectCountCart(String u_id, Integer item_id);
+
+    void updateCountCart(String u_id, Integer item_id, Integer count);
+    List<CartCombine> selectCart(String uId);
+
+
     int insertItem(Item i);
 
     int lastItemId();
@@ -31,4 +33,9 @@ public interface ItemMapper {
     List<Item> selectItemAtt(String category);/*category별 Item 가져오기*/
 
     int deleteItem(String item_id);
+
+
+    void updateCountCart_c(String cart_id, String count);
+
+    void deleteCart(String cart_id);
 }

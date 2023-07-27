@@ -1,10 +1,7 @@
 package team.project.cooldown.dao.item;
 
 
-import team.project.cooldown.model.Cart;
-import team.project.cooldown.model.Item;
-import team.project.cooldown.model.ItemAttach;
-import team.project.cooldown.model.ItemCombine;
+import team.project.cooldown.model.*;
 
 import java.util.List;
 
@@ -19,11 +16,19 @@ public interface ItemDAO {
 
     void insertCart(String u_id, Integer item_id, Integer count);
 
-    Cart selectCart(String uId);
+    List<CartCombine> selectCart(String u_id);
     int insertItem(Item i);
 
     int insertItemAttach(ItemAttach ia);
     List<Item> selectItemAtt();
 
     int deleteItem(String item_id);
+
+    int selectCountCart(String u_id, Integer item_id);
+
+    void updateCountCart(String u_id, Integer item_id, Integer count);
+
+    void updateCountCart_c(String cart_id, String count);
+
+    void deleteCart(String cart_id);
 }
