@@ -120,57 +120,57 @@
               </div>
             </div>
           </div>
-          <!-- <script>
-          // $(function(){
-          //   var join_addr = new ZIPCODE_DAUM();
-          //   var address = "";
-          //   var splitAddress ="";
-          //   var building = "";
-          //   var street= "";
-          //   var city= "";
-          //   var state= "";
-          //
-          //   join_addr.init({
-          //     'addr_container' : $('#join_addr_container'),
-          //     'addr_pop' : $('#join_addr_container ._add_list'),
-          //     'post_code' : $('#join_addr_postcode'),
-          //     'addr' : $('#join_addr'),
-          //     'sub_addr' : $('#sub_join_addr'),
-          //     'onShow' : function(){
-          //       $('#join_addr_container').css({'top' : -50 + 'px'});
-          //       $('#join_addr_detail').parent().css({'top' : -50 + 'px'});
-          //     },
-          //     'onComplete' : function(data){
-          //       $('#join_addr_detail').focus();
-          //
-          //       /*한글 주소일때 내부적으로 영문주소도 저장하기 위해*/
-          //       address = data.addressEnglish;
-          //       if(address == 'undefined') address = data.jibunAddressEnglish;
-          //       splitAddress= address.split(',');
-          //       if(splitAddress.length > 5){
-          //         building = splitAddress[0];
-          //         street = splitAddress[1];
-          //         city = splitAddress[2];
-          //         state = splitAddress[3] + " " + splitAddress[4];
-          //       } else {
-          //         building = splitAddress[0];
-          //         street = splitAddress[1];
-          //         city = splitAddress[2];
-          //         state = splitAddress[3];
-          //       }
-          //       $("input[name='addr_building']").val(building);
-          //       $("input[name='addr_street']").val(street);
-          //       $("input[name='addr_city']").val(city);
-          //       $("input[name='addr_state']").val(state);
-          //       $("input[name='addr_zipcode']").val(data.zonecode);
-          //     },
-          //     'onClose' : function(){
-          //       $('#join_addr_detail').parent().css({'top' : 0 + 'px'});
-          //     },
-          //     'height' : '100%'
-          //   });
-          // });
-        </script>-->
+         <script>
+          $(function(){
+            var join_addr = new ZIPCODE_DAUM();
+            var address = "";
+            var splitAddress ="";
+            var building = "";
+            var street= "";
+            var city= "";
+            var state= "";
+
+            join_addr.init({
+              'addr_container' : $('#join_addr_container'),
+              'addr_pop' : $('#join_addr_container ._add_list'),
+              'post_code' : $('#join_addr_postcode'),
+              'addr' : $('#join_addr'),
+              'sub_addr' : $('#sub_join_addr'),
+              'onShow' : function(){
+                $('#join_addr_container').css({'top' : -50 + 'px'});
+                $('#join_addr_detail').parent().css({'top' : -50 + 'px'});
+              },
+              'onComplete' : function(data){
+                $('#join_addr_detail').focus();
+
+                /*한글 주소일때 내부적으로 영문주소도 저장하기 위해*/
+                address = data.addressEnglish;
+                if(address == 'undefined') address = data.jibunAddressEnglish;
+                splitAddress= address.split(',');
+                if(splitAddress.length > 5){
+                  building = splitAddress[0];
+                  street = splitAddress[1];
+                  city = splitAddress[2];
+                  state = splitAddress[3] + " " + splitAddress[4];
+                } else {
+                  building = splitAddress[0];
+                  street = splitAddress[1];
+                  city = splitAddress[2];
+                  state = splitAddress[3];
+                }
+                $("input[name='addr_building']").val(building);
+                $("input[name='addr_street']").val(street);
+                $("input[name='addr_city']").val(city);
+                $("input[name='addr_state']").val(state);
+                $("input[name='addr_zipcode']").val(data.zonecode);
+              },
+              'onClose' : function(){
+                $('#join_addr_detail').parent().css({'top' : 0 + 'px'});
+              },
+              'height' : '100%'
+            });
+          });
+        </script>
 
           <div class="input_block form-group _item _birth"><!--생년월일-->
             <div style="position: relative">
