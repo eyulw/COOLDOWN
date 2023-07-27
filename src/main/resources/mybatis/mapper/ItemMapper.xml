@@ -174,11 +174,47 @@
     <insert id="insertCart" >
         insert into cart (u_id,item_id,count) values (#{u_id},#{item_id},#{count})
     </insert>
+    <select id="selectCountCart"  resultType="int">
+        select count(*) from cart where u_id = #{u_id} and item_id = #{item_id}
+    </select>
+    <update id="updateCountCart">
+        UPDATE cart
+        SET
+        count = count + #{count}
+        WHERE item_id = #{item_id} and  u_id = #{u_id} ;
+    </update>
 
-    <select id="selectCart"  resultType="Cart">
-        select * from cart where u_id = #{u_id}
+
+    <select id="selectCart"  resultType="CartCombine">
+        select *
+        from cart c
+        join item i on c.item_id= i.item_id
+        join itemattach ia on i.item_id = ia.item_id
+        where u_id = #{u_id}
     </select>
 
+    <update id="updateCountCart_c">
+        UPDATE cart
+        SET
+        count = #{count}
+        WHERE cart_id = #{cart_id} ;
+    </update>
+
+    <delete id="deleteCart">
+        DELETE FROM cart WHERE cart_id = #{cart_id};
+    </delete>
+
+
+
+
+
+
+
+
+
+
+
+    <!--admin-->
     <insert id="insertItem" parameterType="Item">
         insert into item(category,itemname,price,info,stock) values(#{category},#{itemname},#{price},#{info},#{stock})
     </insert>
@@ -188,6 +224,8 @@
     <insert id="insertItemAttach" parameterType="ItemAttach">
         insert into itemattach(item_id,fname,fsize) values (#{item_id},#{fname},#{fsize})
     </insert>
+
+
 
     <resultMap id="ia" type="ItemAttach">
         <result column="iano" property="iano"/>

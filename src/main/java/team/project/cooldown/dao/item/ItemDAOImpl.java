@@ -2,10 +2,7 @@ package team.project.cooldown.dao.item;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import team.project.cooldown.model.Cart;
-import team.project.cooldown.model.Item;
-import team.project.cooldown.model.ItemAttach;
-import team.project.cooldown.model.ItemCombine;
+import team.project.cooldown.model.*;
 import team.project.cooldown.mybatis.ItemMapper;
 
 
@@ -54,8 +51,8 @@ public class ItemDAOImpl implements ItemDAO{
     }
 
     @Override
-    public Cart selectCart(String uId) {
-        return itemMapper.selectCart(uId);
+    public List<CartCombine> selectCart(String u_id) {
+        return itemMapper.selectCart(u_id);
     }
 
     @Override
@@ -79,6 +76,26 @@ public class ItemDAOImpl implements ItemDAO{
     @Override
     public int deleteItem(String item_id) {
         return itemMapper.deleteItem(item_id);
+    }
+
+    @Override
+    public int selectCountCart(String u_id, Integer item_id) {
+        return itemMapper.selectCountCart(u_id,item_id);
+    }
+
+    @Override
+    public void updateCountCart(String u_id, Integer item_id, Integer count) {
+        itemMapper.updateCountCart(u_id,item_id,count);
+    }
+
+    @Override
+    public void updateCountCart_c(String cart_id, String count) {
+        itemMapper.updateCountCart_c(cart_id,count);
+    }
+
+    @Override
+    public void deleteCart(String cart_id) {
+        itemMapper.deleteCart(cart_id);
     }
 
     @Override

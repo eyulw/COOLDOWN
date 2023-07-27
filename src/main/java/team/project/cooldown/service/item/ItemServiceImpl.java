@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import team.project.cooldown.dao.item.ItemDAO;
-import team.project.cooldown.model.Cart;
-import team.project.cooldown.model.Item;
-import team.project.cooldown.model.ItemAttach;
-import team.project.cooldown.model.ItemCombine;
+import team.project.cooldown.model.*;
 import team.project.cooldown.utils.ItemUtils;
 
 import java.util.List;
@@ -48,14 +45,23 @@ public class ItemServiceImpl implements ItemService{
         return idao.selectItemCombine_r(sort,idx);
     }
 
+
+
+
     @Override
     public void addCart(String u_id, Integer item_id, Integer count) {
-        idao.insertCart(u_id,item_id,count);
+        if(idao.selectCountCart(u_id,item_id) ==0){
+            idao.insertCart(u_id,item_id,count);
+        } else if (idao.selectCountCart(u_id,item_id) > 0) {
+            idao.updateCountCart(u_id,item_id,count);
+        }
+
+
     }
 
     @Override
-    public Cart chooseCart(String uId) {
-        return idao.selectCart(uId);
+    public List<CartCombine> chooseCart(String u_id) {
+        return idao.selectCart(u_id);
     }
 
     @Override
@@ -103,6 +109,16 @@ public class ItemServiceImpl implements ItemService{
     @Override
     public List<Item> readItemAttCt(String category) {
         return idao.selectItemAttCt(category);
+    }
+
+    @Override
+    public void updateCartCount(String cart_id, String count) {
+        idao.updateCountCart_c(cart_id,count);
+    }
+
+    @Override
+    public void removeCart(String cart_id) {
+        idao.deleteCart(cart_id);
     }
 
 
