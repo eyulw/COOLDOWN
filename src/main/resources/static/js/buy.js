@@ -175,23 +175,34 @@ function total_price1() {
 document.addEventListener("DOMContentLoaded", function() {
    total_price1();
 });
+
 document.addEventListener("DOMContentLoaded", function() {
     const checkboxes = document.querySelectorAll("._cartItemCheckbox");
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', total_price1);
     });
 });
-function toggleAllCheckboxes(element) {
-    const allCheckboxes = document.querySelectorAll("._cartItemCheckbox"); // 이전에 지정한 체크박스 클래스명을 사용합니다.
-    const isChecked = element.checked;
 
+const selectAllCheckbox = document.querySelector("#selectAllCheckbox");
+
+// 모든 체크박스를 가져옵니다.
+const allCheckboxes = document.querySelectorAll("input[type='checkbox']");
+
+
+/*
+// "Select All" 체크박스에 클릭 이벤트 리스너를 추가합니다.
+selectAllCheckbox.addEventListener('click', function() {
+    // 각 체크박스의 체크 상태를 "Select All" 체크박스의 상태와 동일하게 설정합니다.
     allCheckboxes.forEach(checkbox => {
-        checkbox.checked = isChecked;
+        checkbox.checked = selectAllCheckbox.checked;
     });
 
-    // 전체 금액 업데이트 (옵션)
+    // 체크 상태 변경 후, total_price1 함수를 호출하여 전체 금액을 업데이트합니다.
     total_price1();
-}
+});
+
+
+*/
 
 
 
@@ -233,24 +244,45 @@ function removeCartItem(cartId) {
         });
 }
 
+/*장바구니주문버튼*/
 
+let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-
-
-
-let buybtn = document.querySelector("#buybtn");
-
-
-buybtn?.addEventListener('click', ()=>{
-
-    if(!isUserLoggedIn){
-        alert('로그인해주세요')
-    }else{
-        location.href = '/shop_payment'
-    }
-
-
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', updateValues);
 });
 
+function updateValues() {
+    let cart_ids = [];
+    let prices = [];
+    let counts = [];
+    let srcs = [];
+    let itemnames = [];
 
+    checkboxes.forEach(checkbox => {
+        let cartId = checkbox.getAttribute('data-cart-id');
+        let price = document.querySelector(`#cart_price_${cartId}`).textContent;
+        price = price.replace(/원/g, "");  // 모든 "원" 문자 제거
+        let count = document.querySelector(`#cart_count_${cartId}`).textContent;
+        let itemname = document.querySelector(`#itemname_${cartId}`).textContent;
+        let src = document.querySelector(`#cart_image_${cartId}`).getAttribute('src');
+
+
+        if (checkbox.checked) {
+            cart_ids.push(cartId);
+            prices.push(price);
+            counts.push(count);
+            srcs.push(src);
+            itemnames.push(itemname);
+
+
+        }
+    });
+
+    document.getElementById('cartId').value = cart_ids;
+    document.getElementById('price').value = prices;
+    document.getElementById('count').value = counts;
+    document.getElementById('src').value = srcs;
+    document.getElementById('itemname').value = itemnames;
+}
 
