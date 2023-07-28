@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import team.project.cooldown.model.Cart;
 import team.project.cooldown.model.CartCombine;
+import team.project.cooldown.model.Item;
+import team.project.cooldown.model.User;
 import team.project.cooldown.service.item.ItemService;
 import team.project.cooldown.service.likes.LikesService;
 
@@ -233,6 +235,8 @@ public class ShopController {
         String u_id = (String) session.getAttribute("u_id");
         List<CartCombine> carts = isrv.chooseCart(u_id);
         m.addAttribute("ChooseCart", isrv.chooseCart(u_id));
+        m.addAttribute("likelist",isrv.likelist(u_id));
+        System.out.println(isrv.likelist(u_id));
         return "shop/shop_cart";
     }
 
@@ -253,17 +257,33 @@ public void removeCart(@RequestBody CartCombine request) {
 }
 
 
+@PostMapping("/shop_payment")
+public String shop_payment_data(Model m,
+                                HttpSession sess,
+                                @RequestParam("cartId") String cartId,
+                                @RequestParam("price") String price,
+                                @RequestParam("count") String count,
+                                @RequestParam("src") String src,
+                                @RequestParam("itemname") String itemname) {
+
+    String[] cartId_a = cartId.split(",");
+    String[] price_a = price.split(",");
+    String[] count_a = count.split(",");
+    String[] src_a = src.split(",");
+    String[] itemname_a = itemname.split(",");
+    m.addAttribute("cart_id",cartId_a);
+    m.addAttribute("price",price_a);
+    m.addAttribute("count",count_a);
+    m.addAttribute("src",src_a);
+    m.addAttribute("itemname",itemname_a);
+    m.addAttribute("buyer_info",isrv.buyer_info((String)sess.getAttribute("u_id")));
+    System.out.println(isrv.buyer_info((String)sess.getAttribute("u_id")));
+    System.out.println(price);
 
 
 
-    @GetMapping("/shop_payment")
-    public String shop_payment() {
-
-        return "shop/shop_payment";
-    }
-
-
-
+    return "shop/shop_payment";
+}
 
 
 

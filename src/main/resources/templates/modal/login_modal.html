@@ -4,54 +4,49 @@
 <div class="modal fade" id="login_modal">
     <div class="modal-dialog" style="width: 400px !important;">
         <div class="modal-content">
+            <article class="modal_article login p_lr_space pb24">
+                <div class="modal-header ">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2>로그인</h2>
+                </div><!--mdh-->
+                <div class="modal-body">
+                    <form id="lgnfrm" name="lgnfrm">
+                        <div class="row  mb-3">
+                            <label class="col-4 form-label text-end" for="userid">아이디</label>
+                            <div class="col-5">
+                                <input type="text" id="userid" name="userid" class="form-control border-danger">
+                            </div>
+                        </div> <!--userid-->
 
+                        <div class="row  mb-3">
+                            <label class="col-4 form-label text-end" for="passwd">비밀번호</label>
+                            <div class="col-5">
+                                <input type="password" id="passwd" name="password" class="form-control border-danger">
+                            </div>
+                        </div><!--passwd-->
 
-            <div class="modal-header ">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h2>로그인</h2>
-            </div><!--mdh-->
-
-
-            <div class="modal-body">
-                <form id="lgnfrm" name="lgnfrm">
-                    <div class="row  mb-3">
-                        <label class="col-4 form-label text-end" for="userid">아이디</label>
-                        <div class="col-5">
-                            <input type="text" id="userid" name="userid" class="form-control border-danger">
-                        </div>
-                    </div> <!--userid-->
-
-                    <div class="row  mb-3">
-                        <label class="col-4 form-label text-end" for="passwd">비밀번호</label>
-                        <div class="col-5">
-                            <input type="password" id="passwd" name="password" class="form-control border-danger">
-                        </div>
-                    </div><!--passwd-->
-
-                    <div class="row  mb-3">
-                        <label class="col-4">&nbsp;</label>
-                        <div class="col-5">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input border-dark">
-                                <label class="form-check-label">로그인 상태 유지</label>
+                        <div class="row  mb-3">
+                            <label class="col-4">&nbsp;</label>
+                            <div class="col-5">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input border-dark">
+                                    <label class="form-check-label">로그인 상태 유지</label>
+                                </div>
                             </div>
                         </div>
+
+                    </form>
+                </div><!--mdb-->
+                <div class="modal-footer">
+
+                    <div class="btn-block clearfix">
+                        <button type="button" class="btn btn-primary float_l" id="loginbtn">로그인</button>
                     </div>
 
-                </form>
-            </div><!--mdb-->
-            <div class="modal-footer">
-                <button type="button" class="btn" id="loginbtn">로그인</button>
-
-                <div class="btn-block clearfix">
-                    <button type="button" class="btn btn-primary float_l" data-toggle="modal" data-target="#joinagreeModal" id="loginJoinBtn">회원가입</button>
-                    <a href="/index" data-dismiss="modal" class="btn btn-default float_l" data-original-title="" title="">취소</a>
-
-                </div>
-
-                <button type="button">
-                    <a href="/find" class="btn">아이디/비밀번호 찾기</a></button>
-            </div><!--mdf-->
+                    <div style="margin-top: 10px">
+                        <a href="#" onclick="alert('죄송합니다. 아직 미지원 기능입니다. 고객센터로 연락주시면 감사하겠습니다.')">아이디&dot;비밀번호 찾기</a></div>
+                </div><!--mdf-->
+            </article>
         </div><!--mdc-->
     </div><!--mdd-->
 </div>

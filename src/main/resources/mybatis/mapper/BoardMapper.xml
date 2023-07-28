@@ -20,6 +20,7 @@
         <result column="contents" property="contents" />
         <result column="likes" property="likes" />
         <result column="regdate" property="regdate" />
+
         <collection property="ba" resultMap="ba" />
         <collection property="nick" resultMap="nick" />
     </resultMap>
@@ -38,6 +39,11 @@
     <insert id="insertBoardAttach" parameterType="BoardAttach">
         insert into boardattach (board_id, fname, fsize)
         values (#{board_id},#{fname},#{fsize})
+    </insert>
+
+    <insert id="insertnobdattach" >
+        insert into boardattach (board_id, fname, fsize)
+        values (#{board_id},'logo.png','0')
     </insert>
 
     <select id="selectOneBoard" resultMap="bba">
@@ -62,10 +68,46 @@
         select * from boardcombine where category = #{findkey}
     </select>
 
+    <select id="selectFindcBoard" resultMap="bba">
+        select * from boardcombine where category = #{category}
+    </select>
+
     <select id="countFindBoard" parameterType="map">
         select ceil(count(board_id) / 5) cntpg from board
-        select * from boardcombine where category = #{findkey}
+        where category = #{findkey}
     </select>
+
+    <resultMap id="bc" type="BoardComments">
+        <result column="reply_id" property="reply_id" />
+        <result column="u_id" property="u_id" />
+        <result column="board_id" property="board_id" />
+        <result column="regdate" property="regdate" />
+        <result column="contents" property="contents" />
+        <result column="report" property="report" />
+        <result column="ref" property="ref" />
+
+        <collection property="nick" resultMap="nick" />
+    </resultMap>
+
+    <select id="selectBoardComment" resultMap="bc">
+        select * from bc where board_id = #{board_id}
+        order by ref
+    </select>
+
+    <select id="lastBCReplyid">
+        select AUTO_INCREMENT reply_id from information_schema.TABLES
+        where TABLE_NAME='boardcomments'
+    </select>
+
+    <insert id="insertBoardComment" parameterType="BoardComments">
+        insert into boardcomments (u_id, board_id, contents, ref)
+        values (#{u_id},#{board_id},#{contents}, #{ref})
+    </insert>
+
+    <insert id="insertBoardReply" parameterType="BoardComments">
+        insert into boardcomments (u_id, board_id, contents, ref)
+        values (#{u_id},#{board_id},#{contents},#{ref})
+    </insert>
 
     <!--<select id="selectFindBoard" parameterType="map" resultType="Board">
         select bno, title, userid, regdate, thumbs, views from board2

@@ -101,7 +101,7 @@
                       <div class="list m-padding-on holder "
                          style="padding-top: 10px;padding-bottom: 10px;">
                       <div class="thumb"><a th:href="|/board/view/${hbd.board_id}|"><img
-                              src="/assets/img/logo.png"
+                              th:src="|http://localhost/cdn/_thumbs/small_${hbd.ba.fname}|"
                               style="width:170px; height: 125px;"></a></div>
                       <div class="title">
                         <a class="_fade_link" th:href="|/board/view/${hbd.board_id}|">
@@ -296,7 +296,7 @@
                       <div class="list m-padding-on holder "
                            style="padding-top: 10px;padding-bottom: 10px;">
                         <div class="thumb"><a th:href="|/board/view/${nbd.board_id}|"><img
-                                src="/assets/img/logo.png"
+                                th:src="|http://localhost/cdn/_thumbs/small_${nbd.ba.fname}|"
                                 style="width:170px; height: 125px;"></a></div>
                         <div class="title">
                           <a class="_fade_link" th:href="|/board/view/${nbd.board_id}|">

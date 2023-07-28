@@ -10,4 +10,8 @@ public interface A_UserDAO {
     List<User> selectUserRole(String role);
 
     int selectCountUser();
+
+    int getCountUPages();
+
+    int getCountRUPages(String role);
 }

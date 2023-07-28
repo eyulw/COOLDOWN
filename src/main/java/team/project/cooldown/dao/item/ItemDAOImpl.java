@@ -118,5 +118,20 @@ public class ItemDAOImpl implements ItemDAO{
         return itemMapper.selectItemAttCt(category);
     }
 
+    @Override
+    public List<CartCombine> wishList(String u_id) {
+        return itemMapper.wishList(u_id);
+    }
+
+    @Override
+    public void buyCart(List<Item> cart_id) {
+        itemMapper.buyCart(cart_id);
+    }
+
+    @Override
+    public List<User> customer_info(String uId) {
+        return itemMapper.customer_info(uId);
+    }
+
 
 }

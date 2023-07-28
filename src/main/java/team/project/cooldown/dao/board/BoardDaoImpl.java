@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import team.project.cooldown.model.Board;
 import team.project.cooldown.model.BoardAttach;
+import team.project.cooldown.model.BoardComments;
 import team.project.cooldown.mybatis.BoardMapper;
 
 import java.util.List;
+import java.util.Map;
 
 
 @Repository("bdao")
@@ -62,18 +64,42 @@ public class BoardDaoImpl implements BoardDao {
         return boardMapper.getCountBoard();
     }
 
-/*
     @Override
-    public int insertBoardAttach(BoardAttach ba) {
-        return boardMapper.insertBoardAttach(ba);
+    public List<Board> selectFindBoard(Map<String, Object> params) {
+        return boardMapper.selectFindBoard(params);
+
     }
 
     @Override
-    public int insertNewBoard(Board b) {
-        int cnt = boardMapper.insertNewBoard(b);
-        if(cnt > 0) cnt = boardMapper.lastBoardBoard_id();
-        return cnt;
+    public int countFindBoard(Map<String, Object> params) {
+        return boardMapper.countFindBoard(params);
     }
-*/
+
+    @Override
+    public int insertnobdattach(int board_id) {
+        return boardMapper.insertnobdattach(board_id);
+    }
+
+    @Override
+    public List<Board> selectFindcBoard(String category) {
+        return boardMapper.selectFindcBoard(category);
+    }
+
+    @Override
+    public List<BoardComments> selectBoardComment(String board_id) {
+        return boardMapper.selectBoardComment(board_id);
+    }
+
+    @Override
+    public int insertBoardComment(BoardComments bc) {
+        bc.setRef(boardMapper.lastBCReplyid()+"");
+        System.out.println(bc.getRef());
+        return boardMapper.insertBoardComment(bc);
+    }
+
+    @Override
+    public int insertBoardReply(BoardComments bc) {
+        return boardMapper.insertBoardReply(bc);
+    }
 
 }

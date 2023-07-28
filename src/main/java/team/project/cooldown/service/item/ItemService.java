@@ -2,11 +2,8 @@ package team.project.cooldown.service.item;
 
 
 import team.project.cooldown.dao.likes.LikesDAO;
-import team.project.cooldown.model.Cart;
+import team.project.cooldown.model.*;
 import org.springframework.web.multipart.MultipartFile;
-import team.project.cooldown.model.CartCombine;
-import team.project.cooldown.model.Item;
-import team.project.cooldown.model.ItemCombine;
 
 import java.util.List;
 
@@ -42,4 +39,11 @@ public interface ItemService {
     boolean modifyIOneItem(Item i, MultipartFile attach);
 
     List<Item> readItemAttCt(String category);
+
+    List<CartCombine> likelist(String u_id);
+
+
+    void paymentCart(List<Item> cart_id);
+
+    List<User> buyer_info(String uId);
 }

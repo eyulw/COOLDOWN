@@ -64,6 +64,39 @@ select * from bba;
 
 select * from boardcombine where category = "자유글";
 
+insert into boardattach (board_id, fname, fsize)
+values (115,'logo.png',0);
+
+delete from board;
+
+alter table contentscomments
+    add constraint fkrefcontents_id
+        foreign key (ref) references contentscomments (contents_id);
+
+alter table boardcomments
+    drop constraint fkrefcontents_id;
+
+alter table boardcomments
+    add constraint fk_uid_uid
+        foreign key (u_id) references user(u_id);
+
+alter table boardcomments
+    add constraint fk_boardid_boardid
+        foreign key (board_id) references board(board_id);
+
+alter table boardcomments
+    add constraint fk_ref_replyid
+        foreign key (ref) references boardcomments (reply_id);
+
+create view ba
+    as select * from user nick
+        join boardattach ba using(u_id);
+
+
+select * from bba;
+
+select * from boardcombine where category = "자유글";
+
 select * from boardcombine order by views desc limit 0, 5;
 
 update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
@@ -77,3 +110,56 @@ as select iqua.*, i.itemname from iqua join item i using(item_id);
 
 insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
 
+
+select * from boardcombine order by views desc limit 0, 5;
+
+update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
+
+create view iqua
+as
+select iq.*, u.userid from itemqna iq join user u using(u_id);
+
+create view iquia
+as select iqua.*, i.itemname from iqua join item i using(item_id);
+
+insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
+
+select * from qna join user using(u_id) order by qna_id desc limit 0,15;
+
+select * from boardcombine order by views desc limit 0, 5;
+
+update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
+
+create view iqua
+as
+select iq.*, u.userid from itemqna iq join user u using(u_id);
+
+create view iquia
+as select iqua.*, i.itemname from iqua join item i using(item_id);
+
+insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
+
+create view bc
+as select b.*,u.nickname from boardcomments b
+                                  join user u using(u_id);
+
+select b.*,u.nickname from boardcomments b
+                  join user u using(u_id);
+
+select * from bc;
+
+insert into boardcomments (u_id, board_id, contents, ref)
+values (3,121,'ㄴㅇ','3');
+
+
+drop table boardcomments;
+create table boardcomments (
+reply_id    int             auto_increment,
+u_id        int             not null,
+board_id    int             not null,
+regdate     datetime        default current_timestamp,
+contents    text            not null,
+report      int,
+ref         int             not null,
+primary key (reply_id)
+);

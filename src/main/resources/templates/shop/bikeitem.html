@@ -60,7 +60,7 @@
         </ul>	</div>
     </div>
 
-    </div></div></div></div><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w20210617d7c3c6787880c"><div class="_widget_data " data-widget-name="쇼핑" data-widget-type="shopping" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N">	<div class="shop-content widget">
+    </div></div></div></div><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12" style="width:100%"><div doz_type="widget" id="w20210617d7c3c6787880c"><div class="_widget_data " data-widget-name="쇼핑" data-widget-type="shopping" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N">	<div class="shop-content widget">
       <div class="shop-grid">
         <div class="thumb-fluid _item_container  ">
           <div class="shop-tools clearfix" style="display: ">
@@ -86,7 +86,7 @@
               <div class="item-wrap" style="position: relative;">
                 <a th:href="|/bikeitem/?idx=${itcb.getItem_id()}|" class="_fade_link shop-item-thumb hover_img_none">
                   <img data-prodcode="s2022093027948f330489b" alt=""
-                       th:src="${itcb.fname}"
+                       th:src="|http://localhost/cdn/itemImg/${itcb.fname}|"
                        class="_org_img org_img _lazy_img"
                        style="display: inline;">
 
