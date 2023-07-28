@@ -25,4 +25,12 @@
         where userid = #{userid} and password = #{password}
     </delete>
 
+    <select id="getCountUPages">
+        select ceil(count(u_id)/15) from user
+    </select>
+
+    <select id="getCountRUPages">
+        select ceil(count(u_id)/15) from user where role=#{role}
+    </select>
+
 </mapper>

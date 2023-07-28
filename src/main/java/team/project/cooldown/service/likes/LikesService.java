@@ -12,5 +12,4 @@ public interface LikesService {
     int currentLikesCount(Integer item_id);
 
 
-
 }

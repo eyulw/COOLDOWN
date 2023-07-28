@@ -52,12 +52,35 @@
 
 .qnaBody{
     margin: 50px auto;
-    /*border: 1px solid red;*/
 }
-
+.qnaBodyC{
+    width: 70%;
+    margin:0 auto;
+}
+.rplimgst{
+    border: 1px solid black;
+    border-radius: 100%;
+    width: 40px;
+}
 .rpltxt{
-    border: 1px solid blue;
+    border: 1px solid #337ab7;
     resize: none;
+}
+.userQnaFrmst {
+    font-size: 18px;
+}
+.userQnaFrmst label{
+    font-size: 16px;
+}
+.userQnaFrmst textarea{
+    width: 100%;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
+}
+.userQnaFrmst p:last-child{
+    padding: 3px;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
 }
 
 /*게시글*/
@@ -71,13 +94,20 @@
 /*상품 올리기*/
 .makeItem{
     display: flex;
+    justify-content: center;
+    min-height: 500px;
 }
 .itemimgsize{
     border: 1px solid red;
     width: 50%;
 }
+.itemimgsize label{
+    font-size: 20px;
+}
 .itemDetail{
-    border: 1px solid red;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
     width: 50%;
     font-size: 18px;
 }
@@ -97,6 +127,7 @@
 }
 .lbipflex{
     display: flex;
+    margin-bottom: 20px;
 }
 
 .lbipflex textarea{
@@ -137,8 +168,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 49%;
-    margin-bottom: 10px;
     padding: 5px;
+    margin-top: 24px;
 }
 
 .aitemBox .itemImgBox{

@@ -28,5 +28,15 @@ public class A_UserDAOImpl implements A_UserDAO {
         return userMapper.selectCountUser();
     }
 
+    @Override
+    public int getCountUPages() {
+        return userMapper.getCountUPages();
+    }
+
+    @Override
+    public int getCountRUPages(String role) {
+        return userMapper.getCountRUPages(role);
+    }
+
 
 }

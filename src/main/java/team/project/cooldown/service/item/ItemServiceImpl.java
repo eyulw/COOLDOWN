@@ -112,6 +112,22 @@ public class ItemServiceImpl implements ItemService{
     }
 
     @Override
+    public List<CartCombine> likelist(String u_id) {
+        return idao.wishList(u_id);
+    }
+
+    @Override
+    public void paymentCart(List<Item> cart_id) {
+        idao.buyCart(cart_id);
+    }
+
+    @Override
+    public List<User> buyer_info(String uId) {
+
+        return idao.customer_info(uId);
+    }
+
+    @Override
     public void updateCartCount(String cart_id, String count) {
         idao.updateCountCart_c(cart_id,count);
     }

@@ -13,8 +13,8 @@ import java.util.List;
 public class A_QnaDAOImpl implements A_QnaDAO {
     final QnaMapper qnaMapper;
     @Override
-    public List<Qna> selectQna() {
-        return qnaMapper.selectQna();
+    public List<Qna> selectQna(int stnum) {
+        return qnaMapper.selectQna(stnum);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class A_QnaDAOImpl implements A_QnaDAO {
     }
 
     @Override
-    public List<ItemQna> selectItemQna() {
-        return qnaMapper.selectItemQna();
+    public List<ItemQna> selectItemQna(int stnum) {
+        return qnaMapper.selectItemQna(stnum);
     }
 
     @Override
@@ -40,5 +40,15 @@ public class A_QnaDAOImpl implements A_QnaDAO {
     @Override
     public int updateAdminIReply(String itemqna_id, String answer) {
         return qnaMapper.updateAdminIReply(itemqna_id,answer);
+    }
+
+    @Override
+    public int getCountPages() {
+        return qnaMapper.getCountPages();
+    }
+
+    @Override
+    public int getCountIQPages() {
+        return qnaMapper.getCountIQPages();
     }
 }

@@ -124,6 +124,7 @@ as select iqua.*, i.itemname from iqua join item i using(item_id);
 
 insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
 
+select * from qna join user using(u_id) order by qna_id desc limit 0,15;
 
 select * from boardcombine order by views desc limit 0, 5;
 

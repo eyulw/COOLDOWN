@@ -28,7 +28,7 @@
             <th:block th:each="i:${ias}">
                 <div class="aitemBox">
                     <div class="itemImgBox">
-                        <img th:src="${i.ia.fname}" style="width:200px;">
+                        <img th:src="|http://localhost/cdn/itemImg/${i.ia.fname}|" style="width:200px;">
                     </div>
                     <div class="aitemDetailBox">
                         <div class="aitemDetail">
@@ -59,7 +59,6 @@
                         <div class="aitemDetail">
                             <label> </label>
                             <div>
-                                <button style="font-size: 15px" class="itemBtnSt">주문정보</button>
                                 <button style="font-size: 15px" class="aitemModifyBtn itemBtnSt" th:value="${i.item_id}">수정</button>
                                 <button style="font-size: 15px" class="aitemDeleteBtn itemBtnSt" th:value="${i.item_id}">삭제</button>
                             </div>

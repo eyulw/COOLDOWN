@@ -46,4 +46,10 @@ public interface ItemMapper {
     int updateItemAttach(ItemAttach ia);
 
     List<Item> selectItemAttCt(String category);
+
+    List<CartCombine> wishList(String u_id);
+
+    void buyCart(List<Item> cart_id);
+
+    List<User> customer_info(String uId);
 }
