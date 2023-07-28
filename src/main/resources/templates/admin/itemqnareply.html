@@ -5,33 +5,41 @@
 <th:block layout:fragment="content">
     <div class="container adminBody" id="main">
         <div class="qnaBody">
-            <div><!--상품 문의글 불러오기-->
-                <p for="userqna" class="" th:text="${iq.ua.userid}">회원아이디</p>
-                <label for="userqna" class="">상품명</label>
-                <div>
-                    <a th:href="|/digshop/?idx=${iq.item_id}|">[[${iq.ia.itemname}]]</a>
-                </div>
-                <label for="userqna" class="">제목</label>
-                <div>
-                    <p th:text="${iq.title}">title</p>
-                </div>
-                <label for="userqna" class="">내용</label>
-                <div class="">
-                    <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${iq.contents}" readonly></textarea>
-                </div>
-
-            </div><!--회원 문의글 불러오기 end-->
-            <div><!--관리자 답글 작성폼-->
-                <form name="irplfrm" id="irplfrm">
-                    <label for="answer" class="">관리자</label>
-                    <div class="">
-                        <textarea rows="7" cols="100" name="answer" id="answer" class="rpltxt" >[[${iq.answer}]]</textarea>
+            <div class="qnaBodyC">
+                <div class="userQnaFrmst"><!--상품 문의글 불러오기-->
+                    <p>
+                        <img src="/assets/img/logo.png" class="rplimgst"><span style="font-size: 18px"> [[${iq.ua.userid}]]</span>
+                    </p>
+                    <label class="">작성일자</label>
+                    <span style="margin-left: 10px">[[${iq.regdate}]]</span><br>
+                    <label for="userqna" class="">상품명</label>
+                    <div>
+                        <a th:href="|/digshop/?idx=${iq.item_id}|">[[${iq.ia.itemname}]]</a>
                     </div>
-                    <button type="reset">취소</button>
-                    <button type="button" id="irplok">확인</button>
-                    <input type="hidden" id="itemqnaid" th:value="${iq.itemqna_id}">
-                </form>
-            </div><!--관리자 답글 작성폼 end-->
+                    <label for="userqna" class="">제목</label>
+                    <div>
+                        <p th:text="${iq.title}">title</p>
+                    </div>
+                    <label for="userqna" class="">내용</label>
+                    <div class="">
+                        <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${iq.contents}" readonly></textarea>
+                    </div>
+                </div>
+            <!--회원 문의글 불러오기 end-->
+                <div class="userQnaFrmst"><!--관리자 답글 작성폼-->
+                    <form name="irplfrm" id="irplfrm">
+                        <label for="answer" class="">관리자</label>
+                        <div class="">
+                            <textarea rows="7" name="answer" id="answer" class="rpltxt" >[[${iq.answer}]]</textarea>
+                        </div>
+                        <div style="text-align: end">
+                            <button class="itemBtnSt" type="reset">취소</button>
+                            <button class="itemBtnSt" type="button" id="irplok">확인</button>
+                        </div>
+                        <input type="hidden" id="itemqnaid" th:value="${iq.itemqna_id}">
+                    </form>
+                </div><!--관리자 답글 작성폼 end-->
+            </div>
         </div>
     </div>
     <script src="/assets/js/admin.js" charset="utf-8"></script>

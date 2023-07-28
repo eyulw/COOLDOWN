@@ -9,12 +9,13 @@ import team.project.cooldown.model.Qna;
 import java.util.List;
 
 @Service("a_qsrv")
-public class QnaServiceImpl implements QnaService{
+public class A_QnaServiceImpl implements A_QnaService {
     @Autowired
     private A_QnaDAO a_qdao;
     @Override
-    public List<Qna> readQna() {
-        return a_qdao.selectQna();
+    public List<Qna> readQna(Integer cpg) {
+        int stnum=15*(cpg-1);
+        return a_qdao.selectQna(stnum);
     }
 
     @Override
@@ -28,8 +29,9 @@ public class QnaServiceImpl implements QnaService{
     }
 
     @Override
-    public List<ItemQna> readItemQna() {
-        return a_qdao.selectItemQna();
+    public List<ItemQna> readItemQna(Integer cpg) {
+        int stnum=15*(cpg-1);
+        return a_qdao.selectItemQna(stnum);
     }
 
     @Override
@@ -40,5 +42,15 @@ public class QnaServiceImpl implements QnaService{
     @Override
     public boolean updateAdminIReply(String itemqna_id, String answer) {
         return (a_qdao.updateAdminIReply(itemqna_id,answer) > 0) ? true : false;
+    }
+
+    @Override
+    public int getCountPages() {
+        return a_qdao.getCountPages();
+    }
+
+    @Override
+    public int getCountIQPages() {
+        return a_qdao.getCountIQPages();
     }
 }

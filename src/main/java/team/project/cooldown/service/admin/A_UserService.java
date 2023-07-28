@@ -10,4 +10,8 @@ public interface A_UserService {
     List<User> readUserRole(String role);
 
     int countUser();
+
+    int getCountUPages();
+
+    int getCountRUPages(String role);
 }

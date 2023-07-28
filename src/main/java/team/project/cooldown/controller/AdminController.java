@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import team.project.cooldown.model.Item;
-import team.project.cooldown.service.admin.QnaService;
+import team.project.cooldown.service.admin.A_QnaService;
 import team.project.cooldown.service.admin.A_UserService;
 import team.project.cooldown.service.board.BoardService;
 import team.project.cooldown.service.item.ItemService;
@@ -22,7 +22,7 @@ import team.project.cooldown.service.item.ItemService;
 public class AdminController {
     Logger logger = LogManager.getLogger(AdminController.class);
     final A_UserService a_usrv;
-    final QnaService a_qsrv;
+    final A_QnaService a_qsrv;
     final BoardService bsrv;
     final ItemService isrv;
 
@@ -31,18 +31,23 @@ public class AdminController {
         logger.info("admin/ 호출");
         return "admin/index";
     }
-    @GetMapping("/user")
-    public String member(Model m){
+    @GetMapping("/user/list/{cpg}")
+    public String member(Model m,@PathVariable Integer cpg){
         logger.info("admin/user 호출");
         m.addAttribute("users",a_usrv.readUser());
         m.addAttribute("usercnt",a_usrv.countUser());
+        m.addAttribute("stpg",5*((cpg-1)/5)+1);
+        m.addAttribute("cntpg",a_usrv.getCountUPages());
+        m.addAttribute("cpg",cpg);
         return "admin/user";
     }
-    @GetMapping("/role/{role}")
-    public String member(Model m,@PathVariable String role){
+    @GetMapping("/role/{role}/{cpg}")
+    public String member(Model m,@PathVariable String role,@PathVariable Integer cpg){
         logger.info("admin/role/~ 호출");
         m.addAttribute("users",a_usrv.readUserRole(role));
         m.addAttribute("usercnt",a_usrv.countUser());
+        m.addAttribute("stpg",5*((cpg-1)/5)+1);
+        m.addAttribute("cntpg",a_usrv.getCountRUPages(role));
         return "admin/user";
     }
 
@@ -140,17 +145,29 @@ public class AdminController {
         return returnPage;
     }
 
-    @GetMapping("/qna")
-    public String qna(Model m){
+    @GetMapping("/qna/list/{cpg}")
+    public String qna(Model m,@PathVariable Integer cpg){
         logger.info("admin/qna 호출");
-        m.addAttribute("qnas",a_qsrv.readQna());
+        m.addAttribute("qnas",a_qsrv.readQna(cpg));
+        m.addAttribute("stpg",5*((cpg-1)/5)+1);
+        m.addAttribute("cntpg",a_qsrv.getCountPages());
+        m.addAttribute("cpg",cpg);
+        //만일, cpg가 cntpg보다 크다면
+        //1페이지로 강제 이동
+        if(cpg > (int)m.getAttribute("cntpg"))
+            return "redirect:/admin/qna/list/1";
         return "admin/qna";
     }
 
-    @GetMapping("/itemqna")
-    public String itemqna(Model m){
+    @GetMapping("/itemqna/list/{cpg}")
+    public String itemqna(Model m,@PathVariable Integer cpg){
         logger.info("admin/itemqna 호출");
-        m.addAttribute("iqnas",a_qsrv.readItemQna());
+        m.addAttribute("iqnas",a_qsrv.readItemQna(cpg));
+        m.addAttribute("stpg",5*((cpg-1)/5)+1);
+        m.addAttribute("cntpg",a_qsrv.getCountIQPages());
+        m.addAttribute("cpg",cpg);
+        if(cpg > (int)m.getAttribute("cntpg"))
+            return "redirect:/admin/itemqna/list/1";
         return "admin/itemqna";
     }
 
@@ -166,7 +183,7 @@ public class AdminController {
         logger.info("admin/qnareplyok 호출");
         String returnPage="redirect:/admin/fail";
         if(a_qsrv.updateAdminReply(qid,answer))
-            returnPage="redirect:/admin/qna";
+            returnPage="redirect:/admin/qna/list/1";
         /*qid 글에 관리자 답변 넣어서 update*/
         return returnPage;
     }
@@ -187,6 +204,11 @@ public class AdminController {
         /*itemqna_id 글에 관리자 답변 넣어서 update*/
         return returnPage;
     }
+    @GetMapping("/order")
+    public String order(Model m){
+        logger.info("admin/order 호출");
 
+        return "admin/order";
+    }
 
 }
