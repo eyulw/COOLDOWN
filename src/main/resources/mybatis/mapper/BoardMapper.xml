@@ -77,14 +77,31 @@
         where category = #{findkey}
     </select>
 
-    <select id="selectBoardComment" resultType="BoardComments">
-        select * from boardcomments where board_id = #{board_id}
+    <resultMap id="bc" type="BoardComments">
+        <result column="reply_id" property="reply_id" />
+        <result column="u_id" property="u_id" />
+        <result column="board_id" property="board_id" />
+        <result column="regdate" property="regdate" />
+        <result column="contents" property="contents" />
+        <result column="report" property="report" />
+        <result column="ref" property="ref" />
+
+        <collection property="nick" resultMap="nick" />
+    </resultMap>
+
+    <select id="selectBoardComment" resultMap="bc">
+        select * from bc where board_id = #{board_id}
         order by ref
+    </select>
+
+    <select id="lastBCReplyid">
+        select AUTO_INCREMENT reply_id from information_schema.TABLES
+        where TABLE_NAME='boardcomments'
     </select>
 
     <insert id="insertBoardComment" parameterType="BoardComments">
         insert into boardcomments (u_id, board_id, contents, ref)
-        values (#{u_id},#{board_id},#{contents},last_insert_id()+1)
+        values (#{u_id},#{board_id},#{contents}, #{ref})
     </insert>
 
     <insert id="insertBoardReply" parameterType="BoardComments">

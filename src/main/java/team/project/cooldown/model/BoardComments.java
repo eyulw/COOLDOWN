@@ -15,4 +15,6 @@ public class BoardComments {
     private String contents;
     private String report;
     private String ref;
+
+    private User nick;
 }
