@@ -2,30 +2,16 @@
 <html lang="ko" xmlns:th="https://www.thymeleaf.org">
 <th:block th:fragment="joinform_modal">
     <div class="modal fade" id="joinformModal" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-        <div class="modal-dialog" style="width: 400px !important;">
-            <div class="modal-content">
+        <div class="modal-dialog" style="width: 400px !important;display: block;padding-left: 17px;">
+            <div class="modal-content modalscrollst">
 
-
-                <div class="modal-header ">
+                <article class="modal_article login term p_lr_space pb24" style="margin-bottom: 40px">
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h2>회원가입</h2>
                 </div><!--mdh-->
 
-                <div class="modal-body">
-
-<!--                    <script src="http://www.google.com/recaptcha/api.js"></script>-->
-
-                    <!--<div id="fileupload_profile_img2" class="fileupload_profile_img">
-                        <div id="profile_img2" class="img-circle" style="margin: 0 auto;
-                            background: url(/img/default_user.png)  50% 50% / cover no-repeat;">
-                        </div>
-                        <span class="over">
-                            <i aria-hidden="true" class="simple icon-camera vertical-middle"></i></span>
-                        <div id="drop_profile_img2" class="drop_profile_img">
-                            <input title="file upload" type="file" name="files[]" style="width: 100%"
-                                   accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml">
-                        </div>
-                    </div--> <!-- profile photo -->
+                <div class="modal-body" style="padding-top: 0px !important;">
 
                     <div class="alert alert-info">가입시 아래 항목 꼭 지켜주세요!<br>
                         - 이메일 : 실제 사용하시는 이메일<br>
@@ -82,18 +68,22 @@
                                     <div class="alert-block _msg"></div>
                                 </div>
                             </div>
-
-                            <table>
-                                <tr>
-                                    <th>주소</th>
-                                    <td><input type="text" id="address_kakao" name="address1" readonly /></td>
-                                </tr>
-                                <tr>
-                                    <th>상세 주소</th>
-                                    <td><input type="text" name="address2" /></td>
-                                </tr>
+                            <div class="input_block form-group">
+                                <label class="mini-tit" for="address_kakao">주소<i aria-hidden="true" class="icon-required"></i></label>
+                                <div class="input_form _item _callnum">
+                                    <input type="text" id="address_kakao" name="address1" readonly placeholder="주소"/>
+                                    <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                                    <div class="alert-block _msg"></div>
+                                </div>
+                                <div class="input_form _item _callnum">
+                                    <input type="text" id="address2" name="address2" placeholder="상세주소"/>
+                                    <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                                    <div class="alert-block _msg"></div>
+                                </div>
                                 <input type="hidden" name="zipcode" id="zipcode">
-                            </table>
+                            </div>
+
+
 
                 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                 <script>
@@ -152,6 +142,7 @@
                             <button type="button" class="btn btn-brand w100p h45 _join_btn" id="joinokBtn">가입하기</button>
                         </form>
                 </div><!--모달 body 끝-->
+                </article>
             </div>
         </div>
     </div><!-- zipcode modal -->
