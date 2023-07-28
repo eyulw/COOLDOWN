@@ -15,10 +15,6 @@
             <div class="row offset-1 col-5">
                 <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>
             </div>
-            <div class="col-5 text-end">
-                <button type="button" class="btn btn-light col-3" id="lstbdbtn">
-                    <i class="fa fa-list"></i> 목록으로</button>
-            </div><!--버튼들-->
 
             <div class="row offset-1 col-10 mb-5">
                 <form name="qnafrm" id="qnafrm"
@@ -67,6 +63,12 @@
                                 <i class="fa-regular fa-circle-check"></i> 입력완료</button>
                             <button type="button" id="cancelbtn" class="btn btn-danger">
                                 <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
+
+                                <button type="button" class="btn btn-light col-3" id="lstbdbtn">
+                                    <a th:href="|/mypage/qna/${session.user.u_id}|">
+                                        <i class="fa fa-list"></i> 목록으로</a></button>
+                            </div><!--버튼들-->
+
                         </div>
                     </div> <!--버튼들-->
 

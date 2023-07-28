@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-<th:block layout:fragment="content" th:with="isLogined=${(#strings.isEmpty(session.user)) ? false : true}">
+<th:block layout:fragment="content">
     <body class="doz_sys  _body_menu_m202105075b655364fdf55  mobile-nav-on  mobile_nav_dep2  page  fixed-menu-on new_fixed_menu_on new_header_site  loggedin write_mode" 	style=";"  id="doz_body">
     <div class="board_write post_write" id="board_container">
         <div class="write-header _write_header m_sticky_toolbar">

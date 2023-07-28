@@ -20,8 +20,11 @@ public interface QnaDAO {
 
    int countFindQna(Map<String, Object> params);
 
-    int insertQna(Qna q);
+   int insertQna(Qna q);
 
    List<Qna> selectMyQna(String u_id);
-
 }
+
+////
+//   List<Qna> selectQnaListSortedByDate();
+//}

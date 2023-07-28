@@ -1,191 +1,167 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-
 <head>
-<!--    <link rel="stylesheet" type="text/css" href="../../static/css/project.css"/>-->
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<body>
 <th:block layout:fragment="content">
-    <div id="main">
-        <div class="mt-5">
-            <i class="fa-solid fa-person-chalkboard fa-2xl"> 게시판</i>
-            <hr>
+    <div class="shop-content mypage">
+        <div class="container-fluid">
+            <div class="row show-grid">
+                <div class="left-menu hidden-lg hidden-md">
+                    <ul id="cart_menu">
+                        <div class="clearfix cart-menu-slide">
+                            <li class="active">
+                                <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
+                            <li class=" ">
+                                <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
+                            <li class=" ">
+                                <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a></li>
+                            <li class=" ">
+                                <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
+                            <li class="">
+                                <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1 문의</span></a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
+                    <ul>
+                        <li class="on">
+                            <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
+                        <li class="">
+                            <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
+                        <li class="">
+                            <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
+                        <li class="">
+                            <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
+                        <li class="">
+                            <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
+                        <li>
+                            <button class="text-gray-dark _fade_link"
+                                    data-toggle="modal" data-target="#modifyinfo_modal"
+                                    style="background: none;"><span class="text fixed_transform ">정보 수정</span></button></li>
+                        <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
+                        <li class="inline-blocked login_btn_item ">
+                            <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal"
+                                    data-target="#deleteacct" style="background: none;">
+                                <span class="text fixed_transform ">회원탈퇴</span></button></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <div class="head bg-bright">
+                        <div class="my-theme tabled full-width">
+                            <div class="img-view table-cell vertical-middle">
+                                <div class="tabled full-width">
+                                    <div class="tumbs table-cell vertical-middle">
+                                        <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj1vcmRlcg%3D%3D');">
+                                            <div id="mypage_profile_img" class="img-circle" style="width: 85px; height: 85px;
+                                      background: url(/img/default_profile.png)  50% 50% / cover no-repeat;"></div>
+                                            <span class="sr-only">정보 수정</span>
+                                        </a>
+                                    </div>
+                                    <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
+
+
+                                        <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
+                                        <div class="text-15 use_grade">
+                                            <div class="ug_text"></div>
+                                            <div class="ug_btn">
+                                                <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
+                                                   data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
+                                                <div id="list-popover" style="display: none" class="list_popover">
+
+                                                    <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
+                                                        <h6 class="no-margin"></h6>
+                                                        <span class="sr-only"></span></a>
+                                                    </div>
+
+                                                    <div class="lp_content_wrap">
+
+                                                        <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
+                                                            bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.
+                                                        </div>
+
+                                                        <div class="lp_title">누적 구매금액: 0원</div>
+
+                                                        <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">
+                                                            <p class="no-margin">누적 구매금액: 0원</p>
+                                                        </div>
+
+                                                        <div class="lp_table">
+                                                            <div class="text-bold text-13"></div>
+                                                            <div class="table-responsive">
+                                                                <table class="table no-margin">
+                                                                    <thead>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="text-12 margin-top-xxl"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-cell vertical-middle point-view text-center">
+                               <a href="/shop_mypage/?m2=point_list">
+                                  <p>디깅 포인트</p><span class="text-bold text-32">0</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="personal-wrap qna">
+                        <h4 class="hidden-sm hidden-xs text-default-dark">
+                            <span>1:1 문의게시판</span>
+                            <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
+                                <em id="titleQnaList">0</em></span>
+                        </h4>
+
+<!--                        <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"-->
+<!--                             id="shop_mypage_orderlist_empty">등록된 문의가 없습니다.</div>-->
+
+                        <table class="table table-striped">
+                            <div class="feed-summary">
+                                <div class="write" th:text="|${session.user.userid}|"><span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>
+                                <div class="comment_area">
+                                    <div class="comment_subject"
+                                         th:text="${qd.title}"></div><br>
+                                    <div class="_comment_body body_font_color_80"
+                                         th:text="${qd.contents}">
+                                        <p></p></div><br>
+                                    <div class="tools clearfix">
+                                        <a class="text-gray-bright" tabindex="-1" href="/?prod_code=&amp;qmode=write&amp;back_url=L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D&amp;idx=5546778">수정</a>
+                                        <a class="text-gray-bright" tabindex="-1" href="javascript:;" onclick="SITE_PERSONAL_QNA.Delete('c2023072496e530e2dff1a',''); return false;">지우기</a>
+                                        <a class="text-gray-bright" tabindex="-1" th:href="|/mypage/qna/${session.user.u_id}|">목록으로</a>
+                                    </div>
+
+                                    <hr>
+                                    <span><b>관리자 답글</b></span>
+                                    <div class="_comment_bodyreply body_font_color_80"
+                                         th:text="${qd.answer}">
+                                        <p></p></div>
+                                </div>
+                            </div>
+
+                        </table>
+                        <div class="textarea_block no-padding-x no-border">
+                            <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
+                                <!--                        <a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
+                                <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
+                                <span>문의 작성</span></button>
+                        </div>
+                        <div style="font-size:15px; padding: 15px;" class="table-wrap text-center">
+                            <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
+                               style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a></div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="row mb-3 mt-5">
-            <div class="row offset-1 col-5">
-                <button type="button" class="btn btn-light col-3">
-                    <i class="fa fa-chevron-left"></i> 이전게시물</button>
-                &nbsp;
-                <button type="button" class="btn btn-light col-3">
-                    <i class="fa fa-chevron-right"></i> 다음게시물</button>
-
-            </div>
-            <div class="col-5 text-end">
-                <button type="button" class="btn btn-light col-3" id="newbdbtn">
-                    <i class="fa fa-plus-circle"></i> 새글쓰기</button>
-            </div><!--버튼들-->
-        </div><!--버튼들-->
-
-        <div class="row offset-1 col-10">
-            <table>
-                <tr><th class="vtit" colspan="2" th:text="${bd.title}">제목</th></tr>
-                <tr class="vinfo"><td th:text="${bd.userid}">작성자</td>
-                    <td class="text-end" th:text="|${bd.regdate} / ${bd.thumbs} / ${bd.views}|">작성일/추천/조회</td></tr>
-                <tr><td class="vcont" colspan="2" th:text="${bd.contents}">본문글</td></tr>
-            </table>
-
-        </div> <!--본문글-->
-
-        <div class="row mt-3 mb-5">
-            <div class="row offset-1 col-5">
-                <button type="button" class="btn btn-warning col-3" id="modbdbtn">
-                    <i class="fa fa-pencil"></i> 수정하기</button>
-                &nbsp;
-                <button type="button" class="btn btn-danger col-3" id="rmvbdbtn">
-                    <i class="fa fa-trash-o"></i> 삭제하기</button>
-
-            </div>
-            <div class="col-5 text-end">
-                <button type="button" class="btn btn-light col-3" id="lstbdbtn">
-                    <i class="fa fa-list"></i> 목록으로</button>
-            </div><!--버튼들-->
-        </div><!--버튼들-->
     </div>
-    <script src="/assets/js/mypage.js" charset="utf-8"></script>
 </th:block>
+</body>
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layout/template}">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-
-<!--<body>-->
-<!--<th:block layout:fragment="content">-->
-
-<!--<div class="personal_qna_wrap _personal_qna_wrap">-->
-<!--    <h6 class="hidden-sm hidden-xs">-->
-<!--        <span>1:1 문의게시판</span>-->
-<!--        <span class="b_cnt badge" style="top: -3px;" "=""><em id="titleQnaList">1</em></span>-->
-<!--        <script>-->
-<!--        $(function(){-->
-<!--            $('#titleQnaList').html(1 >= 999 ? '999+':  1);-->
-<!--        });-->
-<!--        </script>-->
-<!--    </h6>-->
-<!--        <div class="comment_section" id="">-->
-<!--            <div class="comment_list" id="">-->
-<!--                <div class="comment">-->
-<!--                    <div class="main_comment comment_wrap">-->
-<!--                        <div class="block-postmeta">-->
-<!--                            <div class="avatar">-->
-<!--                                <img src="/common/img/default_profile.png" class="avatar-image" alt="프로필 이미지"></div>-->
-<!--                                    <div class="feed-summary">-->
-<!--                                        <div class="write">bug<span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>-->
-<!--                                        <div class="comment_area">-->
-<!--                                            <div class="comment_subject">-->
-<!--                                                1:1문의 작성</div>-->
-<!--                                            <div class="_comment_body body_font_color_80">-->
-<!--                                                <p>1:1 문의 작성</p></div>-->
-<!--                                            <div class="tools clearfix">-->
-<!--                                                <a class="text-gray-bright" tabindex="-1" href="/?prod_code=&amp;qmode=write&amp;back_url=L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D&amp;idx=5546778">수정</a>-->
-<!--                                                <a class="text-gray-bright" tabindex="-1" href="javascript:;" onclick="SITE_PERSONAL_QNA.Delete('c2023072496e530e2dff1a',''); return false;">지우기</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                        </div>-->
-<!--                    &lt;!&ndash; 부모글 수정 및 답변 폼 &ndash;&gt;-->
-<!--                    <div class="comment_textarea _sub_qna_form sub_qna_form _sub_form_5546778" style="display: none;">-->
-<!--                        <form id="sub_qna_form_5546778" method="post" enctype="multipart/form-data" class="" action="" role="form" target="hidden_frame">-->
-<!--                            <input type="hidden" name="qna_token" value="GJXMMB6epw/2ES4Abeu5F19hTuC0oj4Kex17+urPmtZHfCYBih4h+MDKmrpNVuD35b7LiP4x77OfJSzu4+fElt6f6oQ4qA/ZdNfEPpCNhFWQ3V1Kdn0BJKZCB4/XeYqI">-->
-<!--                            <input type="hidden" name="qna_token_key" value="1758">-->
-<!--                            <input type="hidden" name="prod_idx" value="">-->
-<!--                            <input type="hidden" name="member_code" value="m2023072027f9f02c53915">-->
-<!--                            <input type="hidden" name="parent_code" value="c2023072496e530e2dff1a">-->
-<!--                            <input type="hidden" name="secret" value="">-->
-<!--                            <input type="hidden" name="page" value="1">-->
-<!--                            <div class="postmeta comment-comment">&lt;!&ndash;댓글에 댓글을 입력할 경우&ndash;&gt;-->
-<!--                                <div class="textarea_block">-->
-<!--                                    <textarea title="내용을 입력해주세요" class="_comment_add_body_5546778" name="comment_body" rows="3" placeholder="내용을 입력해주세요" id="" data-autosize-on="true" style="overflow: hidden; overflow-wrap: break-word;"></textarea>-->
-<!--                                    <div class="file-add-block" style="display:none;" id="sub_image_box_5546778"></div>-->
-<!--                                    <button class="btn btn-brand btn-sm" onclick="SITE_PERSONAL_QNA.submit($(this),'sub_form',5546778;)">-->
-<!--                                        <i aria-hidden="true" class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>-->
-<!--                                        <span>작성</span>-->
-<!--                                    </button>-->
-<!--                                    <i aria-hidden="true" class="icon-picture icon vertical-middle" style="position: relative;">-->
-<!--                                        <input title="comment image upload" type="file" class="comment_image_upload" multiple="" id="sub_image_upload_btn_5546778" style="cursor: inherit;  display: block;  min-height: 100%;  min-width: 100%;  opacity: 0; position: absolute;  left: 0;  top: -5px;" ;="">-->
-<!--                                    </i>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </form>-->
-<!--                    </div>   <div class="comment_textarea comment_edit_form _sub_qna_editor_form _sub_form_editor_5546778" style="display: none;">-->
-<!--                    <form id="sub_qna_editor_form_5546778" method="post" enctype="multipart/form-data" class="" action="" role="form" target="hidden_frame">-->
-<!--                        <input type="hidden" name="qna_token" value="GJXMMB6epw/2ES4Abeu5F19hTuC0oj4Kex17+urPmtZHfCYBih4h+MDKmrpNVuD35b7LiP4x77OfJSzu4+fElt6f6oQ4qA/ZdNfEPpCNhFWQ3V1Kdn0BJKZCB4/XeYqI">-->
-<!--                        <input type="hidden" name="qna_token_key" value="1758">-->
-<!--                        <input type="hidden" name="prod_idx" value="">-->
-<!--                        <input type="hidden" name="code" value="c2023072496e530e2dff1a">-->
-<!--                        <input type="hidden" name="page" value="1">-->
-<!--                        <input type="hidden" name="secret" value="">-->
-<!--                        <div class="postmeta comment-comment">&lt;!&ndash;댓글에 댓글을 입력할 경우&ndash;&gt;-->
-<!--                            <div class="textarea_block">-->
-<!--                                <textarea title="내용을 입력해주세요" class="_comment_add_body_5546778" name="comment_body" rows="3" placeholder="내용을 입력해주세요" id="" data-autosize-on="true" style="overflow: hidden; overflow-wrap: break-word;">&lt;p&gt;1:1 문의 작성&lt;/p&gt;</textarea>-->
-<!--                                <div class="file-add-block" style="display:none;" id="editor_image_box_5546778"></div>-->
-<!--                                <button class="btn btn-brand btn-sm" onclick="SITE_PERSONAL_QNA.submit($(this),'editor',5546778;)">-->
-<!--                                    <i aria-hidden="true" class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>-->
-<!--                                    <span>작성</span>-->
-<!--                                </button>-->
-<!--                                <button class="btn btn-sm margin-right-xl" onclick="SITE_PERSONAL_QNA.EditHide(5546778;)">취소</button>-->
-<!--                                <i aria-hidden="true" class="icon-picture icon vertical-middle" style="position: relative;">-->
-<!--                                    <input title="comment image upload" type="file" class="comment_image_upload" multiple="" id="editor_image_upload_btn_5546778" style="cursor: inherit;  display: block;  min-height: 100%;  min-width: 100%;  opacity: 0; position: absolute;  left: 0;  top: -5px;" ;="">-->
-<!--                                </i>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </form>-->
-<!--                </div>-->
-<!--                    <script>-->
-<!--                        SITE_PERSONAL_QNA.imageUploadInit(5546778);-->
-<!--                    </script>						&lt;!&ndash; &ndash;&gt;-->
-<!--                </div>-->
-<!--                <div class="dropdown_comment _sub_comment_wrap sub_comment_wrap">-->
-<!--                    <div class="comment_comment_wrap _comment_sub_list">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="textarea_block no-padding-x no-border">-->
-<!--            <button class="btn btn-primary btn-sm" onclick="location.href='/?prod_code=&amp;qmode=write&amp;back_url=L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D'; return false;">-->
-<!--                <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>-->
-<!--                <span>문의 작성</span>-->
-<!--            </button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <script>-->
-<!--        $(function(){-->
-<!--            SITE_PERSONAL_QNA.init();-->
-<!--            $(function(){//리뷰 리뉴얼 전까지 리뷰 이미지 라이트박스 처리-->
-<!--                $('._comment_body').find('img').each(function(){-->
-<!--                    if($(this).parent().get(0).tagName == 'A')-->
-<!--                        return true;-->
-<!--                    $(this).attr('data-src', $(this).attr('src')).data('src', $(this).attr('src')).addClass('_img_light_gallery cursor_pointer');-->
-<!--                });-->
-<!--                $('._comment_body').lightGallery({-->
-<!--                    selector : '._img_light_gallery',-->
-<!--                    thumbnail : false,-->
-<!--                    animateThumb : false,-->
-<!--                    showThumbByDefault : false,-->
-<!--                    hash : false,-->
-<!--                    speed : 200-->
-<!--                });-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
-<!--</div>-->
-<!--</th:block>-->
-<!--</body>-->
-
-<!--</html>-->
