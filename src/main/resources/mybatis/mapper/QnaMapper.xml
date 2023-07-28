@@ -36,13 +36,13 @@
     </resultMap>
 
     <select id="selectQna" resultMap="qua">
-        select * from qna join user using(u_id)
+        select * from qna join user using(u_id) order by qna_id desc limit #{stnum},15
     </select>
     <select id="selectOneQna" resultMap="qua">
         select * from qna join user using(u_id) where qna_id=#{qna_id}
     </select>
     <select id="selectItemQna" resultMap="iqua">
-        select * from iquia
+        select * from iquia order by itemqna_id desc limit #{stnum},15
     </select>
 
     <select id="selectOneItemQna" resultMap="iqua">
@@ -60,5 +60,16 @@
     <insert id="insertQnaWrite" parameterType="Qna">
         insert into qna (u_id,title,contents) values (#{u_id},#{title},#{contents})
     </insert>
+
+    <select id="selectMyQna" resultType="Qna">
+        select * from qna where u_id=#{u_id}
+    </select>
+
+    <select id="getCountPages">
+        select ceil(count(qna_id)/15) from qna
+    </select>
+    <select id="getCountIQPages">
+        select ceil(count(itemqna_id)/15) from itemqna
+    </select>
 
 </mapper>

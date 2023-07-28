@@ -4,7 +4,7 @@
       layout:decorate="~{layout/template}">
 
 <th:block layout:fragment="content">
-<main><div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w202101151ddeb7c47074f"><div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 상품 뷰" data-widget-type="shop_view" data-widget-parent-is-mobile="N">	<div class="shop-content shop-style-a    " id="prod_detail"><!--모바일에서 open class 삽입시 하단에 구매상품 상세정보 노출됨 -->
+<main><div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div style="width:100%" doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w202101151ddeb7c47074f"><div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 상품 뷰" data-widget-type="shop_view" data-widget-parent-is-mobile="N">	<div class="shop-content shop-style-a    " id="prod_detail"><!--모바일에서 open class 삽입시 하단에 구매상품 상세정보 노출됨 -->
   <div class="clearfix">
     <div class="shop_sub_depth hidden-xs hidden-sm" style="display: none;">
       <ul class="sub_depth">
@@ -24,8 +24,8 @@
                   <div class="owl-item active" style="width: 566px; margin-right: 0px;">
                     <div  class="item _item" >
 
-                        <img style="" th:src="${itcb_d.fname}" alt="">
-
+                        <img style="" th:src="|http://localhost/cdn/itemImg/${itcb_d.fname}|" alt="">
+                      th:src="|http://localhost/cdn/itemImg/${itcb_d.fname}|"
                     </div>
                   </div></div></div><div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style="display: none;">prev</div><div class="owl-next" style="display: none;">next</div></div><div class="owl-dots" style=""><div class="owl-dot active"><span></span></div></div></div></div>
           </div>

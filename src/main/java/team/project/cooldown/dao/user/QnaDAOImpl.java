@@ -26,8 +26,8 @@ public class QnaDAOImpl implements QnaDAO {
     }
 
     @Override
-    public Qna selectOneQna(String bno) {
-        return null;
+    public Qna selectOneQna(String qna_id) {
+        return qnaMapper.selectOneQna(qna_id);
     }
 
     @Override
@@ -49,6 +49,11 @@ public class QnaDAOImpl implements QnaDAO {
     public int insertQna(Qna q) {
         return qnaMapper.insertQnaWrite(q) ;
     }
+
+    @Override
+    public List<Qna> selectMyQna(String u_id) {
+       return qnaMapper.selectMyQna(u_id);
+        }
 
     public int selectCountBoard() {
         return 0;

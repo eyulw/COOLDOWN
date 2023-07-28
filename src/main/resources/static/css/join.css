@@ -1,0 +1,6 @@
+.modalscrollst {
+    max-height: calc(100vh - 50px);overflow-x: hidden; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none;
+}
+.modalscrollst::-webkit-scrollbar{
+    display: none;
+}

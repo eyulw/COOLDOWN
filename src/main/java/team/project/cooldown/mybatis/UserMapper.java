@@ -15,4 +15,8 @@ public interface UserMapper {
     List<User> selectUserRole(String role);
 
     int selectCountUser();
+
+    int getCountUPages();
+
+    int getCountRUPages(String role);
 }

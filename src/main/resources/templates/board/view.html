@@ -2,13 +2,12 @@
 <html lang="ko" xmlns:th="https://www.thymeleaf.org"
       xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-<th:block layout:fragment="content">
+<th:block layout:fragment="content" th:with="isLogined=${(#strings.isEmpty(session.user)) ? false : true}">
 <body class="doz_sys  _body_menu_m202105075b655364fdf55  mobile-nav-on  mobile_nav_dep2  page  fixed-menu-on new_fixed_menu_on new_header_site   post_view new_fixed_header_disable" style=";"  id="doz_body">
 
     <div doz_type="section" class="section_wrap pc_section side_basic" id="s20210507f5d9228174118" style=" ;" doz_change_mobile="N" doz_aside="N" doz_side_width="230" doz_side_margin="0" doz_extend="N" doz_mobile_section="N" doz_mobile_hide="N" doz_header_repeat="N" doz_footer_repeat="N" doz_category="default" >
         <div class="section_bg _section_bg _interactive_bg" style="background-size: cover; background-repeat: no-repeat; position: absolute; left: 0; top: 0; right: 0; bottom: 0" ></div>
         <div class="section_bg_color _section_bg_color" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0"></div>
-
         <main>
             <div doz_type="inside" class="inside">
                 <div doz_type="row" doz_grid="12" class="doz_row">
@@ -47,35 +46,30 @@
                                 <div class="widget">
                                     <div class="nav sub-menu h-menu-type1 menu-horizontal row-cnt-3 row-cnt-mobile-3">
                                         <ul class="b2021050791e0a8f7e18e4">
-                                            <li id="findallbtn" class="depth-01" style="cursor: pointer">
-                                                <a href="" class="active">
-                                                    <span class="plain_name">전체</span>
-                                                </a>
-                                            </li>
-                                            <li id="findbdbtn"  class="depth-01" style="cursor: pointer">
-                                                <a href="" class="">
-                                                    <span class="plain_name">자유글</span>
-                                                </a>
+                                            <li class="depth-01" style="cursor: pointer">
+                                                <div class="active">
+                                                    <button id="findallbtn" style="background: none">전체</button>
+                                                </div>
                                             </li>
                                             <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=13q16483Wa" class="">
-                                                    <span class="plain_name">동행구하기</span>
-                                                </a>
+                                                <div class="">
+                                                    <button class="category" value="자유글" id="findbdbtn" style="background: none">자유글</button>
+                                                </div>
                                             </li>
                                             <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=G52HT4AKNh" class="" onclick="">
-                                                    <span class="plain_name">장비자랑</span>
-                                                </a>
+                                                <div class="">
+                                                    <button class="category" value="동행구하기" id="findwithbtn" style="background: none">동행구하기</button>
+                                                </div>
                                             </li>
                                             <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=73577I0858" class="" onclick="">
-                                                    <span class="plain_name">자기소개</span>
-                                                </a>
+                                                <div class="">
+                                                    <button class="category" value="자기소개" id="findintrobtn" style="background: none">자기소개</button>
+                                                </div>
                                             </li>
                                             <li class="depth-01" style="cursor: pointer">
-                                                <a href="?category=2U255T4Dmp" class="" onclick="">
-                                                    <span class="plain_name">Q&amp;A</span>
-                                                </a>
+                                                <div class="">
+                                                    <button class="category" value="Q&A" id="findqnabtn" style="background: none">Q&AMP;A</button>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -92,11 +86,9 @@
                                 <div class="widget board _list_wrap m-margin-on">
                                     <div class="doz_row">
                                         <div class="col-dz col-dz-12">
-
                                             <div class="board_view">
                                                 <header class="board-title holder">
                                                     <div class="view_tit">
-                                                        <!--<a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9&amp;category=s49meIaW22"></a>--><!--선택한 카테고리 리스트로 이동--><!--어떻게-->
                                                         <span th:text="${bd.category}" class="category" style="padding-right: 10px; color: #00b8ff"></span><!--카테고리-->
                                                         <p th:text="${bd.title}"></p><!--제목-->
                                                     </div><!--카테고리, 제목-->
@@ -105,9 +97,6 @@
                                                     <div class="left">
                                                         <div class="author">
                                                             <div th:text="${bd.nick.nickname}" class="write">디그지기</div><!--작성자 닉네임-->
-                                                            <!--<div class="board_name">
-                                                                <a href="/Dailyroutine/?q=YToxOntzOjEyOiJrZXl3b3JkX3R5cGUiO3M6MzoiYWxsIjt9">자유게시판</a>&lt;!&ndash;디그디그크루는 디그디그크루로 이동&ndash;&gt;
-                                                            </div>-->
                                                             <div th:text="${#strings.substring(bd.regdate,0,10)}" class="date body_font_color_70"></div> <!--작성일-->
                                                             조회수&nbsp;
                                                             <div th:text="${bd.views}" class="hit-count body_font_color_70"></div> <!--조회수-->
@@ -119,37 +108,14 @@
                                                     </div><!--게시자 정보 외-->
                                                 </div>
                                                 <div class="board_txt_area fr-view">
-                                                    <!--<div class="margin-top-xxl _comment_body_m202101156c08f63444515">
-                                                        <p>서늘한 바람과 따뜻한 햇살이 동시에 느껴지는 월요일 오후 입니다.</p>
-                                                        <p>저번주 금,토는 무척 바빴던 것 같습니다. 이번주는 더 바쁠 예정이구요. 하루하루 바쁜 삶, 좋으면서도 싫은 그 느낌아실까요?!</p>
-                                                        <p><br /></p>
-                                                        <p>글로벌 6k의 활동 일환으로 청계산 미션 하이킹 with 플로깅을 진행했는데요. 미션을 만드려고 내려오는 길 우연히 올려다본 하늘에서 사람들이 왜 등산을 가려고할까에 대한 물음의 해답을 조금은 느끼지 않았을까 싶었습니다. 아무도 없는 산속에서 새들의 지저귐과 살랑이는 나뭇가지들 사이에서 오롯이 내려오는 햇살.</p>
-                                                        <p style="text-align: left">
-                                                            <img class="fr-dii _img_light_gallery cursor_pointer"
-                                                                 src="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/c275112f1dc3d.jpeg"
-                                                                 style="font-family: inherit; font-size: inherit; -webkit-text-size-adjust: 100%"
-                                                                 data-src="https://cdn.imweb.me/upload/S2021011502a2f4eeeb339/c275112f1dc3d.jpeg"/>
-                                                        </p>
-                                                        <p>nbsp;"아 살아있구나" 하고 느껴지더라구요. 바쁜 일상에 치이다보면, 내가 살고 있는거지 살아짐을 당하는건지 흘러가는건지 모를때가 많았는데. 그 당시엔 아 살았네? 나? 이런 느낌이랄까...! </p>
-                                                        <p><br /></p>
-                                                        <p>오늘은 좀 더 발칙한 대화 주제를 가져오려고 했는데 &nbsp;"①비교 그리고 ②주고받음" 의 사퇴에 대해서 이야기를 풀어보고자 합니다.&nbsp;</p>
-                                                        <p><br /></p>
-                                                        <p><br /></p>
-                                                        <p><br /></p>
-                                                    </div>--><!--기존코드-->
-                                                    <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515">
-
-                                                    </div><!--본문-->
+                                                    <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515"></div><!--본문-->
                                                     <div class="file_area"><!--얘는 뭘까요?--></div>
                                                     <div class="file_area">
                                                         <!--<a th:href="|/pds/down/${p.pno}|" th:text="${p.pa.fname}">파일명</a>-->
                                                         <th:block th:each="img : ${#strings.arraySplit(bd.ba.fname,';')}">
                                                             <img th:src="|http://localhost/cdn/${img}|" class="img-fluid">
                                                         </th:block>
-                                                        <a th:href="|http://localhost/cdn/${bd.ba.fname}|">다운로드 링크</a><!--파일명-->
-                                                        <!--<span th:text="|${fn} (${fsizes[__${stat.index}__]}KB)|"> n회 다운로드</span>--><!--파일정보-->
-                                                        <span> n회 다운로드</span><!--파일정보-->
-                                                        <!--<span th:text="|${p.pa.fsize} KB/${p.pa.fdown}회 다운로드|">파일정보</span>-->
+                                                        <a th:href="|http://localhost/cdn/${bd.ba.fname}|">이미지 다운로드 링크</a><!--파일명-->
                                                     </div>
                                                 </div><!--게시판 본문 글-->
                                                 <div class="comment_section" id="comment_area">
@@ -168,106 +134,62 @@
                                                         </div>
                                                     </div><!--코멘트 좋아요 버튼 댓수 댓글 수-->
                                                     <div class="comment_list" id="comment_container">
-                                                        <div class="comment" id="c20230316a7b162b92584e">
+                                                        <div th:each="bc : ${bcs}" class="comment" >
                                                             <div class="hide_profile main_comment _comment_wrap _comment_wrap_c20230316a7b162b92584e">
                                                                 <div class="block-postmeta">
                                                                     <div class="avatar vertical-top"></div>
                                                                     <div class="feed-summary vertical-top">
-                                                                        <div class="write">
-                                                                            띵킴<!--댓글 작성자-->
-                                                                            <span class="_comment_at_nick tag date body_font_color_50 margin-left-lg">
+                                                                        <!--<div th:text="${bc.nick.nickname}" class="write">--> 띵킴<!--댓글 작성자 닉네임-->
+                                                                        <div th:text="${bc.u_id}" class="write">띵킴<!--댓글 작성자 닉네임-->
+                                                                            <span th:text="${bc.regdate}"  class="_comment_at_nick tag date body_font_color_50 margin-left-lg">
                                                                                 2023-03-16 03:57
                                                                             </span><!--댓글 작성시간-->
                                                                             <i aria-hidden="true" id="icon_c20230316a7b162b92584e" class="simple icon-lock margin-left-xl vertical-middle" style="display: none"></i>
                                                                         </div>
                                                                         <div class="comment_area _comment_area">
                                                                             <span class="_comment_at_nick tag date body_font_color_50"></span>
-                                                                            <span class="_comment_body_m20220315625798781deec _comment_body_c20230316a7b162b92584e" comment_body_code="c20230316a7b162b92584e">
+                                                                            <span th:text="${bc.contents}" class="_comment_body_m20220315625798781deec _comment_body_c20230316a7b162b92584e" comment_body_code="c20230316a7b162b92584e">
                                                                                 4/22(토) / 비슬산 / 김명성 / @dding_kim91/참석
                                                                             </span><!--댓글 내용,본문-->
                                                                             <div class="tools clearfix">
-                                                                                <a href="javascript:;" onclick="POST_COMMENT.showSubForm('c20230316a7b162b92584e');" class="text-gray">
-                                                                                    댓글
-                                                                                </a><!--대댓글 작성 버튼-->
-                                                                                <a href="javascript:;" role="" onclick="BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p20230315ec90cfd12ea8e', 'c20230316a7b162b92584e','post_comment');" class="text-gray">
-                                                                                    신고
-                                                                                </a><!--신고 버튼-->
-                                                                            </div>
+                                                                                <a th:href="|javascript:showReply(${bc.reply_id})|" class="text-gray">대댓글</a><!--대댓글 작성 버튼-->
+                                                                                <a id="siren" class="text-gray">신고</a><!--신고 버튼-->
+                                                                            </div><!--대댓글 작성 버튼, 댓글 신고 버튼-->
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div><!--댓글 리스트-->
-                                                            <div class="comment_textarea comment_edit_form _comment_edit_form _comment_edit_form_c20230316a7b162b92584e" style="display: none">
-                                                                <!--댓글 수정?-->
-                                                            </div>
+                                                            <div class="comment_textarea comment_edit_form _comment_edit_form _comment_edit_form_c20230316a7b162b92584e" style="display: none"></div><!--댓글 수정?-->
                                                             <div class="dropdown_comment _sub_comment_wrap sub_comment_wrap">
                                                                 <div class="comment_comment_wrap _comment_sub_list">
                                                                     <div class="comment" id="c202304062b284e94a38bb">
-                                                                        <div class="hide_profile main_comment _comment_wrap _comment_wrap_c202304062b284e94a38bb">
-                                                                            <div class="block-postmeta">
-                                                                                <div class="avatar vertical-top"></div>
-                                                                                <div class="feed-summary vertical-top">
-                                                                                    <div class="write"> 디그지기
-                                                                                        <span class="_comment_at_nick tag date body_font_color_50 margin-left-lg">2023-04-06 16:31</span>
-                                                                                        <i aria-hidden="true" id="icon_c202304062b284e94a38bb" class="simple icon-lock margin-left-xl vertical-middle" style="display: none"></i>
-                                                                                    </div>
-                                                                                    <div class="comment_area _comment_area">
-                                                                                        <span class="_comment_at_nick tag date body_font_color_50"></span>
-                                                                                        <span class="_comment_body_m202101156c08f63444515 _comment_body_c202304062b284e94a38bb" comment_body_code="c202304062b284e94a38bb">
-                                                                                            안녕하세요 ! 인스타 DM으로 오픈카톡방 링크 공유 드렸습니다 확인부탁드립니다!🙏
-                                                                                        </span>
-                                                                                        <div class="tools clearfix">
-                                                                                            <a href="javascript:;" onclick="POST_COMMENT.showSubForm('c202304062b284e94a38bb');" class="text-gray">댓글</a>
-                                                                                            <a href="javascript:;" role="" onclick="BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p20230315ec90cfd12ea8e', 'c202304062b284e94a38bb','post_comment');" class="text-gray" >신고</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!--대댓글 리스트-->
-                                                                        <div class="comment_textarea comment_edit_form _comment_edit_form _comment_edit_form_c202304062b284e94a38bb" style="display: none"><!--대댓글수정폼?--></div>
-                                                                        <div class="_sub_form _sub_form_c20230316a7b162b92584e" style="display: none">
-                                                                            <div class="comment_textarea">
-                                                                                <form class="_add_sub_form _add_sub_form_c20230316a7b162b92584e">
-                                                                                    <input type="hidden" name="board_code" value="b2021050791e0a8f7e18e4" />
-                                                                                    <input type="hidden" name="post_code" value="p20230315ec90cfd12ea8e" />
-                                                                                    <input type="hidden" name="parent_code" value="c20230316a7b162b92584e" />
-                                                                                    <input type="hidden" name="at_code" value="" />
-                                                                                    <input type="hidden" name="child_comment_code" value="c20230316a7b162b92584e" />
-                                                                                    <input type="hidden" name="comment_token" value="a4l5siTqMXAHARiJSryRPQ43vOZozOAseO1KxiCBw0GSe9cQ2YUlfEE+fk3PgWw48qEQlvg2BRNQeCCXQya75OLZAExU/LHLjuMVzOjixbQUCxSD9pEKT04AIyovV5/0" class="_tk_obj" />
-                                                                                    <input type="hidden" name="comment_token_key" value="9025" class="_tk_obj" />
-                                                                                    <div class="postmeta comment-comment">
-                                                                                        <div class="textarea_block">
-                                                                                    <textarea title="내용을 입력해주세요" placeholder="내용을 입력해주세요" rows="1" name="body"
-                                                                                              data-action="btn_c_c20230316a7b162b92584e" class="_comment_add_body_comment_textarea _comment_add_body_c20230316a7b162b92584e" data-autosize-on="true" style="overflow: hidden; overflow-wrap: break-word">
-                                                                                    </textarea><!--대댓글 입력 본문창-->
-                                                                                            <div class="file-add-block" style="display: none" id="comment_image_box_c20230316a7b162b92584e">
-                                                                                                <!--대댓글 파일 추가?-->
-                                                                                            </div>
-                                                                                            <button class="btn btn-primary btn-sm" id="btn_c_c20230316a7b162b92584e" onclick="POST_COMMENT.addSub('c20230316a7b162b92584e'); return false;">작성</button><!--대댓글 작성 버튼-->
-                                                                                            <div class="inline-blocked holder">
-                                                                                                <i aria-hidden="true" class="icon-picture icon vertical-middle"></i>
-                                                                                                <input type="hidden" name="use_sub_secret_comment" id="use_sub_secret_comment" value="N" />
-                                                                                                <input type="file" multiple="" name="comment_images" id="comment_image_upload_btn_c20230316a7b162b92584e" class="comment_image_upload" title="comment image upload"/>
-                                                                                            </div><!--대댓글 첨부 이미지 파일-->
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <ul id="image_list" style="display: none"></ul>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div><!-대댓글 작성 폼-->
+
                                                                     </div>
                                                                 </div>
                                                             </div><!--대댓글 작성 폼-->
                                                         </div>
-                                                    </div>
-                                                </div><!--댓글-->
+                                                    </div><!--댓글, 대댓글 리스트, 대댓글 작성 폼-->
+                                                    <div class="comment_textarea">
+                                                        <form id="comment_form">
+                                                            <div class="postmeta comment-comment">
+                                                                <div class="textarea_block">
+                                                                    <textarea id="contents" name="contents" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
+                                                                    <input type="hidden" name="board_id" id="board_id" th:value="${bd.board_id}">
+                                                                    <input type="hidden" name="u_id" id="u_id" th:value="${(isLogined) ? session.user.u_id : '로그인이 되어있지 않습니다.'}">
+                                                                    <button id="newboardcommentbtn" class="btn btn-primary btn-sm" >작성</button><!--댓글 작성 버튼-->
+                                                                </div>
+                                                            </div>
+                                                            <!--<ul id="image_list" style="display: none"></ul>--><!--댓글 첨부 이미지 리스트?-->
+                                                        </form>
+                                                    </div><!--댓글 작성폼-->
+                                                </div><!--댓글, 대댓글-->
                                                 <div class="comment_section">
                                                     <div class="list_tap">
-                                                        <a th:href="|/board/view/${bd.board_id}+1|">
+                                                        <a th:href="|/board/view/${bd.board_id +1}|">
                                                             <i aria-hidden="true" class="icon-arrow-up"></i>
                                                             <span class="secret_icon" th:text="${bd.title}">하위요</span><!--위글-->
                                                         </a>
-                                                        <a th:href="|/board/view/${bd.board_id}-1|">
+                                                        <a th:href="|/board/view/${bd.board_id}|">
                                                             <i aria-hidden="true" class="icon-arrow-down"></i>
                                                             <span class="secret_icon" th:text="${bd.title}">청계산</span><!--아래글-->
                                                         </a>
@@ -285,27 +207,6 @@
                         </div>
                     </div>
                 </div><!--게시판 뷰 바디-->
-                <!--<div doz_type="row" doz_grid="12" class="doz_row">
-                    <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
-                        <div doz_type="widget" id="w2022011159c5ba063759d">
-                            <div class="_widget_data" data-widget-name="검색" data-widget-type="search_btn" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N" >
-                                <div class="widget inline_widget search_btn clearfix" id="w2022011159c5ba063759d">
-                                    <div class="search_type fixed_transform search_btn_type01" style="text-align: center">
-                                        <div class="inline-blocked holder">
-                                            <form class="icon_on" action="/search" method="get" id="inline_s_form_w2022011159c5ba063759d">
-                                                <input class="search_btn_form _input" name="keyword" style="display: none" placeholder="Search" value="" title="site search"/>
-                                                <a href="javascript:;" class="fixed_transform inline-blocked _search_button" onclick="SITE_SEARCH.openSearch(search_option_data_w2022011159c5ba063759d);">
-                                                    <i class="simple icon-magnifier" aria-hidden="true"></i><span class="sr-only">site search</span>
-                                                </a>
-                                                <ul id="image_list" style="display: none"></ul>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--><!--홈페이지 전체 검색-->
                 <div doz_type="row" doz_grid="12" class="doz_row">
                     <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
                         <div doz_type="widget" id="w202105101a401aa248c59">
@@ -320,46 +221,6 @@
             </div>
         </main>
     </div>
-
-    <div id="image_upload_input" style="width: 0; height: 0; left: -9999px; opacity: 0; position: absolute">
-        <input type="file" name="post_images[]" multiple="" accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml" class="_image_upload_btn" />
-    </div>
-    <div id="image_replace_input" style="width: 0; height: 0; left: -9999px; opacity: 0; position: absolute">
-        <input type="file" name="post_images[]" accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml" class="_image_replace_btn" />
-    </div>
-    <div id="image_upload_input" style="width: 0; height: 0; left: -9999px; opacity: 0; position: absolute">
-        <input type="file" name="post_files[]" multiple="" class="_file_upload_btn" />
-    </div>
-
-    <div class="category_dropdown _select_option" id="z2wT371322">
-        <div class="tse-scrollable" style="width: 180px; height: 156px">
-            <div class="tse-scrollbar" style="display: none"><div class="drag-handle"></div></div>
-            <div class="tse-scroll-content" style="width: 180px; height: 156px">
-                <div class="tse-content">
-                    <ul>
-                        <li class="active"><span class="txt">카테고리</span></li>
-                        <li>
-                            <span class="txt"><span style="color: #00b8ff">디그라이프(자유글)</span></span>
-                        </li>
-                        <li>
-                            <span class="txt"><span style="color: #ff635d">동행구하기</span></span>
-                        </li>
-                        <li>
-                            <span class="txt"><span style="color: #6ecc51">장비자랑</span></span>
-                        </li>
-                        <li>
-                            <span class="txt"><span style="color: #f5ce4a">자기소개</span></span>
-                        </li>
-                        <li>
-                            <span class="txt"><span style="color: #d189e2">Q&amp;A</span></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="fr-tooltip custom-theme" style="left: -3000px; top: 291px; position: fixed;">삽입 더보기</div>
-
 </body>
     <script src="/assets/js/board.js" charset="utf-8"></script>
 </th:block>

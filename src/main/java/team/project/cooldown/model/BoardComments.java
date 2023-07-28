@@ -7,11 +7,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Reply {
+public class BoardComments {
     private String reply_id;
     private String u_id;
     private String board_id;
     private String regdate;
     private String contents;
     private String report;
+    private String ref;
 }

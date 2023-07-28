@@ -27,7 +27,7 @@ public class QnaController {
     public String list(Model m, @PathVariable Integer cpg) {
         logger.info("mypage/list 호출!!");
 
-        m.addAttribute("bds", qsrv.readBoard(cpg));
+        m.addAttribute("qds", qsrv.readBoard(cpg));
         m.addAttribute("cpg", cpg);
         m.addAttribute("cntpg", qsrv.countBoard());
         m.addAttribute("stpg", ((cpg-1) / 10 ) * 10 +1);
@@ -35,15 +35,15 @@ public class QnaController {
         // 만일, 현재페이지가 총페이지수 보다 크다면
         // 1페이지로 강제 이동
         if (cpg > (int)m.getAttribute("cntpg"))
-            return "redirect:/mypage/qna/1";
+            return "redirect:/mypage/qna";
 
         return "mypage/qna";
     }
-    @GetMapping("/view/{bno}")
-    public String view(Model m, @PathVariable String bno) {
+    @GetMapping("/view/{qna_id}")
+    public String view(Model m, @PathVariable String qna_id) {
         logger.info("mypage/view 호출!!");
 
-        m.addAttribute("bd", qsrv.readOneBoard(bno));
+        m.addAttribute("qd", qsrv.readOneQna(qna_id));
 
         return "mypage/view";
     }
@@ -70,9 +70,9 @@ public class QnaController {
     @GetMapping("/find/{findtype}/{findkey}/{cpg}")
     public String find(Model m, @PathVariable Integer cpg,
                        @PathVariable String findtype, @PathVariable String findkey){
-        logger.info("board/find 호출!!");
+        logger.info("mypage/qna 호출!!");
 
-        m.addAttribute("bds", qsrv.readFindBoard(cpg, findtype, findkey));
+        m.addAttribute("qds", qsrv.readFindBoard(cpg, findtype, findkey));
         m.addAttribute("cpg", cpg);
         m.addAttribute("cntpg", qsrv.countFindBoard(findtype, findkey));
         m.addAttribute("stpg", ((cpg-1) / 10 ) * 10 +1);
@@ -82,8 +82,15 @@ public class QnaController {
         // 만일, 현재페이지가 총페이지수 보다 크다면
         // 1페이지로 강제 이동
         if (cpg > (int)m.getAttribute("cntpg"))
-            return "redirect:/board/list/1";
+            return "redirect:/mypage/qna/1";
 
-        return "board/list";
+        return "mypage/qna";
+    }
+
+    @GetMapping("/qna/{u_id}")
+    public String qna(Model m,@PathVariable String u_id){
+        logger.info("/mypage/qna/list 호출");
+        m.addAttribute("qnas",qsrv.readQna(u_id));
+        return "mypage/qna";
     }
 }

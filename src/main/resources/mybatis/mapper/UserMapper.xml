@@ -20,10 +20,17 @@
         values (#{userid},#{password},#{email},#{nickname},#{phone},#{zipcode},#{address1},#{address2},#{birth},#{username});
     </insert>
 
-    <delete id="memberDelete">
-        DELETE FROM USER
-        WHERE USERID = #{userid}
-        AND PASSWORD = #{password}
+    <delete id="userDelete">
+        delete from user
+        where userid = #{userid} and password = #{password}
     </delete>
+
+    <select id="getCountUPages">
+        select ceil(count(u_id)/15) from user
+    </select>
+
+    <select id="getCountRUPages">
+        select ceil(count(u_id)/15) from user where role=#{role}
+    </select>
 
 </mapper>

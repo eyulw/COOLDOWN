@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface QnaMapper {
-    List<Qna> selectQna();
+    List<Qna> selectQna(int stnum);
 
     Qna selectOneQna(String qna_id);
 
@@ -16,9 +16,15 @@ public interface QnaMapper {
 
     int insertQnaWrite(Qna q);
 
-    List<ItemQna> selectItemQna();
+    List<Qna> selectMyQna(String u_id);
+
+    List<ItemQna> selectItemQna(int stnum);
 
     ItemQna selectOneItemQna(String itemqna_id);
 
     int updateAdminIReply(String itemqna_id, String answer);
+
+    int getCountPages();
+
+    int getCountIQPages();
 }
