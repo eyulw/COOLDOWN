@@ -4,13 +4,14 @@
   <div class="modal fade" id="modifyinfo_modal">
     <div class="modal-dialog">
       <div class="modal-content">
-
+<head>
+  <link rel="stylesheet" type="text/css" href="/assets/dig_mypage.css">
+</head>
     <!-- 회원가입 -->
     <article class="modal_article login p_lr_space pb24">
       <button class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" data-original-title="닫기">
         <i aria-hidden="true" class="btl bt-times"></i></button>
-      <h2>정보 수정</h2>
-      <link href="https://vendor-cdn.imweb.me/css/site/admin/toastr.css" rel="stylesheet" type="text/css">
+      <h1>정보 수정</h1>
 
       <form id="join_form" method="post" action="/backpg/join.cm" class="form form-validate" role="form" target="hidden_frame" enctype="multipart/form-data" style="display: block;">
         <input type="hidden" name="limit_join_agree" id="limit_join_agree" value="N">
@@ -387,7 +388,6 @@
               <div class="alert-block _msg"></div>
             </div>
           </div>
-
           <div class="input_block form-group _item _marketing">
             <label class="mini-tit" for="join_birth">이벤트/혜택 소식 수신 여부</label>
 
@@ -416,7 +416,6 @@
           </div>
         </div>
       </form>
-
               <script>
                 var NOT_APP_PAGE = 'Y';
                 $(function(){
@@ -552,7 +551,6 @@
     </div>
     </div>
   </div>
-
 </body>
 <script src="/assets/js/mypage.js" charset="utf-8"></script>
 </th:block>
