@@ -26,5 +26,15 @@ public class A_UserServiceImpl implements A_UserService {
         return a_udao.selectCountUser();
     }
 
+    @Override
+    public int getCountUPages() {
+        return a_udao.getCountUPages();
+    }
+
+    @Override
+    public int getCountRUPages(String role) {
+        return a_udao.getCountRUPages(role);
+    }
+
 
 }

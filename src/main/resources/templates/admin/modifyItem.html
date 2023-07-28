@@ -10,13 +10,17 @@
         </div>
         <form name="mditemfrm">
         <div class="makeItem">
-                <div class="itemimgsize"><!--이미지-->
-                    <label>상품이미지</label>
-                    <img th:src="${i.ia.fname}" style="width: 500px">
-                    <input type="file" name="attach" id="attach">
-                </div>
                 <div class="itemDetail"><!--상세정보-->
                     <div>
+                        <div class="lbipflex"><!--이미지-->
+                            <label>상품이미지</label>
+<!--                            <img th:src="${i.ia.fname}" style="width: 200px; height: 200px ">-->
+                            <input type="file" name="attach" id="attach">
+                        </div>
+                        <div class="lbipflex"><!--이미지-->
+                            <label></label>
+                            <img th:src="${i.ia.fname}" style="width: 200px; height: 200px ">
+                        </div>
                         <div class="lbipflex">
                             <label for="itemname">상품명</label>
                             <div>
@@ -60,10 +64,10 @@
                 </div>
         </div>
             <div class="mkitemBtn">
-                <button type="reset" id="cancelmdiBtn">
+                <button type="reset" id="cancelmdiBtn" class="itemBtnSt">
                     수정취소
                 </button>
-                <button type="button" id="mditembtn">
+                <button type="button" id="mditembtn" class="itemBtnSt">
                     수정완료
                 </button>
             </div>

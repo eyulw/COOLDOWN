@@ -5,29 +5,37 @@
 <th:block layout:fragment="content">
     <div class="container adminBody" id="main">
         <div class="qnaBody">
-            <div><!--회원 문의글 불러오기-->
-                <p for="userqna" class="" th:text="${q.ua.userid}">회원아이디</p>
-                <label for="userqna" class="">제목</label>
-                <div>
-                    <p th:text="${q.title}">title</p>
-                </div>
-                <label for="userqna" class="">내용</label>
-                <div class="">
-                    <textarea rows="7" cols="100" name="userqna" id="userqna" class="rpltxt"  th:text="${q.contents}" readonly></textarea>
-                </div>
-
-            </div><!--회원 문의글 불러오기 end-->
-            <div><!--관리자 답글 작성폼-->
-                <form name="rplfrm" id="rplfrm">
-                    <label for="answer" class="">관리자</label>
-                    <div class="">
-                        <textarea rows="7" cols="100" name="answer" id="answer" class="rpltxt" >[[${q.answer}]]</textarea>
+            <div class="qnaBodyC">
+                <div class="userQnaFrmst"><!--회원 문의글 불러오기-->
+                    <p>
+                        <img src="/assets/img/logo.png" class="rplimgst"><span style="font-size: 18px"> [[${q.ua.userid}]]</span>
+                    </p>
+                    <label class="">작성일자</label>
+                        <span style="margin-left: 10px">[[${q.regdate}]]</span><br>
+                    <label class="">제목</label>
+                    <div>
+                        <p th:text="${q.title}">title</p>
                     </div>
-                    <button type="reset">취소</button>
-                    <button type="button" id="rplok">확인</button>
-                    <input type="hidden" id="qnaid" th:value="${q.qna_id}">
-                </form>
-            </div><!--관리자 답글 작성폼 end-->
+                    <label class="">내용</label>
+                    <div class="">
+                        <textarea rows="7" name="userqna" id="userqna" class="rpltxt"  th:text="${q.contents}" readonly></textarea>
+                    </div>
+
+                </div><!--회원 문의글 불러오기 end-->
+                <div class="userQnaFrmst"><!--관리자 답글 작성폼-->
+                    <form name="rplfrm" id="rplfrm">
+                        <label for="answer" class="">관리자</label>
+                        <div class="">
+                            <textarea rows="7" name="answer" id="answer" class="rpltxt" >[[${q.answer}]]</textarea>
+                        </div>
+                        <div style="text-align: end">
+                            <button class="itemBtnSt" type="reset">취소</button>
+                            <button class="itemBtnSt" type="button" id="rplok">확인</button>
+                        </div>
+                        <input type="hidden" id="qnaid" th:value="${q.qna_id}">
+                    </form>
+                </div><!--관리자 답글 작성폼 end-->
+            </div>
         </div>
     </div>
     <script src="/assets/js/admin.js" charset="utf-8"></script>
