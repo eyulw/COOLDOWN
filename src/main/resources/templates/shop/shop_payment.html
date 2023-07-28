@@ -17,22 +17,24 @@
                 <input type="hidden" name="pg_back_url" value="https://digdigactivity.com/shop_payment/?order_code=o20230720c7663ff8622fe">
                 <h1 class="shop-tit hidden-sm hidden-xs ">결제하기</h1>
                 <div class="order_wrap _order_wrap ">
-                    <div class="tip-off ">
+                    <div class="tip-off " >
                         <h6>주문 상품 정보</h6>
-                        <div class="row">
+                        <div class="row" >
                             <div class="col-xs-12 col_ctr">
-                                <div>                                            <div class="shop_item_thumb">
-                                    <a href="/campingitem/?idx=14" target="_blank">
-                                        <div class="product_img_wrap">
-                                            <img src="https://cdn.imweb.me/thumbnail/20210827/0df9f2e5a837b.jpeg" alt="주문상품 이미지">
+                                <div>
+                                    <div class="shop_item_thumb" th:each="cart_id,stat:${cart_id}">
+                                    <a href="/digshop/?idx=" target="_blank">
+                                        <div class="cart-item-img">
+                                            <img th:src="${src[stat.index]}" alt="주문상품 이미지" width="100" height="100">
                                         </div>
+
                                         <div class="product_info_wrap">
-                                            <span class="shop_item_title">힐스캠 파이어네이도 화로대</span>
+                                            <span class="shop_item_title" th:text="${itemname[stat.index]}">힐스캠 파이어네이도 화로대</span>
                                             <div class="shop_item_opt">
-                                                <p>1개</p>
+                                                <p th:text="${count[stat.index]+'개'}">1개</p>
                                             </div>
                                             <div class="shop_item_pay">
-                                                <span class="text-bold text-14">280,000원</span>
+                                                <span class="text-bold text-14" th:text="${T(java.lang.Integer).parseInt(price[stat.index])*T(java.lang.Integer).parseInt(count[stat.index]) +'원'}">280,000원</span>
                                             </div>
                                         </div>
                                     </a>
@@ -44,11 +46,11 @@
                         <div class="order_detail">
                             <h6>주문자 정보</h6>
                             <div class="row no-padding _orderer_preview_wrap">
-                                <div class="col-xs-12">
-                                    <div class="text-15 margin-bottom-lg">라파도</div>
-                                    <div class="text-14 text-gray">01096461504</div>
-                                    <div class="text-14 text-gray">wjdwo1104@naver.com</div>
-                                    <a onclick="void(0);" href="javascript:" class="btn-primary btn btn-sm-padding text-13 btn_top_right _btn_orderer_edit" role="button">수정</a>
+                                <div class="col-xs-12" th:each="bi:${buyer_info}">
+                                    <div class="text-15 margin-bottom-lg" th:text="${bi.getNickname()}">라파도</div>
+                                    <div class="text-14 text-gray" th:text="${bi.getPhone()}">01096461504</div>
+                                    <div class="text-14 text-gray" th:text="${bi.getEmail()}">wjdwo1104@naver.com</div>
+
                                 </div>
                             </div>
                             <script id="TEMPLATE_ORDERER_PREVIEW_WRAP" type="application/template">
@@ -89,20 +91,65 @@
                             <input type="hidden" id="shipping_code_type" data-group="shipping" name="shipping_code_type" value="default">
 
                             <div class="row">
-                                <div id="paymentShippingWrap" data-mode="default" data-member="member" data-list_count="2" data-code="" data-type="default">
-                                    <div class="col-xs-12 _deliv_preview_wrap" style="">
-                                        <div class="_shipping_preview_wrap">
+                                <div id="paymentShippingWrap" data-mode="default" data-member="member" data-list_count="2" data-code="" data-type="default" >
+                                    <div id="inputField1" class="tab-pane fade input_field active in">
+                                        <div class="_address_wrap" data-is-add-shipping="N">
+                                            <div class="row no-padding">
+                                                <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="Y" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="2글자 이상 입력해 주세요">
+                                                    <input class="form-control _deliv_name" type="text" name="deliv_name" placeholder="수령인" data-group="shipping" value="">
+                                                </div>
+                                                <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="Y" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요" data-error_msg="전화번호를 입력하세요">
+                                                    <input class="form-control _deliv_call" type="tel" name="deliv_call" placeholder="연락처" data-group="shipping" value="">
+                                                </div>
+                                                <div class="col-xs-12 space_top _deliv_country_wrap" data-country_visible="N">
+                                                    <div class="form-select-wrap ">
+                                                        <select title="" name="deliv_country" data-code="" data-group="shipping" class="form-control _deliv_country">
+                                                            <option value="KR" data-address-type="KR">대한민국</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row no-padding margin-bottom-xxl _input_form_wrap error_box">
+                                                <input type="hidden" name="deliv_address_code" value="">
+                                                <div class="col-xs-3 space_top" style="padding-right: 0;">
+                                                    <input id="order_postcode_input" class="form-control _btn_search_address_sub" type="tel" placeholder="우편번호" value="" readonly="">
+                                                </div>
+                                                <div class="col-xs-3 space_top btn-tools">
+                                                    <a class="blocked text-13 text-center btn _btn_search_address_sub" href="javascript:;">주소찾기</a>
+                                                </div>
+                                                <div class="col-xs-12 space_top">
+                                                    <input class="form-control" type="hidden" id="deliv_postcode" name="deliv_postcode" placeholder="우편번호" data-group="shipping" value="" readonly="">
+                                                    <input id="order_address_input" name="deliv_address" class="form-control _btn_search_address" type="text" placeholder="주소" data-group="shipping" value="" readonly="">
+                                                </div>
+                                                <div class="col-xs-12 space_top">
+                                                    <input id="order_address_detail_input" name="deliv_address_detail" class="form-control" type="text" placeholder="상세주소" data-group="shipping" value="">
+                                                </div>
+                                            </div>
+
+                                            <div class="checkbox checkbox-styled no-padding _check_is_default_shipping_wrap">
+                                                <label class="no-margin">
+                                                    <input type="checkbox" name="is_default_shipping" value="Y" data-group="shipping" class="_check_is_default_shipping">
+                                                    <span class="text-13">기본 배송지로 설정</span>
+                                                </label>
+                                            </div></div>
+                                        <div class="margin-top-xxl shipping_input_btn_group_wrap">
+                                            <a href="javascript:;" class="btn btn-sm-padding text-13 btn-primary _btn_deliv_input_submit" role="button">수정완료</a>
+                                            <a href="javascript:;" class="btn btn-sm-padding text-13 _btn_deliv_input_cancel" role="button">취소</a>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-xs-12 _deliv_preview_wrap" style="">
+                                        <div class="_shipping_preview_wrap" th:each="bi:${buyer_info}">
                                             <input type="hidden" name="deliv_address_code[default]" value="a202307176e5f53c832b43">
-                                            <div class="text-15 margin-bottom-lg">라파도ㅇㄴㄹㄴㅇ</div>
-                                            <div class="text-14 margin-bottom-lg text-gray">01096461504</div>
+                                            <div class="text-15 margin-bottom-lg" th:text="${bi.getNickname()}">라파도ㅇㄴㄹㄴㅇ</div>
+                                            <div class="text-14 margin-bottom-lg text-gray" th:text="${bi.getPhone()}">01096461504</div>
                                             <div class="text-15 margin-bottom-lg">
-                                                <p class="no-margin">울산 울주군 두서면 박달로 12 (내와리)</p>
-                                                <p class="no-margin">ㅋㅌㅊㅍ</p>
-                                                <p class="no-margin">(44910)</p>
+                                                <p class="no-margin" th:text="${bi.getAddress1()}">울산 울주군 두서면 박달로 12 (내와리)</p>
+                                                <p class="no-margin" th:text="${bi.getAddress2()}">ㅋㅌㅊㅍ</p>
+                                                <p class="no-margin" th:text="${bi.getZipcode()}">(44910)</p>
                                             </div>
                                         </div>
                                         <a href="javascript:;" class="btn btn-primary btn-sm-padding text-13 btn_top_right _btn_modify_shipping" role="button">변경</a>
-                                    </div>
+                                    </div>-->
                                     <div class="col-xs-12 _deliv_edit_wrap" style="display: none;">
                                         <ul class="nav nav-tabs margin-bottom-xxxl deliv_edit_tab  _deliv_edit_tab">
                                             <li class="text-14"><a href="javascript: void(0);" data-target="#selectField" data-tab-type="select" class="_tab_select">배송지 선택</a></li>
@@ -152,10 +199,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="checkbox checkbox-styled no-padding _check_is_add_shipping_wrap">
-                                                        <label class="no-margin">
-                                                            <input type="checkbox" name="is_add_shipping" value="Y" data-group="shipping" class="_check_is_add_shipping">
-                                                            <span class="text-13">배송지 목록에 추가</span>
-                                                        </label>
+
                                                     </div>
                                                     <div class="checkbox checkbox-styled no-padding _check_is_default_shipping_wrap" style="display: none;">
                                                         <label class="no-margin">
@@ -231,10 +275,6 @@
                         <!-- 배송지 미리보기 -->
                         <!-- 신규입력 양식 -->
                         <script id="SHIPPING_INPUT_TEMPLATE_WRAP" type="application/template">
-                            <label class="checkbox-inline checkbox-styled no-padding" style="margin-bottom: 12px;">
-                                <input type="checkbox" id="deliv_info_check">
-                                <span class="text-13">주문자 정보와 동일</span>
-                            </label>
                             <div class="row no-padding">
                                 <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="N" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="2글자 이상 입력해 주세요">
                                     <input class="form-control _deliv_name" type="text" name="deliv_name" placeholder="수령인" data-group="shipping" value="{deliv_name}">
@@ -286,25 +326,7 @@
                     <div class="tip-off _form_config_wrap" style="display: none;">
                     </div>
 
-                    <div class="tip-off coupon on _discount_wrap">
-                        <h6>디깅 포인트</h6>
-                        <div class="row wrapper">
-                            <div class="col-xs-12 _point_wrap">
-                                <p class="text-14 margin-bottom-xl">디깅 포인트</p>
-                                <div class="clearfix">
-                                    <div class="input_tools holder">
-                                        <input title="보유" class="form-control text-brand _input_point" name="use_point" data-group="point" autocomplete="off" type="text" value="0" data-apply_point="0"> <!-- 비활성화시 disabled 추가-->
-                                        <a class="text-16 btn_close _btn_point_clear" href="javascript:"><i class="btl bt-times-circle"></i></a>
-                                    </div>
-                                    <a href="javascript:" class="btn btn-primary btn-sm  _btn_point_all_use">전액사용                                        </a><!-- 비활성화시 disabled 추가-->
-                                </div>
-                                <p class="text-13 margin-top-xl no-margin-bottom">
-                                    보유 디깅 포인트 <strong>0</strong>
-                                </p>
-                                <p class="no-margin text-gray text-13">1,000원 이상 구매시 사용 가능</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="item_wrap _fixed_wrap" style="z-index: auto; position: static; top: auto;">
                     <div class="_item_wrap _payment_info_wrap margin-bottom-xxl">	<div class="tip-off pay_area item no-margin  point_on"><!--포인트 제도 사용시 point_on class 추가 -->
@@ -329,7 +351,7 @@
                     </div>
                         <div class="tip-off bg-gray pay_area">
                             <p class="no-margin text-13">
-                                <span class="text-brand">0</span> 디깅 포인트 적립예정			</p>
+
                         </div>
                     </div>
                     <div class="tip-off payment_method _payment_type_wrap no-margin">
