@@ -70,7 +70,7 @@ public class BoardDaoImpl implements BoardDao {
 
     }
 
-    Override
+    @Override
     public int countFindBoard(Map<String, Object> params) {
         return boardMapper.countFindBoard(params);
     }
@@ -92,8 +92,9 @@ public class BoardDaoImpl implements BoardDao {
 
     @Override
     public int insertBoardComment(BoardComments bc) {
+        bc.setRef(boardMapper.lastBCReplyid()+"");
+        System.out.println(bc.getRef());
         return boardMapper.insertBoardComment(bc);
-
     }
 
     @Override

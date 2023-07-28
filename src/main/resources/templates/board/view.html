@@ -101,12 +101,11 @@
                                                             조회수&nbsp;
                                                             <div th:text="${bd.views}" class="hit-count body_font_color_70"></div> <!--조회수-->
                                                             <div class="tools txt">
-                                                                <!--<a href="javascript:;" onclick="javascript:BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p2023041041c3c724a5eb5','','post');" style="margin-right: 10px" >신고</a>--><!--기존코드-->
-                                                                <a id="siren" href="#" style="margin-right: 10px" >&nbsp;신고</a>
+                                                                <a id="siren1" href="#" style="margin-right: 10px" >&nbsp;신고</a>
                                                             </div><!--신고버튼 pc버전-->
                                                         </div>
-                                                    </div><!--게시자 정보 외-->
-                                                </div>
+                                                    </div>
+                                                </div><!--게시자 정보 외-->
                                                 <div class="board_txt_area fr-view">
                                                     <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515"></div><!--본문-->
                                                     <div class="file_area"><!--얘는 뭘까요?--></div>
@@ -115,17 +114,14 @@
                                                         <th:block th:each="img : ${#strings.arraySplit(bd.ba.fname,';')}">
                                                             <img th:src="|http://localhost/cdn/${img}|" class="img-fluid">
                                                         </th:block>
-                                                        <a th:href="|http://localhost/cdn/${bd.ba.fname}|">이미지 다운로드 링크</a><!--파일명-->
+                                                        <!--<a th:href="|http://localhost/cdn/${bd.ba.fname}|">이미지 다운로드 링크</a>--><!--파일명-->
                                                     </div>
                                                 </div><!--게시판 본문 글-->
                                                 <div class="comment_section" id="comment_area">
                                                     <div class="comment-block">
                                                         <div class="btn-gruop-wrap clearfix">
                                                             <div class="btn-gruop btn-group-comment">
-                                                                <a onclick="viewLikeClick();" href="javascript:;" class="comment_num btn btn-flat no-padding-x" data-toggle="tooltip" data-placement="top" id="view_like_btn_p2023041041c3c724a5eb5" data-original-title="" title="">
-                                                                    <i aria-hidden="true" class="btm bt-heart"></i>
-                                                                    <em th:text="${bd.likes}" id="view_like_count_p2023041041c3c724a5eb5"></em>
-                                                                </a><!--좋아요-->
+                                                                <!--좋아요?-->
                                                                 <span class="comment_num btn btn-flat no-padding-x no-pointer">
                                                                     <i aria-hidden="true" class="icon-bubble icon holder" style="top: 1px"></i>
                                                                     <em  id="comment_count">0</em>
@@ -135,78 +131,152 @@
                                                     </div><!--코멘트 좋아요 버튼 댓수 댓글 수-->
                                                     <div class="comment_list" id="comment_container">
                                                         <div th:each="bc : ${bcs}" class="comment" >
-                                                            <div class="hide_profile main_comment _comment_wrap _comment_wrap_c20230316a7b162b92584e">
-                                                                <div class="block-postmeta">
-                                                                    <div class="avatar vertical-top"></div>
-                                                                    <div class="feed-summary vertical-top">
-                                                                        <!--<div th:text="${bc.nick.nickname}" class="write">--> 띵킴<!--댓글 작성자 닉네임-->
-                                                                        <div th:text="${bc.u_id}" class="write">띵킴<!--댓글 작성자 닉네임-->
-                                                                            <span th:text="${bc.regdate}"  class="_comment_at_nick tag date body_font_color_50 margin-left-lg">
-                                                                                2023-03-16 03:57
-                                                                            </span><!--댓글 작성시간-->
+                                                            <th:block th:if="${bc.reply_id eq bc.ref}">
+                                                                <div class="hide_profile main_comment _comment_wrap _comment_wrap_c20230316a7b162b92584e">
+                                                                    <div class="block-postmeta">
+                                                                        <div class="avatar vertical-top"></div>
+                                                                        <div class="feed-summary vertical-top">
+                                                                            <div th:text="${bc.nick.nickname}" class="write">띵킴<!--댓글 작성자 닉네임--></div>
+                                                                            <span th:text="${bc.regdate}"  class="_comment_at_nick tag date body_font_color_50 ">2023-03-16 03:57</span><!--댓글 작성시간-->
                                                                             <i aria-hidden="true" id="icon_c20230316a7b162b92584e" class="simple icon-lock margin-left-xl vertical-middle" style="display: none"></i>
-                                                                        </div>
-                                                                        <div class="comment_area _comment_area">
-                                                                            <span class="_comment_at_nick tag date body_font_color_50"></span>
-                                                                            <span th:text="${bc.contents}" class="_comment_body_m20220315625798781deec _comment_body_c20230316a7b162b92584e" comment_body_code="c20230316a7b162b92584e">
-                                                                                4/22(토) / 비슬산 / 김명성 / @dding_kim91/참석
-                                                                            </span><!--댓글 내용,본문-->
-                                                                            <div class="tools clearfix">
-                                                                                <a th:href="|javascript:showReply(${bc.reply_id})|" class="text-gray">대댓글</a><!--대댓글 작성 버튼-->
-                                                                                <a id="siren" class="text-gray">신고</a><!--신고 버튼-->
-                                                                            </div><!--대댓글 작성 버튼, 댓글 신고 버튼-->
+                                                                            <div class="comment_area _comment_area">
+                                                                                <span class="_comment_at_nick tag date body_font_color_50"></span>
+                                                                                <span th:text="${bc.contents}" class="_comment_body_m20220315625798781deec _comment_body_c20230316a7b162b92584e" comment_body_code="c20230316a7b162b92584e">
+                                                                                    4/22(토) / 비슬산 / 김명성 / @dding_kim91/참석
+                                                                                </span><!--댓글 내용,본문-->
+                                                                                <div class="tools clearfix">
+                                                                                    <!--<a th:href="|javascript:showReply(${bc.reply_id})|" class="text-gray">댓글</a>--><!--대댓글 작성 버튼?-->
+                                                                                    <button type="button" data-toggle="modal" data-target="#replyModal" th:data-ref="${bc.ref}" class="text-gray" style="background: none">댓글</button><!--대댓글 작성 버튼?-->
+                                                                                    <button type="button" id="siren2" href="#"  class="text-gray" style="background: none">신고</button>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div><!--댓글 리스트-->
-                                                            <div class="comment_textarea comment_edit_form _comment_edit_form _comment_edit_form_c20230316a7b162b92584e" style="display: none"></div><!--댓글 수정?-->
-                                                            <div class="dropdown_comment _sub_comment_wrap sub_comment_wrap">
-                                                                <div class="comment_comment_wrap _comment_sub_list">
-                                                                    <div class="comment" id="c202304062b284e94a38bb">
+                                                            </th:block><!--댓글 리스트-->
+                                                            <th:block th:if="${bc.reply_id ne bc.ref}">
+                                                                <div class="hide_profile main_comment _comment_wrap _comment_wrap_c202304062b284e94a38bb">
+                                                                    <div class="block-postmeta" style="margin-left:60px !important;">
+                                                                        <div class="avatar vertical-top"></div>
+                                                                        <div class="feed-summary vertical-top">
+                                                                            <div class="write">&blacktriangleright;&nbsp;[[${bc.nick.nickname}]]<!--대댓글 작성자 닉네임--><i class="fa-solid fa-angles-right"></i>
+                                                                                <span th:text="${bc.regdate}" class="_comment_at_nick tag date body_font_color_50 margin-left-lg"></span>
+                                                                                <i aria-hidden="true" id="icon_c202304062b284e94a38bb" class="simple icon-lock margin-left-xl vertical-middle" style="display: none"></i>
+                                                                            </div>
+                                                                            <div class="comment_area _comment_area">
+                                                                                <span class="_comment_at_nick tag date body_font_color_50">&nbsp;&nbsp;&nbsp;</span>
+                                                                                <span th:text="${bc.contents}" class="_comment_body_m202101156c08f63444515 _comment_body_c202304062b284e94a38bb" comment_body_code="c202304062b284e94a38bb">
+                                                                                    안녕하세요 ! 인스타 DM으로 오픈카톡방 링크 공유 드렸습니다 확인부탁드립니다!🙏
+                                                                                </span>
+                                                                                <!--<div class="tools clearfix">
+                                                                                    <a href="javascript:;" onclick="POST_COMMENT.showSubForm('c202304062b284e94a38bb');" class="text-gray">댓글</a>
+                                                                                    <a href="javascript:;" role="" onclick="BOARD_COMMON.openReportModal('b2021050791e0a8f7e18e4','p20230315ec90cfd12ea8e', 'c202304062b284e94a38bb','post_comment');" class="text-gray" >신고</a>
+                                                                                </div>--><!--대대댓글?-->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </th:block><!--대댓글 리스트-->
+                                                        </div><!--댓글 리스트, 대댓글 리스트, 대댓글 작성 폼-->
 
+                                                        <th:block th:if="${session.user}!=null">
+                                                            <div class="comment_textarea">
+                                                                <form id="comment_form">
+                                                                    <div class="postmeta comment-comment">
+                                                                        <div class="textarea_block">
+                                                                            <textarea id="contents" name="contents" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
+                                                                            <input type="hidden" name="board_id" id="board_id" th:value="${bd.board_id}">
+                                                                            <input type="hidden" name="u_id" id="u_id" th:value="${session.user.u_id}">
+                                                                            <button id="newboardcommentbtn" class="btn btn-primary btn-sm">작성</button><!--댓글 작성 버튼-->
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div><!--대댓글 작성 폼-->
-                                                        </div>
-                                                    </div><!--댓글, 대댓글 리스트, 대댓글 작성 폼-->
-                                                    <div class="comment_textarea">
-                                                        <form id="comment_form">
-                                                            <div class="postmeta comment-comment">
-                                                                <div class="textarea_block">
-                                                                    <textarea id="contents" name="contents" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
-                                                                    <input type="hidden" name="board_id" id="board_id" th:value="${bd.board_id}">
-                                                                    <input type="hidden" name="u_id" id="u_id" th:value="${(isLogined) ? session.user.u_id : '로그인이 되어있지 않습니다.'}">
-                                                                    <button id="newboardcommentbtn" class="btn btn-primary btn-sm" >작성</button><!--댓글 작성 버튼-->
+                                                                    <!--<ul id="image_list" style="display: none"></ul>--><!--댓글 첨부 이미지 리스트?-->
+                                                                </form>
+                                                            </div>
+                                                        </th:block><!--댓글 작성폼(로그인 했을때)-->
+                                                        <th:block th:if="${session.user}==null">
+                                                            <div class="comment_textarea">
+                                                                <form>
+                                                                    <div class="postmeta comment-comment">
+                                                                        <div class="textarea_block">
+                                                                            <textarea title="로그인을 하시면 댓글을 남기실 수 있습니다." placeholder="로그인을 하시면 댓글을 남기실 수 있습니다." rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
+                                                                            <button class="btn btn-primary btn-sm">작성</button><!--댓글 작성 버튼-->
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--<ul id="image_list" style="display: none"></ul>--><!--댓글 첨부 이미지 리스트?-->
+                                                                </form>
+                                                            </div>
+                                                        </th:block><!--댓글 작성폼(로그인 안 했을때)-->
+                                                        <th:block th:if="${session.user}!=null">
+                                                            <div class="modal fade" id="replyModal" tabindex="-1" role="dialog">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                            <h3 class="modal-title">대댓글 쓰기</h3>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form id="replyfrm" class="well form-inline">
+                                                                                <textarea name="contents" id="boardreply" rows="8" cols="60" class="span4"></textarea>
+                                                                                <input type="hidden" name="u_id" th:value="${session.user.u_id}">
+                                                                                <input type="hidden" name="board_id" th:value="${bd.board_id}">
+                                                                                <input type="hidden" name="ref" class="ref">
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer justify-content-center">
+                                                                            <button id="replybtn" type="button" class="btn btn-primary">대댓글 작성</button>
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">대댓글 작성 취소</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <!--<ul id="image_list" style="display: none"></ul>--><!--댓글 첨부 이미지 리스트?-->
-                                                        </form>
-                                                    </div><!--댓글 작성폼-->
-                                                </div><!--댓글, 대댓글-->
-                                                <div class="comment_section">
-                                                    <div class="list_tap">
-                                                        <a th:href="|/board/view/${bd.board_id +1}|">
-                                                            <i aria-hidden="true" class="icon-arrow-up"></i>
-                                                            <span class="secret_icon" th:text="${bd.title}">하위요</span><!--위글-->
-                                                        </a>
-                                                        <a th:href="|/board/view/${bd.board_id}|">
-                                                            <i aria-hidden="true" class="icon-arrow-down"></i>
-                                                            <span class="secret_icon" th:text="${bd.title}">청계산</span><!--아래글-->
-                                                        </a>
-                                                    </div><!--아래글, 위글-->
-                                                    <div class="table_bottom over_h action-area">
-                                                        <a id="bdlist" class="btn btn-primary btn-sm float_l" role="button">목록</a>
-                                                        <a id="newbdbtn" class="btn btn-primary btn-sm float_r" role="button">글쓰기</a>
-                                                    </div><!--목록, 글쓰기 버튼-->
-                                                </div><!--게시판 푸터(이전글,다음글,목록,글쓰기)-->
-                                            </div>
+                                                        </th:block><!--대댓글 작성 모달(로그인 했을때)-->
+                                                        <th:block th:if="${session.user}==null">
+                                                            <div class="modal hide" id="replyModal2" role="dialog">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h3 class="modal-title">대댓글 쓰기</h3>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form class="well form-inline">
+                                                                                <textarea title="로그인을 하시면 대댓글을 남기실 수 있습니다." placeholder="로그인을 하시면 대댓글을 남기실 수 있습니다." rows="8" cols="60" class="span4"></textarea>
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer justify-content-center">
+                                                                            <button type="button" class="btn btn-danger">대댓글 작성</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </th:block><!--대댓글 작성 모달(로그인 안 했을때)-->
+                                                    </div><!--댓글 리스트, 대댓글 리스트, 대댓글 작성 폼-->
+                                                </div>
+                                            </div><!--댓글, 대댓글-->
+                                            <div class="comment_section">
+                                                <div class="list_tap">
+                                                    <a th:href="|/board/view/${bd.board_id +1}|">
+                                                        <i aria-hidden="true" class="icon-arrow-up"></i>
+                                                        <span class="secret_icon" th:text="${bd.title}">하위요</span><!--위글-->
+                                                    </a>
+                                                    <a th:href="|/board/view/${bd.board_id}|">
+                                                        <i aria-hidden="true" class="icon-arrow-down"></i>
+                                                        <span class="secret_icon" th:text="${bd.title}">청계산</span><!--아래글-->
+                                                    </a>
+                                                </div><!--아래글, 위글-->
+                                                <div class="table_bottom over_h action-area">
+                                                    <a id="bdlist" class="btn btn-primary btn-sm float_l" role="button">목록</a>
+                                                    <a id="newbdbtn" class="btn btn-primary btn-sm float_r" role="button">글쓰기</a>
+                                                </div><!--목록, 글쓰기 버튼-->
+                                            </div><!--게시판 푸터(이전글,다음글,목록,글쓰기)-->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div><!--게시판 뷰 바디-->
+                </div><!--본문, 댓글-->
+            </div><!--게시판 뷰 바디-->
                 <div doz_type="row" doz_grid="12" class="doz_row">
                     <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">
                         <div doz_type="widget" id="w202105101a401aa248c59">
@@ -217,8 +287,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!--여백-->
-            </div>
+                </div><!--여백?-->
         </main>
     </div>
 </body>
