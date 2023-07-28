@@ -51,9 +51,15 @@ public class QnaDAOImpl implements QnaDAO {
     }
 
     @Override
-    public List<Qna> selectMyQna(String u_id) {
+   public List<Qna> selectMyQna(String u_id) {
        return qnaMapper.selectMyQna(u_id);
-        }
+
+   }
+
+//    @Override
+//    public List<Qna> selectQnaListSortedByDate() {
+//        return qnaMapper.selectQnaListSortedByDate();
+//    }
 
     public int selectCountBoard() {
         return 0;

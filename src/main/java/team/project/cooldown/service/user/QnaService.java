@@ -12,7 +12,7 @@ public interface QnaService {
 
     Object countBoard();
 
-     Qna readOneQna(String bno);
+     Qna readOneQna(String qna_id);
 
     boolean saveQna(Qna q);
 
@@ -21,4 +21,7 @@ public interface QnaService {
     Object countFindBoard(String findtype, String findkey);
 
     List<Qna> readQna(String u_id);
+//
+//    List<Qna> readQnaListSortedByDate(String u_id);
+
 }

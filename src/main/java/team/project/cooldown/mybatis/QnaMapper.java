@@ -23,4 +23,6 @@ public interface QnaMapper {
     ItemQna selectOneItemQna(String itemqna_id);
 
     int updateAdminIReply(String itemqna_id, String answer);
+//
+//    List<Qna> selectQnaListSortedByDate();
 }
