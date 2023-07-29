@@ -236,7 +236,7 @@
                 <a class="_detail   active" href="#prod_detail_detail" onclick="SITE_SHOP_DETAIL.scrollPCTab('detail'); return false;">상세정보</a>
               </li>
               <li class="after_line holder right_margin table-cell prod_tab_3">
-                <a class="_review " href="#prod_detail_review" onclick="SITE_SHOP_DETAIL.scrollPCTab('review'); return false;">구매평<span class="braket-badge badge _review_count_text">0</span>
+                <a class="_review "  >구매평<span class="braket-badge badge _review_count_text">0</span>
                 </a>
               </li>
               <li class="after_line table-cell prod_tab_3">
@@ -258,7 +258,7 @@
           <div class="_review_wrap">	<div class="text-13 body_font_color_70 margin-bottom-xl">
             상품을 구매하신 분들이 작성한 리뷰입니다.	</div>
 
-            <a class="btn btn-primary" role="button" onclick="SITE_MEMBER.openLogin('L2RpZ2J1c19nb29kcy8%2FaWR4PTQ4', 'null', null, 'N');">구매평 작성</a>
+            <a class="btn btn-primary" id="buy_e" role="button">구매평 작성</a>
             <div class="review_top margin-top-xxxl margin-bottom-xl" id="review_top">
               <a class="text-14" href="javascript:;" style="color: rgba(0,0,0,0.65);" onclick="SITE_SHOP_DETAIL.getOnlyPhotoReview('Y','N','Y');">
                 <i class="fixed_transform simple icon-picture text-16"></i>
@@ -324,7 +324,7 @@
             <div class="text-13 body_font_color_70 margin-bottom-xl">
               구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.			</div>
             <div class="flexed">
-              <a class="btn btn-primary product_qna flexed align-item-center" role="button" onclick="window.location.href = '/?prod_code=s2022093027948f330489b&amp;qmode=write&amp;idx=0'" style="margin-right:3px;">상품문의</a>
+              <a class="btn btn-primary product_qna flexed align-item-center" role="button" id="item_e" style="margin-right:3px;">상품문의</a>
               <a href="/shop_mypage/?m2=qna" class="btn one_qna" role="button">1:1 문의</a>
             </div>
           </div>

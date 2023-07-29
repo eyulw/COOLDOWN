@@ -171,6 +171,7 @@ function total_price1() {
     let cart_total = document.querySelector("#cart_total");
     cart_total.innerText = grandTotal + "원";
     total_price.innerText = grandTotal + "원";
+    document.getElementById('cart_total_data').value = grandTotal;
 }
 document.addEventListener("DOMContentLoaded", function() {
    total_price1();
@@ -250,6 +251,8 @@ let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', updateValues);
+
+
 });
 
 function updateValues() {
@@ -284,5 +287,57 @@ function updateValues() {
     document.getElementById('count').value = counts;
     document.getElementById('src').value = srcs;
     document.getElementById('itemname').value = itemnames;
+
+
 }
 
+/*카카오api결제*/
+/*
+$(function (){
+    $('#pay_btn').click(function (){
+        $.ajax({
+            url:'/shop_payment/k',
+            dataType:'json',
+            sucess:function (data){
+                let box = data.next_redirect_pc_url;
+                window.open(box);
+            },
+            error:function (error){
+                alert(error);
+            }
+        })
+    })
+})
+*/
+
+
+let payBtn = document.getElementById('pay_btn');
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    payBtn.addEventListener('click', function() {
+        fetch('/shop_payment_k')
+            .then(response => response.text())
+            .then(data => {
+                let jsonData = JSON.parse(data);
+                let box = jsonData.next_redirect_pc_url;
+                window.open(box);
+            })
+            .catch(error => {
+                alert(error);
+            });
+    });
+});
+
+
+
+
+let buy_e = document.querySelector("#buy_e");
+let item_e = document.querySelector("#item_e");
+
+buy_e.addEventListener('click',()=>{
+    alert("개발중인 기능입니다");
+});
+item_e.addEventListener('click',()=>{
+    alert("개발중인 기능입니다");
+});
