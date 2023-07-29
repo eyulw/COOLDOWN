@@ -158,8 +158,8 @@
                                                                 <div class="hide_profile main_comment _comment_wrap _comment_wrap_c202304062b284e94a38bb">
                                                                     <div class="block-postmeta" style="margin-left:60px !important;">
                                                                         <div class="avatar vertical-top"></div>
-                                                                        <div class="feed-summary vertical-top">
-                                                                            <div class="write">&blacktriangleright;&nbsp;[[${bc.nick.nickname}]]<!--대댓글 작성자 닉네임--><i class="fa-solid fa-angles-right"></i>
+                                                                        <div class="feed-summary vertical-top"><!--&blacktriangleright;&nbsp;-->
+                                                                            <div class="write"><i class="icon-arrow-right">&nbsp;[[${bc.nick.nickname}]]</i><!--대댓글 작성자 닉네임-->
                                                                                 <span th:text="${bc.regdate}" class="_comment_at_nick tag date body_font_color_50 margin-left-lg"></span>
                                                                                 <i aria-hidden="true" id="icon_c202304062b284e94a38bb" class="simple icon-lock margin-left-xl vertical-middle" style="display: none"></i>
                                                                             </div>
@@ -255,18 +255,31 @@
                                             </div><!--댓글, 대댓글-->
                                             <div class="comment_section">
                                                 <div class="list_tap">
-                                                    <a th:href="|/board/view/${bd.board_id +1}|">
+                                                    <!--<a th:href="|/board/view/${#strings.parseInt(bd.board_id)+1}|">-->
+                                                    <a href="">
                                                         <i aria-hidden="true" class="icon-arrow-up"></i>
-                                                        <span class="secret_icon" th:text="${bd.title}">하위요</span><!--위글-->
+                                                        <!--<span class="secret_icon" th:text="${bd.title}">이전 게시물</span>--><!--위글-->
+                                                        <span class="secret_icon" >이전 게시물</span><!--위글-->
                                                     </a>
-                                                    <a th:href="|/board/view/${bd.board_id}|">
+                                                    <!--<a th:href="|/board/view/${#strings.parseInt(bd.board_id) -1}|">-->
+                                                    <a href="">
                                                         <i aria-hidden="true" class="icon-arrow-down"></i>
-                                                        <span class="secret_icon" th:text="${bd.title}">청계산</span><!--아래글-->
+                                                        <!--<span class="secret_icon" th:text="${bd.title}">다음 게시물</span>--><!--아래글-->
+                                                        <span class="secret_icon" >다음 게시물</span><!--아래글-->
                                                     </a>
                                                 </div><!--아래글, 위글-->
-                                                <div class="table_bottom over_h action-area">
-                                                    <a id="bdlist" class="btn btn-primary btn-sm float_l" role="button">목록</a>
-                                                    <a id="newbdbtn" class="btn btn-primary btn-sm float_r" role="button">글쓰기</a>
+                                                <div class="row">
+                                                    <div class="table_bottom over_h action-area">
+                                                        <button id="bdlist" class="btn btn-primary btn-sm float_l col-md-1" role="button">목록</button>
+                                                        <button type="button" class="col-md-8"></button>
+                                                        <th:block th:if="|${session.user!=null}|">
+                                                            <th:block th:if="|${session.user.u_id eq bd.u_id}|">
+                                                                <button style="font-size: 13px" class="bdModifyBtn bdBtnSt col-md-1" id="bdModifyBtn" th:value="${bd.board_id}">수정</button>
+                                                                <button style="font-size: 13px" class="bdDeleteBtn bdBtnSt col-md-1" th:value="${bd.board_id}">삭제</button>
+                                                            </th:block>
+                                                            <button id="newbdbtn" class="btn btn-primary btn-sm float_r col-md-1" role="button">글쓰기</button>
+                                                        </th:block>
+                                                    </div>
                                                 </div><!--목록, 글쓰기 버튼-->
                                             </div><!--게시판 푸터(이전글,다음글,목록,글쓰기)-->
                                         </div>
