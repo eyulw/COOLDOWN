@@ -11,9 +11,13 @@ bdlist?.addEventListener('click', ()=> {
     location.href = '/board/list/1';
 });
 
-let siren = document.querySelector("#siren")
-siren?.addEventListener('click', () => {
+let siren1 = document.querySelector("#siren1")
+siren1?.addEventListener('click', () => {
    alert("죄송합니다. 아직 미지원 기능입니다. 고객센터로 연락주시면 감사하겠습니다.")
+});
+let siren2 = document.querySelector("#siren2")
+siren2?.addEventListener('click', () => {
+    alert("죄송합니다. 아직 미지원 기능입니다. 고객센터로 연락주시면 감사하겠습니다.")
 });
 
 
@@ -26,8 +30,8 @@ bdwrtcancelbtn?.addEventListener('click', ()=> {
 let wrtbdbtn = document.querySelector("#wrtbdbtn")
 wrtbdbtn?.addEventListener('click', () => {
     let frm = document.forms.post_form;
-    if(frm.title.value === '') alert('제목을 작성하세요!!');
-    else if(frm.contents.value === '') alert('본문을 작성하세요!!');
+    if(frm.title.value === '') alert('제목을 작성하세요.');
+    else if(frm.contents.value === '') alert('본문을 작성하세요.');
     else {
         let b_category=document.querySelector("#b_category")
         let categoryValue=document.querySelector("#categoryValue")
@@ -45,9 +49,8 @@ wrtbdbtn?.addEventListener('click', () => {
 let newboardcommentbtn = document.querySelector("#newboardcommentbtn")
 newboardcommentbtn?.addEventListener('click', ()=> {
     let frm = document.forms.comment_form;
-    if(frm.u_id.value === '') alert('로그인 하세요!!');
-    else if(frm.reply_id.value === '') alert('로그인 하세요!!');
-    else if(frm.contents.value === '') alert('댓글을 작성하세요!!');
+    if(frm.u_id.value === '') alert('로그인 하세요.');
+    else if(frm.contents.value === '') alert('댓글을 작성하세요.');
     else{
         frm.method = 'post';
         frm.action = '/board/boardcomments/write';
@@ -56,23 +59,26 @@ newboardcommentbtn?.addEventListener('click', ()=> {
 });
 
 // board reply
-let modal = null;
-const refno = document.querySelector("#ref");
+$('#replyModal').on('shown.bs.modal', function (event) {
+    let button = $(event.relatedTarget);
+    let ref = button.data('ref');
+    let modal = $(this);
+    modal.find('.modal-body .ref').val(ref)
+})
+/*let modal = null;
 const showReply = (ref) => {
-    refno.value = ref;    // 댓댓글을 작성할 댓글의 댓글번호(cno)를 알아냄
+    const refno = document.querySelector("#ref");
+    refno.value = ref;
     modal = new bootstrap.Modal(replyModal, {});
     modal.show();
-};
-
+};*/
 const replybtn = document.querySelector("#replybtn");
 replybtn?.addEventListener('click', () => {
-    const frm = document.querySelector("#replyfrm")
-    if(frm.contents.value === '') alert('대댓글을 작성하세요!!');
-    else if(frm.ref.value === '') alert('댓글 번호가 없어요');
-    else if(frm.board_id.value === '') alert('본문글 번호가 없어요');
+    let frm = document.querySelector("#replyfrm")
+    if(frm.contents.value === '') alert('대댓글을 작성하세요.');
     else {
         frm.method = 'post';
-        frm.action = '/pds/reply/write';
+        frm.action = '/board/boardreply/write';
         frm.submit();
     }
 });
@@ -102,3 +108,26 @@ const findqnabtn = (btype) => {
 $('.category')?.on('click',(e)=>{
     location.href='/board/category/'+e.target.value;
 })
+
+
+// like
+/*
+let view_like_count = document.querySelector("#view_like_count");
+const plusLike = (board_id) => {
+    if(session.user = null) {
+        alert('로그인해주세요');
+    } else {
+        // AJAX 요청 시작
+        fetch(`/likes/${board_id}`, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                view_like_count.textContent = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+};*/

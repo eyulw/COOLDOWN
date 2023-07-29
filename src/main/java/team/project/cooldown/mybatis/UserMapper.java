@@ -19,4 +19,12 @@ public interface UserMapper {
     int getCountUPages();
 
     int getCountRUPages(String role);
+
+    int deleteOneUser(User u);
+
+    User selectMyInfo(String u_id);
+
+    int updateMyInfo(User u);
+
+    int selectOneUserid(String uid);
 }

@@ -45,6 +45,8 @@ public interface BoardMapper {
 
     int insertBoardComment(BoardComments bc);
 
+    int lastBCReplyid();
+
     int insertBoardReply(BoardComments bc);
 
 }

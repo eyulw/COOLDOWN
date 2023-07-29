@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-    <body>
         <th:block layout:fragment="content">
           <div class="shop-content mypage">
             <div class="container-fluid">
@@ -28,15 +23,15 @@
                 </div>
                 <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
                   <ul>
-                    <li class="on">
+                    <li class="">
                       <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
                     <li class="">
                       <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
                     <li class="">
                       <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
                     <li class="">
-                      <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
-                    <li class="">
+                      <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
+                    <li class="on">
                       <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
                     <li>
                       <button class="text-gray-dark _fade_link"
@@ -109,8 +104,8 @@
                         </div>
                       </div>
                       <div class="table-cell vertical-middle point-view text-center">
-                        <a href="/shop_mypage/?m2=point_list">
-                          <p>디깅 포인트</p><span class="text-bold text-32">0</span></a>
+                        <a href="">
+                          <p></p><span class="text-bold text-32"></span></a>
                       </div>
                     </div>
                   </div>
@@ -118,11 +113,15 @@
                     <h4 class="hidden-sm hidden-xs text-default-dark">
                       <span>1:1 문의게시판</span>
                       <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
-                                <em id="titleQnaList">0</em></span>
+                                <em id="titleQnaList" th:text="${#lists.size(qnas)}">0</em></span>
                     </h4>
-
+                    <th:block th:if="${#lists.isEmpty(qnas)}">
                     <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
                          id="shop_mypage_orderlist_empty">등록된 문의가 없습니다.</div>
+                    </th:block>
+
+                    <!-- 게시글 리스트가 있을 경우 게시글 목록 출력 -->
+                    <th:block th:if="${not #lists.isEmpty(qnas)}">
                     <table class="table table-striped">
                       <thead>
                       <tr>
@@ -133,10 +132,14 @@
                         <th style="width:10%">상태</th>
                       </tr>
                       </thead>
+
                       <tbody>
-                      <tr th:each="q:${qnas}">
+<!--                      <tr th:each="q, status : ${qnas}">-->
+<!--                        <td th:text="${status.count}"></td>-->
+                    <tr th:each="q:${qnas}">
+<!--                    <td th:text="${status.index + 1}"></td>-->
                         <td th:text="${q.qna_id}"></td>
-                        <td><a th:href="|/mypage/qna/${q.qna_id}|" th:text="${q.title}"></a></td>
+                        <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
                         <td th:text="${session.user.userid}"></td>
                         <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
                         <th:blcok th:if="${#strings.isEmpty(q.answer)}">
@@ -148,190 +151,20 @@
                       </tr>
                       </tbody>
                     </table>
-                    <div class="textarea_block no-padding-x no-border">
-                      <button class="btn btn-primary btn-sm" onclick="location.href='qnawrite'; return false;">
-                        <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
-                        <span>문의 작성</span></button>
-                    </div>
-                      <div style="font-size:15px; padding: 15px;" class="table-wrap text-center">
-                        <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
-                           style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a></div>
-                        </div>
-                          </div>
-                            </div>
-                              </div>
-                            </div>
-                          </th:block>
-                        </body>
-                      </html>
-                      <!--<!DOCTYPE html>-->
-<!--<html lang="ko" xmlns:th="http://www.thymeleaf.org"-->
-<!--      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layout/template}">-->
-<!--    <head>-->
-<!--      <meta charset="UTF-8">-->
-<!--      <title>Title</title>-->
-<!--    </head>-->
-<!--              <body>-->
-<!--              <th:block layout:fragment="content">-->
-<!--              <main> 			 			 			 		 			 			 			 		 			 			 			 		<div doz_type="inside" class="inside"><div doz_type="row" doz_grid="12" class="doz_row"><div doz_type="grid" doz_grid="12" class="col-dz col-dz-12"><div doz_type="widget" id="w2021011509d04b4541e1f"><div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 마이페이지" data-widget-type="shop_mypage" data-widget-parent-is-mobile="N">-->
-<!--                <div class="shop-content mypage">-->
-<!--                  <div class="container-fluid">-->
-<!--                    <div class="row show-grid">-->
-<!--                      <div class="left-menu hidden-lg hidden-md">-->
-<!--                        <ul id="cart_menu">-->
-<!--                          <div class="clearfix cart-menu-slide">-->
-<!--                            <li class=" ">-->
-<!--                              <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>-->
-<!--                            </li>-->
-<!--                            <li class=" ">-->
-<!--                              <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a>-->
-<!--                            </li>-->
-<!--                            <li class=" ">-->
-<!--                              <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a>-->
-<!--                            </li>-->
-<!--                            <li class=" ">-->
-<!--                              <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>-->
-<!--                            </li>-->
-<!--                            <li class="active">-->
-<!--                              <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a>-->
-<!--                            </li>-->
-<!--                          </div>-->
-<!--                        </ul>-->
-<!--                      </div>-->
-<!--                      <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">-->
-<!--                        <ul>-->
-<!--                          <li class="">-->
-<!--                            <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a>-->
-<!--                          </li>-->
-<!--                          <li class="">-->
-<!--                            <a href="/mypage/wish_list" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a>-->
-<!--                          </li>-->
-<!--                          <li class="">-->
-<!--                            <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>-->
-<!--                          </li>-->
-<!--                          <li class="">-->
-<!--                            <a href="/mypage/point_list" class="text-gray-dark _fade_link">디깅 포인트</a>-->
-<!--                          </li>-->
-<!--                          <li class="on">-->
-<!--                            <a href="/mypage/qna" class="text-gray-dark _fade_link">1:1 문의</a>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <a href="/mypage/modifyinfo" onclick="" class="text-gray-dark _fade_link">정보 수정</a>-->
-<!--                          </li>-->
-<!--                          <li>-->
-<!--                            <a href="/mypage/deleteacct" onclick="" class="text-gray-dark _fade_link">회원탈퇴</a>-->
-<!--                          </li>-->
-<!--                        </ul>-->
-<!--                      </div>-->
-<!--                      <div class="col-md-10 col-sm-12">-->
-<!--                        <div class="head bg-bright">-->
-<!--                          <div class="my-theme tabled full-width">-->
-<!--                            <div class="img-view table-cell vertical-middle">-->
-<!--                              <div class="tabled full-width">-->
-
-<!--                                <div class="tumbs table-cell vertical-middle">-->
-<!--                                  <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D');">-->
-<!--                                    <div id="mypage_profile_img" class="img-circle" style="width: 85px; height: 85px; background: url(/common/img/default_profile.png)  50% 50% / cover no-repeat;"></div>-->
-<!--                                    <span class="sr-only">정보 수정</span>-->
-<!--                                  </a>-->
-<!--                                </div>-->
-
-<!--                                <div class="nick text-default-dark table-cell vertical-middle no-margin-top">-->
-<!--                                  <span th:text="|${session.user.nickname}님 안녕하세요.|"></span>-->
-<!--                                  <div class="text-15 use_grade">-->
-<!--                                    <div class="ug_text">누적 구매금액: 0원</div>-->
-<!--                                    <div class="ug_btn">-->
-<!--                                      <a href="javascript:" class="btn hidden-xs " role="button" data-toggle="popover" data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>-->
-<!--                                      <div id="list-popover" style="display: none" class="list_popover">-->
-<!--                                        <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">-->
-<!--                                          <h6 class="no-margin"></h6>-->
-<!--                                          <a href="javascript:" onclick="$('.popover.in').popover('hide');" class="btl btl bt-times">-->
-<!--                                            <span class="sr-only"></span></a>-->
-<!--                                        </div>-->
-<!--                                        <div class="lp_content_wrap">-->
-<!--                                          <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">-->
-<!--                                            bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.																</div>-->
-<!--                                          <div class="lp_title">누적 구매금액: 0원</div>-->
-<!--                                          <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">-->
-<!--                                            <p class="no-margin">누적 구매금액: 0원</p>-->
-<!--                                          </div>-->
-<!--                                          <div class="lp_table">-->
-<!--                                            <div class="text-bold text-13">회원 등급별 혜택 안내</div>-->
-<!--                                            <div class="table-responsive">-->
-<!--                                              <table class="table no-margin">-->
-<!--                                                <thead>-->
-<!--                                                <tr>-->
-<!--                                                </tr>-->
-<!--                                                </thead>-->
-<!--                                                <tbody>-->
-<!--                                                <tr class="active"></tr>-->
-<!--                                                </tbody>-->
-<!--                                              </table>-->
-<!--                                            </div>-->
-<!--                                            <div class="text-12 margin-top-xxl"></div>-->
-<!--                                          </div>-->
-<!--                                        </div>-->
-<!--                                      </div>-->
-<!--                                    </div>-->
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                            <div class="table-cell vertical-middle point-view text-center">-->
-<!--                              <a href="/shop_mypage/?m2=point_list">-->
-<!--                                <p>디깅 포인트</p>-->
-<!--                                <span class="text-bold text-32">0</span>-->
-<!--                              </a>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                        <div class="personal_qna_wrap _personal_qna_wrap"><h6 class="hidden-sm hidden-xs">-->
-<!--                          <span>1:1 문의게시판</span>-->
-<!--                          <span class="b_cnt badge" style="top: -3px;"><em id="titleQnaList">0</em></span>-->
-<!--                          <script>-->
-<!--                            $(function(){-->
-<!--                              $('#titleQnaList').html(0 >= 999 ? '999+':  0);-->
-<!--                            });-->
-<!--                          </script>-->
-<!--                        </h6>-->
-<!--                          <div class="comment_section" id="">-->
-<!--                            <div style="text-align: center; padding: 50px 0;">-->
-<!--                              <div class="body_font_color_40" style="margin:30px">등록된 문의가 없습니다</div>-->
-<!--                            </div>-->
-<!--                            <div class="textarea_block no-padding-x no-border">-->
-<!--                              <button class="btn btn-primary btn-sm" onclick="location.href='qnawrite'; return false;">-->
-<!--                                <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>-->
-<!--                                <span>문의 작성</span>-->
-<!--                              </button>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                          <script>-->
-<!--                            $(function(){-->
-<!--                              SITE_PERSONAL_QNA.init();-->
-<!--                              $(function(){//리뷰 리뉴얼 전까지 리뷰 이미지 라이트박스 처리-->
-<!--                                $('._comment_body').find('img').each(function(){-->
-<!--                                  if($(this).parent().get(0).tagName == 'A')-->
-<!--                                    return true;-->
-<!--                                  $(this).attr('data-src', $(this).attr('src')).data('src', $(this).attr('src')).addClass('_img_light_gallery cursor_pointer');-->
-<!--                                });-->
-<!--                                $('._comment_body').lightGallery({-->
-<!--                                  selector : '._img_light_gallery',-->
-<!--                                  thumbnail : false,-->
-<!--                                  animateThumb : false,-->
-<!--                                  showThumbByDefault : false,-->
-<!--                                  hash : false,-->
-<!--                                  speed : 200-->
-<!--                                });-->
-<!--                              });-->
-<!--                            });-->
-<!--                          </script>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div></div></div></div></div></main>-->
-<!--              </th:block>-->
-<!--              </body>-->
-<!--              </html>-->
+                  </th:block>
+                  <div class="textarea_block no-padding-x no-border">
+                    <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
+                  <!--<a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
+                      <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
+                      <span>문의 작성</span></button>
+                  </div>
+                    <div style="font-size:15px; padding: 15px;" class="table-wrap text-center">
+                      <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
+                         style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </th:block>
+    </html>

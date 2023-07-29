@@ -43,10 +43,10 @@ let wrtbdbtn = document.querySelector("#wrtbdbtn");
 // }
 //
 
-//board view
+//qna view
 let newbdbtn = document.querySelector("#newbdbtn");
 newbdbtn?.addEventListener('click', () => {
-    location.href ='/mypage/write';
+    location.href = '/mypage/qnawrite';
 });
 let modbdbtn = document.querySelector("#modbdbtn");
 let rmvbdbtn = document.querySelector("#rmvbdbtn");
@@ -114,3 +114,36 @@ findbtn?.addEventListener('click', () => {
         location.href = `/board/find/${findtype.value}/${findkey.value}/1`;
     }
 });
+
+
+//회원 탈퇴
+
+let deleteacctbtn = document.querySelector("#deleteacctbtn");
+deleteacctbtn?.addEventListener('click', () => {
+    let frm = document.forms.dlufrm;
+    if (frm.password.value === '') alert('비밀번호를 입력하세요!!');
+    else {
+        frm.method = 'post';
+        frm.submit();
+    }
+});
+
+// 회원 정보 수정
+let umodifybtn = document.querySelector("#umodifybtn");
+
+umodifybtn?.addEventListener('click', () => {
+    let frm = document.forms.umdfrm;
+
+    if (frm.password.value === '') alert("비밀번호를 입력하세요");
+
+    else if (frm.passwd_confirm.value === '') alert("비밀번호를 확인란을 입력하세요");
+    else if (frm.password.value != frm.passwd_confirm.value) alert("비밀번호가 일치하지 않습니다");
+    else if (frm.email.value === '') alert("이메일을 입력하세요");
+    else if (frm.nickname.value === '') alert("닉네임을 입력하세요");
+    else if (frm.phone.value === '') alert("핸드폰번호를 입력하세요");
+    else if (frm.name.value === '') alert("이름을 입력하세요");
+    else {
+        frm.method = 'post';
+        frm.submit();
+    }
+})

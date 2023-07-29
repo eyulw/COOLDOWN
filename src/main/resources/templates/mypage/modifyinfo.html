@@ -1,562 +1,175 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://www.thymeleaf.org">
-<th:block th:fragment="modifyinfo_modal">
-  <div class="modal fade" id="modifyinfo_modal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-    <!-- 회원가입 -->
-    <article class="modal_article login p_lr_space pb24">
-      <button class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-placement="bottom" data-original-title="닫기">
-        <i aria-hidden="true" class="btl bt-times"></i></button>
-      <h2>정보 수정</h2>
-      <link href="https://vendor-cdn.imweb.me/css/site/admin/toastr.css" rel="stylesheet" type="text/css">
-
-      <form id="join_form" method="post" action="/backpg/join.cm" class="form form-validate" role="form" target="hidden_frame" enctype="multipart/form-data" style="display: block;">
-        <input type="hidden" name="limit_join_agree" id="limit_join_agree" value="N">
-        <input type="hidden" name="idx" value="30787953">
-        <input type="hidden" name="code" value="m2023072027f9f02c53915">
-        <input type="hidden" name="type_code" value="t202101154b6e7ca45a36d">
-        <input type="hidden" name="back_url" value="L3Nob3BfbXlwYWdlLz9tMj1vcmRlcg%3D%3D">
-        <input type="hidden" name="is_popup" value="Y">
-        <input type="hidden" name="mode" value="edit">
-        <input type="hidden" name="photo_tmp_idx" id="photo_tmp_idx2" value="">
-
-        <div class="_token_obj" data-type="join" id="join_token">
-          <input type="hidden" name="join_token" class="_tk_obj" value="Nq9ZTJdUtN2DQyFybG+SaHI5TkVCxJkwrh4gEB5Ca91F6bG28BBWHWucMo5xwGpqbGhFakSI9qM6H0zeWyhnODVyv5VLI8LP2MI4VLWXJIR3NgAzUbc+l0oQD14XRgXz">
-          <input type="hidden" name="join_token_key" class="_tk_key_obj" value="2440">
+<html lang="ko" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+  <div class="shop-content mypage">
+    <div class="container-fluid">
+      <div class="row show-grid">
+        <div class="left-menu hidden-lg hidden-md">
+          <ul id="cart_menu">
+            <div class="clearfix cart-menu-slide">
+              <li class="active">
+                <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>
+              </li>
+              <li class=" ">
+                <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a>
+              </li>
+              <li class=" ">
+                <a href="" class="body_font_color_50"><span>장바구니</span></a>
+              </li>
+              <li class=" ">
+                <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>
+              </li>
+              <li class="">
+                <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1
+                                        문의</span></a>
+              </li>
+            </div>
+          </ul>
         </div>
 
-        <div id="fileupload_profile_img2" class="fileupload_profile_img">
-          <div id="profile_img2" class="img-circle" style="margin: 0 auto; background: url(/common/img/default_profile.png)  50% 50% / cover no-repeat;"></div>
-            <span class="over">
-              <i aria-hidden="true" class="simple icon-camera vertical-middle"></i></span>
-          <div id="drop_profile_img2" class="drop_profile_img">
-            <input title="file upload" type="file" name="files[]" style="width: 100%" accept="image/jpeg, image/jpg, image/png, image/gif, image/svg+xml">
-          </div>
+        <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
+          <ul>
+            <li class="on">
+              <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span
+                      class="hidden-xs">조회</span></a>
+            </li>
+            <li class="">
+              <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span
+                      class="hidden-xs">리스트</span></a>
+            </li>
+            <li class="">
+              <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>
+            </li>
+            <li class="">
+              <a href="" class="text-gray-dark _fade_link">장바구니</a>
+            </li>
+            <li class="">
+              <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
+            <li class="">
+              <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+            <li class="">
+              <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
+          </ul>
         </div>
+        <div class="col-md-10 col-sm-12">
+          <div class="head bg-bright">
 
-        <div class="text-center input_block form-group group_badge">
-          <span class="badge">브론즈</span></div>
-        <div class="form-group" style="margin-top: -13px;">
-          <p class="text-center">
-            <span class="control-label">추천인 코드 </span>
-              <a href="javascript:;" style="font-size: 13px" class="text-primary" onclick="createRecommendCode($(this))"
-                 data-member-code="m2023072027f9f02c53915">생성하기</a>
-            <span class="text-13 _recommend_set _recommend_code_wrap hide"></span>
-              <a href="javascript:;" class="_recommend_set text-primary text-13 margin-left-xl _referrer_code_copy hide">
-            <i class="btl bt-copy"></i> 복사하기</a>
-              <input type="text" class="_recommend_tmp_input" style="position: absolute;top:-3000px" value="">
-          </p>
-      </div>
-        <div style="position: relative">
-          <div class="input_block form-group">
-            <div class="input_form _item _uid">
-              <input title="아이디" type="text" name="uid" readonly="readonly" value="candy" placeholder="아이디" required="required">
-                <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-            <div class="input_form brt _item _passwd_org">
-              <input title="기본 비밀번호 입력" type="password" name="passwd_org" autocomplete="off" placeholder="기본 비밀번호 입력">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-            <div class="input_form brt _item _passwd">
-              <input title="비밀번호" type="password" name="passwd" autocomplete="off" placeholder="비밀번호를 변경 하는 경우 입력하세요">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block first-letter-uppercase _msg"></div>
-            </div>
-            <div class="input_form brt _item _passwd_confirm">
-              <input title="비밀번호 확인" type="password" name="passwd_confirm" autocomplete="off" placeholder="비밀번호 확인">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
+            <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
 
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_email">이메일<i aria-hidden="true" class="icon-required"></i></label>
-            <div class="input_form _item _email">
-              <input type="email" id="join_email" name="email" placeholder="이메일" value="herewegoagain@gmail.com" required="required">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_name">닉네임<i aria-hidden="true" class="icon-required"></i></label>
-            <div class="input_form _item _name">
-              <input title="닉네임을(를) 입력하세요" type="text" id="join_name" name="name" placeholder="닉네임을(를) 입력하세요" value="bug" required="required">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
+              <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
+              <div class="text-15 use_grade">
+                <div class="ug_text"></div>
+                <div class="table-wrap deleteacct">
+                  <h4 class="hidden-sm hidden-xs text-default-dark">
+                    <span>회원 수정</span>
 
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_callnum">핸드폰 번호<i aria-hidden="true" class="icon-required"></i></label>
-            <div class="input_form _item _callnum">
-              <input type="tel" id="join_callnum" name="callnum" placeholder="핸드폰 번호" value="1111111111" required="required">
-                <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
+                    <div class="card card-body bg-light m-5">
 
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_addr">주소</label>
-            <input type="hidden" name="addr_country" value="KR">
-            <div id="kr_addr_form_wrap" class="_addr_form_wrap" style="display: ;">
-              <div class="input_form _item _addr">
-                <input type="hidden" id="join_addr_postcode" name="addr_post" value="63534">
-                <div class="input_trick" id="sub_join_addr"></div>
-                <input type="text" id="join_addr" name="addr" placeholder="주소" value="제주특별자치도 서귀포시 가가로 14 (상예동)" readonly="">
-                <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                <div class="alert-block _msg"></div>
-              </div>
-              <div id="join_addr_container" class="w100p" style="display:none; border:1px solid;margin:5px 0; position: relative; ">
-                <div class="add_container _add_list w100p h337" style="padding: 0 0 0 0;position:relative;"></div>
-              </div>
-              <div class="input_form brt _item _addr_detail">
-                <input title="상세주소" type="text" id="join_addr_detail" name="addr_detail" placeholder="상세주소" value="11">
-                <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                <div class="alert-block _msg"></div>
-              </div>
-            </div>
-          </div>
-         <script>
-          $(function(){
-            var join_addr = new ZIPCODE_DAUM();
-            var address = "";
-            var splitAddress ="";
-            var building = "";
-            var street= "";
-            var city= "";
-            var state= "";
+                      <form name="umdfrm">
 
-            join_addr.init({
-              'addr_container' : $('#join_addr_container'),
-              'addr_pop' : $('#join_addr_container ._add_list'),
-              'post_code' : $('#join_addr_postcode'),
-              'addr' : $('#join_addr'),
-              'sub_addr' : $('#sub_join_addr'),
-              'onShow' : function(){
-                $('#join_addr_container').css({'top' : -50 + 'px'});
-                $('#join_addr_detail').parent().css({'top' : -50 + 'px'});
-              },
-              'onComplete' : function(data){
-                $('#join_addr_detail').focus();
+                        <div class="input_block form-group">
+                          <div class="input_form _item _uid">
+                            <input title="아이디" type="text" name="userid" th:value="${u.userid}" readonly>
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                          <div class="input_form brt _item _passwd">
+                            <input title="비밀번호" type="password" name="password" autocomplete="off" placeholder="비밀번호">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block first-letter-uppercase _msg"></div>
+                          </div>
+                          <div class="input_form brt _item _passwd_confirm">
+                            <input title="비밀번호 확인" type="password" name="passwd_confirm" autocomplete="off" placeholder="비밀번호 확인">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                        </div>
 
-                /*한글 주소일때 내부적으로 영문주소도 저장하기 위해*/
-                address = data.addressEnglish;
-                if(address == 'undefined') address = data.jibunAddressEnglish;
-                splitAddress= address.split(',');
-                if(splitAddress.length > 5){
-                  building = splitAddress[0];
-                  street = splitAddress[1];
-                  city = splitAddress[2];
-                  state = splitAddress[3] + " " + splitAddress[4];
-                } else {
-                  building = splitAddress[0];
-                  street = splitAddress[1];
-                  city = splitAddress[2];
-                  state = splitAddress[3];
-                }
-                $("input[name='addr_building']").val(building);
-                $("input[name='addr_street']").val(street);
-                $("input[name='addr_city']").val(city);
-                $("input[name='addr_state']").val(state);
-                $("input[name='addr_zipcode']").val(data.zonecode);
-              },
-              'onClose' : function(){
-                $('#join_addr_detail').parent().css({'top' : 0 + 'px'});
-              },
-              'height' : '100%'
-            });
-          });
-        </script>
+                        <div class="input_block form-group">
+                          <label class="mini-tit" for="join_email">이메일<i aria-hidden="true" class="icon-required"></i></label>
+                          <div class="input_form _item _email">
+                            <input type="email" id="join_email" name="email" placeholder="이메일" th:value="${u.email}">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                        </div>
 
-          <div class="input_block form-group _item _birth"><!--생년월일-->
-            <div style="position: relative">
-              <div id="prevention_screen_birth" style="position: absolute;top:0;left: 0;height: 100%;width: 100%;z-index:99; display: none" onclick="alert('본인인증으로 저장된 회원정보는 재인증을 통해서만 수정이 가능합니다.')"></div>
+                        <div class="input_block form-group">
+                          <label class="mini-tit" for="join_name">닉네임<i aria-hidden="true" class="icon-required"></i></label>
+                          <div class="input_form _item _name">
+                            <input title="닉네임을(를) 입력하세요" type="text" id="join_name" name="nickname" th:value="${u.nickname}">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                        </div>
 
-              <label class="mini-tit" for="join_birth">생년월일<i aria-hidden="true" class="icon-required"></i></label>
-              <div class="float-block select-block">
-                <div class="selectbox">
-                  <select title="생년월일" class="form-control" id="birth_y" name="birth_y">
-                    <option value="1900">1900</option>
-                    <option value="1901">1901</option>
-                    <option value="1902">1902</option>
-                    <option value="1903">1903</option>
-                    <option value="1904">1904</option>
-                    <option value="1905">1905</option>
-                    <option value="1906">1906</option>
-                    <option value="1907">1907</option>
-                    <option value="1908">1908</option>
-                    <option value="1909">1909</option>
-                    <option value="1910">1910</option>
-                    <option value="1911">1911</option>
-                    <option value="1912">1912</option>
-                    <option value="1913">1913</option>
-                    <option value="1914">1914</option>
-                    <option value="1915">1915</option>
-                    <option value="1916">1916</option>
-                    <option value="1917">1917</option>
-                    <option value="1918">1918</option>
-                    <option value="1919">1919</option>
-                    <option value="1920">1920</option>
-                    <option value="1921">1921</option>
-                    <option value="1922">1922</option>
-                    <option value="1923">1923</option>
-                    <option value="1924">1924</option>
-                    <option value="1925">1925</option>
-                    <option value="1926">1926</option>
-                    <option value="1927">1927</option>
-                    <option value="1928">1928</option>
-                    <option value="1929">1929</option>
-                    <option value="1930">1930</option>
-                    <option value="1931">1931</option>
-                    <option value="1932">1932</option>
-                    <option value="1933">1933</option>
-                    <option value="1934">1934</option>
-                    <option value="1935">1935</option>
-                    <option value="1936">1936</option>
-                    <option value="1937">1937</option>
-                    <option value="1938">1938</option>
-                    <option value="1939">1939</option>
-                    <option value="1940">1940</option>
-                    <option value="1941">1941</option>
-                    <option value="1942">1942</option>
-                    <option value="1943">1943</option>
-                    <option value="1944">1944</option>
-                    <option value="1945">1945</option>
-                    <option value="1946">1946</option>
-                    <option value="1947">1947</option>
-                    <option value="1948">1948</option>
-                    <option value="1949">1949</option>
-                    <option value="1950">1950</option>
-                    <option value="1951">1951</option>
-                    <option value="1952">1952</option>
-                    <option value="1953">1953</option>
-                    <option value="1954">1954</option>
-                    <option value="1955">1955</option>
-                    <option value="1956">1956</option>
-                    <option value="1957">1957</option>
-                    <option value="1958">1958</option>
-                    <option value="1959">1959</option>
-                    <option value="1960">1960</option>
-                    <option value="1961">1961</option>
-                    <option value="1962">1962</option>
-                    <option value="1963">1963</option>
-                    <option value="1964">1964</option>
-                    <option value="1965">1965</option>
-                    <option value="1966">1966</option>
-                    <option value="1967">1967</option>
-                    <option value="1968">1968</option>
-                    <option value="1969">1969</option>
-                    <option value="1970">1970</option>
-                    <option value="1971">1971</option>
-                    <option value="1972">1972</option>
-                    <option value="1973">1973</option>
-                    <option value="1974">1974</option>
-                    <option value="1975">1975</option>
-                    <option value="1976">1976</option>
-                    <option value="1977">1977</option>
-                    <option value="1978">1978</option>
-                    <option value="1979">1979</option>
-                    <option value="1980">1980</option>
-                    <option value="1981">1981</option>
-                    <option value="1982">1982</option>
-                    <option value="1983">1983</option>
-                    <option value="1984">1984</option>
-                    <option value="1985">1985</option>
-                    <option value="1986">1986</option>
-                    <option value="1987">1987</option>
-                    <option value="1988">1988</option>
-                    <option value="1989">1989</option>
-                    <option value="1990" selected="selected">1990</option>
-                    <option value="1991">1991</option>
-                    <option value="1992">1992</option>
-                    <option value="1993">1993</option>
-                    <option value="1994">1994</option>
-                    <option value="1995">1995</option>
-                    <option value="1996">1996</option>
-                    <option value="1997">1997</option>
-                    <option value="1998">1998</option>
-                    <option value="1999">1999</option>
-                    <option value="2000">2000</option>
-                    <option value="2001">2001</option>
-                    <option value="2002">2002</option>
-                    <option value="2003">2003</option>
-                    <option value="2004">2004</option>
-                    <option value="2005">2005</option>
-                    <option value="2006">2006</option>
-                    <option value="2007">2007</option>
-                    <option value="2008">2008</option>
-                    <option value="2009">2009</option>
-                    <option value="2010">2010</option>
-                    <option value="2011">2011</option>
-                    <option value="2012">2012</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option></select>
-                  <a href="" class="spin-down">
-                    <i aria-hidden="true" class="zmdi zmdi zmdi-caret-down"></i></a>
-                </div>
-                <div class="selectbox">
-                  <select title="생년월일" class="form-control" id="birth_m" name="birth_m">
-                    <option value="">월</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9" selected="selected">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </select>
-                  <a href="" class="spin-down">
-                    <i aria-hidden="true" class="zmdi zmdi zmdi-caret-down"></i></a>
-                </div>
-                <div class="selectbox">
-                  <select title="생년월일" class="form-control" id="birth_d" name="birth_d">
-                    <option value="">일</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14" selected="selected">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                  </select>
-                      <a href="" class="spin-down">
-                        <i aria-hidden="true" class="zmdi zmdi zmdi-caret-down"></i></a>
-                </div>
-              </div>
-              <div class="alert-block _msg"></div>
-            </div>
-            <div class="alert-block _msg">만 14세 미만 회원은 가입이 불가합니다.</div>
-          </div>
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_16122">이름(실명)<i aria-hidden="true" class="icon-required"></i></label>
-            <input type="hidden" name="join_form[]" value="16122">
-            <div class="input_form _item _16122">
-              <input type="text" id="join_16122" name="join_form_16122" placeholder="리워드 상품 택배 발송시 활용" value="김형원" required="required">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
-          <div class="input_block form-group">
-            <label class="mini-tit" for="join_16089">인스타그램 아이디 </label>
-            <input type="hidden" name="join_form[]" value="16089">
-            <div class="input_form _item _16089">
-              <input type="text" id="join_16089" name="join_form_16089" placeholder="SNS 이벤트 참여시 상품 증정용" value="">
-              <i aria-hidden="true" class="zmdi zmdi-check"></i>
-              <div class="alert-block _msg"></div>
-            </div>
-          </div>
+                        <div class="input_block form-group">
+                          <label class="mini-tit" for="join_callnum">핸드폰 번호<i aria-hidden="true" class="icon-required"></i></label>
+                          <div class="input_form _item _callnum">
+                            <input type="text" id="join_callnum" name="phone" placeholder="010-0000-0000" th:value="${u.phone}">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                        </div>
+                        <div class="input_block form-group">
+                          <label class="mini-tit" for="address_kakao">주소<i aria-hidden="true" class="icon-required"></i></label>
+                          <div class="input_form _item _callnum">
+                            <input type="text" id="address_kakao" name="address1" th:value="${u.address1}" readonly placeholder="주소"/>
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                          <div class="input_form _item _callnum">
+                            <input type="text" id="address2" name="address2" th:value="${u.address2}" placeholder="상세주소"/>
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                          <input type="hidden" name="zipcode" id="zipcode">
+                        </div>
 
-          <div class="input_block form-group _item _marketing">
-            <label class="mini-tit" for="join_birth">이벤트/혜택 소식 수신 여부</label>
 
-            <div class="float-block">
-              <div class="check">
-                <div class="checkbox checkbox-styled">
-                  <label class="form-label">
-                    <input type="checkbox" name="marketing_sms_agree" value="ok" checked="">
-                    <span>SMS 수신 동의</span>
-                  </label>
-                </div>
-              </div>
-              <div class="check">
-                <div class="checkbox checkbox-styled">
-                  <label class="form-label">
-                    <input type="checkbox" name="marketing_email_agree" value="ok" checked="">
-                    <span>E-Mail 수신 동의</span>
-                  </label>
+
+                        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                        <script>
+                          window.onload = function(){
+                            document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+                              //카카오 지도 발생
+                              new daum.Postcode({
+                                oncomplete: function(data) { //선택시 입력값 세팅
+                                  document.getElementById("zipcode").value=data.zonecode;
+                                  document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                                  document.querySelector("input[name=address2]").focus(); //상세입력 포커싱
+                                }
+                              }).open();
+                            });
+                          }
+                        </script>
+
+                        <div class="input_block form-group">
+                          <label class="mini-tit" for="join_16122">이름(실명)<i aria-hidden="true" class="icon-required"></i></label>
+                          <div class="input_form _item _16122">
+                            <input type="text" id="join_16122" name="username" th:value="${u.username}">
+                            <i aria-hidden="true" class="zmdi zmdi-check"></i>
+                            <div class="alert-block _msg"></div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-brand w100p h45 _join_btn" id="umodifybtn">수정하기</button>
+                      </form>
+                    </div>
+                  </h4>
                 </div>
               </div>
             </div>
           </div>
-          <div class="input_block form-group no-margin">
-            <p class="txt_c no-margin">
-              <button class="btn btn-brand w100p h45 _join_btn" style="">확인</button></p>
-          </div>
-        </div>
-      </form>
-
-              <script>
-                var NOT_APP_PAGE = 'Y';
-                $(function(){
-                  $('#fileupload_profile_img2').setUploadImage({
-                    url : '/ajax/upload_profile_image.cm',
-                    formData : {temp : 'Y', target : 'member'}
-                  }, function(res, data){
-                    $.each(data, function(e, tmp){
-                      if(tmp.url != ''){
-                        $('#profile_img2').css({
-                          'background':'url('+CDN_UPLOAD_URL + tmp.url+') 50% 50% / cover no-repeat'
-                        });
-                        $('#photo_tmp_idx2').val(tmp.tmp_idx);
-                      }else{
-                        alert(tmp.error);
-                      }
-                    })
-
-                  });
-                  $(document).on('drop dragover', function(e){
-                    e.preventDefault();
-                  });
-                  $('#join_form').show();
-                  SITE_MEMBER.initJoinForm('KR');
-                });
-
-                TOKEN.makeToken(3600,"join_popup",function(token,token_key){
-
-                  $("#join_token").find("input[name='join_token']").val(token);
-                  $("#join_token").find("input[name='join_token_key']").val(token_key);
-                });
-              </script>
-
-              <script src="/admin/js/toastr.js"></script>
-              <script type="text/javascript">
-                function createRecommendCode(obj){
-                  SITE_MEMBER.createRecommendCode(function(recommend_code){
-                    $('._recommend_code_wrap').html(recommend_code);
-                    $('._recommend_tmp_input').val(recommend_code);
-                    $('._recommend_set').removeClass('hide');
-                    obj.addClass('hide');
-                  });
-                }
-
-                /* 테스트QA 앱에서 toast 가 작동하지 않아 alert로 처리함 https://imweb.atlassian.net/browse/IE-189 */
-                if (TEST_SERVER){
-                  $('._referrer_code_copy').off('click').on('click', function(){
-                    $('._recommend_tmp_input').select();
-                    document.execCommand("Copy");
-                    alert('추천인 코드가 복사되었습니다!');
-                  });
-                }else{
-                  $(document).ready(function(){
-                    toastr.options = {
-                      "closeButton" : false,
-                      "debug" : false,
-                      "newestOnTop" : false,
-                      "progressBar" : false,
-                      "positionClass" : "on-modal",
-                      "preventDuplicates" : false,
-                      "onclick" : null,
-                      "showDuration" : "300",
-                      "hideDuration" : "1000",
-                      "timeOut" : "5000",
-                      "extendedTimeOut" : "1000",
-                      "showEasing" : "swing",
-                      "hideEasing" : "linear",
-                      "showMethod" : "fadeIn",
-                      "hideMethod" : "fadeOut"
-                    };
-                    $('._referrer_code_copy').off('click').on('click', function(){
-                      $('._recommend_tmp_input').select();
-                      document.execCommand("Copy");
-
-                      toastr.info('추천인 코드가 복사되었습니다!');
-                    });
-                  });
-                }
-              </script>
-
-              <script>
-                function reAuth(){
-                  $(".auth_completed").hide();
-                  $(".reauth_auth_btn").show();
-                }
-              </script>
-
-              <script>
-                //14세미만 가입옵션 검증
-                function checkLimitJoin(is_adult, before_target){
-                  var limit_join_type = '1' == '1';
-                  if(limit_join_type){//14세미만 가입제한 옵션 사용시
-                    if(before_target == 'auth'){
-                      if(is_adult){//인증에서 접근시
-                        $("#auth_success_wrap").show();
-                        $("#auth_fail_wrap").hide();
-                        $('#prevention_screen').hide();
-                        $("#limit_join_agree").val("Y");
-                      }else{
-                        $("#auth_success_wrap").hide();
-                        $("#auth_fail_wrap").show();
-                        $("#limit_join_agree").val("N");
-                      }
-                    }
-                  }
-                }
-                checkLimitJoin(false,'join');
-                var $limit_join_agree = $("#limit_join_agree");
-
-                $("._birth select").off("change._birth").on("change._birth",function(){
-                  var year = $("#birth_y").val();
-                  var month = $("#birth_m").val() - 1;
-                  var day = $("#birth_d").val();
-
-                  if(year > 0 && month > 0 && day > 0){
-                    const birthDate = new Date(year, month, day);
-                    var age = getWesternAge(birthDate);
-
-                    var $limit_join_message = $("._birth");
-                    if(age >= 14){
-                      $limit_join_agree.val('Y');
-                      $limit_join_message.removeClass('triangle');
-                    }else{
-                      $limit_join_agree.val('N');
-                      $limit_join_message.addClass('triangle');
-                    }
-                  }
-                });
-              </script>
-          </article>
         </div>
       </div>
-    </div>
     </div>
   </div>
+  </div>
 
-</body>
-<script src="/assets/js/mypage.js" charset="utf-8"></script>
+  </div>
+  </div>
+  <script src="/assets/js/mypage.js" charset="utf-8"></script>
 </th:block>
-</html>
 
-<!--<div class="modal-dialog ui-draggable">-->
-<!--  <div class="modal-content">-->
+</html>

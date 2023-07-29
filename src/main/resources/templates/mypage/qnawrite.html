@@ -1,180 +1,68 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
+        <th:block layout:fragment="content">
+            <div id="main">
+                    <script src="https://www.google.com/recaptcha/api.js"></script>
+                    <div class="mt-5">
+                        <i class="fa-solid fa-person-chalkboard fa-2xl"> 게시판</i>
+                        <hr>
+                    </div>
 
-<th:block layout:fragment="content">
-    <div id="main">
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <div class="mt-5">
-            <i class="fa-solid fa-person-chalkboard fa-2xl"> 게시판</i>
-            <hr>
-        </div>
-
-        <div class="row mb-3 mt-5">
-            <div class="row offset-1 col-5">
-                <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>
-            </div>
-            <div class="col-5 text-end">
-                <button type="button" class="btn btn-light col-3" id="lstbdbtn">
-                    <i class="fa fa-list"></i> 목록으로</button>
-            </div><!--버튼들-->
-
-            <div class="row offset-1 col-10 mb-5">
-                <form name="qnafrm" id="qnafrm"
-                      class="card card-body bg-light">
-                    <div class="row mt-3">
-                        <label for="title" class="col-3 col-form-label text-danger text-end" placeholder="제목">제목</label>
-                        <div class="col-3">
-                            <input type="text" name="title" id="title"
-                                   class="form-control border-danger">
+                    <div class="row mb-3 mt-5">
+                        <div class="row offset-1 col-5">
+                            <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>
                         </div>
-                    </div> <!--제목-->
-                    <div class="row mt-3">
-                        <label for="title"
-                               class="col-3 col-form-label text-danger text-end">작성자</label>
-                        <div class="col-3">
-                            <input type="hidden" name="u_id" id="u_id"
-                                   class="form-control border-danger bg-light"
-                                   readonly th:value="${session.user.u_id}">
-                        </div>
-                    </div> <!--작성자-->
 
-                    <div class="row mt-3">
-                        <label for="contents"
-                               class="col-3 col-form-label text-danger text-end">본문</label>
-                        <div class="col-3">
-                        <textarea rows="15" name="contents" id="contents"
-                                  class="form-control border-danger"></textarea>
-                        </div>
-                    </div><!--본문-->
+                        <div class="row offset-1 col-10 mb-5">
+                            <form name="qnafrm" id="qnafrm"
+                                  class="card card-body bg-light">
+                                <div class="row mt-3">
+                                    <label for="title" class="col-3 col-form-label text-danger text-end" placeholder="제목">제목</label>
+                                    <div class="col-3">
+                                        <input type="text" name="title" id="title"
+                                               class="form-control border-danger">
+                                    </div>
+                                </div> <!--제목-->
+                                <div class="row mt-3">
+                                    <label for="title"
+                                           class="col-3 col-form-label text-danger text-end">작성자</label>
+                                    <div class="col-3">
+                                        <input type="hidden" name="u_id" id="u_id"
+                                               class="form-control border-danger bg-light"
+                                               readonly th:value="${session.user.u_id}">
+                                    </div>
+                                </div> <!--작성자-->
 
-<!--                    <div class="row mt-3">-->
-<!--                        <label for="g-recaptcha"-->
-<!--                               class="col-3 col-form-label text-danger text-end">자동쓰기방지</label>-->
-<!--                        <div class="col-6">-->
-<!--                            <div class="g-recaptcha"-->
-<!--                                 data-sitekey="6LdmIwgbAAAAAPO06Cyw44ZE0pkeDeMHEwVbgiM-"></div>-->
-<!--                            <input type="hidden" name="grecaptcha" id="g-recaptcha">-->
-<!--                        </div>-->
-<!--                    </div> &lt;!&ndash;captcha&ndash;&gt;-->
+                                <div class="row mt-3">
+                                    <label for="contents"
+                                           class="col-3 col-form-label text-danger text-end">본문</label>
+                                    <div class="col-3">
+                                    <textarea rows="15" name="contents" id="contents"
+                                              class="form-control border-danger"></textarea>
+                                    </div>
+                                </div><!--본문-->
+                                <div class="row mt-4 mb-3">
+                                    <hr class="w-75 mx-auto">
+                                    <div class="text-center">
 
-                    <div class="row mt-4 mb-3">
-                        <hr class="w-75 mx-auto">
-                        <div class="text-center">
+                                        <button type="button" id="wrtbdbtn" class="btn btn-primary">
+                                            <i class="fa-regular fa-circle-check"></i> 입력완료</button>
+                                        <button type="button" id="cancelbtn" class="btn btn-danger">
+                                            <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
 
-                            <button type="button" id="wrtbdbtn" class="btn btn-primary">
-                                <i class="fa-regular fa-circle-check"></i> 입력완료</button>
-                            <button type="button" id="cancelbtn" class="btn btn-danger">
-                                <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
-                        </div>
-                    </div> <!--버튼들-->
-
-                    <input type="hidden" name="ipaddr" id="ipaddr"
-                           th:value="${#request.getRemoteAddr()}">
-
-
-                </form>
-            </div><!--새글 쓰기 폼-->
-
-        </div>
-
-    </div>
-    <script src="/assets/js/mypage.js" charset="utf-8"></script>
-</th:block>
-</html>
-
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"-->
-<!--      layout:decorate="~{layout/template}">-->
-
-<!--    <head>-->
-<!--        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"-->
-<!--                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-<!--        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">-->
-<!--        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>-->
-<!--        <meta charset="UTF-8">-->
-<!--        &lt;!&ndash; include libraries(jQuery, bootstrap)-->
-<!--        <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">-->
-<!--        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
-<!--        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>&ndash;&gt;-->
-
-<!--        &lt;!&ndash; include summernote css/js-->
-<!--        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">-->
-<!--        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>&ndash;&gt;-->
-<!--        <title>Title</title>-->
-<!--    </head>-->
-
-<!--        <body>-->
-<!--        <th:block layout:fragment="content">-->
-<!--            <div class="write-header _write_header m_sticky_toolbar">-->
-<!--                <div class="header_line clearfix">-->
-<!--                    <div class="board-name">Q&amp;A</div>-->
-<!--                        <div class="write-btn">-->
-<!--                            <a href="/mypage/order" class="btn btn_style">취소</a>-->
-<!--                            <a href="javascript:SITE_SHOP_QNA.qnaCancel();" class="icon_style"><i aria-hidden="true" class="btl bt-angle-left"></i></a>-->
-<!--                            <button type="button" class="_save_post save_post btn" id="qnawrt">작성</button>-->
-<!--                        </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="board_summary">-->
-<!--                <div class="left">-->
-<!--                    <div class="text-primary" style="padding-left: 50px">-->
-<!--                    </div>-->
-<!--                    <div class="avatar ">-->
-<!--                        <img src="/img/default_user.png" class="avatar-image">-->
-<!--                    </div>-->
-<!--                    <div class="author">-->
-<!--                        <div class="write">bug</div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="write-icon">-->
-<!--                    <div class="icon" type="button">-->
-<!--                        <a data-toggle="tooltip" data-placement="top" class="icon _secret_btn" style="margin-left: 20px;" data-original-title="비밀글">-->
-<!--                            <i aria-hidden="true" class="icon-lock-open bt-font"></i>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <form id="qna_form" method="post" target="hidden_frame">-->
-<!--            <input title="제목" id="qna_subject" name="title" class="no-margin basic_input title_name w100p mb24" type="text" placeholder="제목">-->
-
-<!--            <div id="summernote"></div>-->
-
-<!--            <script>-->
-<!--                $('#summernote').summernote({-->
-<!--                    placeholder: '내용을 입력해 주세요.',-->
-<!--                    tabsize: 1,-->
-<!--                    height: 120,-->
-<!--                    toolbar: [-->
-<!--                        ['style', ['style']],-->
-<!--                        ['font', ['bold', 'underline', 'clear']],-->
-<!--                        ['color', ['color']],-->
-<!--                        ['para', ['ul', 'ol', 'paragraph']],-->
-<!--                        ['table', ['table']],-->
-<!--                        ['insert', ['link', 'picture', 'video']],-->
-<!--                        ['view', ['fullscreen', 'codeview', 'help']]-->
-<!--                    ]-->
-<!--                });-->
-<!--                </script>-->
-
-<!--                    <div class="post_write_wrap">-->
-<!--                        <input type="hidden" name="back_url" value="L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D">-->
-<!--                        <input type="hidden" name="prod_code" value="">-->
-<!--                        <input type="hidden" class="_secret" name="secret" value="">-->
-<!--                        <input type="hidden" name="idx" value="0">-->
-<!--                        <input type="hidden" name="body" id="body_input" value="">-->
-<!--                        <input type="hidden" name="is_book" value="Y">-->
-<!--                        <div class="_token_obj" data-type="shop_add_qna">-->
-<!--                            <input type="hidden" name="qna_token" class="_tk_obj" value="J5pA3ujcsDGPsIvlHzTpfTxbhwoNR9crdmQXbPyBQFIsaVABX2H0NNK4vtc/LdzOjxBb+1k7GnML7gmLmsdypUyUAWGRrQXd4R7h9BeBKCyyxYk77OBJkIeAfRfaHoC3">-->
-<!--                            <input type="hidden" name="qna_token_key" class="_tk_key_obj" value="6468">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </th:block>-->
-<!--    </body>-->
-<!--</html>-->
+                                            <button type="button" class="btn btn-light col-3" id="lstbdbtn">
+                                                <a th:href="|/mypage/qna/${session.user.u_id}|">
+                                                    <i class="fa fa-list"></i> 목록으로</a></button>
+                                        </div><!--버튼들-->
+                                    </div>
+                                </form>
+                            </div> <!--버튼들-->
+                          <input type="hidden" name="ipaddr" id="ipaddr" th:value="${#request.getRemoteAddr()}">
+                        </form>
+                    </div><!--새글 쓰기 폼-->
+                 </div>
+             </div>
+         <script src="/assets/js/mypage.js" charset="utf-8"></script>
+    </th:block>
+ </html>
