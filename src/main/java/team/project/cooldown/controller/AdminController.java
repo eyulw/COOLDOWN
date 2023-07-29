@@ -67,7 +67,7 @@ public class AdminController {
     @GetMapping("/boardDelete/{board_id}")
     public String boardDelete(@PathVariable String board_id){
         logger.info("admin/boardDelete 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         if(bsrv.removeOneBoard(board_id))
             returnPage="redirect:/admin/board/1";
         return returnPage;
@@ -98,7 +98,7 @@ public class AdminController {
     @PostMapping("/item/make")
     public String makeitemok(Item i, MultipartFile attach){
         logger.info("admin/item/makeitemok 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         int itemId=isrv.newItem(i);
         if(!attach.isEmpty()){
             isrv.newItemAttach(attach,itemId);
@@ -118,7 +118,7 @@ public class AdminController {
     @PostMapping("/item/modify/{item_id}") /*이미지 수정 x , 내용만 수정*/
     public String modifyitem(Item i,@PathVariable String item_id){
         logger.info("admin/item/modify 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         i.setItem_id(item_id);
         if(isrv.modifyOneItem(i))
             returnPage="redirect:/admin/item";
@@ -127,7 +127,7 @@ public class AdminController {
     @PostMapping("/item/modifyI/{item_id}") /*이미지 수정 o */
     public String modifyIitem(Item i,@PathVariable String item_id,MultipartFile attach){
         logger.info("admin/item/modifyI 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         i.setItem_id(item_id);
         if(!attach.isEmpty()){
             isrv.modifyIOneItem(i,attach);
@@ -139,7 +139,7 @@ public class AdminController {
     @GetMapping("/itemDelete/{item_id}")
     public String itemDelete(@PathVariable String item_id){
         logger.info("admin/itemDelete 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         if(isrv.removeItem(item_id))
             returnPage="redirect:/admin/item";
         return returnPage;
@@ -181,7 +181,7 @@ public class AdminController {
     @PostMapping("/qna/{qid}")
     public String qnareplyok(@PathVariable String qid,String answer){
         logger.info("admin/qnareplyok 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         if(a_qsrv.updateAdminReply(qid,answer))
             returnPage="redirect:/admin/qna/list/1";
         /*qid 글에 관리자 답변 넣어서 update*/
@@ -198,7 +198,7 @@ public class AdminController {
     @PostMapping("/itemqna/{itemqna_id}")
     public String itemqnareplyok(@PathVariable String itemqna_id,String answer){
         logger.info("admin/itemqnareplyok 호출");
-        String returnPage="redirect:/admin/fail";
+        String returnPage="redirect:/fail";
         if(a_qsrv.updateAdminIReply(itemqna_id,answer))
             returnPage="redirect:/admin/itemqna";
         /*itemqna_id 글에 관리자 답변 넣어서 update*/

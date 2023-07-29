@@ -20,6 +20,7 @@
         <result column="contents" property="contents" />
         <result column="likes" property="likes" />
         <result column="regdate" property="regdate" />
+        <result column="cmtcn" property="cmtcn" />
 
         <collection property="ba" resultMap="ba" />
         <collection property="nick" resultMap="nick" />

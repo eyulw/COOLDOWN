@@ -12,9 +12,11 @@
     <select id="selectUserRole" resultType="User">
         select * from user where role=#{role}
     </select>
+
     <select id="selectOneUser" resultType="User">
         select u_id, userid, nickname from user where userid=#{userid} and password=#{password}
     </select>
+
     <insert id="insertUser" parameterType="User">
         insert into user(userid,password,email,nickname,phone,zipcode,address1,address2,birth,username)
         values (#{userid},#{password},#{email},#{nickname},#{phone},#{zipcode},#{address1},#{address2},#{birth},#{username});
@@ -31,6 +33,24 @@
 
     <select id="getCountRUPages">
         select ceil(count(u_id)/15) from user where role=#{role}
+    </select>
+
+    <delete id="deleteOneUser" parameterType="User">
+        delete from user where u_id=#{u_id}
+    </delete>
+
+    <select id="selectMyInfo" resultType="User">
+        select * from user where u_id=#{u_id}
+    </select>
+
+    <update id="updateMyInfo" parameterType="User">
+        update user set password=#{password}, email=#{email}, nickname=#{nickname}, phone=#{phone},
+        zipcode=#{zipcode}, address1=#{address1}, address2=#{address2}, username=#{username}
+        where u_id=#{u_id}
+    </update>
+
+    <select id="selectOneUserid" resultType="Integer">
+        select count(u_id) from user where userid=#{uid}
     </select>
 
 </mapper>
