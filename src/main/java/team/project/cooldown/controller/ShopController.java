@@ -21,7 +21,10 @@ import team.project.cooldown.service.likes.LikesService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -264,7 +267,8 @@ public String shop_payment_data(Model m,
                                 @RequestParam("price") String price,
                                 @RequestParam("count") String count,
                                 @RequestParam("src") String src,
-                                @RequestParam("itemname") String itemname) {
+                                @RequestParam("itemname") String itemname,
+                                @RequestParam("cart_total_data") String cart_total_data){
 
     String[] cartId_a = cartId.split(",");
     String[] price_a = price.split(",");
@@ -276,14 +280,60 @@ public String shop_payment_data(Model m,
     m.addAttribute("count",count_a);
     m.addAttribute("src",src_a);
     m.addAttribute("itemname",itemname_a);
+    m.addAttribute("cart_total_data",cart_total_data);
     m.addAttribute("buyer_info",isrv.buyer_info((String)sess.getAttribute("u_id")));
-    System.out.println(isrv.buyer_info((String)sess.getAttribute("u_id")));
+    System.out.println(cart_total_data);
     System.out.println(price);
 
 
 
     return "shop/shop_payment";
 }
+
+    @RequestMapping("/shop_payment_k")
+    @ResponseBody
+    public String shop_payment_k() {
+        try {
+            URL kakao = new URL("https://kapi.kakao.com/v1/payment/ready");
+            HttpURLConnection kakaoserver = (HttpURLConnection) kakao.openConnection();  //서버연결
+            kakaoserver.setRequestMethod("POST");
+            kakaoserver.setRequestProperty("Authorization","89b117c49089f21b3d82efbff89d3e6a");
+            kakaoserver.setRequestProperty("Content-type","application/x-www-form-urlencoded;charset=utf-8");
+            kakaoserver.setDoOutput(true);//output - 서버에다 전달할정보가 있을시
+            String prameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=choco&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8080/shop_payment_k&fail_url=http://localhost:8080/&cancel_url=http://localhost:8080/1";
+            OutputStream kakaoOutput = kakaoserver.getOutputStream();
+            DataOutputStream kakaoOutputStream = new DataOutputStream(kakaoOutput);//바이트형식으로만가능
+            kakaoOutputStream.writeBytes(prameter);
+            kakaoOutputStream.close();//자기는비워지고 넘겨짐
+
+            int resultkakao = kakaoserver.getResponseCode();
+
+            InputStream kakaoInput;//서버에서 정보받음
+            if(resultkakao == 200){//구글에서 200일때만 성공 항상
+                kakaoInput = kakaoserver.getInputStream();
+            }else {
+                kakaoInput = kakaoserver.getErrorStream();
+            }
+            InputStreamReader reader = new InputStreamReader(kakaoInput);
+            BufferedReader bufferedReader = new BufferedReader(reader); //형변환
+
+            return bufferedReader.readLine();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    @PostMapping("/shop_payment_complete")
+    @ResponseBody
+    public String shop_payment_complete() {
+
+
+    return "shop/shop_payment_complete";
+
+    }
 
 
 
