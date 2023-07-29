@@ -7,7 +7,9 @@ public interface UserService {
 
     User readOneUser(User u);
 
-    User readMyInfo(String u_id);
+    boolean removeOneUser(User u);
+
+    User readMyinfo(String u_id);
 
     boolean modifyMyInfo(User u);
 

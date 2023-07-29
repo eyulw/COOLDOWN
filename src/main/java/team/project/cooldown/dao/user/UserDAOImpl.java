@@ -9,6 +9,7 @@ import team.project.cooldown.mybatis.UserMapper;
 @RequiredArgsConstructor
 public class UserDAOImpl implements UserDAO {
     final UserMapper userMapper;
+
     @Override
     public int insertUser(User u) {
         return userMapper.insertUser(u);
@@ -21,9 +22,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User selectMyInfo(String u_id) {
-        return userMapper.selectMyInfo(u_id);
+    public int deleteOneuser(User u) {
+        return userMapper.deleteOneUser(u);
     }
+
 
     @Override
     public int updateMyInfo(User u) {
@@ -31,19 +33,14 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User selectMyInfo(String u_id) {
+        return userMapper.selectMyInfo(u_id);
+    }
+
+
+    @Override
     public int selectOneUserid(String uid) {
         return userMapper.selectOneUserid(uid);
     }
-//
-//    회원 탈퇴
-//    @Override
-//    public void memberDelete(User u) throws Exception {
-//        // MemberVO에 담긴 값들을 보내줍니다.
-//        // 그럼 xml에서 memberMapper.memberDelete에 보시면
-//        //  #{userId}, #{userPass}에 파라미터값이 매칭이 되겠지요.
-//        user.delete("userMapper.userDelete", u);
-//
-//    }
 }
-
 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
+<th:block layout:fragment="content">
+    <div class="shop-content mypage">
+        <div class="container-fluid">
+            <div class="row show-grid">
+                <div class="left-menu hidden-lg hidden-md">
+                    <ul id="cart_menu">
+                        <div class="clearfix cart-menu-slide">
+                            <li class="active">
+                                <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>
+                            </li>
+                            <li class=" ">
+                                <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a>
+                            </li>
+                            <li class=" ">
+                                <a href="" class="body_font_color_50"><span>장바구니</span></a>
+                            </li>
+                            <li class=" ">
+                                <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>
+                            </li>
+                            <li class="">
+                                <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1문의</span></a>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
+                    <ul>
+                        <li class="on">
+                            <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span
+                                    class="hidden-xs">조회</span></a>
+                        </li>
+                        <li class="">
+                            <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span
+                                    class="hidden-xs">리스트</span></a>
+                        </li>
+                        <li class="">
+                            <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>
+                        </li>
+                        <li class="">
+                            <a href="" class="text-gray-dark _fade_link">장바구니</a>
+                        </li>
+                        <li class="">
+                            <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
+                        <li class="">
+                            <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+                        <li class="">
+                            <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-sm-12">
+                    <div class="head bg-bright">
+                        <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
+                            <div class="text-15 use_grade">
+                                <div class="ug_text"></div>
+                                <div class="table-wrap deleteacct">
+                                    <h4 class="hidden-sm hidden-xs text-default-dark">
+                                        <span style="font-size: 24px">회원 탈퇴</span>
+                                        <form name="dlufrm">
+                                            <div class="row  mb-3">
+                                                <label class="col-4 form-label text-end" for="passwd">비밀번호</label>
+                                                <div class="col-5">
+                                                    <input type="password" id="passwd" name="password"
+                                                           class="form-control border-danger">
+                                                </div>
+                                                <li class="inline-blocked login_btn_item ">
+                                                    <input type="hidden" name="userid" th:value="${session.user.userid}">
+                                                    <button type="button" class="btn btn-brand " id="deleteacctbtn" style="background: none;">
+                                                        <span class="text fixed_transform ">회원탈퇴</span></button></li>
+                                            </div><!--passwd-->
+                                        </form>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="/assets/js/mypage.js" charset="utf-8"></script>
+</th:block>
+
+</html>

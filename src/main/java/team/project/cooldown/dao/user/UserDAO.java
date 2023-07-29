@@ -7,6 +7,7 @@ public interface UserDAO {
 
     User selectOneUser(User u);
 
+    int deleteOneuser(User u);
 
     User selectMyInfo(String u_id);
 
