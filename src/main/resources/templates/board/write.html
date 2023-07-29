@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="author">
                                         <div th:text="${session.user.nickname}" class="write" style="font-size: 18px">nickname</div><!--닉네임 불러와서 보여주기-->
-                                        <input type="hidden" name="u_id" id="u_id" th:value="${(isLogined) ? session.user.u_id : '로그인이 되어있지 않습니다.'}">
+                                        <input type="hidden" name="u_id" id="u_id" th:value="${session.user.u_id}">
                                     </div>
                                 </div>
                             </div><!--프로필이미지, 닉네임-->

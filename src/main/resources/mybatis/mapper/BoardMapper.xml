@@ -65,17 +65,15 @@
         select ceil(count(board_id) / 5) cntpg from board
     </select>
 
-    <select id="selectFindBoard" parameterType="map" resultMap="bba">
-        select * from boardcombine where category = #{findkey}
-    </select>
-
-    <select id="selectFindcBoard" resultMap="bba">
+    <select id="selectFindcBoard" parameterType="map" resultMap="bba">
         select * from boardcombine where category = #{category}
+        order by board_id desc
+        limit #{stnum}, 5
     </select>
 
     <select id="countFindBoard" parameterType="map">
         select ceil(count(board_id) / 5) cntpg from board
-        where category = #{findkey}
+        where category = #{category}
     </select>
 
     <resultMap id="bc" type="BoardComments">
@@ -136,5 +134,22 @@
     <select id="getCountBoard">
         select count(board_id) from board;
     </select>
+
+    <update id="updateboard" parameterType="Board">
+        update board set
+        category=#{category}, title=#{title}, contents=#{contents}
+        where board_id=#{board_id}
+    </update>
+    <update id="updateBoardAttach" parameterType="BoardAttach">
+        update boardattach set fname=#{fname}, fsize=#{fsize}
+            where board_id=#{board_id}
+    </update>
+    <select id="selectModifyBoard" resultMap="bba">
+        select * from boardcombine where board_id=#{board_id}
+    </select>
+    <delete id="removeOneBoard">
+        delete from board where board_id=#{board_id}
+    </delete>
+
 
 </mapper>

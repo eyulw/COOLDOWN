@@ -21,6 +21,10 @@ public interface BoardMapper {
 
     int selectCountBoard();
 
+    List<Board> selectFindcBoard(Map<String, Object> params);
+
+    int countFindBoard(Map<String, Object> params);
+
     int insertBoardAttach(BoardAttach ba);
 
     int lastBoardBoard_id();
@@ -33,13 +37,7 @@ public interface BoardMapper {
 
     int getCountBoard();
 
-    List<Board> selectFindBoard(Map<String, Object> params);
-
-    int countFindBoard(Map<String, Object> params);
-
     int insertnobdattach(int board_id);
-
-    List<Board> selectFindcBoard(String category);
 
     List<BoardComments> selectBoardComment(String board_id);
 
@@ -49,4 +47,11 @@ public interface BoardMapper {
 
     int insertBoardReply(BoardComments bc);
 
+    int updateboard(Board b);
+
+    int updateBoardAttach(BoardAttach ba);
+
+    Board selectModifyBoard(String board_id);
+
+    int removeOneBoard(String board_id);
 }

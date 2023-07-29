@@ -17,6 +17,10 @@ public interface BoardService {
 
     int countBoard();
 
+    List<Board> readFindcBoard(String category, Integer cpg);
+
+    int countFindBoard(String category);
+
     boolean newBoardAttach(List<MultipartFile> attachs, int board_id);
 
     List<Board> readHotTopic();
@@ -27,13 +31,7 @@ public interface BoardService {
 
     int getCountBoard();
 
-    List<Board> readFindBoard(Integer cpg, String fkey);
-
-    int countFindBoard(String fkey);
-
     boolean noBoardAttach(int board_id);
-
-    List<Board> readFindcBoard(String category);
 
     List<BoardComments> readBoardComment(String board_id);
 
@@ -41,5 +39,11 @@ public interface BoardService {
 
     boolean newBoardReply(BoardComments bc);
 
+    boolean modifyboard(Board b);
 
+    boolean modifyboardattach(Board b, List<MultipartFile> attachs);
+
+    Board readModifyBoard(String boardId);
+
+    boolean deleteBoard(String board_id);
 }

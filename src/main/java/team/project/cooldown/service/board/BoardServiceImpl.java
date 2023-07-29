@@ -18,13 +18,6 @@ import java.util.Map;
 public class BoardServiceImpl implements BoardService {
     final BoardDao bdao;
     final BoardUtils boardUtils;
-
-    /*@Override
-    public boolean saveBoard(Board b){
-        boolean isSaved = false;
-        if(bdao.insertBoard(b) > 0) isSaved = true;
-        return isSaved;
-    }*/
     @Override
     public int newBoard(Board b) {
         return bdao.insertBoard(b);
@@ -44,6 +37,21 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public int countBoard() {
         return bdao.selectCountBoard();
+    }
+
+    @Override
+    public List<Board> readFindcBoard(String category, Integer cpg) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("category", category);
+        params.put("stnum", (cpg - 1) * 5);
+        return bdao.selectFindcBoard(params);
+    }
+
+    @Override
+    public int countFindBoard(String category) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("category", category);
+        return bdao.countFindBoard(params);
     }
 
     @Override
@@ -75,28 +83,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> readFindBoard(Integer cpg, String fkey) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("findkey", fkey);
-        params.put("stnum", (cpg - 1) * 25);
-        return bdao.selectFindBoard(params);
-    }
-
-    @Override
-    public int countFindBoard(String fkey) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("findkey", fkey);
-        return bdao.countFindBoard(params);
-    }
-
-    @Override
     public boolean noBoardAttach(int board_id) {
         return bdao.insertnobdattach(board_id) > 0 ? true : false;
-    }
-
-    @Override
-    public List<Board> readFindcBoard(String category) {
-        return bdao.selectFindcBoard(category);
     }
 
     @Override
@@ -114,7 +102,29 @@ public class BoardServiceImpl implements BoardService {
         return (bdao.insertBoardReply(bc) > 0) ? true : false;
     }
 
+    @Override
+    public boolean modifyboard(Board b) {
+        return bdao.updateboard(b) > 0 ? true : false;
+    }
 
+    @Override
+    public boolean modifyboardattach(Board b, List<MultipartFile> attachs) {
+        boolean isUpdated = false;
+        BoardAttach ba = boardUtils.processUpload(attachs);
+        boardUtils.makeThumbnail(ba);
+        ba.setBoard_id(b.getBoard_id()+"");
+        if((bdao.updateboard(b) > 0) && (bdao.updateBoardAttach(ba) > 0)) isUpdated = true;
+        return isUpdated;
+    }
 
+    @Override
+    public Board readModifyBoard(String board_id) {
+        return bdao.selectModifyBoard(board_id);
+    }
+
+    @Override
+    public boolean deleteBoard(String board_id) {
+        return (bdao.removeOneBoard(board_id) > 0) ? true : false;
+    }
 
 }
