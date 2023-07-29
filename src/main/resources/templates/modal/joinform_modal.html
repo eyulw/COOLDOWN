@@ -26,19 +26,20 @@
 
                             <div class="input_block form-group">
                                 <div class="input_form _item _uid">
-                                    <input title="아이디" type="text" name="userid" placeholder="아이디" required="required">
+                                    <input title="아이디" type="text" name="userid" id="uid" placeholder="아이디" required="required">
                                     <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                                    <div class="alert-block _msg"></div>
+                                    <div id="uidmsg">
+                                    </div>
                                 </div>
                                 <div class="input_form brt _item _passwd">
-                                    <input title="비밀번호" type="password" name="password" autocomplete="off" placeholder="비밀번호">
+                                    <input title="비밀번호" type="password" name="password" id="pwd" autocomplete="off" placeholder="비밀번호">
                                     <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                                    <div class="alert-block first-letter-uppercase _msg"></div>
+                                    <div></div>
                                 </div>
                                 <div class="input_form brt _item _passwd_confirm">
-                                    <input title="비밀번호 확인" type="password" name="passwd_confirm" autocomplete="off" placeholder="비밀번호 확인">
+                                    <input title="비밀번호 확인" type="password" name="passwd_confirm" id="repasswd" autocomplete="off" placeholder="비밀번호 확인">
                                     <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                                    <div class="alert-block _msg"></div>
+                                    <div id="pwdmsg"></div>
                                 </div>
                             </div>
 
@@ -47,7 +48,7 @@
                                 <div class="input_form _item _email">
                                     <input type="email" id="join_email" name="email" placeholder="이메일" value="" required="required">
                                     <i aria-hidden="true" class="zmdi zmdi-check"></i>
-                                    <div class="alert-block _msg"></div>
+                                    <div id="emsg"></div>
                                 </div>
                             </div>
 
@@ -134,12 +135,13 @@
                                 <label class="mini-tit" for="join_16122">이름(실명)<i aria-hidden="true" class="icon-required"></i></label>
                                 <input type="hidden" name="join_form[]" value="16122">
                                 <div class="input_form _item _16122">
-                                    <input type="text" id="join_16122" name="username" placeholder="리워드 상품 택배 발송시 활용" required="required">
+                                    <input type="text" id="join_16122" name="username" placeholder="이름을 입력하세요" required="required">
                                     <i aria-hidden="true" class="zmdi zmdi-check"></i>
                                     <div class="alert-block _msg"></div>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-brand w100p h45 _join_btn" id="joinokBtn">가입하기</button>
+                            <input type="hidden" name="checkuid" id="checkuid">
                         </form>
                 </div><!--모달 body 끝-->
                 </article>

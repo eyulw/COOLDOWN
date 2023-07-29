@@ -17,12 +17,12 @@
                 <tbody>
                     <tr>
                         <td colspan="2" rowspan="3" style="text-align: center;">
-                            <a th:href="|/board/view/${bd.board_id}|" class="a_img">
+                            <a th:href="|/board/view/${bd.board_id}|" style="display: inline-block; padding: 5px">
                                 <th:block th:if="${#strings.isEmpty(bd.ba.fname)}">
-                                    <img src="/assets/img/logo.png" class="board_thumb" alt="로고" />
+                                    <img src="/assets/img/logo.png" class="board_thumb a_img" alt="로고" />
                                 </th:block>
                                 <th:block th:if="${not #strings.isEmpty(bd.ba.fname)}">
-                                    <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb" style="cursor: pointer" alt="썸네일" />
+                                    <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb a_img" style="cursor: pointer" alt="썸네일" />
                                 </th:block>
                             </a><!--썸네일 이미지-->
                         </td>

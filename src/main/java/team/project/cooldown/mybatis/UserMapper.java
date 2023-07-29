@@ -25,4 +25,6 @@ public interface UserMapper {
     User selectMyInfo(String u_id);
 
     int updateMyInfo(User u);
+
+    int selectOneUserid(String uid);
 }

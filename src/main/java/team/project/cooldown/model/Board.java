@@ -19,4 +19,5 @@ public class Board {
 
     private BoardAttach ba;
     private User nick;
+    private int cmtcn;
 }

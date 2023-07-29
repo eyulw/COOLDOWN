@@ -12,4 +12,6 @@ public interface UserService {
     User readMyinfo(String u_id);
 
     boolean modifyMyInfo(User u);
+
+    int checkuid(String uid);
 }

@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService {
     public boolean modifyMyInfo(User u) {
         return udao.updateMyInfo(u)>0? true: false;
     }
+
+    @Override
+    public int checkuid(String uid) {
+        return udao.selectOneUserid(uid);
+    }
 }

@@ -49,4 +49,8 @@
         where u_id=#{u_id}
     </update>
 
+    <select id="selectOneUserid" resultType="Integer">
+        select count(u_id) from user where userid=#{uid}
+    </select>
+
 </mapper>
