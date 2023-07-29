@@ -49,7 +49,7 @@ as select b.*,ba.bano,ba.fname,ba.fsize from board b join boardattach ba using(b
 create view boardcombine
 as select bba.*, user.nickname from bba join user using(u_id);
 
-select * from boardcombine;
+select * from boardcombine_;
 
 create view itematt
 as select i.*,ia.iano,ia.fname,ia.fsize from item i join itemattach ia using(item_id);
@@ -62,7 +62,7 @@ create view ba
 
 select * from bba;
 
-select * from boardcombine where category = "자유글";
+select * from boardcombine_ where category = "자유글";
 
 insert into boardattach (board_id, fname, fsize)
 values (115,'logo.png',0);
@@ -95,9 +95,9 @@ create view ba
 
 select * from bba;
 
-select * from boardcombine where category = "자유글";
+select * from boardcombine_ where category = "자유글";
 
-select * from boardcombine order by views desc limit 0, 5;
+select * from boardcombine_ order by views desc limit 0, 5;
 
 update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
 
@@ -111,7 +111,7 @@ as select iqua.*, i.itemname from iqua join item i using(item_id);
 insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합니다!!!!!','무늬무늬');
 
 
-select * from boardcombine order by views desc limit 0, 5;
+select * from boardcombine_ order by views desc limit 0, 5;
 
 update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
 
@@ -126,7 +126,7 @@ insert into itemqna (u_id,item_id,title,contents) values (1,1,'상품문의합�
 
 select * from qna join user using(u_id) order by qna_id desc limit 0,15;
 
-select * from boardcombine order by views desc limit 0, 5;
+select * from boardcombine_ order by views desc limit 0, 5;
 
 update item set category='digbus_goods',itemname='테스트',price='6000',info='수정성공',stock='40' where item_id='27';
 
@@ -163,3 +163,19 @@ report      int,
 ref         int             not null,
 primary key (reply_id)
 );
+
+select bba.*, user.nickname from bba join user using(u_id);
+
+
+create view boardcombine
+as select bba.*, user.nickname from bba join user using(u_id);
+
+create view boardcombine
+as
+select bc.*,c.cmtcn from boardcombine_ bc right outer join (select count(reply_id) cmtcn,board_id from boardcomments group by board_id) c on bc.board_id=c.board_id;
+
+select bc.*,c.cmtcn from boardcombine_ bc left outer join (select count(reply_id) cmtcn,board_id from boardcomments group by board_id) c on bc.board_id=c.board_id;
+
+select count(reply_id) cmtcn,board_id from boardcomments group by board_id;
+
+delete from user where u_id=8;

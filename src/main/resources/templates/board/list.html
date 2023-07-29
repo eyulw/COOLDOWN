@@ -87,15 +87,49 @@
                             <div class="_widget_data" data-widget-name="게시판" data-widget-type="board" data-widget-anim="none" data-widget-anim-duration="0.7" data-widget-anim-delay="0" data-widget-parent-is-mobile="N" >
                                 <div class="scroll_position" id="scroll_w2021050704ebf795b2f57"></div>
                                 <div class="widget board _list_wrap m-margin-on">
-                                    <div th:each="bd : ${bds}" class="li_table row_01 type_row container_border" id="post_card_b2021050791e0a8f7e18e4">
-                                        <ul class="subject">
-                                            <li class="lst_num" style="display: ">글번호</li>
-                                            <li class="tit" style="display: ">제목</li>
-                                            <li class="author" style="display: ">글쓴이</li>
-                                            <li class="time" style="display: ">작성시간</li>
-                                            <li class="views" style="display: ">조회</li>
-                                        </ul><!--목차(table head)-->
-                                        <ul class="list m-padding-on">
+                                    <div class="li_table row_01 type_row container_border">
+                                        <table style="width:100%; height: 80px; table-layout: fixed;" th:each="bd:${bds}">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2" rowspan="2" style="text-align: center;">
+                                                        <a th:href="|/board/view/${bd.board_id}|" style="display: inline-block; padding: 5px">
+                                                            <th:block th:if="${#strings.isEmpty(bd.ba.fname)}">
+                                                                <img src="/assets/img/logo.png" class="thumbst" alt="기본" style="cursor: pointer" />
+                                                            </th:block>
+                                                            <th:block th:if="${not #strings.isEmpty(bd.ba.fname)}">
+                                                                <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb thumbst" style="cursor: pointer" alt="썸네일" />
+                                                            </th:block>
+                                                        </a><!--썸네일 이미지-->
+                                                    </td>
+                                                    <td colspan="12">
+                                                        <th:block th:if="${bd.category} eq '자유글'">
+                                                            <span style="margin-right: 10px; color:#00B8FF">[[${bd.category}]]</span>
+                                                        </th:block>
+                                                        <th:block th:if="${bd.category} eq '동행구하기'">
+                                                            <span style="margin-right: 10px; color:#FF635D">[[${bd.category}]]</span>
+                                                        </th:block>
+                                                        <th:block th:if="${bd.category} eq '자기소개'">
+                                                            <span style="margin-right: 10px; color:#F5CE4A">[[${bd.category}]]</span>
+                                                        </th:block>
+                                                        <th:block th:if="${bd.category} eq 'Q&A'">
+                                                            <span style="margin-right: 10px; color:#D189E2">[[${bd.category}]]</span>
+                                                        </th:block>
+                                                        <a th:href="|/board/view/${bd.board_id}|">
+                                                            <span th:text="${bd.title}">title</span>
+                                                        </a>
+                                                    </td>
+                                                    <td rowspan="2"><span class="commenticon"><i class="fa fa-regular fa-comment"></i> [[${bd.cmtcn}]]</span></td>
+                                                </tr>
+                                                <tr style="border-bottom: 1px solid #ccc">
+                                                    <td colspan="12" class="bspanst">
+                                                        <span>[[${bd.nick.nickname}]]</span>
+                                                        <span th:text="${#strings.substring(bd.regdate,0,10)}">작성일자</span>
+                                                        <span>조회수 [[${bd.views}]]</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--<ul class="list m-padding-on">
                                             <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
                                                 <div class="table-cell board_thumb_wrap">
                                                     <a th:href="|/board/view/${bd.board_id}|" class="_fade_link"  style="padding: 0">
@@ -105,20 +139,20 @@
                                                         <th:block th:if="${not #strings.isEmpty(bd.ba.fname)}">
                                                             <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb" style="cursor: pointer" alt="썸네일" />
                                                         </th:block>
-                                                    </a><!--썸네일 이미지-->
+                                                    </a>&lt;!&ndash;썸네일 이미지&ndash;&gt;
                                                     <span class="sr-only">게시판 썸네일</span>
                                                 </div>
                                                 <div class="clearfix table-cell list-group list_text_title">
                                                     <li class="tit" style="padding-right: 50px">
                                                         <a class="title_link _fade_link" th:href="|/board/view/${bd.board_id}|"></a>
-                                                        <!--<em class="sticker notice" style="display: none">공지</em>--><!--이건 왜 있지..-->
-                                                        <em th:text="${bd.category}" id="findtype" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em><!--카테고리-->
-                                                        <!--<a th:href="|/board/view/${bd.board_id}|"></a>--><!--제목링크-->
-                                                        <span th:text="${bd.title}" style="cursor: pointer" ><i aria-hidden="true" class="icon-lock lock" style="display: none"></i></span><!--제목-->
+                                                        &lt;!&ndash;<em class="sticker notice" style="display: none">공지</em>&ndash;&gt;&lt;!&ndash;이건 왜 있지..&ndash;&gt;
+                                                        <em th:text="${bd.category}" id="findtype" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em>&lt;!&ndash;카테고리&ndash;&gt;
+                                                        &lt;!&ndash;<a th:href="|/board/view/${bd.board_id}|"></a>&ndash;&gt;&lt;!&ndash;제목링크&ndash;&gt;
+                                                        <span th:text="${bd.title}" style="cursor: pointer" ><i aria-hidden="true" class="icon-lock lock" style="display: none"></i></span>&lt;!&ndash;제목&ndash;&gt;
                                                     </li>
-                                                    <li th:text="${bd.nick.nickname}" class="author" style="display: "></li><!--작성자 닉네임-->
-                                                    <li th:text="${#strings.substring(bd.regdate,0,10)}" class="time" title="2023-05-15 10:18" style="display: "></li><!--작성일-->
-                                                    <li class="views" style="display: "><em th:text="${bd.views}" class="txt">조회수</em></li><!--조회수-->
+                                                    <li th:text="${bd.nick.nickname}" class="author" style="display: "></li>&lt;!&ndash;작성자 닉네임&ndash;&gt;
+                                                    <li th:text="${#strings.substring(bd.regdate,0,10)}" class="time" title="2023-05-15 10:18" style="display: "></li>&lt;!&ndash;작성일&ndash;&gt;
+                                                    <li class="views" style="display: "><em th:text="${bd.views}" class="txt">조회수</em></li>&lt;!&ndash;조회수&ndash;&gt;
                                                     <li class="like" style="display: ">
                                                         <a class="like_btn " id="like_btn_p2023051523ced4821610d" href="javascript:;" onclick="clickLike('p2023051523ced4821610d');">
                                                             <div class="_token_obj" data-type="post_img_list_like">
@@ -128,11 +162,11 @@
                                                             <i aria-hidden="true" class="btm bt-heart">&nbsp;</i>
                                                             <em th:text="${bd.likes}" id="like_count_p2023051523ced4821610d"></em>
                                                         </a>
-                                                    </li><!--좋아요-->
-                                                    <span class="comment-count only-mobile" style="display: "><span>2</span></span><!--댓글수-->
+                                                    </li>&lt;!&ndash;좋아요&ndash;&gt;
+                                                    <span class="comment-count only-mobile"><span>2</span></span>&lt;!&ndash;댓글수&ndash;&gt;
                                                 </div>
                                             </span>
-                                        </ul><!--이미지 있는 게시글-->
+                                        </ul>--><!--이미지 있는 게시글-->
                                     </div>
                                     <div class="li_footer _list_bottom clearfix text-center show_search_form">
                                         <div class="tools inline-blocked hidden-xs">

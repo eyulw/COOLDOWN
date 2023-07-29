@@ -78,8 +78,7 @@
 
                   <div class="text-table ">
                     <div>
-                      <h6><span style="font-size: 30px; letter-spacing: 0px;"><strong>HOT
-                                                            TOPIC</strong></span></h6>
+                      <h6><span style="font-size: 30px; letter-spacing: 0px;"><strong>HOT TOPIC</strong></span></h6>
                     </div>
                   </div>
                 </div>
@@ -98,22 +97,40 @@
                   <div class="list-style m-margin-on row_01 type_row container_border"
                        id="newest_w2021060885d37ed1dd8bd">
                     <th:block th:each="hbd:${hbds}">
-                      <div class="list m-padding-on holder "
-                         style="padding-top: 10px;padding-bottom: 10px;">
-                      <div class="thumb"><a th:href="|/board/view/${hbd.board_id}|"><img
-                              th:src="|http://localhost/cdn/_thumbs/small_${hbd.ba.fname}|"
-                              style="width:170px; height: 125px;"></a></div>
+                      <div class="list m-padding-on holder " style="padding-top: 10px;padding-bottom: 10px;">
+                        <div class="thumb">
+                          <a th:href="|/board/view/${hbd.board_id}|">
+                            <th:block th:if="${#strings.isEmpty(hbd.ba.fname)}">
+                              <img src="/assets/img/logo.png" class="thumbst" alt="기본" style="cursor: pointer" />
+                            </th:block>
+                            <th:block th:if="${not #strings.isEmpty(hbd.ba.fname)}">
+                              <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(hbd.ba.fname, ';')[0]}|" style="width:170px; height: 125px;">
+                            </th:block>
+                          </a>
+                        </div>
                       <div class="title">
+                        <th:block th:if="${hbd.category} eq '자유글'">
+                          <span style="margin-right: 10px; color:#00B8FF">[[${hbd.category}]]</span>
+                        </th:block>
+                        <th:block th:if="${hbd.category} eq '동행구하기'">
+                          <span style="margin-right: 10px; color:#FF635D">[[${hbd.category}]]</span>
+                        </th:block>
+                        <th:block th:if="${hbd.category} eq '자기소개'">
+                          <span style="margin-right: 10px; color:#F5CE4A">[[${hbd.category}]]</span>
+                        </th:block>
+                        <th:block th:if="${hbd.category} eq 'Q&A'">
+                          <span style="margin-right: 10px; color:#D189E2">[[${hbd.category}]]</span>
+                        </th:block>
                         <a class="_fade_link" th:href="|/board/view/${hbd.board_id}|">
                           <span class="title-block inline-blocked" th:text="${hbd.title}">제목</span>
                         </a>
                         <div class="board-block">
                           <span class="writer body_font_color_70" th:text="${hbd.nick.nickname}">닉네임 <b class="bar"></b></span>
-                          <a href="javascript:;" class="cmt body_font_color_70"><i
-                                  aria-hidden="true" class="btm bt-eye"></i> [[${hbd.views}]]</a>
+                          <a href="javascript:;" class="cmt body_font_color_70">
+                            <i aria-hidden="true" class="btm bt-eye"></i> [[${hbd.views}]]</a>
                         </div>
                       </div>
-                      <span class="cmt body_font_color_70 comment"> 4</span>
+                      <span class="cmt body_font_color_70 comment"> [[${hbd.cmtcn}]] </span>
                     </div>
                     </th:block>
 
@@ -273,8 +290,7 @@
 
                   <div class="text-table ">
                     <div>
-                      <h6><span style="font-size: 30px; letter-spacing: 0px;"><strong>NEW
-                                                            CONTENTS</strong></span></h6>
+                      <h6><span style="font-size: 30px; letter-spacing: 0px;"><strong>NEW CONTENTS</strong></span></h6>
                     </div>
                   </div>
                 </div>
@@ -293,22 +309,40 @@
                   <div class="list-style m-margin-on row_01 type_row container_border"
                        id="newest_w20210611041c09a38f494">
                     <th:block th:each="nbd:${nbds}">
-                      <div class="list m-padding-on holder "
-                           style="padding-top: 10px;padding-bottom: 10px;">
-                        <div class="thumb"><a th:href="|/board/view/${nbd.board_id}|"><img
-                                th:src="|http://localhost/cdn/_thumbs/small_${nbd.ba.fname}|"
-                                style="width:170px; height: 125px;"></a></div>
+                      <div class="list m-padding-on holder " style="padding-top: 10px;padding-bottom: 10px;">
+                        <div class="thumb">
+                          <a th:href="|/board/view/${nbd.board_id}|">
+                            <th:block th:if="${#strings.isEmpty(nbd.ba.fname)}">
+                              <img src="/assets/img/logo.png" class="thumbst" alt="기본" style="cursor: pointer" />
+                            </th:block>
+                            <th:block th:if="${not #strings.isEmpty(nbd.ba.fname)}">
+                              <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(nbd.ba.fname, ';')[0]}|" style="width:170px; height: 125px;">
+                            </th:block>
+                          </a>
+                        </div>
                         <div class="title">
+                          <th:block th:if="${nbd.category} eq '자유글'">
+                            <span style="margin-right: 10px; color:#00B8FF">[[${nbd.category}]]</span>
+                          </th:block>
+                          <th:block th:if="${nbd.category} eq '동행구하기'">
+                            <span style="margin-right: 10px; color:#FF635D">[[${nbd.category}]]</span>
+                          </th:block>
+                          <th:block th:if="${nbd.category} eq '자기소개'">
+                            <span style="margin-right: 10px; color:#F5CE4A">[[${nbd.category}]]</span>
+                          </th:block>
+                          <th:block th:if="${nbd.category} eq 'Q&A'">
+                            <span style="margin-right: 10px; color:#D189E2">[[${nbd.category}]]</span>
+                          </th:block>
                           <a class="_fade_link" th:href="|/board/view/${nbd.board_id}|">
                             <span class="title-block inline-blocked" th:text="${nbd.title}">제목</span>
                           </a>
                           <div class="board-block">
                             <span class="writer body_font_color_70" th:text="${nbd.nick.nickname}">닉네임 <b class="bar"></b></span>
-                            <a href="javascript:;" class="cmt body_font_color_70"><i
-                                    aria-hidden="true" class="btm bt-eye"></i> [[${nbd.views}]]</a>
+                            <a href="javascript:;" class="cmt body_font_color_70">
+                              <i aria-hidden="true" class="btm bt-eye"></i> [[${nbd.views}]]</a>
                           </div>
                         </div>
-                        <span class="cmt body_font_color_70 comment"> 4</span>
+                        <span class="cmt body_font_color_70 comment"> [[${nbd.cmtcn}]] </span>
                       </div>
                     </th:block>
                   </div>

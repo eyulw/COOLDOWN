@@ -19,5 +19,9 @@ public class IndexController {
         m.addAttribute("nbds",bsrv.readNewBoard());
         return "index";
     }
+    @GetMapping("/fail")
+    public String fail(){
+        return "fail";
+    }
 
 }

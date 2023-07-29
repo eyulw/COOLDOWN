@@ -1,0 +1,14 @@
+.thumbst{
+    width: 70px;
+    height: 70px;
+}
+.bspanst span{
+    margin-right: 5px;
+}
+.commenticon{
+    font-family: FontAwesome;
+    content: '\f0e5';
+    font-size: 16px;
+    margin-right: 5px;
+    color: #999;
+}
