@@ -1,242 +1,120 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-    <body>
-      <th:block layout:fragment="content">
-        <div class="shop-content mypage">
-          <div class="container-fluid">
-            <div class="row show-grid">
-              <div class="left-menu hidden-lg hidden-md">
-                <ul id="cart_menu">
-                  <div class="clearfix cart-menu-slide">
-                    <li class="active">
-                      <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
-                    <li class="">
-                      <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
-                    <li class="">
-                      <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a></li>
-                    <li class="">
-                      <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
-                    <li class="">
-                      <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a></li>
+        <th:block layout:fragment="content">
+            <div class="shop-content mypage">
+              <div class="container-fluid">
+                <div class="row show-grid">
+                  <div class="left-menu hidden-lg hidden-md">
+                    <ul id="cart_menu">
+                      <div class="clearfix cart-menu-slide">
+                        <li class="active">
+                          <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
+                        <li class="">
+                          <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
+                        <li class="">
+                          <a href="" class="body_font_color_50"><span>장바구니</span></a></li>
+                        <li class="">
+                          <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
+                        <li class="">
+                          <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a></li>
+                      </div>
+                    </ul>
                   </div>
-                </ul>
-              </div>
-              <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
-                <ul>
-                  <li class="">
-                    <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
-                  <li class="on">
-                    <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
-                  <li class="">
-                    <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
-                  <li class="">
-                    <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
-                  <li class="">
-                    <a href="/mypage/qna" class="text-gray-dark _fade_link">1:1 문의</a></li>
-                  <li>
-                    <button class="text-gray-dark _fade_link"
-                            data-toggle="modal" data-target="#modifyinfo_modal"
-                            style="background: none;"><span class="text fixed_transform ">정보 수정</span></button></li>
-                  <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
-                  <li class="inline-blocked login_btn_item ">
-                    <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal" data-target="#deleteacct" style="background: none;">
-                      <span class="text fixed_transform ">회원탈퇴</span></button>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-10 col-sm-12">
-                <div class="head bg-bright">
-                  <div class="my-theme tabled full-width">
-                    <div class="img-view table-cell vertical-middle">
-                      <div class="tabled full-width">
-                        <div class="tumbs table-cell vertical-middle">
-                          <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj1vcmRlcg%3D%3D');">
-                            <div id="mypage_profile_img" class="img-circle" style="width: 85px; height: 85px;
-                                  background: url(/img/default_profile.png) 50% 50% / cover no-repeat;"></div>
-                            <span class="sr-only">정보 수정</span></a>
-                        </div>
-                        <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
-                          <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
-                            <div class="text-15 use_grade">
-                              <div class="ug_text"></div>
-                                <div class="ug_btn">
-                                  <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
-                                      data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
-                                    <div id="list-popover" style="display: none" class="list_popover">
+                  <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
+                    <ul>
+                      <li class="">
+                        <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
+                      <li class="on">
+                        <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
+                      <li class="">
+                        <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
+                      <li class="">
+                        <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
+                      <li class="">
+                        <a href="/mypage/qna" class="text-gray-dark _fade_link">1:1 문의</a></li>
+                      <li class="">
+                        <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+                      <li class="">
+                        <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-10 col-sm-12">
+                    <div class="head bg-bright">
+                      <div class="my-theme tabled full-width">
+                        <div class="img-view table-cell vertical-middle">
+                          <div class="tabled full-width">
+                            <div class="tumbs table-cell vertical-middle">
+                              <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj1vcmRlcg%3D%3D');">
+                                <div id="mypage_profile_img" class="img-circle" style="width: 85px; height: 85px;
+                                      background: url(/img/default_profile.png) 50% 50% / cover no-repeat;"></div>
+                                <span class="sr-only">정보 수정</span></a>
+                            </div>
+                            <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
+                              <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
+                                <div class="text-15 use_grade">
+                                  <div class="ug_text"></div>
+                                    <div class="ug_btn">
+                                      <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
+                                          data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
+                                        <div id="list-popover" style="display: none" class="list_popover">
 
-                                      <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
-                                        <h6 class="no-margin"></h6>
-                                        <span class="sr-only"></span></a>
-                                      </div>
-                                <div class="lp_content_wrap">
-                                    <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
-                                      bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.</div>
-                                    <div class="lp_title">누적 구매금액: 0원</div>
-                                    <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">
-                                      <p class="no-margin">누적 구매금액: 0원</p></div>
-                                    <div class="lp_table">
-                                    <div class="text-bold text-13"></div>
-                                    <div class="table-responsive">
-                                        <table class="table no-margin">
-                                           <thead>
-                                             </thead>
-                                           <tbody>
-                                             </tbody>
-                                        </table>
+                                          <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
+                                            <h6 class="no-margin"></h6>
+                                            <span class="sr-only"></span></a>
+                                          </div>
+                                    <div class="lp_content_wrap">
+                                        <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
+                                          bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.</div>
+                                        <div class="lp_title">누적 구매금액: 0원</div>
+                                        <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">
+                                          <p class="no-margin">누적 구매금액: 0원</p></div>
+                                        <div class="lp_table">
+                                        <div class="text-bold text-13"></div>
+                                        <div class="table-responsive">
+                                            <table class="table no-margin">
+                                               <thead>
+                                                 </thead>
+                                               <tbody>
+                                                 </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="text-12 margin-top-xxl"></div>
+                                        </div>
                                     </div>
-                                    <div class="text-12 margin-top-xxl"></div>
-                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="table-cell vertical-middle point-view text-center">
+                          <a href="/shop_mypage/?m2=point_list">
+                            <p></p>
+                            <span class="text-bold text-32"></span>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                    <div class="table-cell vertical-middle point-view text-center">
-                      <a href="/shop_mypage/?m2=point_list">
-                        <p>디깅 포인트</p>
-                        <span class="text-bold text-32">0</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="table-wrap wish">
-                  <h4 class="hidden-sm hidden-xs text-default-dark">
-                    <span>위시리스트</span>
-                    <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
-                      <em id="titleWishlist">0</em></span>
-                  </h4>
-                <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
-                     id="shop_mypage_wishlist_empty">위시리스트가 없습니다.</div>
+                    <div class="table-wrap wish">
+                      <h4 class="hidden-sm hidden-xs text-default-dark">
+                        <span>위시리스트</span>
+                        <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
+                          <em id="titleWishlist">0</em></span>
+                      </h4>
+                    <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
+                         id="shop_mypage_wishlist_empty">위시리스트가 없습니다.</div>
 
-                  <div style="font-size:15px; padding: 15px;" class="table-wrap text-center">
-                    <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
-                       style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a>
-                  </div>
-                    </div>
+                      <div style="font-size:15px; padding: 15px;" class="table-wrap text-center">
+                        <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
+                           style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a>
                       </div>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
       </th:block>
     </body>
 </html>
-
-<!--    <body>-->
-<!--        <th:block layout:fragment="content">-->
-<!--          <div doz_type="section" class="section_wrap  pc_section    section_first _section_first   mobile_section_first    side_"-->
-<!--               id="s20210115b21585de57ba8" style="; ;" doz_change_mobile="N" doz_aside="N" doz_side_width="230" doz_side_margin="0"-->
-<!--                doz_extend="N" doz_mobile_section="N" doz_mobile_hide="N" doz_header_repeat="N" doz_footer_repeat="N" doz_category="default">-->
-<!--            <div class="section_bg _section_bg _interactive_bg" style="background-size:cover; background-repeat: no-repeat; position: absolute;left: 0;top: 0;right: 0; bottom: 0;"></div>-->
-<!--            <div class="section_bg_color _section_bg_color" style="  position: absolute;left: 0;top: 0;right: 0; bottom: 0;"></div>-->
-
-<!--            <main>-->
-<!--              <div doz_type="inside" class="inside">-->
-<!--                <div doz_type="row" doz_grid="12" class="doz_row">-->
-<!--                  <div doz_type="grid" doz_grid="12" class="col-dz col-dz-12">-->
-<!--                    <div doz_type="widget" id="w2021011509d04b4541e1f">-->
-<!--                      <div class="_widget_data _ds_animated_except" data-widget-name="쇼핑 마이페이지" data-widget-type="shop_mypage"-->
-<!--                           data-widget-parent-is-mobile="N">-->
-<!--                  <div class="shop-content mypage">-->
-<!--                    <div class="container-fluid">-->
-<!--                      <div class="row show-grid">-->
-<!--                        <div class="left-menu hidden-lg hidden-md">-->
-<!--                          <ul id="cart_menu">-->
-<!--                            <div class="clearfix cart-menu-slide">-->
-<!--                              <li class=" ">-->
-<!--                                <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>-->
-<!--                              </li>-->
-<!--                              <li class="  active ">-->
-<!--                                <a href="/mypage/wish_list" class="body_font_color_50"><span>위시</span></a>-->
-<!--                              </li>-->
-<!--                              <li class=" ">-->
-<!--                                <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a>-->
-<!--                              </li>-->
-<!--                              <li class=" ">-->
-<!--                                <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>-->
-<!--                              </li>-->
-<!--                              <li class="">-->
-<!--                                <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a>-->
-<!--                              </li>-->
-<!--                            </div>-->
-<!--                          </ul>-->
-<!--                        </div>-->
-<!--                          <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">-->
-<!--                            <ul>-->
-<!--                              <li class="">-->
-<!--                                <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a>-->
-<!--                              </li>-->
-<!--                              <li class="on">-->
-<!--                                <a href="/mypage/wish_list" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a>-->
-<!--                              </li>-->
-<!--                              <li class="">-->
-<!--                                <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>-->
-<!--                              </li>-->
-<!--                              <li class="">-->
-<!--                                <a href="/mypage/point_list" class="text-gray-dark _fade_link">디깅 포인트</a>-->
-<!--                              </li>-->
-<!--                              <li class="">-->
-<!--                                <a href="/mypage/qna" class="text-gray-dark _fade_link">1:1 문의</a>-->
-<!--                              </li>-->
-<!--                              <li>-->
-<!--                                <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj13aXNoX2xpc3Q%3D');"-->
-<!--                                   class="text-gray-dark _fade_link">정보 수정</a>-->
-<!--                              </li>-->
-<!--                              <li>-->
-<!--                                <a href="javascript:" onclick="SITE_MEMBER.openGoodbye();" class="text-gray-dark _fade_link">회원탈퇴</a>-->
-<!--                              </li>-->
-<!--                            </ul>-->
-<!--                          </div>-->
-<!--                          <div class="col-md-10 col-sm-12">-->
-<!--                            <div class="head bg-bright">-->
-<!--                              <div class="my-theme tabled full-width">-->
-<!--                                <div class="img-view table-cell vertical-middle">-->
-<!--                                  <div class="tabled full-width">-->
-<!--                                    <div class="tumbs table-cell vertical-middle">-->
-<!--                                      <a href="javascript:;" onclick="SITE_MEMBER.editProfile('L3Nob3BfbXlwYWdlLz9tMj13aXNoX2xpc3Q%3D');">-->
-<!--                                        <div id="mypage_profile_img" class="img-circle" style="width: 85px; height: 85px;-->
-<!--                                            background: url(/common/img/default_profile.png)  50% 50% / cover no-repeat;">-->
-
-<!--                                        </div>-->
-<!--                                          <span class="sr-only">정보 수정</span>-->
-<!--                                      </a>-->
-<!--                                    </div>-->
-
-<!--                                    <span th:text="|${session.user.nickname}님 안녕하세요.|"></span>-->
-
-
-<!--                                  </div>-->
-<!--                                </div>-->
-<!--                              </div>-->
-<!--                              <div class="table-cell vertical-middle point-view text-center">-->
-<!--                                <a href="/shop_mypage/?m2=point_list">-->
-<!--                                  <p>디깅 포인트</p>-->
-<!--                                  <span class="text-bold text-32">0</span>-->
-<!--                                </a>-->
-<!--                              </div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                          <div class="table-wrap wish">-->
-<!--                            <h6 class="hidden-sm hidden-xs text-default-dark">-->
-<!--                              <span>위시리스트</span>-->
-<!--                              <span class="b_cnt badge" id="wish_cnt" style="top: -3px;"><em id="titleWishlist">0</em></span>-->
-<!--                            </h6>-->
-<!--                            <div style="padding: 70px; text-align: center;">-->
-<!--                              <div class="body_font_color_40" style="font-size:15px;">위시리스트가 없습니다.</div>-->
-<!--                            </div>-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div></div></div></div></main></div></div>-->
-<!--            </th:block>-->
-<!--            </body>-->
-<!--            </html>-->

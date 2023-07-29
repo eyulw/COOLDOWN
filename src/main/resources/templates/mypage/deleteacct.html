@@ -1,12 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://www.thymeleaf.org">
-<th:block th:fragment="deleteacct">
-
-<head>
-<meta charset="UTF-8">
-<title>Title</title>
-</head>
-    <body>
+<html lang="ko" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/template}">
         <th:block layout:fragment="content">
            <div class="shop-content mypage">
               <div class="container-fluid">
@@ -19,7 +13,7 @@
                <li class=" ">
                   <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
                <li class=" ">
-                  <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a></li>
+                  <a href="" class="body_font_color_50"><span>장바구니</span></a></li>
                <li class=" ">
                   <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
                <li class="">
@@ -30,25 +24,21 @@
 
                <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
                 <ul>
-                <li class="on">
+                <li class="">
                     <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
                 <li class="">
                     <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
                 <li class="">
                     <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
                 <li class="">
-                    <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
+                    <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
                 <li class="">
                     <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
+                <li class="">
+                    <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+                <li class="on">
+                    <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
                 <li>
-                    <button class="text-gray-dark _fade_link"
-                            data-toggle="modal" data-target="#modifyinfo_modal"
-                            style="background: none;"><span class="text fixed_transform ">정보 수정</span></button></li>
-                <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
-                <li class="inline-blocked login_btn_item ">
-                    <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal"
-                            data-target="#deleteacct" style="background: none;">
-                        <span class="text fixed_transform ">회원탈퇴</span></button></li>
                 </ul>
                 </div>
                 <div class="col-md-10 col-sm-12">
@@ -140,12 +130,11 @@
             <script>
                 function removeMember() {
                     if(window.confirm("탈퇴하시겠습니까?")){
-                        location.href="/member/remove.kh";
+                        location.href="/mypage/deleteacctok";
                     }
                 }
             </script>
-              </div>
-           </div>
-        </th:block>
-    </body>
+          </div>
+       </div>
+   </th:block>
 </html>

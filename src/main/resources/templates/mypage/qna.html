@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-    <body>
         <th:block layout:fragment="content">
           <div class="shop-content mypage">
             <div class="container-fluid">
@@ -35,7 +30,7 @@
                     <li class="">
                       <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
                     <li class="">
-                      <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
+                      <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
                     <li class="on">
                       <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
                     <li>
@@ -109,8 +104,8 @@
                         </div>
                       </div>
                       <div class="table-cell vertical-middle point-view text-center">
-                        <a href="/shop_mypage/?m2=point_list">
-                          <p>디깅 포인트</p><span class="text-bold text-32">0</span></a>
+                        <a href="">
+                          <p></p><span class="text-bold text-32"></span></a>
                       </div>
                     </div>
                   </div>
@@ -143,7 +138,7 @@
 <!--                        <td th:text="${status.count}"></td>-->
                     <tr th:each="q:${qnas}">
 <!--                    <td th:text="${status.index + 1}"></td>-->
-                    <td th:text="${q.qna_id}"></td>
+                        <td th:text="${q.qna_id}"></td>
                         <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
                         <td th:text="${session.user.userid}"></td>
                         <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
@@ -172,5 +167,4 @@
           </div>
         </div>
       </th:block>
-    </body>
-  </html>
+    </html>
