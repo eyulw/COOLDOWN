@@ -18,4 +18,19 @@ public class UserServiceImpl implements UserService {
     public User readOneUser(User u) {
         return udao.selectOneUser(u);
     }
+
+    @Override
+    public boolean removeOneUser(User u) {
+        return udao.deleteOneuser(u)>0? true: false;
+    }
+
+    @Override
+    public User readMyinfo(String u_id) {
+        return udao.selectMyInfo(u_id);
+    }
+
+    @Override
+    public boolean modifyMyInfo(User u) {
+        return udao.updateMyInfo(u)>0? true: false;
+    }
 }

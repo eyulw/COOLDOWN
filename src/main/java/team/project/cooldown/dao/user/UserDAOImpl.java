@@ -19,6 +19,21 @@ public class UserDAOImpl implements UserDAO {
 
         return userMapper.selectOneUser(u);
     }
+
+    @Override
+    public int deleteOneuser(User u) {
+        return userMapper.deleteOneUser(u);
+    }
+
+    @Override
+    public User selectMyInfo(String u_id) {
+        return userMapper.selectMyInfo(u_id);
+    }
+
+    @Override
+    public int updateMyInfo(User u) {
+        return userMapper.updateMyInfo(u);
+    }
 //
 //    회원 탈퇴
 //    @Override
