@@ -33,4 +33,18 @@
         select ceil(count(u_id)/15) from user where role=#{role}
     </select>
 
+    <select id="selectMyInfo" resultType="User">
+        select * from user where u_id=#{u_id}
+    </select>
+
+    <update id="updateMyInfo" parameterType="User">
+        update user set password=#{password}, email=#{email},nickname=#{nickname},phone=#{phone},
+        zipcode=#{zipcode}, address1=#{address1}, address2=#{address2}, username=#{username}
+        where u_id=#{u_id}
+    </update>
+
+    <select id="selectOneUserid" resultType="Integer">
+        select count(u_id) from user where userid=#{uid}
+    </select>
+
 </mapper>

@@ -15,11 +15,11 @@
                         <div class="lbipflex"><!--이미지-->
                             <label>상품이미지</label>
 <!--                            <img th:src="${i.ia.fname}" style="width: 200px; height: 200px ">-->
-                            <input type="file" name="attach" id="attach">
+                            <input type="file" name="attach" id="attach" th:value="${i.ia.fname}">
                         </div>
                         <div class="lbipflex"><!--이미지-->
                             <label></label>
-                            <img th:src="${i.ia.fname}" style="width: 200px; height: 200px ">
+                            <img th:src="|http://localhost/cdn/itemImg/${i.ia.fname}|" style="width: 200px; height: 200px ">
                         </div>
                         <div class="lbipflex">
                             <label for="itemname">상품명</label>

@@ -4,3 +4,18 @@
 .modalscrollst::-webkit-scrollbar{
     display: none;
 }
+.pmsg{
+    display: block;
+    color: #00B8FF;
+    font-size: 12px;
+    padding: 7px 0 7px 16px;
+    position: relative;
+}
+
+.ipmsg{
+    display: block;
+    color: #F84A71;
+    font-size: 12px;
+    padding: 7px 0 0 16px;
+    position: relative;
+}

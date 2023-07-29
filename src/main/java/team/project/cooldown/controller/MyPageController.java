@@ -1,6 +1,7 @@
 package team.project.cooldown.controller;
 
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import team.project.cooldown.model.Qna;
 import team.project.cooldown.model.User;
@@ -9,9 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import team.project.cooldown.service.user.UserService;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,6 +20,7 @@ import javax.servlet.http.HttpSession;
 public class MyPageController {
 
     final QnaService qsrv;
+    final UserService usrv;
 
     Logger logger = LogManager.getLogger(MyPageController.class);
 
@@ -58,11 +58,21 @@ public class MyPageController {
 //
 //        return "mypage/qnawrite"; // 얘가 파일명
 //    }
-    @RequestMapping("/modifyinfo") // localhost:8080/agree URl이 호출되면 불리는 메서드
-    public String modifyinfo() {
+    @GetMapping("/modifyinfo/{u_id}") // localhost:8080/agree URl이 호출되면 불리는 메서드
+    public String modifyinfo(Model m,@PathVariable String u_id) {
         logger.info("mypage/modifyinfo 호출!!");
-
+        m.addAttribute("u",usrv.readMyInfo(u_id));
         return "mypage/modifyinfo"; // 얘가 파일명
+    }
+
+    @PostMapping("/modifyinfo/{u_id}") // localhost:8080/agree URl이 호출되면 불리는 메서드
+    public String modifyinfook(@PathVariable String u_id,User u) {
+        logger.info("mypage/modifyinfo 호출!!");
+        String returnPage="redirect:/fail";
+        u.setU_id(u_id);
+        if(usrv.modifyMyInfo(u))
+            returnPage="redirect:/";
+        return returnPage;
     }
 
     @RequestMapping("/deleteacct") // localhost:8080/agree URl이 호출되면 불리는 메서드
