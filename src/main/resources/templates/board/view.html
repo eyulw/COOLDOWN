@@ -255,18 +255,18 @@
                                             </div><!--댓글, 대댓글-->
                                             <div class="comment_section">
                                                 <div class="list_tap">
-                                                    <!--<a th:href="|/board/view/${#strings.parseInt(bd.board_id)+1}|">-->
-                                                    <a href="">
-                                                        <i aria-hidden="true" class="icon-arrow-up"></i>
-                                                        <!--<span class="secret_icon" th:text="${bd.title}">이전 게시물</span>--><!--위글-->
-                                                        <span class="secret_icon" >이전 게시물</span><!--위글-->
-                                                    </a>
-                                                    <!--<a th:href="|/board/view/${#strings.parseInt(bd.board_id) -1}|">-->
-                                                    <a href="">
-                                                        <i aria-hidden="true" class="icon-arrow-down"></i>
-                                                        <!--<span class="secret_icon" th:text="${bd.title}">다음 게시물</span>--><!--아래글-->
-                                                        <span class="secret_icon" >다음 게시물</span><!--아래글-->
-                                                    </a>
+                                                    <th:block th:if="${bd.bdidnext}!=null">
+                                                        <a th:href="|/board/view/${bd.bdidnext}|">
+                                                            <i aria-hidden="true" class="icon-arrow-up"></i>
+                                                            <span class="secret_icon" >[[${bd.bdnext}]]</span><!--다음글-->
+                                                        </a>
+                                                    </th:block>
+                                                    <th:block th:if="${bd.bdidprev}!=null">
+                                                        <a th:href="|/board/view/${bd.bdidprev}|">
+                                                            <i aria-hidden="true" class="icon-arrow-down"></i>
+                                                            <span class="secret_icon">[[${bd.bdprev}]]</span><!--이전글 아래글-->
+                                                        </a>
+                                                    </th:block>
                                                 </div><!--아래글, 위글-->
                                                 <div class="row">
                                                     <div class="table_bottom over_h action-area">
