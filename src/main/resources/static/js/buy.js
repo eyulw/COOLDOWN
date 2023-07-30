@@ -1,3 +1,5 @@
+/*item_detail페이지
+수량*/
 let minus = document.querySelector("#minus");
 let plus = document.querySelector("#plus");
 let countInput = document.querySelector('#countInput');
@@ -42,7 +44,7 @@ const plusLike = (itemid) => {
     } else {
         // AJAX 요청 시작
         fetch(`/likes/${itemid}`, {
-            method: 'GET',
+            method: 'GET'
         })
             .then(response => response.json())
             .then(data => {
@@ -118,7 +120,7 @@ function updateTotalPrice(cartId) {
     let countSpan = document.querySelector("#cart_count_" + cartId);
 
     let price = parseFloat(priceDiv.dataset.price);
-    let count = parseInt(countSpan.innerText, 10);
+    let count = parseInt(countSpan.innerText);
 
     let totalPrice = price * count;
 
@@ -126,13 +128,10 @@ function updateTotalPrice(cartId) {
     totalPriceDiv.innerText = totalPrice + "원";
     return totalPrice;
 }
-
-
-
 function count_plus_btn(cartId) {
     let countSpan = document.querySelector("#cart_count_" + cartId);
     if (countSpan) {
-        let newCount = parseInt(countSpan.innerText, 10) + 1;
+        let newCount = parseInt(countSpan.innerText) + 1;
         countSpan.innerText = newCount;
         updateCartCountInDb(cartId, newCount);
         updateTotalPrice(cartId);
@@ -140,11 +139,10 @@ function count_plus_btn(cartId) {
     }
 
 }
-
 function count_minus_btn(cartId) {
     let countSpan = document.querySelector("#cart_count_" + cartId);
     if (countSpan) {
-        let newCount = parseInt(countSpan.innerText, 10) - 1;
+        let newCount = parseInt(countSpan.innerText) - 1;
         if (newCount >= 0) { // 수량이 0 미만으로 내려가지 않도록 추가한 조건
             countSpan.innerText = newCount;
             updateCartCountInDb(cartId, newCount);
@@ -173,6 +171,7 @@ function total_price1() {
     total_price.innerText = grandTotal + "원";
     document.getElementById('cart_total_data').value = grandTotal;
 }
+
 document.addEventListener("DOMContentLoaded", function() {
    total_price1();
 });
@@ -190,20 +189,7 @@ const selectAllCheckbox = document.querySelector("#selectAllCheckbox");
 const allCheckboxes = document.querySelectorAll("input[type='checkbox']");
 
 
-/*
-// "Select All" 체크박스에 클릭 이벤트 리스너를 추가합니다.
-selectAllCheckbox.addEventListener('click', function() {
-    // 각 체크박스의 체크 상태를 "Select All" 체크박스의 상태와 동일하게 설정합니다.
-    allCheckboxes.forEach(checkbox => {
-        checkbox.checked = selectAllCheckbox.checked;
-    });
 
-    // 체크 상태 변경 후, total_price1 함수를 호출하여 전체 금액을 업데이트합니다.
-    total_price1();
-});
-
-
-*/
 
 
 
@@ -291,43 +277,7 @@ function updateValues() {
 
 }
 
-/*카카오api결제*/
-/*
-$(function (){
-    $('#pay_btn').click(function (){
-        $.ajax({
-            url:'/shop_payment/k',
-            dataType:'json',
-            sucess:function (data){
-                let box = data.next_redirect_pc_url;
-                window.open(box);
-            },
-            error:function (error){
-                alert(error);
-            }
-        })
-    })
-})
-*/
 
-
-let payBtn = document.getElementById('pay_btn');
-document.addEventListener('DOMContentLoaded', function() {
-
-
-    payBtn.addEventListener('click', function() {
-        fetch('/shop_payment_k')
-            .then(response => response.text())
-            .then(data => {
-                let jsonData = JSON.parse(data);
-                let box = jsonData.next_redirect_pc_url;
-                window.open(box);
-            })
-            .catch(error => {
-                alert(error);
-            });
-    });
-});
 
 
 
@@ -335,9 +285,13 @@ document.addEventListener('DOMContentLoaded', function() {
 let buy_e = document.querySelector("#buy_e");
 let item_e = document.querySelector("#item_e");
 
+
 buy_e.addEventListener('click',()=>{
     alert("개발중인 기능입니다");
 });
 item_e.addEventListener('click',()=>{
     alert("개발중인 기능입니다");
 });
+
+
+

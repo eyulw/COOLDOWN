@@ -65,7 +65,7 @@
                 <div class="thumb-fluid _item_container  ">
                     <div class="shop-tools clearfix" style="display: ">
                         <div class="down-btn" style="display: ">
-                            <select class="form-control" name="deliv_option_type" onchange="document.location.href = encodeURI('/digshop/?sort='+$(this).val())" title="정렬 바꾸기">
+                            <select class="form-control" id="digoption" name="deliv_option_type" onchange="document.location.href = encodeURI('/digshop/?sort='+$(this).val())" title="정렬 바꾸기"> <!--클론코딩한 코드 옵션선택시 페이지바뀌도록-->
                                 <option value="recent" selected="">등록순</option>
                                 <option value="like">인기순</option>
                                 <option value="min_price">낮은가격순</option>
@@ -117,8 +117,10 @@
         </div>
 
 
-        </div></div></div></div></div></main>
-    </div><!--상품리스트-->
+        </div></div></div></div></main>
+
+
+</div><!--상품리스트-->
 
 </th:block>
 </html>

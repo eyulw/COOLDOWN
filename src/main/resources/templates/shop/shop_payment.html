@@ -65,7 +65,7 @@
                                 <div class="col-xs-6 space_right _orderer_name_wrap error_box" data-error="N" data-error_msg="주문자 이름을 입력해주세요">
                                     <input class="form-control _orderer_name" type="text" title="이름" data-group="orderer" placeholder="이름" name="orderer_name" value="라파도">
                                 </div>
-                                <div class="col-xs-6 space_left _orderer_call_wrap error_box" data-error="N" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요">                                 <input class="form-control _orderer_call" type="tel" title="연락처" data-group="orderer" placeholder="연락처" name="orderer_call" value="01096461504">
+                                <div class="col-xs-6 space_left _orderer_call_wrap error_box" data-error="N"  data-blank_error_msg="전화번호를 입력하세요">                                 <input class="form-control _orderer_call" type="tel" title="연락처" data-group="orderer" placeholder="연락처" name="orderer_call" value="01096461504">
                                 </div>
                                 <div class="col-xs-12 space_top _orderer_email_wrap error_box" data-error="N" data-unvalid_error_msg="올바른 이메일 입력하세요" data-blank_error_msg="이메일을 입력해주세요">
                                     <input class="form-control _orderer_email" type="email" title="이메일" data-group="orderer" data-require="Y" placeholder="이메일" name="orderer_email" value="wjdwo1104@naver.com">
@@ -95,10 +95,10 @@
                                     <div id="inputField1" class="tab-pane fade input_field active in" th:each="bi:${buyer_info}">
                                         <div class="_address_wrap" data-is-add-shipping="N">
                                             <div class="row no-padding">
-                                                <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="Y" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="2글자 이상 입력해 주세요">
+                                                <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="Y" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="">
                                                     <input class="form-control _deliv_name" th:value="${bi.getNickname()}" type="text" name="deliv_name" placeholder="수령인" data-group="shipping" value="">
                                                 </div>
-                                                <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="Y" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요" data-error_msg="전화번호를 입력하세요">
+                                                <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="Y" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요" data-error_msg="">
                                                     <input class="form-control _deliv_call" th:value="${bi.getPhone()}" type="tel" name="deliv_call" placeholder="연락처" data-group="shipping" value="">
                                                 </div>
                                                 <div class="col-xs-12 space_top _deliv_country_wrap" data-country_visible="N">
@@ -174,7 +174,7 @@
                                                         <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="N" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="2글자 이상 입력해 주세요">
                                                             <input class="form-control _deliv_name" type="text" name="deliv_name" placeholder="수령인" data-group="shipping" value="라파도ㅇㄴㄹㄴㅇ">
                                                         </div>
-                                                        <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="N" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요">
+                                                        <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="N" data-unvalid_error_msg="" data-blank_error_msg="">
                                                             <input class="form-control _deliv_call" type="tel" name="deliv_call" placeholder="연락처" data-group="shipping" value="01096461504">
                                                         </div>
                                                         <div class="col-xs-12 space_top _deliv_country_wrap" data-country_visible="N">
@@ -253,10 +253,10 @@
                         <!-- 신규입력 양식 -->
                         <script id="SHIPPING_INPUT_TEMPLATE_WRAP" type="application/template">
                             <div class="row no-padding">
-                                <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="N" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="2글자 이상 입력해 주세요">
+                                <div class="col-xs-6 space_right error_box _deliv_name_wrap" data-error="N" data-error_alert_msg="배송지 정보의 수령인 이름을 2 글자 이상 입력해 주세요" data-error_msg="">
                                     <input class="form-control _deliv_name" type="text" name="deliv_name" placeholder="수령인" data-group="shipping" value="{deliv_name}">
                                 </div>
-                                <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="N" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="전화번호를 입력하세요">
+                                <div class="col-xs-6 space_left error_box _deliv_call_wrap" data-error="N" data-unvalid_error_msg="올바른 전화번호를 입력하세요" data-blank_error_msg="">
                                     <input class="form-control _deliv_call" type="tel" name="deliv_call" placeholder="연락처" data-group="shipping" value="{deliv_call}">
                                 </div>
                                 <div class="col-xs-12 space_top _deliv_country_wrap" data-country_visible="N">

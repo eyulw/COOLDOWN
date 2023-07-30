@@ -52,6 +52,7 @@ public class ShopController {
 
     @GetMapping("/digshop")
     public String digshop(Model m,
+                          HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort,
                           HttpServletRequest request) {
@@ -77,12 +78,14 @@ public class ShopController {
         } else {
 
             m.addAttribute("itemCombine_d", isrv.readItemCombine("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
 
             return "shop/detail_item";
         }
     }
     @GetMapping("/digbus_goods")
     public String digbus_goods(Model m,
+                               HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
         if (idx == null) {
@@ -102,12 +105,14 @@ public class ShopController {
             m.addAttribute("itemCombine", isrv.readItemCombine_d(sortOptions_d.get(sort),null));
             return "shop/digbus_goods";
         } else {
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
             m.addAttribute("itemCombine_d", isrv.readItemCombine_d("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
     @GetMapping("/campingitem")
     public String campingitem(Model m,
+                              HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
         if (idx == null) {
@@ -127,12 +132,14 @@ public class ShopController {
             m.addAttribute("itemCombine", isrv.readItemCombine_c(sortOptions_c.get(sort),null));
             return "shop/campingitem";
         } else {
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
             m.addAttribute("itemCombine_d", isrv.readItemCombine_c("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
     @GetMapping("/hikinhitem")
     public String hikinhitem(Model m,
+                             HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
         if (idx == null) {
@@ -152,12 +159,14 @@ public class ShopController {
             m.addAttribute("itemCombine", isrv.readItemCombine_h(sortOptions_h.get(sort),null));
             return "shop/hikinhitem";
         } else {
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
             m.addAttribute("itemCombine_d", isrv.readItemCombine_h("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
     @GetMapping("/bikeitem")
     public String bikeitem(Model m,
+                           HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
         if (idx == null) {
@@ -177,12 +186,14 @@ public class ShopController {
             m.addAttribute("itemCombine", isrv.readItemCombine_b(sortOptions_b.get(sort),null));
             return "shop/bikeitem";
         } else {
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
             m.addAttribute("itemCombine_d", isrv.readItemCombine_b("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
     }
     @GetMapping("/runningitem")
     public String runningitem(Model m,
+                              HttpSession sess,
                           @RequestParam(value="idx", required=false) Integer idx,
                           @RequestParam(value="sort", required=false) String sort) {
         if (idx == null) {
@@ -202,6 +213,7 @@ public class ShopController {
             m.addAttribute("itemCombine", isrv.readItemCombine_r(sortOptions_r.get(sort),null));
             return "shop/runningitem";
         } else {
+            m.addAttribute("sess",(String)sess.getAttribute( "u_id"));
             m.addAttribute("itemCombine_d", isrv.readItemCombine_r("recent",idx));//idx값에 맞는 데이터 하나만 불러옴
             return "shop/detail_item";
         }
@@ -239,7 +251,9 @@ public class ShopController {
         List<CartCombine> carts = isrv.chooseCart(u_id);
         m.addAttribute("ChooseCart", isrv.chooseCart(u_id));
         m.addAttribute("likelist",isrv.likelist(u_id));
-        System.out.println(isrv.likelist(u_id));
+
+        System.out.println(isrv.chooseCart(u_id));
+
         return "shop/shop_cart";
     }
 
@@ -290,50 +304,8 @@ public String shop_payment_data(Model m,
     return "shop/shop_payment";
 }
 
-    @RequestMapping("/shop_payment_k")
-    @ResponseBody
-    public String shop_payment_k() {
-        try {
-            URL kakao = new URL("https://kapi.kakao.com/v1/payment/ready");
-            HttpURLConnection kakaoserver = (HttpURLConnection) kakao.openConnection();  //서버연결
-            kakaoserver.setRequestMethod("POST");
-            kakaoserver.setRequestProperty("Authorization","89b117c49089f21b3d82efbff89d3e6a");
-            kakaoserver.setRequestProperty("Content-type","application/x-www-form-urlencoded;charset=utf-8");
-            kakaoserver.setDoOutput(true);//output - 서버에다 전달할정보가 있을시
-            String prameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=choco&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8080/shop_payment_k&fail_url=http://localhost:8080/&cancel_url=http://localhost:8080/1";
-            OutputStream kakaoOutput = kakaoserver.getOutputStream();
-            DataOutputStream kakaoOutputStream = new DataOutputStream(kakaoOutput);//바이트형식으로만가능
-            kakaoOutputStream.writeBytes(prameter);
-            kakaoOutputStream.close();//자기는비워지고 넘겨짐
-
-            int resultkakao = kakaoserver.getResponseCode();
-
-            InputStream kakaoInput;//서버에서 정보받음
-            if(resultkakao == 200){//구글에서 200일때만 성공 항상
-                kakaoInput = kakaoserver.getInputStream();
-            }else {
-                kakaoInput = kakaoserver.getErrorStream();
-            }
-            InputStreamReader reader = new InputStreamReader(kakaoInput);
-            BufferedReader bufferedReader = new BufferedReader(reader); //형변환
-
-            return bufferedReader.readLine();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
 
 
-    }
-
-    @PostMapping("/shop_payment_complete")
-    @ResponseBody
-    public String shop_payment_complete() {
-
-
-    return "shop/shop_payment_complete";
-
-    }
 
 
 
