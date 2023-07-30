@@ -179,3 +179,8 @@ select bc.*,c.cmtcn from boardcombine_ bc left outer join (select count(reply_id
 select count(reply_id) cmtcn,board_id from boardcomments group by board_id;
 
 delete from user where u_id=8;
+
+SELECT * FROM qna
+ORDER BY regdate DESC;
+
+select * from qna where u_id=u_id order by qna_id DESC;

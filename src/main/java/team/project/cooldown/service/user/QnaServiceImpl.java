@@ -14,6 +14,7 @@ import java.util.Map;
 public class QnaServiceImpl implements QnaService {
 
     final QnaDAO qdao;
+
     @Override
     public boolean insertQnaWrite(Qna q) {
         boolean isSaved = false;

@@ -27,4 +27,6 @@ public interface QnaMapper {
     int getCountPages();
 
     int getCountIQPages();
+
+
 }
