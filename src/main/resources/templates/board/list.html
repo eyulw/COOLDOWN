@@ -129,44 +129,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <!--<ul class="list m-padding-on">
-                                            <span class="post_link_wrap" style="padding-top: 7px; padding-bottom: 7px">
-                                                <div class="table-cell board_thumb_wrap">
-                                                    <a th:href="|/board/view/${bd.board_id}|" class="_fade_link"  style="padding: 0">
-                                                        <th:block th:if="${#strings.isEmpty(bd.ba.fname)}">
-                                                            <img src="|http://localhost/cdn/logo.png|" class="board_thumb" style="cursor: pointer" alt="로고" />
-                                                        </th:block>
-                                                        <th:block th:if="${not #strings.isEmpty(bd.ba.fname)}">
-                                                            <img th:src="|http://localhost/cdn/_thumbs/small_${#strings.arraySplit(bd.ba.fname, ';')[0]}|" class="board_thumb" style="cursor: pointer" alt="썸네일" />
-                                                        </th:block>
-                                                    </a>&lt;!&ndash;썸네일 이미지&ndash;&gt;
-                                                    <span class="sr-only">게시판 썸네일</span>
-                                                </div>
-                                                <div class="clearfix table-cell list-group list_text_title">
-                                                    <li class="tit" style="padding-right: 50px">
-                                                        <a class="title_link _fade_link" th:href="|/board/view/${bd.board_id}|"></a>
-                                                        &lt;!&ndash;<em class="sticker notice" style="display: none">공지</em>&ndash;&gt;&lt;!&ndash;이건 왜 있지..&ndash;&gt;
-                                                        <em th:text="${bd.category}" id="findtype" style="cursor: pointer; padding-right: 5px; color: #00b8ff; display: "></em>&lt;!&ndash;카테고리&ndash;&gt;
-                                                        &lt;!&ndash;<a th:href="|/board/view/${bd.board_id}|"></a>&ndash;&gt;&lt;!&ndash;제목링크&ndash;&gt;
-                                                        <span th:text="${bd.title}" style="cursor: pointer" ><i aria-hidden="true" class="icon-lock lock" style="display: none"></i></span>&lt;!&ndash;제목&ndash;&gt;
-                                                    </li>
-                                                    <li th:text="${bd.nick.nickname}" class="author" style="display: "></li>&lt;!&ndash;작성자 닉네임&ndash;&gt;
-                                                    <li th:text="${#strings.substring(bd.regdate,0,10)}" class="time" title="2023-05-15 10:18" style="display: "></li>&lt;!&ndash;작성일&ndash;&gt;
-                                                    <li class="views" style="display: "><em th:text="${bd.views}" class="txt">조회수</em></li>&lt;!&ndash;조회수&ndash;&gt;
-                                                    <li class="like" style="display: ">
-                                                        <a class="like_btn " id="like_btn_p2023051523ced4821610d" href="javascript:;" onclick="clickLike('p2023051523ced4821610d');">
-                                                            <div class="_token_obj" data-type="post_img_list_like">
-                                                                <input type="hidden" id="like_token_key_p2023051523ced4821610d" class="_tk_key_obj" value="560">
-                                                                <input type="hidden" id="like_token_p2023051523ced4821610d" class="_tk_obj" value="J5pA3ujcsDGPsIvlHzTpfTxbhwoNR9crdmQXbPyBQFIfMtQB2gpszra2AsdsCRDDGgnIRiClm6rvYKvx0r5BhikBuWLe0IEXvmhVxoDSBGk2ueRmefgpItAvc4LsaAD6">
-                                                            </div>
-                                                            <i aria-hidden="true" class="btm bt-heart">&nbsp;</i>
-                                                            <em th:text="${bd.likes}" id="like_count_p2023051523ced4821610d"></em>
-                                                        </a>
-                                                    </li>&lt;!&ndash;좋아요&ndash;&gt;
-                                                    <span class="comment-count only-mobile"><span>2</span></span>&lt;!&ndash;댓글수&ndash;&gt;
-                                                </div>
-                                            </span>
-                                        </ul>--><!--이미지 있는 게시글-->
                                     </div>
                                     <div class="li_footer _list_bottom clearfix text-center show_search_form">
                                         <div class="tools inline-blocked hidden-xs">
@@ -174,7 +136,7 @@
                                                 <form id="bottomSearch" class="input-group _bottom_search_form" action="" method="get">
                                                     <input type="hidden" name="keyword_type" value="all" />
                                                     <input class="form-control" type="text" placeholder="Search" name="keyword" value="" title="search" />
-                                                    <a href="javascript:;" class="ico-search" onclick="$('#bottomSearch._bottom_search_form').submit()">
+                                                    <a id="findbd" href="https://www.digdigactivity.com/Dailyroutine" class="findbd ico-search" style="background:none;">
                                                         <i class="icon-magnifier vertical-middle" aria-hidden="true"></i><span class="sr-only">검색</span>
                                                     </a>
                                                     <ul id="image_list" style="display: none"></ul>

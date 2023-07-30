@@ -13,11 +13,21 @@ bdlist?.addEventListener('click', ()=> {
 
 let siren1 = document.querySelector("#siren1")
 siren1?.addEventListener('click', () => {
-   alert("죄송합니다. 아직 미지원 기능입니다. 고객센터로 연락주시면 감사하겠습니다.")
+   alert(`불편을 드려 죄송합니다.
+홈페이지 리뉴얼로 인해, 현재 지원할 수 없는 기능입니다.
+고객센터로 연락 주시면 신속하게 도와드리겠습니다.`)
 });
 let siren2 = document.querySelector("#siren2")
 siren2?.addEventListener('click', () => {
-    alert("죄송합니다. 아직 미지원 기능입니다. 고객센터로 연락주시면 감사하겠습니다.")
+    alert(`불편을 드려 죄송합니다.
+홈페이지 리뉴얼로 인해, 현재 지원할 수 없는 기능입니다.
+고객센터로 연락 주시면 신속하게 도와드리겠습니다.`)
+});
+let siren3 = document.querySelector("#siren3")
+siren3?.addEventListener('click', () => {
+    alert(`불편을 드려 죄송합니다.
+홈페이지 리뉴얼로 인해, 현재 지원할 수 없는 기능입니다.
+고객센터로 연락 주시면 신속하게 도와드리겠습니다.`)
 });
 
 
@@ -37,7 +47,6 @@ wrtbdbtn?.addEventListener('click', () => {
         let categoryValue=document.querySelector("#categoryValue")
         categoryValue.value=b_category.value;
 
-        //frm.action='/board/write'
         frm.method = 'post';
         frm.enctype  = 'multipart/form-data';
         frm.submit();
@@ -60,6 +69,11 @@ newboardcommentbtn?.addEventListener('click', ()=> {
 
 
 // board comment reply
+let commentbtn = document.querySelector("#commentbtn")
+commentbtn?.addEventListener('click', ()=> {
+    alert('로그인을 하시면 대댓글을 작성하실 수 있습니다.');
+});
+
 $('#replyModal').on('shown.bs.modal', function (event) {
     let button = $(event.relatedTarget);
     let ref = button.data('ref');
@@ -134,6 +148,13 @@ $('.bdDeleteBtn')?.on('click',(e)=>{
         /*location.href='/admin/boardDelete/'+e.target.value;*/
     }
 })
+
+// board find
+let findbd = document.querySelector("#findbd")
+findbd?.addEventListener('click', ()=>{
+    alert(`기존 홈페이지에 더 다양한 게시물을 보실 수 있습니다.
+기존 홈페이지로 이동합니다.`)
+});
 
 
 // like

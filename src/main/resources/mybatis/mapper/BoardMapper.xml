@@ -21,6 +21,10 @@
         <result column="likes" property="likes" />
         <result column="regdate" property="regdate" />
         <result column="cmtcn" property="cmtcn" />
+        <result column="bdnext" property="bdnext" />
+        <result column="bdprev" property="bdprev" />
+        <result column="bdidnext" property="bdidnext" />
+        <result column="bdidprev" property="bdidprev" />
 
         <collection property="ba" resultMap="ba" />
         <collection property="nick" resultMap="nick" />

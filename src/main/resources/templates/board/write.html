@@ -4,7 +4,7 @@
       layout:decorate="~{layout/template}">
 <th:block layout:fragment="content">
     <body class="doz_sys  _body_menu_m202105075b655364fdf55  mobile-nav-on  mobile_nav_dep2  page  fixed-menu-on new_fixed_menu_on new_header_site  loggedin write_mode" 	style=";"  id="doz_body">
-    <div class="board_write post_write" id="board_container" th:with="isLogined=${(#strings.isEmpty(session.user))? false : true}" >
+    <div class="board_write post_write" id="board_container">
         <style>
             .headerhide{
                 display: none;
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="row" style="display: flex">
-                        <label for="attachs" class="board-name" style="margin-right: 15px">첨부파일</label>
+                        <label for="attachs" class="board-name" style="margin-right: 15px">이미지 첨부</label>
                         <div class="list m-padding-on">
                             <input type="file" name="attachs" id="attachs" multiple="multiple" class="list m-padding-on">
                         </div>
