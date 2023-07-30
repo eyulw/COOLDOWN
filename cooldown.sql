@@ -192,3 +192,9 @@ create view boardcombine
      ,LEAD(board_id, 1) OVER(ORDER BY board_id) AS bdidnext
      ,LAG(board_id, 1) OVER(ORDER BY board_id) AS bdidprev
 FROM boardcombine__);
+
+
+SELECT * FROM qna
+ORDER BY regdate DESC;
+
+select * from qna where u_id=u_id order by qna_id DESC;

@@ -62,12 +62,13 @@
     </insert>
 
     <select id="selectMyQna" resultType="Qna">
-        select * from qna where u_id=#{u_id}
+        select * from qna where u_id=#{u_id} order by qna_id DESC
     </select>
 
     <select id="getCountPages">
         select ceil(count(qna_id)/15) from qna
     </select>
+
     <select id="getCountIQPages">
         select ceil(count(itemqna_id)/15) from itemqna
     </select>

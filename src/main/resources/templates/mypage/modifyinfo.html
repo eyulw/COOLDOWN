@@ -8,7 +8,7 @@
         <div class="left-menu hidden-lg hidden-md">
           <ul id="cart_menu">
             <div class="clearfix cart-menu-slide">
-              <li class="active">
+              <li class="">
                 <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a>
               </li>
               <li class=" ">
@@ -20,9 +20,8 @@
               <li class=" ">
                 <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a>
               </li>
-              <li class="">
-                <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1
-                                        문의</span></a>
+              <li class="active">
+                <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1문의</span></a>
               </li>
             </div>
           </ul>
@@ -30,13 +29,11 @@
 
         <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
           <ul>
-            <li class="on">
-              <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span
-                      class="hidden-xs">조회</span></a>
+            <li class="">
+              <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a>
             </li>
             <li class="">
-              <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span
-                      class="hidden-xs">리스트</span></a>
+              <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a>
             </li>
             <li class="">
               <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a>
@@ -46,7 +43,7 @@
             </li>
             <li class="">
               <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
-            <li class="">
+            <li class="on">
               <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
             <li class="">
               <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
@@ -58,17 +55,19 @@
             <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
 
               <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
+              <hr>
               <div class="text-15 use_grade">
                 <div class="ug_text"></div>
                 <div class="table-wrap deleteacct">
                   <h4 class="hidden-sm hidden-xs text-default-dark">
-                    <span>회원 수정</span>
+                    <span>회원 정보 수정</span><p></p><p></p>
 
                     <div class="card card-body bg-light m-5">
 
                       <form name="umdfrm">
 
                         <div class="input_block form-group">
+                          <label class="mini-tit" for="join_email">아이디, 비밀번호<i aria-hidden="true" class="icon-required"></i></label>
                           <div class="input_form _item _uid">
                             <input title="아이디" type="text" name="userid" th:value="${u.userid}" readonly>
                             <i aria-hidden="true" class="zmdi zmdi-check"></i>
@@ -83,8 +82,8 @@
                             <input title="비밀번호 확인" type="password" name="passwd_confirm" autocomplete="off" placeholder="비밀번호 확인">
                             <i aria-hidden="true" class="zmdi zmdi-check"></i>
                             <div class="alert-block _msg"></div>
-                          </div>
-                        </div>
+                          </div><p></p>
+
 
                         <div class="input_block form-group">
                           <label class="mini-tit" for="join_email">이메일<i aria-hidden="true" class="icon-required"></i></label>
@@ -127,8 +126,6 @@
                           <input type="hidden" name="zipcode" id="zipcode">
                         </div>
 
-
-
                         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
                         <script>
                           window.onload = function(){
@@ -154,6 +151,7 @@
                           </div>
                         </div>
                         <button type="button" class="btn btn-brand w100p h45 _join_btn" id="umodifybtn">수정하기</button>
+                        </div>
                       </form>
                     </div>
                   </h4>
