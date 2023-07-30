@@ -200,7 +200,7 @@ public class AdminController {
         logger.info("admin/itemqnareplyok 호출");
         String returnPage="redirect:/fail";
         if(a_qsrv.updateAdminIReply(itemqna_id,answer))
-            returnPage="redirect:/admin/itemqna";
+            returnPage="redirect:/admin/itemqna/list/1";
         /*itemqna_id 글에 관리자 답변 넣어서 update*/
         return returnPage;
     }

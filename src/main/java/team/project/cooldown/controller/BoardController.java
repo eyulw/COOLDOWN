@@ -27,7 +27,7 @@ public class BoardController {
         m.addAttribute("bds",bsrv.readBoard(cpg));
         m.addAttribute("cpg",cpg);
         m.addAttribute("cntpg",bsrv.countBoard());
-        m.addAttribute("stpg",((cpg-1)/10)*10+1);
+        m.addAttribute("stpg",((cpg-1)/5)*5+1);
         //만일, 현재페이지(cpg)가 총 페이지 수(cntpg)보다 크면 cpg를 1페이지로 강제 이동
         if(cpg > (int)m.getAttribute("cntpg")) {
             return "redirect:/board/list/1";
@@ -92,33 +92,55 @@ public class BoardController {
         return returnPage;
     }
 
-
-    // find
-    @GetMapping("/find/{findkey}/{cpg}")
-    public String find(Model m, @PathVariable Integer cpg, @PathVariable String findkey){
-        logger.info("board/find 호출!!");
-        m.addAttribute("bds",bsrv.readFindBoard(cpg, findkey));
+    @GetMapping("/category/{category}/{cpg}")
+    public String find(Model m,@PathVariable String category, @PathVariable Integer cpg){
+        logger.info("board/category 호출!!");
+        m.addAttribute("bds",bsrv.readFindcBoard(category, cpg));
         m.addAttribute("cpg",cpg);
-        m.addAttribute("cntpg",bsrv.countFindBoard(findkey));
+        m.addAttribute("cntpg",bsrv.countFindBoard(category));
         m.addAttribute("stpg",((cpg-1)/5)*5+1);
-        m.addAttribute("fkey", findkey);
-        //만일, 현재페이지(cpg)가 총 페이지 수(cntpg)보다 크면 cpg를 1페이지로 강제 이동
         if(cpg > (int)m.getAttribute("cntpg")) {
             return "redirect:/board/list/1";
         }
         return "board/list";
     }
-    @GetMapping("/category/{category}")
-    public String find(Model m,@PathVariable String category){
-        logger.info("board/find 호출!!");
-        m.addAttribute("bds",bsrv.readFindcBoard(category));
-        /*m.addAttribute("cntpg",bsrv.countFindBoard(category));
-        m.addAttribute("stpg",((cpg-1)/5)*5+1);
-        m.addAttribute("fkey", findkey);
-        //만일, 현재페이지(cpg)가 총 페이지 수(cntpg)보다 크면 cpg를 1페이지로 강제 이동
-        if(cpg > (int)m.getAttribute("cntpg")) {
-            return "redirect:/board/list/1";
-        }*/
-        return "board/list";
+
+    // modify
+    @GetMapping("/modify/{board_id}")
+    public String modifyBoard(Model m,@PathVariable String board_id){
+        logger.info("board/modify/board_id 호출");
+        m.addAttribute("bdm",bsrv.readModifyBoard(board_id));
+        return "board/modify";
     }
+    @PostMapping("/modifyb/{board_id}")
+    public String modifyB(Board b,@PathVariable String board_id){
+        logger.info("board/modify/board 호출");
+        String returnPage="redirect:/board/fail";
+        b.setBoard_id(board_id);
+        if(bsrv.modifyboard(b))
+            returnPage="redirect:/board/list/1";
+        return returnPage;
+    }
+    @PostMapping("/modifyba/{board_id}")
+    public String modifyBa(Board b, @PathVariable String board_id, List<MultipartFile> attachs){
+        logger.info("board/modifyba/boardattach 호출");
+        String returnPage="redirect:/board/fail";
+        b.setBoard_id(board_id);
+        if(!attachs.isEmpty()){
+            bsrv.modifyboardattach(b,attachs);
+            returnPage="redirect:/board/list/1";
+        }
+        return returnPage;
+    }
+
+    // delete
+    @GetMapping("/delete/{board_id}")
+    public String boardDelete(@PathVariable String board_id){
+        logger.info("board/delete/board_id 호출");
+        String returnPage="redirect:/board/fail";
+        if(bsrv.deleteBoard(board_id))
+            returnPage="redirect:/board/list/1";
+        return returnPage;
+    }
+
 }

@@ -20,4 +20,9 @@ public class Board {
     private BoardAttach ba;
     private User nick;
     private int cmtcn;
+    private String bdnext;
+    private String bdprev;
+    private String bdidnext;
+    private String bdidprev;
+
 }

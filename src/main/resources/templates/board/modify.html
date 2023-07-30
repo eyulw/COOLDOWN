@@ -14,13 +14,13 @@
             <div class="header_line clearfix">
                 <div class="board-name">자유게시판</div>
                 <div class="write-btn">
-                    <a id="bdwrtcancelbtn" class="btn btn_style">취소</a>
-                    <button type="button" name="wrtbdbtn" id="wrtbdbtn" class="_save_post save_post btn">작성</button>
+                    <a id="bdwrtmdicancelbtn" th:value="${bdm.board_id}" class="btn btn_style">취소</a>
+                    <button type="button" name="bdwrtmdibtn" id="bdwrtmdibtn" class="_save_post save_post btn">작성</button>
                 </div>
             </div>
         </div><!--글쓰기 헤더(자유게시판,취소버튼,작성버튼)-->
         <div>
-            <form id="post_form">
+            <form id="post_form_modify">
                 <div>
                     <div class="row">
                         <!--<div class="bg_write _cover_image" style="">
@@ -35,28 +35,29 @@
                                     <div class="author">
                                         <div th:text="${session.user.nickname}" class="write" style="font-size: 18px">nickname</div><!--닉네임 불러와서 보여주기-->
                                         <input type="hidden" name="u_id" id="u_id" th:value="${session.user.u_id}">
+                                        <input type="hidden" name="board_id" id="board_id" th:value="${bdm.board_id}">
                                     </div>
                                 </div>
                             </div><!--프로필이미지, 닉네임-->
                             <div class="editor_box">
-                                <div class="title_box ">
+                                <div class="title_box _title_box">
                                     <div class="board_title_wrap tabled full-width" style="position: relative">
                                         <div class="table-cell vertical-middle">
                                             <select name="category_" id="b_category" class="div_select category_select" style="width: 120px; font-size:18px;">
-                                                <option value="자유글">자유글</option>
-                                                <option value="동행구하기">동행구하기</option>
-                                                <option value="자기소개">자기소개</option>
-                                                <option value="Q&A">Q&A</option>
+                                                <option value="자유글" th:selected="${bdm.category eq '자유글'}">자유글</option>
+                                                <option value="동행구하기" th:selected="${bdm.category eq '동행구하기'}">동행구하기</option>
+                                                <option value="자기소개" th:selected="${bdm.category eq '자기소개'}">자기소개</option>
+                                                <option value="Q&A" th:selected="${bdm.category eq 'Q&A'}">Q&A</option>
                                             </select><!--카테고리 선택-->
                                             <input type="hidden" name="category" id="categoryValue">
                                         </div><!--카테고리-->
                                         <div class="table-cell vertical-middle" style="width: 100%;padding-left: 10px">
-                                            <input id="title" name="title" class="no-margin basic_input title_name w100p mb24 " type="text" placeholder="제목을 입력하세요."/>
+                                            <input id="title" name="title" class="no-margin basic_input title_name w100p mb24 " type="text" th:value="${bdm.title}"/>
                                         </div><!--제목입력-->
                                     </div>
                                 </div><!--카테고리, 제목-->
                                 <div class="postBody basic-editor fr-box fr-ltr custom-theme fr-basic" id="post_body" role="application">
-                                    <textarea rows="12" style="resize: none; font-size: 18px" id="contents" name="contents" class="no-margin basic_input title_name w100p mb24 h100p" type="text" placeholder="내용을 입력하세요."></textarea><!--작성한 본문 내용-->
+                                    <textarea id="contents" name="contents" rows="12" style="resize: none; font-size: 18px" class="no-margin basic_input title_name w100p mb24 h100p" type="text">[[${bdm.contents}]]</textarea><!--작성한 본문 내용-->
                                 </div><!--본문 내용-->
                             </div>
                         </div>

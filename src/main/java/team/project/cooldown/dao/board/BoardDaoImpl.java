@@ -40,6 +40,16 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
+    public List<Board> selectFindcBoard(Map<String, Object> params) {
+        return boardMapper.selectFindcBoard(params);
+    }
+
+    @Override
+    public int countFindBoard(Map<String, Object> params) {
+        return boardMapper.countFindBoard(params);
+    }
+
+    @Override
     public int insertBoardAttach(BoardAttach ba) {
         return boardMapper.insertBoardAttach(ba);
     }
@@ -65,24 +75,28 @@ public class BoardDaoImpl implements BoardDao {
     }
 
     @Override
-    public List<Board> selectFindBoard(Map<String, Object> params) {
-        return boardMapper.selectFindBoard(params);
-
+    public int updateboard(Board b) {
+        return boardMapper.updateboard(b);
     }
 
     @Override
-    public int countFindBoard(Map<String, Object> params) {
-        return boardMapper.countFindBoard(params);
+    public int updateBoardAttach(BoardAttach ba) {
+        return boardMapper.updateBoardAttach(ba);
+    }
+
+    @Override
+    public Board selectModifyBoard(String board_id) {
+        return boardMapper.selectModifyBoard(board_id);
+    }
+
+    @Override
+    public int removeOneBoard(String board_id) {
+        return boardMapper.removeOneBoard(board_id);
     }
 
     @Override
     public int insertnobdattach(int board_id) {
         return boardMapper.insertnobdattach(board_id);
-    }
-
-    @Override
-    public List<Board> selectFindcBoard(String category) {
-        return boardMapper.selectFindcBoard(category);
     }
 
     @Override

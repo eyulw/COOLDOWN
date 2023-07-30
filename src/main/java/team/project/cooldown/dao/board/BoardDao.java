@@ -17,22 +17,19 @@ public interface BoardDao {
 
     int selectCountBoard();
 
-    int insertBoardAttach(BoardAttach ba);
-
-    List<Board> selectFindBoard(Map<String, Object> params);
+    List<Board> selectFindcBoard(Map<String, Object> params);
 
     int countFindBoard(Map<String, Object> params);
 
-    int insertnobdattach(int board_id);
+    int insertBoardAttach(BoardAttach ba);
 
-    List<Board> selectFindcBoard(String category);
+    int insertnobdattach(int board_id);
 
     List<BoardComments> selectBoardComment(String board_id);
 
     int insertBoardComment(BoardComments bc);
 
     int insertBoardReply(BoardComments bc);
-
 
     List<Board> selectHotTopic();
 
@@ -42,9 +39,12 @@ public interface BoardDao {
 
     int getCountBoard();
 
-/*
-    int insertBoardAttach(BoardAttach ba);
+    int updateboard(Board b);
 
-    int insertNewBoard(Board b);
-*/
+    int updateBoardAttach(BoardAttach ba);
+
+    Board selectModifyBoard(String board_id);
+
+    int removeOneBoard(String board_id);
+
 }
