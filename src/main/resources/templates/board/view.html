@@ -107,7 +107,7 @@
                                                     </div>
                                                 </div><!--게시자 정보 외-->
                                                 <div class="board_txt_area fr-view">
-                                                    <div th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515"></div><!--본문-->
+                                                    <p th:text="${bd.contents}" class="margin-top-xxl _comment_body_m202101156c08f63444515" style="white-space: pre"></p><!--본문-->
                                                     <div class="file_area"><!--얘는 뭘까요?--></div>
                                                     <div class="file_area">
                                                         <!--<a th:href="|/pds/down/${p.pno}|" th:text="${p.pa.fname}">파일명</a>-->
@@ -189,7 +189,7 @@
                                                                 <form id="comment_form">
                                                                     <div class="postmeta comment-comment">
                                                                         <div class="textarea_block">
-                                                                            <textarea id="contents" name="contents" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
+                                                                            <textarea id="contents" name="contents" title="댓글을 남겨주세요" placeholder="댓글을 남겨주세요" rows="1" data-action="btn_c_p2023051523ced4821610d" data-autosize-on="true" style="white-space: pre; overflow: hidden visible; overflow-wrap: break-word; height: 62px;" spellcheck="false"></textarea>
                                                                             <input type="hidden" name="board_id" id="board_id" th:value="${bd.board_id}">
                                                                             <input type="hidden" name="u_id" id="u_id" th:value="${session.user.u_id}">
                                                                             <button id="newboardcommentbtn" class="btn btn-primary btn-sm">작성</button><!--댓글 작성 버튼-->
