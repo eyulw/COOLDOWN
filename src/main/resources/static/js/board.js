@@ -47,7 +47,6 @@ wrtbdbtn?.addEventListener('click', () => {
         let categoryValue=document.querySelector("#categoryValue")
         categoryValue.value=b_category.value;
 
-        //frm.action='/board/write'
         frm.method = 'post';
         frm.enctype  = 'multipart/form-data';
         frm.submit();
