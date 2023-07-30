@@ -34,11 +34,6 @@ document.addEventListener("DOMContentLoaded", function() { // 페이지 로드 �
 
 
 
-/*구매하기*/
-let buybtn = document.querySelector("#buybtn");
-buybtn.addEventListener('click',()=>{
-   alert("개발중인 기능입니다");
-});
 
 
 /*좋아요*/
@@ -176,6 +171,7 @@ function total_price1() {
     total_price.innerText = grandTotal + "원";
     document.getElementById('cart_total_data').value = grandTotal;
 }
+
 document.addEventListener("DOMContentLoaded", function() {
    total_price1();
 });
@@ -289,9 +285,13 @@ function updateValues() {
 let buy_e = document.querySelector("#buy_e");
 let item_e = document.querySelector("#item_e");
 
+
 buy_e.addEventListener('click',()=>{
     alert("개발중인 기능입니다");
 });
 item_e.addEventListener('click',()=>{
     alert("개발중인 기능입니다");
 });
+
+
+

@@ -251,7 +251,9 @@ public class ShopController {
         List<CartCombine> carts = isrv.chooseCart(u_id);
         m.addAttribute("ChooseCart", isrv.chooseCart(u_id));
         m.addAttribute("likelist",isrv.likelist(u_id));
-        System.out.println(isrv.likelist(u_id));
+
+        System.out.println(isrv.chooseCart(u_id));
+
         return "shop/shop_cart";
     }
 
