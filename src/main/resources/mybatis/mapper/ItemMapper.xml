@@ -257,10 +257,10 @@
         <collection property="ia" resultMap="ia"/>
     </resultMap>
     <select id="selectItemAtt" resultMap="iia">
-        select * from itematt
+        select * from itematt order by item_id desc
     </select>
     <select id="selectItemAttCt" resultMap="iia">
-        select * from itematt where category=#{category}
+        select * from itematt where category=#{category} order by item_id desc
     </select>
     <delete id="deleteItem">
         delete from item where item_id=#{item_id}

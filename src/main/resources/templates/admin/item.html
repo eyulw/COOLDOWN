@@ -22,13 +22,13 @@
                     <li role="presentation" th:class="${#strings.endsWith(#request.getRequestURI(),'category/runningitem')? 'active' : ''}" ><a href="/admin/item/category/runningitem">러닝</a></li>
                 </ul>
             </div>
-        </div><!-- 회원 카테고리 -->
+        </div>
 
         <div class="itemContainer">
             <th:block th:each="i:${ias}">
                 <div class="aitemBox">
                     <div class="itemImgBox">
-                        <img th:src="|http://localhost/cdn/itemImg/${i.ia.fname}|" style="width:200px;">
+                        <img th:src="|http://localhost/cdn/itemImg/${i.ia.fname}|" style="width:200px; min-height:200px ">
                     </div>
                     <div class="aitemDetailBox">
                         <div class="aitemDetail">
@@ -67,6 +67,8 @@
                 </div>
             </th:block>
         </div>
+        <div style="float: right"><button type="button" class="amovebtn itemBtnSt">목록으로</button></div>
+        <div style="padding-bottom: 50px"></div>
     </div>
     <script src="/assets/js/admin.js" charset="utf-8"></script>
 </th:block>
