@@ -5,14 +5,26 @@
 let pwd = document.querySelector("#pwd");
 let repwd=document.querySelector("#repasswd");
 let pwdmsg=document.querySelector("#pwdmsg");
+let repwdmsg=document.querySelector("#repwdmsg");
+const regpass = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+pwd?.addEventListener('blur',()=>{
+    let pwmsg = "사용가능한 비밀번호입니다";
+    pwdmsg.className='pmsg';
+    if(pwd.value.match(regpass)===null){
+        pwmsg=" 특수문자, 숫자, 영문 조합으로 8자리 이상 입력하세요.";
+        pwdmsg.className='ipmsg';
+    }
+    pwdmsg.innerText=pwmsg;
+})
+
 repwd?.addEventListener('blur',()=>{
     let pmsg = "비밀번호가 서로 일치하지 않습니다.";
-    pwdmsg.className='ipmsg';
+    repwdmsg.className='ipmsg';
     if(pwd.value === repwd.value){
         pmsg="비밀번호가 서로 일치합니다.";
-        pwdmsg.className='pmsg';
+        repwdmsg.className='pmsg';
     }
-    pwdmsg.innerText=pmsg;
+    repwdmsg.innerText=pmsg;
 })
 
 
@@ -46,6 +58,7 @@ uid?.addEventListener('blur',()=>{
 /*이메일 형식확인*/
 let jemail = document.querySelector("#join_email");
 let emsg=document.querySelector("#emsg");
+const regEmail = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 jemail?.addEventListener('blur',()=>{
     let emmsg = "사용가능한 이메일입니다";
     emsg.className='pmsg';
@@ -58,14 +71,12 @@ jemail?.addEventListener('blur',()=>{
 
 
 let joinokBtn =document.querySelector("#joinokBtn");
-const regEmail = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 joinokBtn?.addEventListener('click',()=>{
     let frm=document.forms.joinfrm;
     if(frm.userid.value==='') alert("아이디를 입력하세요");
     else if(frm.password.value==='') alert("비밀번호를 입력하세요");
     else if(frm.passwd_confirm.value==='') alert("비밀번호를 확인란을 입력하세요");
     else if(frm.email.value==='') alert("이메일을 입력하세요");
-    else if (frm.email.value.match(regEmail) === null) alert("이메일을 형식에 맞게 입력하세요.");
     else if(frm.nickname.value==='') alert("닉네임을 입력하세요");
     else if(frm.phone.value==='') alert("핸드폰번호를 입력하세요");
     else if(frm.birth_y.value==='') alert("태어난 연도를 선택하세요");

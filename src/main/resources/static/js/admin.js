@@ -40,6 +40,11 @@ rplok?.addEventListener('click',()=>{
     }
 });
 
+let rplcc = document.querySelector("#rplcc");
+rplcc?.addEventListener('click',()=>{
+    location.href='/admin/qna/list/1';
+})
+
 
 /*makeitem*/
 
@@ -129,4 +134,15 @@ irplok?.addEventListener('click',()=>{
         frm.method='post';
         frm.submit();
     }
+});
+
+
+let irplcc = document.querySelector("#irplcc");
+irplcc?.addEventListener('click',()=>{
+    location.href='/admin/itemqna/list/1';
+})
+
+let amovebtn= document.querySelector('.amovebtn');
+amovebtn?.addEventListener('click',()=>{
+   location.href='/admin/';
 });
