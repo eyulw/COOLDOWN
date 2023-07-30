@@ -73,7 +73,7 @@
                             <div class="im-cart-img-wrap im-grow im-xs-flex im-xs-flex-col" >
                                 <a class="cart-item-wrap" th:href="|/digshop/?idx=${chcart.item_id}|">
                                     <div class="cart-item-img">
-                                        <img th:src="|${chcart.fname}|" alt="cart item" th:id="'cart_image_'+ ${chcart.cart_id}">
+                                        <img th:src="|http://localhost/cdn/itemImg/${chcart.fname}|" alt="cart item" th:id="'cart_image_'+ ${chcart.cart_id}">
                                     </div>
                                     <p class="cart-item-title text-15" id="shop_cart_title_i202307205e02425afe504" th:id="'itemname_'+ ${chcart.cart_id}" th:text="${chcart.itemname}">힐스캠&nbsp;파이어네이도&nbsp;화로대</p>
                                 </a>
@@ -312,7 +312,7 @@
                     <div class="shop-item common-item"   style="margin-bottom: 0;"><!-- 반복구간 시작 (최대 5개 까지만 노출) -->
                         <div class="wish_thumb">
                             <a th:href="|/digshop/?idx=${like.item_id}|">
-                                <img th:src="${like.fname}" alt="위시리스트 이미지">
+                                <img th:src="|http://localhost/cdn/itemImg/${like.fname}|" alt="위시리스트 이미지">
                                 <span class="bg_hover" ></span>
                             </a>
                             <a href="javascript:;" class="circle btl bt-times-circle" onclick="SITE_SHOP_CART.deleteProdWishByProdCode('s20210615518183171de95')"></a>
