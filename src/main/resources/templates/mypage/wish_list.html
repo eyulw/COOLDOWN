@@ -8,9 +8,9 @@
                   <div class="left-menu hidden-lg hidden-md">
                     <ul id="cart_menu">
                       <div class="clearfix cart-menu-slide">
-                        <li class="active">
-                          <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
                         <li class="">
+                          <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
+                        <li class="active">
                           <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
                         <li class="">
                           <a href="" class="body_font_color_50"><span>장바구니</span></a></li>
@@ -20,7 +20,8 @@
                           <a href="/mypage/qna" class="body_font_color_50"><span>1:1 문의</span></a></li>
                       </div>
                     </ul>
-                  </div>
+                  </div><!--flexible 상단 메뉴바-->
+
                   <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
                     <ul>
                       <li class="">
@@ -40,6 +41,7 @@
                       </li>
                     </ul>
                   </div>
+
                   <div class="col-md-10 col-sm-12">
                     <div class="head bg-bright">
                       <div class="my-theme tabled full-width">
@@ -51,49 +53,26 @@
                                       background: url(/img/default_profile.png) 50% 50% / cover no-repeat;"></div>
                                 <span class="sr-only">정보 수정</span></a>
                             </div>
+
                             <div class="nick text-default-dark table-cell vertical-middle no-margin-top">
                               <span th:text="|${session.user.nickname} 님 안녕하세요.|"></span>
                                 <div class="text-15 use_grade">
                                   <div class="ug_text"></div>
                                     <div class="ug_btn">
-                                      <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
-                                          data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
                                         <div id="list-popover" style="display: none" class="list_popover">
-
                                           <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
                                             <h6 class="no-margin"></h6>
                                             <span class="sr-only"></span></a>
                                           </div>
-                                    <div class="lp_content_wrap">
-                                        <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
-                                          bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.</div>
-                                        <div class="lp_title">누적 구매금액: 0원</div>
-                                        <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">
-                                          <p class="no-margin">누적 구매금액: 0원</p></div>
-                                        <div class="lp_table">
-                                        <div class="text-bold text-13"></div>
-                                        <div class="table-responsive">
-                                            <table class="table no-margin">
-                                               <thead>
-                                                 </thead>
-                                               <tbody>
-                                                 </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="text-12 margin-top-xxl"></div>
+                                          <div class="lp_content_wrap"></div>
                                         </div>
                                     </div>
-                                  </div>
                                 </div>
-                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="table-cell vertical-middle point-view text-center">
-                          <a href="/shop_mypage/?m2=point_list">
-                            <p></p>
+                        <div class="table-cell text-center"><p></p>
                             <span class="text-bold text-32"></span>
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -110,11 +89,10 @@
                         <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
                            style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a>
                       </div>
-                 </div>
-               </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </th:block>
-    </body>
+        </th:block>
 </html>

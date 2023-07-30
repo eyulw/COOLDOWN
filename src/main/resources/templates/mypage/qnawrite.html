@@ -1,68 +1,132 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+<html lang="ko" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
-        <th:block layout:fragment="content">
-            <div id="main">
-                    <script src="https://www.google.com/recaptcha/api.js"></script>
-                    <div class="mt-5">
-                        <i class="fa-solid fa-person-chalkboard fa-2xl"> 게시판</i>
-                        <hr>
-                    </div>
-
-                    <div class="row mb-3 mt-5">
-                        <div class="row offset-1 col-5">
-                            <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>
+<th:block layout:fragment="content">
+    <body class="doz_sys  _body_menu_m202105075b655364fdf55  mobile-nav-on  mobile_nav_dep2  page  fixed-menu-on new_fixed_menu_on new_header_site  loggedin write_mode"    style=";"  id="doz_body">
+    <div class="board_write post_write" id="board_container" th:with="isLogined=${(#strings.isEmpty(session.user))? false : true}" >
+        <style>
+            .headerhide{
+                display: none;
+            }
+        </style>
+        <div class="write-header _write_header m_sticky_toolbar">
+            <div class="header_line clearfix">
+                <div class="board-name">1:1 문의</div>
+                <div class="write-btn">
+                    <a id="bdwrtcancelbtn" class="btn btn_style" th:href="|/mypage/qna/${session.user.u_id}|">취소</a>
+                    <button type="button" name="wrtbdbtn" id="wrtbdbtn" class="_save_post save_post btn">작성</button>
+                </div>
+            </div>
+        </div><!--글쓰기 헤더(자유게시판,취소버튼,작성버튼)-->
+        <div>
+            <form id="qnafrm">
+                <div>
+                    <div class="row">
+                        <!--<div class="bg_write _cover_image" style="">
+                            <div class="bg_opacity"></div>
+                        </div>-->
+                        <div>
+                            <div class="board_summary">
+                                <div>
+                                    <div class="avatar">
+                                        <img src="/assets/img/logo.png" alt="프로필 이미지"  class="avatar-image" style="border: 1px solid black"><!--프로필이미지 불러와서 보여주기-->
+                                    </div>
+                                    <div class="author">
+                                        <div th:text="${session.user.nickname}" class="write" style="font-size: 18px">nickname</div><!--닉네임 불러와서 보여주기-->
+                                        <input type="hidden" name="u_id" id="u_id" th:value="${session.user.u_id}">
+                                    </div>
+                                </div>
+                            </div><!--프로필이미지, 닉네임-->
+                            <div class="editor_box">
+                                <div class="title_box ">
+                                    <div class="board_title_wrap tabled full-width" style="position: relative">
+                                        <div class="table-cell vertical-middle" style="width: 100%;padding-left: 10px">
+                                            <input id="title" name="title" class="no-margin basic_input title_name w100p mb24 " type="text" placeholder="제목을 입력하세요."/>
+                                        </div><!--제목입력-->
+                                    </div>
+                                </div><!--카테고리, 제목-->
+                                <div class="postBody basic-editor fr-box fr-ltr custom-theme fr-basic" id="post_body" role="application">
+                                    <textarea rows="12" style="resize: none; font-size: 18px" id="contents" name="contents" class="no-margin basic_input title_name w100p mb24 h100p" type="text" placeholder="내용을 입력하세요."></textarea><!--작성한 본문 내용-->
+                                </div><!--본문 내용-->
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </form><!--글쓰기 작성 폼-->
+        </div>
+    </div>
+    </body>
+    <script src="/assets/js/mypage.js" charset="utf-8"></script>
+</th:block>
+</html>
 
-                        <div class="row offset-1 col-10 mb-5">
-                            <form name="qnafrm" id="qnafrm"
-                                  class="card card-body bg-light">
-                                <div class="row mt-3">
-                                    <label for="title" class="col-3 col-form-label text-danger text-end" placeholder="제목">제목</label>
-                                    <div class="col-3">
-                                        <input type="text" name="title" id="title"
-                                               class="form-control border-danger">
-                                    </div>
-                                </div> <!--제목-->
-                                <div class="row mt-3">
-                                    <label for="title"
-                                           class="col-3 col-form-label text-danger text-end">작성자</label>
-                                    <div class="col-3">
-                                        <input type="hidden" name="u_id" id="u_id"
-                                               class="form-control border-danger bg-light"
-                                               readonly th:value="${session.user.u_id}">
-                                    </div>
-                                </div> <!--작성자-->
 
-                                <div class="row mt-3">
-                                    <label for="contents"
-                                           class="col-3 col-form-label text-danger text-end">본문</label>
-                                    <div class="col-3">
-                                    <textarea rows="15" name="contents" id="contents"
-                                              class="form-control border-danger"></textarea>
-                                    </div>
-                                </div><!--본문-->
-                                <div class="row mt-4 mb-3">
-                                    <hr class="w-75 mx-auto">
-                                    <div class="text-center">
+<!--<!DOCTYPE html>-->
+<!--<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{layout/template}">-->
+<!--        <th:block layout:fragment="content">-->
+<!--            <div id="main">-->
+<!--                    <script src="https://www.google.com/recaptcha/api.js"></script>-->
+<!--                    <div class="mt-5">-->
+<!--                        <i class="fa-solid fa-person-chalkboard fa-2xl"> 게시판</i>-->
+<!--                        <hr>-->
+<!--                    </div>-->
 
-                                        <button type="button" id="wrtbdbtn" class="btn btn-primary">
-                                            <i class="fa-regular fa-circle-check"></i> 입력완료</button>
-                                        <button type="button" id="cancelbtn" class="btn btn-danger">
-                                            <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>
+<!--                    <div class="row mb-3 mt-5">-->
+<!--                        <div class="row offset-1 col-5">-->
+<!--                            <h4><i class="fa fa-plus-circle"></i> 새글쓰기</h4>-->
+<!--                        </div>-->
 
-                                            <button type="button" class="btn btn-light col-3" id="lstbdbtn">
-                                                <a th:href="|/mypage/qna/${session.user.u_id}|">
-                                                    <i class="fa fa-list"></i> 목록으로</a></button>
-                                        </div><!--버튼들-->
-                                    </div>
-                                </form>
-                            </div> <!--버튼들-->
-                          <input type="hidden" name="ipaddr" id="ipaddr" th:value="${#request.getRemoteAddr()}">
-                        </form>
-                    </div><!--새글 쓰기 폼-->
-                 </div>
-             </div>
-         <script src="/assets/js/mypage.js" charset="utf-8"></script>
-    </th:block>
- </html>
+<!--                        <div class="row offset-1 col-10 mb-5">-->
+<!--                            <form name="qnafrm" id="qnafrm"-->
+<!--                                  class="card card-body bg-light">-->
+<!--                                <div class="row mt-3">-->
+<!--                                    <label for="title" class="col-3 col-form-label text-danger text-end" placeholder="제목">제목</label>-->
+<!--                                    <div class="col-3">-->
+<!--                                        <input type="text" name="title" id="title"-->
+<!--                                               class="form-control border-danger">-->
+<!--                                    </div>-->
+<!--                                </div> &lt;!&ndash;제목&ndash;&gt;-->
+<!--                                <div class="row mt-3">-->
+<!--                                    <label for="title"-->
+<!--                                           class="col-3 col-form-label text-danger text-end">작성자</label>-->
+<!--                                    <div class="col-3">-->
+<!--                                        <input type="hidden" name="u_id" id="u_id"-->
+<!--                                               class="form-control border-danger bg-light"-->
+<!--                                               readonly th:value="${session.user.u_id}">-->
+<!--                                    </div>-->
+<!--                                </div> &lt;!&ndash;작성자&ndash;&gt;-->
+
+<!--                                <div class="row mt-3">-->
+<!--                                    <label for="contents"-->
+<!--                                           class="col-3 col-form-label text-danger text-end">본문</label>-->
+<!--                                    <div class="col-3">-->
+<!--                                    <textarea rows="15" name="contents" id="contents"-->
+<!--                                              class="form-control border-danger"></textarea>-->
+<!--                                    </div>-->
+<!--                                </div>&lt;!&ndash;본문&ndash;&gt;-->
+<!--                                <div class="row mt-4 mb-3">-->
+<!--                                    <hr class="w-75 mx-auto">-->
+<!--                                    <div class="text-center">-->
+
+<!--                                        <button type="button" id="wrtbdbtn" class="btn btn-primary">-->
+<!--                                            <i class="fa-regular fa-circle-check"></i> 입력완료</button>-->
+<!--                                        <button type="button" id="cancelbtn" class="btn btn-danger">-->
+<!--                                            <i class="fa-solid fa-circle-xmark"></i> 취소하기</button>-->
+
+<!--                                            <button type="button" class="btn btn-light col-3" id="lstbdbtn">-->
+<!--                                                <a th:href="|/mypage/qna/${session.user.u_id}|">-->
+<!--                                                    <i class="fa fa-list"></i> 목록으로</a></button>-->
+<!--                                        </div>&lt;!&ndash;버튼들&ndash;&gt;-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div> &lt;!&ndash;버튼들&ndash;&gt;-->
+<!--                          <input type="hidden" name="ipaddr" id="ipaddr" th:value="${#request.getRemoteAddr()}">-->
+<!--                        </form>-->
+<!--                    </div>&lt;!&ndash;새글 쓰기 폼&ndash;&gt;-->
+<!--                 </div>-->
+<!--             </div>-->
+<!--         <script src="/assets/js/mypage.js" charset="utf-8"></script>-->
+<!--    </th:block>-->
+<!-- </html>-->
