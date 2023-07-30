@@ -179,3 +179,16 @@ select bc.*,c.cmtcn from boardcombine_ bc left outer join (select count(reply_id
 select count(reply_id) cmtcn,board_id from boardcomments group by board_id;
 
 delete from user where u_id=8;
+
+SELECT boardcombine.*, LAG(board_id, 1) OVER(ORDER BY board_id) AS board_prev
+FROM boardcombine__;
+
+
+create view boardcombine
+    as
+(SELECT boardcombine__.*
+     ,LEAD(title, 1) OVER(ORDER BY board_id) AS bdnext
+     ,LAG(title, 1) OVER(ORDER BY board_id) AS bdprev
+     ,LEAD(board_id, 1) OVER(ORDER BY board_id) AS bdidnext
+     ,LAG(board_id, 1) OVER(ORDER BY board_id) AS bdidprev
+FROM boardcombine__);
