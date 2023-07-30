@@ -20,12 +20,9 @@
         likes = likes - 1
         WHERE item_id = #{item_id};
     </update><!--likesuser에 좋아요한 사용자를 삭제함-->
-
-
-
-        <select id="selectLikesCount" resultType="int">
-            select count(*) from item where likeusers LIKE CONCAT('%', #{u_id}, '%') and item_id = #{item_id}
-        </select>
+    <select id="selectLikesCount" resultType="int">
+        select count(*) from item where likeusers LIKE CONCAT('%', #{u_id}, '%') and item_id = #{item_id}
+    </select>
     <select id="LikesItemCount" resultType="int">
         select likes from item where item_id = #{item_id}
     </select>

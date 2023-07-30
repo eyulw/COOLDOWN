@@ -19,12 +19,11 @@ public class LikesServiceImpl implements LikesService{
         if(ldao.selectLikesCount(u_id,item_id) == 0){
             ldao.insertLikes(u_id, item_id);
 
-        }else if(ldao.selectLikesCount(u_id,item_id) != 0){
+        }else if(ldao.selectLikesCount(u_id,item_id) > 0){
             ldao.deleteLikes(u_id, item_id);
 
         }
     }
-
     @Override
     public int currentLikesCount(Integer item_id) {
         return ldao.LikesItemCount(item_id);
