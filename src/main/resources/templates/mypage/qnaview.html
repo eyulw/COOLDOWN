@@ -119,9 +119,10 @@
                                 <table class="table table-striped">
                                     <div class="feed-summary">
                                         <div class="avatar">
-                                            <img src="/assets/img/logo.png" alt="프로필 이미지"  class="avatar-image" style="border: 1px solid black"><!--프로필이미지 불러와서 보여주기-->
+                                            <img src="/assets/img/logo.png" alt="프로필 이미지"  class="avatar-image" style="border: 1px solid black">
                                         </div>
-                                        <div class="write" th:text="|${session.user.nickname} ${session.user.userid}|"><span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>
+                                        <div class="write" th:text="|${session.user.nickname} ${session.user.userid}|">
+                                            <span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>
                                         <p></p><p></p><div class="comment_area">
                                             <div class="comment_subject"
                                                  th:text="${qd.title}"></div><p></p><p></p>
@@ -133,7 +134,6 @@
                                                 <a class="text-gray-bright" tabindex="-1" onclick="delete2();">지우기</a>
                                                 <a class="text-gray-bright" tabindex="-1" th:href="|/mypage/qna/${session.user.u_id}|">목록으로</a>
                                             </div>
-
                                             <hr>
                                             <span><b>관리자 답글</b></span>
                                             <div class="_comment_bodyreply body_font_color_80"
@@ -141,11 +141,10 @@
                                                 <p></p></div>
                                         </div>
                                     </div>
-
                                 </table>
+
                                 <div class="textarea_block no-padding-x no-border">
                                     <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
-                                        <!--                        <a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
                                         <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
                                         <span>문의 작성</span></button>
                                 </div>

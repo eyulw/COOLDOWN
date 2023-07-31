@@ -111,45 +111,38 @@
                     <th:block th:if="${#lists.isEmpty(qnas)}">
                     <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
                          id="shop_mypage_orderlist_empty">등록된 문의가 없습니다.</div>
-                    </th:block>
+                    </th:block><!--게시글이 없을 경우, 게시글 목록 미출력-->
 
-                    <!-- 게시글 리스트가 있을 경우 게시글 목록 출력 -->
+                    <!-- 게시글이 있을 경우 게시글 목록 출력 -->
                     <th:block th:if="${not #lists.isEmpty(qnas)}">
-                    <table class="table table-striped">
-                      <thead>
-                      <tr>
-                        <th>NO</th>
-                        <!--<th>번호</th>-->
-                        <th>제목</th>
-                        <th style="width:20%">작성자</th>
-                        <th style="width:20%">작성일</th>
-                        <th style="width:10%">상태</th>
-                      </tr>
-                      </thead>
-
-                      <tbody>
-                      <tr th:each="q, status : ${qnas}">
-                      <!--<tr th:each="q:${qnas}">-->
-                        <!--<td th:text="${status.count}"></td>-->
-
-                        <td th:text="${status.index + 1}"></td>
-                        <!--<td th:text="${q.qna_id}"></td>-->
-                        <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
-                        <td th:text="${session.user.userid}"></td>
-                        <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
-                        <th:blcok th:if="${#strings.isEmpty(q.answer)}">
-                          <td style="color:red;">답변대기</td>
-                        </th:blcok>
-                        <th:blcok th:if="${not #strings.isEmpty(q.answer)}">
-                          <td>답변완료</td>
-                        </th:blcok>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </th:block>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>NO</th>
+                            <th>제목</th>
+                            <th style="width:20%">작성자</th>
+                            <th style="width:20%">작성일</th>
+                            <th style="width:10%">상태</th>
+                          </tr>
+                        </thead>
+                          <tbody>
+                            <tr th:each="q, status : ${qnas}">
+                              <td th:text="${status.index + 1}"></td>
+                              <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
+                              <td th:text="${session.user.userid}"></td>
+                              <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
+                              <th:blcok th:if="${#strings.isEmpty(q.answer)}">
+                                <td style="color:red;">답변대기</td>
+                              </th:blcok>
+                              <th:blcok th:if="${not #strings.isEmpty(q.answer)}">
+                                <td>답변완료</td>
+                              </th:blcok>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </th:block>
                   <div class="textarea_block no-padding-x no-border">
                     <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
-                  <!--<a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
                       <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
                       <span>문의 작성</span></button>
                   </div>
