@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/template}">
+<head>
+    <link rel="stylesheet" href="/assets/css/dig_mypage.css" type="text/css">
+</head>
 <th:block layout:fragment="content">
             <div class="shop-content mypage">
                 <div class="container-fluid">
@@ -8,40 +11,35 @@
                         <div class="left-menu hidden-lg hidden-md">
                             <ul id="cart_menu">
                                 <div class="clearfix cart-menu-slide">
-                                    <li class="active">
+                                    <li class="">
                                         <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
                                     <li class=" ">
                                         <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
                                     <li class=" ">
-                                        <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a></li>
+                                        <a href="" class="body_font_color_50"><span>장바구니</span></a></li>
                                     <li class=" ">
                                         <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
-                                    <li class="">
+                                    <li class="active">
                                         <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1 문의</span></a></li>
                                 </div>
                             </ul>
                         </div>
                         <div class="col-md-2 col-sm-12 hidden-xs hidden-sm left-menu">
                             <ul>
-                                <li class="on">
+                                <li class="">
                                     <a href="/mypage/order" class="text-gray-dark _fade_link">주문 <span class="hidden-xs">조회</span></a></li>
                                 <li class="">
                                     <a href="/mypage/wishlist" class="text-gray-dark _fade_link">위시 <span class="hidden-xs">리스트</span></a></li>
                                 <li class="">
                                     <a href="/mypage/cancel" class="text-gray-dark _fade_link">취소 조회</a></li>
                                 <li class="">
-                                    <a href="/shop_mypage/?m2=point_list" class="text-gray-dark _fade_link">디깅 포인트</a></li>
-                                <li class="">
+                                    <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
+                                <li class="on">
                                     <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
-                                <li>
-                                    <button class="text-gray-dark _fade_link"
-                                            data-toggle="modal" data-target="#modifyinfo_modal"
-                                            style="background: none;"><span class="text fixed_transform ">정보 수정</span></button></li>
-                                <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
-                                <li class="inline-blocked login_btn_item ">
-                                    <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal"
-                                            data-target="#deleteacct" style="background: none;">
-                                        <span class="text fixed_transform ">회원탈퇴</span></button></li>
+                                <li class="">
+                                    <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+                                <li class="">
+                                    <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
                             </ul>
                         </div>
                         <div class="col-md-10 col-sm-12">
@@ -63,8 +61,6 @@
                                                 <div class="text-15 use_grade">
                                                     <div class="ug_text"></div>
                                                     <div class="ug_btn">
-                                                        <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
-                                                           data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
                                                         <div id="list-popover" style="display: none" class="list_popover">
 
                                                             <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
@@ -103,37 +99,41 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="table-cell vertical-middle point-view text-center">
-                                       <a href="/shop_mypage/?m2=point_list">
-                                          <p>디깅 포인트</p><span class="text-bold text-32">0</span></a>
+                                    <div class="table-cell text-center">
+
+                                          <p></p><span class="text-bold text-32"></span></a>
                                     </div>
                                 </div>
                             </div>
                             <div class="personal-wrap qna">
                                 <h4 class="hidden-sm hidden-xs text-default-dark">
-                                    <span>1:1 문의게시판</span>
-                                    <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
-                                        <em id="titleQnaList">0</em></span>
+                                    <span>1:1 문의게시판</span><p></p><hr>
+
+                                        <em id="titleQnaList"></em>
                                 </h4>
+
 
         <!--                        <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"-->
         <!--                             id="shop_mypage_orderlist_empty">등록된 문의가 없습니다.</div>-->
 
                                 <table class="table table-striped">
                                     <div class="feed-summary">
-                                        <div class="write" th:text="|${session.user.userid}|"><span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>
-                                        <div class="comment_area">
+                                        <div class="avatar">
+                                            <img src="/assets/img/logo.png" alt="프로필 이미지"  class="avatar-image" style="border: 1px solid black">
+                                        </div>
+                                        <div class="write" th:text="|${session.user.nickname} ${session.user.userid}|">
+                                            <span class="body_font_color_50 margin-left-lg">2023-07-24 15:27</span></div>
+                                        <p></p><p></p><div class="comment_area">
                                             <div class="comment_subject"
-                                                 th:text="${qd.title}"></div><br>
+                                                 th:text="${qd.title}"></div><p></p><p></p>
                                             <div class="_comment_body body_font_color_80"
                                                  th:text="${qd.contents}">
-                                                <p></p></div><br>
+                                                <p></p></div><p></p>
                                             <div class="tools clearfix">
-                                                <a class="text-gray-bright" tabindex="-1" href="/?prod_code=&amp;qmode=write&amp;back_url=L3Nob3BfbXlwYWdlLz9tMj1xbmE%3D&amp;idx=5546778">수정</a>
-                                                <a class="text-gray-bright" tabindex="-1" href="javascript:;" onclick="SITE_PERSONAL_QNA.Delete('c2023072496e530e2dff1a',''); return false;">지우기</a>
+                                                <a class="text-gray-bright" tabindex="-1" onclick="modify();">수정</a>
+                                                <a class="text-gray-bright" tabindex="-1" onclick="delete2();">지우기</a>
                                                 <a class="text-gray-bright" tabindex="-1" th:href="|/mypage/qna/${session.user.u_id}|">목록으로</a>
                                             </div>
-
                                             <hr>
                                             <span><b>관리자 답글</b></span>
                                             <div class="_comment_bodyreply body_font_color_80"
@@ -141,11 +141,10 @@
                                                 <p></p></div>
                                         </div>
                                     </div>
-
                                 </table>
+
                                 <div class="textarea_block no-padding-x no-border">
                                     <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
-                                        <!--                        <a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
                                         <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
                                         <span>문의 작성</span></button>
                                 </div>
@@ -157,6 +156,21 @@
                     </div>
                 </div>
             </div>
+    <script>
+        function modify() {
+            if(window.confirm("수정하시겠습니까?")){
+                alert('아직 미지원 기능입니다!!');
+            }
+        }
+        function delete2() {
+            if(window.confirm("삭제하시겠습니까?")){
+                alert('아직 미지원 기능입니다!!');
+            }
+        }
+    </script>
         </th:block>
     </body>
 </html>
+
+
+<!-- href="javascript:;" onclick="SITE_PERSONAL_QNA.Delete('c2023072496e530e2dff1a',''); return false; -->

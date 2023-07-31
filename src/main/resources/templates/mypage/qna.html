@@ -8,15 +8,15 @@
                 <div class="left-menu hidden-lg hidden-md">
                   <ul id="cart_menu">
                     <div class="clearfix cart-menu-slide">
-                      <li class="active">
+                      <li class="">
                         <a href="/mypage/order" class="body_font_color_50"><span>주문</span></a></li>
                       <li class=" ">
                         <a href="/mypage/wishlist" class="body_font_color_50"><span>위시</span></a></li>
                       <li class=" ">
-                        <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>디깅 포인트</span></a></li>
+                        <a href="/mypage/?m2=point_list" class="body_font_color_50"><span>장바구니</span></a></li>
                       <li class=" ">
                         <a href="/mypage/cancel" class="body_font_color_50"><span>취소/교환/반품</span></a></li>
-                      <li class="">
+                      <li class="active">
                         <a th:href="|/mypage/qna/${session.user.u_id}|" class="body_font_color_50"><span>1:1 문의</span></a></li>
                     </div>
                   </ul>
@@ -33,15 +33,10 @@
                       <a href="" class="text-gray-dark _fade_link">장바구니</a></li>
                     <li class="on">
                       <a th:href="|/mypage/qna/${session.user.u_id}|" class="text-gray-dark _fade_link">1:1 문의</a></li>
-                    <li>
-                      <button class="text-gray-dark _fade_link"
-                              data-toggle="modal" data-target="#modifyinfo_modal"
-                              style="background: none;"><span class="text fixed_transform ">정보 수정</span></button></li>
-                    <!-- class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" -->
-                    <li class="inline-blocked login_btn_item ">
-                      <button class="text-gray-dark _fade_link" id="delete" data-toggle="modal"
-                              data-target="#deleteacct" style="background: none;">
-                        <span class="text fixed_transform ">회원탈퇴</span></button></li>
+                    <li class="">
+                      <a th:href="|/mypage/modifyinfo/${session.user.u_id}|" class="text-gray-dark _fade_link">정보 수정</a></li>
+                    <li class="">
+                      <a href="/mypage/deleteacct" class="text-gray-dark _fade_link">회원 탈퇴</a></li>
                   </ul>
                 </div>
                 <div class="col-md-10 col-sm-12">
@@ -63,8 +58,6 @@
                             <div class="text-15 use_grade">
                               <div class="ug_text"></div>
                               <div class="ug_btn">
-                                <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
-                                   data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
                                 <div id="list-popover" style="display: none" class="list_popover">
 
                                   <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
@@ -103,8 +96,8 @@
                           </div>
                         </div>
                       </div>
-                      <div class="table-cell vertical-middle point-view text-center">
-                        <a href="">
+                      <div class="table-cell text-center">
+
                           <p></p><span class="text-bold text-32"></span></a>
                       </div>
                     </div>
@@ -118,43 +111,38 @@
                     <th:block th:if="${#lists.isEmpty(qnas)}">
                     <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
                          id="shop_mypage_orderlist_empty">등록된 문의가 없습니다.</div>
-                    </th:block>
+                    </th:block><!--게시글이 없을 경우, 게시글 목록 미출력-->
 
-                    <!-- 게시글 리스트가 있을 경우 게시글 목록 출력 -->
+                    <!-- 게시글이 있을 경우 게시글 목록 출력 -->
                     <th:block th:if="${not #lists.isEmpty(qnas)}">
-                    <table class="table table-striped">
-                      <thead>
-                      <tr>
-                        <th style="width:10%">NO</th>
-                        <th>제목</th>
-                        <th style="width:15%">작성자</th>
-                        <th style="width:15%">작성일</th>
-                        <th style="width:10%">상태</th>
-                      </tr>
-                      </thead>
-
-                      <tbody>
-<!--                      <tr th:each="q, status : ${qnas}">-->
-<!--                        <td th:text="${status.count}"></td>-->
-                    <tr th:each="q:${qnas}">
-<!--                    <td th:text="${status.index + 1}"></td>-->
-                        <td th:text="${q.qna_id}"></td>
-                        <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
-                        <td th:text="${session.user.userid}"></td>
-                        <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
-                        <th:blcok th:if="${#strings.isEmpty(q.answer)}">
-                          <td style="color:red;">답변대기</td>
-                        </th:blcok>
-                        <th:blcok th:if="${not #strings.isEmpty(q.answer)}">
-                          <td>답변완료</td>
-                        </th:blcok>
-                      </tr>
-                      </tbody>
-                    </table>
-                  </th:block>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>NO</th>
+                            <th>제목</th>
+                            <th style="width:20%">작성자</th>
+                            <th style="width:20%">작성일</th>
+                            <th style="width:10%">상태</th>
+                          </tr>
+                        </thead>
+                          <tbody>
+                            <tr th:each="q, status : ${qnas}">
+                              <td th:text="${status.index + 1}"></td>
+                              <td><a th:href="|/mypage/qnaview/${q.qna_id}|" th:text="${q.title}"></a></td>
+                              <td th:text="${session.user.userid}"></td>
+                              <td th:text="${#strings.substring(q.regdate,0,10)}"></td>
+                              <th:blcok th:if="${#strings.isEmpty(q.answer)}">
+                                <td style="color:red;">답변대기</td>
+                              </th:blcok>
+                              <th:blcok th:if="${not #strings.isEmpty(q.answer)}">
+                                <td>답변완료</td>
+                              </th:blcok>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </th:block>
                   <div class="textarea_block no-padding-x no-border">
                     <button class="btn btn-primary btn-sm" onclick="location.href='/mypage/qnawrite'; return false;">
-                  <!--<a onclick="location.href='/qnawrite'; return false;">1:1 문의 작성</a>-->
                       <i class="btn-writing-icon fa fa-spinner fa-pulse fa-fw" style="margin-right:8px;"></i>
                       <span>문의 작성</span></button>
                   </div>

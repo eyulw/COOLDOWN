@@ -58,8 +58,7 @@
                             <div class="text-15 use_grade">
                               <div class="ug_text"></div>
                                 <div class="ug_btn">
-                                  <a href="" class="btn hidden-xs" role="button" data-toggle="popover"
-                                    data-placement="bottom" data-popover-content="#list-popover" data-original-title="" title=""></a>
+
                                   <div id="list-popover" style="display: none" class="list_popover">
 
                                     <div class="lp_header_wrap hidden-lg hidden-md hidden-sm">
@@ -67,40 +66,15 @@
                                         <span class="sr-only"></span></a>
                                     </div>
 
-                                    <div class="lp_content_wrap">
-
-                                    <div class=" text-center text-18 margin-bottom-xl hidden-lg hidden-md hidden-sm">
-                                      bug 님의 회원등급은<br><span class="text-brand">브론즈</span> 입니다.
-                                    </div>
-
-                                    <div class="lp_title">누적 구매금액: 0원</div>
-
-                                      <div class="text-center hidden-lg hidden-md hidden-sm text-14 lp_summary">
-                                        <p class="no-margin">누적 구매금액: 0원</p>
-                                      </div>
-
-                                    <div class="lp_table">
-                                      <div class="text-bold text-13"></div>
-                                      <div class="table-responsive">
-                                        <table class="table no-margin">
-                                          <thead>
-                                          </thead>
-                                          <tbody>
-                                          </tbody>
-                                        </table>
-                                      </div>
-                                      <div class="text-12 margin-top-xxl"></div>
-                                    </div>
-                                  </div>
+                                    <div class="lp_content_wrap"></div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="table-cell vertical-middle point-view text-center">
-                        <a href="/shop_mypage/?m2=point_list">
-                          <p></p><span class="text-bold text-32"></span></a>
+                      <div class="table-cell" style="border: none !important;">
+                        <p></p><span class="text-bold text-32"></span></a>
                       </div>
                     </div>
                   </div>
@@ -108,8 +82,7 @@
                     <h4 class="hidden-sm hidden-xs text-default-dark">
                       <span>주문조회</span>
                       <span class="b_cnt badge" id="wish_cnt" style="top: -3px;">
-                        <em id="titleWishlist">0</em></span>
-                    </h4>
+                        <em id="titleWishlist">0</em></span></h4>
 
                     <div style="font-size:15px; padding: 70px; text-align: center;" class="body_font_color_40"
                          id="shop_mypage_orderlist_empty">주문 내역이 없습니다.</div>
@@ -118,9 +91,9 @@
                       <a href="javascript:;" id="shop_mypage_orderlist_more" onclick="SITE_SHOP_MYPAGE.getOrderList('order')"
                          style="display: none;">더보기 <i aria-hidden="true" style="margin-left:2px" class="btm bt-plus-circle"></i></a></div>
                   </div>
+                </div>
               </div>
             </div>
           </div>
-       </div>
-    </th:block>
+        </th:block>
 </html>
